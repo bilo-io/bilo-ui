@@ -1,0 +1,34 @@
+{
+  "name": "xui",
+  "version": "0.0.1",
+  "description": "XUI is a set of experimental ui elements and utilities for frontend web development.",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel lib -d build",
+    "lint": "eslint lib/**; exit 0",
+    "lint:watch": "esw -w lib/**",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bilo-io/xui.git"
+  },
+  "author": "Bilo Lwabona",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bilo-io/xui/issues"
+  },
+  "homepage": "https://github.com/bilo-io/xui#readme",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "node-sass": "^4.5.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.4.1"
+  }
+}

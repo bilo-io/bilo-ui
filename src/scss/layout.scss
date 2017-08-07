@@ -1,0 +1,88 @@
+$dim-panel-size: 25rem;
+$dim-panel-padding: 1rem;
+.panel-side {
+    position: relative;
+    display: inline-block;
+    width: calc(#{$dim-panel-size});
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.panel-main {
+    position: relative;
+    display: inline-block;
+    width: calc(100% - #{$dim-panel-size});
+    height: 100%;
+    left: $dim-panel-size;
+    top: 0;
+}
+
+$dim-navbar-height: 3rem;
+.titlebar {
+    position: relative;
+    width: 100%;
+    height: $dim-navbar-height;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+.titlebar-sidebar {
+    position: absolute;
+    width: 4rem;
+}
+
+.titlebar-sidebar-fixed {
+    position: fixed;
+    top: $dim-navbar-height;
+    left: 0;
+    top: $dim-navbar-height;
+    height: calc(100% - #{$dim-navbar-height});
+    width: 100%;
+    z-index: 5;
+}
+
+.titlebar-content {
+    position: relative;
+    width: calc(100% - 4rem);
+    height: calc(100% - $dim-navbar-height);
+    left: 4rem;
+}
+
+.titlebar-content-full {
+    position: relative;
+    height: calc(100% - $dim-navbar-height);
+    left: 0;
+    width: 100%;
+}
+
+$dim-panel: 24rem;
+.panel-side {
+    position: relative;
+    width: $dim-panel;
+    height: calc(100% - #{$dim-navbar-height});
+    top: 0;
+}
+
+.panel-main {
+    position: absolute;
+    left: $dim-panel;
+    width: calc(100% - #{$dim-panel});
+    height: calc(100% - #{$dim-navbar-height});
+    top: 0;
+}
+
+.ws-card {
+    position: relative;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    width: calc(100% - 2rem);
+    // height: calc(100% - 2rem);
+    background: rgba(white, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    &:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+}
