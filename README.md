@@ -2,7 +2,10 @@
 
 This is an npm package used for frontend web development.
 
-## How to get the project running locally
+## Quickstart
+
+- `npm install`
+- `npm run dev`
 
 ## Running the linter
 
