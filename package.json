@@ -1,8 +1,8 @@
 {
-  "name": "xui",
+  "name": "bilo-xui",
   "version": "0.0.1",
   "description": "XUI is a set of experimental ui elements and utilities for frontend web development.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "webpack -p --colors -w",
     "build": "webpack -p",

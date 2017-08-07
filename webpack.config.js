@@ -11,7 +11,7 @@ var config = {
     output: {
         path: DIST,
         publicPath: '/dist',
-        filename: 'xui.js',
+        filename: 'index.js',
         library: ["XUI"],
         libraryTarget: 'umd',
     },

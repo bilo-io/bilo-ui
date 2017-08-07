@@ -11,7 +11,7 @@ To dev on the library in watch mode, run:
 
 To run it locally, run:
 
-- `npm link xui`
+- `npm link`
 - `npm unlink`
 
 > NOTE: In project directory running `npm unlink xui`
