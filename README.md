@@ -26,11 +26,11 @@ To unlink it globally, run:
 
 |color|value|
 |:----|:----|
-| `$ws-col-accent`    | <div style="background-color: #00FFEE">&nbsp;</div> |
-| `$ws-col-primary`   | <div style="background-color: #28E0B5">&nbsp;</div> |
-| `$ws-col-secondary` | <div style="background-color: #2D363D">&nbsp;</div> |
-| `$ws-col-background`| <div style="background-color: #1e1e1e">&nbsp;</div> |
-| `$ws-col-text`      | <div style="background-color: #F8F8F8">&nbsp;</div> |
+| `$ws-col-accent`    | <div style="background-color: #00FFEE; border: 1px solid grey">accent</div> |
+| `$ws-col-primary`   | <div style="background-color: #28E0B5; border: 1px solid grey">primary</div> |
+| `$ws-col-secondary` | <div style="background-color: #2D363D; border: 1px solid grey">secondary</div> |
+| `$ws-col-background`| <div style="background-color: #1e1e1e; border: 1px solid grey">background</div> |
+| `$ws-col-text`      | <div style="background-color: #F8F8F8; border: 1px solid grey">text color</div> |
 
 ### SCSS
 
