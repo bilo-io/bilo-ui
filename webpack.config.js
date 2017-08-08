@@ -31,7 +31,7 @@ var config = {
     },
     plugins: [
         new CopyWebpackPlugin([
-            {from: './src/xui.scss', to: './'},
+            {from: './src/bilo-ui.scss', to: './'},
             {from: './src/scss', to: './scss'}
         ])
     ],
