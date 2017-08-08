@@ -1,4 +1,4 @@
-# XUI
+# bilo-ui
 
 This is an npm package used for frontend web development.
 
@@ -18,18 +18,4 @@ To run it locally, run:
 
 To unlink it globally, run:
 
-- `npm remove -g xui`
-
-## Running the linter
-
-## Running the test suite
-
-## Contribute
-
-## Steps to submit a PR
-
-## Issues
-
-## Code of Conduct
-
-## Changelog
+- `npm remove -g bilo-ui`
