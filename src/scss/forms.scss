@@ -1,5 +1,5 @@
 @import './colors.scss';
-.ws-input-style {
+.input {
     position: relative;
     width: calc(100% - 0rem);
     // padding: 1rem;
@@ -9,7 +9,7 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
     background: rgba(grey, 0.1);
-    color: inherit;
+    color: $col-active;
     font-size: 1.1em;
     border: none;
     outline: none;
@@ -22,12 +22,9 @@
         border-bottom: 2px solid $col-active;
     }
 }
-input {
-    @extend .ws-input-style;
-}
 
-textarea {
-    @extend .ws-input-style;
+.textarea {
+    @extend .input;
     margin-bottom: 1em;
     max-width: 100%;
 }

@@ -1,18 +1,8 @@
-// $ws-col-blue: #17B4CC;
-// $ws-col-yellow: #F3CB36;
-// $ws-col-green: #04A1B9;
-
-$ws-col-accent: #00FFEE;
-$ws-col-primary: #28E0B5;
-$ws-col-secondary: #2D363D;
-$ws-col-background: #1e1e1e;
-$ws-col-text: #F8F8F8;
-
 $col-lightgrey:  darken(#EFEFEF, 30%);
-$col-background: $ws-col-background;
-$col-active: $ws-col-primary;
-$col-accent: $ws-col-accent;
-$col-text: $ws-col-text; 
+$col-background: #1e1e1e;
+$col-active: #00adee;
+$col-accent: #00FFEE;
+$col-text: #F8F8F8; 
 
 .col-active {
     color: $col-active;
