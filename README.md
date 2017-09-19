@@ -2,23 +2,26 @@
 
 This is an npm package used for frontend web development.
 
-## Quickstart
+## Setting up
 
-To dev on the library in watch mode, run:
+To develop locally (in `.../bilo-ui/`) run:
+|||
+|:-|:-|
+|`npm install`| installs all dependencies|
+|`npm run dev`| runs in watch mode, recompiling (to `dist/`) after each change|
+| `npm link` | create symlink for other packages|
+| `npm unlink`| |
 
-- `npm install`
-- `npm run dev`
+## Symlinks
+You can use the local version of `bilo-ui` to work on other projects, rather than the one hosted on `npmjs.com`. This is achieved with symlinking node_modules.
 
-To run it locally, run:
+>NOTE: **Linking**
+>- in the directory `bilo-ui/` run `npm link`
+>- in the directory `some-other-proj/` run `npm link bilo-ui`
 
-- `npm link`
-- `npm unlink`
-
-> NOTE: In project directory running `npm unlink bilo-ui`
-
-To unlink it globally, run:
-
-- `npm remove -g bilo-ui`
+>NOTE: **Unlinking**
+>- In `some-other-proj` directory running `npm unlink bilo-ui`
+>- To unlink it globally, run: `npm remove -g bilo-ui`
 
 ## Colors
 

@@ -14,6 +14,7 @@
     border: none;
     outline: none;
     border-bottom: 1px solid $col-lightgrey;
+    border-radius: 4px;
     
     &:hover {
         border-bottom: 1px solid $col-active;
