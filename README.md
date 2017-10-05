@@ -100,8 +100,7 @@ You can combine a set of basic components to quickly put together an application
 The top bar displays the title of the app (potentially of the route) along with basic navigation, etc.
 
 ```jsx
-<AppTopBar
-  title={'My Application'}>
+<AppTopBar>
   {/* 
     style: {
         $dim-app-top-bar: 4em;
@@ -126,7 +125,7 @@ Displays the application content.
       flex-direction: row,
     }
   */}
-<AppBody>
+</AppBody>
 ```
 
 ### Sidenav
@@ -154,11 +153,11 @@ let pages = [
             </Link>
         })}
 </AppSidenav>
-
-// ...
 ```
 
 ### Search
+
+Search using an API endpoint, with simple text queries.
 
 ```jsx
 <Search
