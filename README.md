@@ -50,3 +50,28 @@ $col-active:        $ws-col-primary;
 $col-accent:        $ws-col-accent;
 $col-text:          $ws-col-text; 
 ```
+
+## Components
+
+```jsx
+<AppTopBar>
+  <SidenavToggle icon={icon} faIcon={'icon'}/>
+  <AppTitle text={'My App'}/>
+  <AppDropdown name={} icon={} faIcon={}>
+    {}
+  </AppDropdown>
+</AppTopBar>
+
+<AppBody>
+  <AppSidenav>
+      <SidenavItem></SidnavItem>
+  </AppSidenav>
+  <AppContent>
+      <Router></Router>
+  </AppContent>
+</AppBody>
+
+<AppFooter>
+  
+</AppFooter>
+```
