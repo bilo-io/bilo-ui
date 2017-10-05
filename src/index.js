@@ -1,9 +1,6 @@
-import Button from './components/button';
-import Map from './components/map.leaflet';
-// import Map from './components/map.openlayers';
+import * as bilo_ui_components from './components/';
 import './bilo-ui.scss';
 
 module.exports = {
-  Button,
-  Map
+  bilo_ui_components
 };

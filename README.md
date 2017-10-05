@@ -53,25 +53,133 @@ $col-text:          $ws-col-text;
 
 ## Components
 
+You can combine a set of basic components to quickly put together an application. For example:
+
 ```jsx
+{/*Top bar of the application*/}
 <AppTopBar>
-  <SidenavToggle icon={icon} faIcon={'icon'}/>
-  <AppTitle text={'My App'}/>
-  <AppDropdown name={} icon={} faIcon={}>
-    {}
+  <SidenavToggle 
+      iconProps={{names: ['menu'], stacked: false, }}/>
+  <AppTitle 
+      text={'My App'}/>
+  <AppDropdown 
+      name={} 
+      icon={} 
+      faIcon={}>
+      {items.map((item) => {
+          return <a>{item}</a>
+      })}
   </AppDropdown>
 </AppTopBar>
-
+{/*Top bar of the application*/}
 <AppBody>
-  <AppSidenav>
-      <SidenavItem></SidnavItem>
-  </AppSidenav>
-  <AppContent>
-      <Router></Router>
-  </AppContent>
+    <AppSidenav>
+            {[
+                { link: '/', name: 'Home' },
+                { link: '/contact', name: 'Contact' },
+              ].map((page) => {
+                return <Link
+                    key={page.link}
+                    to={page.link}
+                    className='app-sidenav-link'
+                    onClick={() => store.dispatch(toggleSidenav())}>
+                    {page.name}
+                </Link>
+            })}
+    </AppSidenav>
+    <AppContent>
+        {/*Whatever you want here (e.g.) <Router></Router> */}
+    </AppContent>
 </AppBody>
+{/*Top bar of the application*/}
+<AppFooter></AppFooter>
+```
 
-<AppFooter>
-  
-</AppFooter>
+### AppTopBar
+
+The top bar displays the title of the app (potentially of the route) along with basic navigation, etc.
+
+```jsx
+<AppTopBar
+  title={'My Application'}>
+  {/* 
+    style: {
+        $dim-app-top-bar: 4em;
+        top: 0;
+        height: $dim-app-top-bar;
+    }
+  */}
+</AppTobBar>
+```
+
+### AppBody
+
+Displays the application content.
+
+```jsx
+<AppBody>
+  {/* 
+    style: {
+      top: $dim-app-top-bar,
+      height: cal(100% - dim-app-top-bar),
+      display: flex,
+      flex-direction: row,
+    }
+  */}
+<AppBody>
+```
+
+### Sidenav
+
+The sidenav provides an easy way to navigate to different application pages.
+
+```jsx
+// ...
+
+let pages = [
+    { link: '/', name: 'Home' },
+    { link: '/contact', name: 'Contact' },
+];
+
+// ...
+
+<AppSidenav>
+        {pages.map((page) => {
+            return <Link
+                key={page.link}
+                to={page.link}
+                className='app-sidenav-link'
+                onClick={() => store.dispatch(toggleSidenav())}>
+                {page.name}
+            </Link>
+        })}
+</AppSidenav>
+
+// ...
+```
+
+### Search
+
+```jsx
+<Search
+    tag='search_id'                                 
+    placeholder='search...'
+    showSuggestions={true}
+    searchHandler={() => {console.log('handle search')}}
+    suggestions={this.props.searchResults.search_id}
+    selectResult={this.props.selectPlace}
+/>
+```
+
+## Icons
+
+Icons supported in this web ui pack are from [FontAwesome](http://fontawesome.io).
+
+```jsx
+<Icon 
+  names={['menu']}          // (required) at least 1 icon (stacks icons if more)
+  spin={true}               // (optional) rotates icon
+  flipX={true}              // (optional) flip along x axis (upside down)
+  flipY={false}             // (optional) flip along x axis (upside down)
+  />
 ```
