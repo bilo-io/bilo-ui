@@ -1,6 +1,24 @@
-import * as bilo_ui_components from './components/';
+import {
+  AppBody,
+  AppSidenav,
+  AppTopBar,
+  Loader,
+  LoaderType,
+  Button,
+  Icon,
+  Search,
+} from './components/';
+
 import './bilo-ui.scss';
 
 module.exports = {
-  bilo_ui_components
+  // Components
+  AppBody,
+  AppTopBar,
+  AppSidenav,
+  Button,
+  Search,
+  Icon,
+  Loader,
+  LoaderType
 };

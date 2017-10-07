@@ -1,5 +1,12 @@
 @import '../../bilo-ui.scss';
 
 .app-body {
-
+    position: fixed;
+    top: $dim-navbar-height;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - #{$dim-navbar-height});
+    overflow-y: auto;
+    display: flex;
+    flex-direction: row;
 }

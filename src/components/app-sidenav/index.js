@@ -1,9 +1,8 @@
 import React from 'react';
-import {toggleSidenav} from './actions';
 require('./style.scss');
 
-export const Sidenav = (props, dispatch, items) => {
-    return props.isOpen    
+export const AppSidenav = (props) => {
+    return props.isOpen
         ? (
             <div
                 className={'sidenav ' + props.isOpen
@@ -15,4 +14,4 @@ export const Sidenav = (props, dispatch, items) => {
         : null;
 }
 
-export default Sidenav;
+export default AppSidenav;

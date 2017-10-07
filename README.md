@@ -58,10 +58,12 @@ You can combine a set of basic components to quickly put together an application
 ```jsx
 {/*Top bar of the application*/}
 <AppTopBar>
-  <SidenavToggle 
-      iconProps={{names: ['menu'], stacked: false, }}/>
-  <AppTitle 
-      text={'My App'}/>
+  <i
+    className='fa fa-bars' 
+    onClick={() => this.toggleSidenav()}
+  />
+  <h1>My Application</h1>
+  {/*TODO: AppDropdown*/}
   <AppDropdown 
       name={} 
       icon={} 
@@ -71,28 +73,23 @@ You can combine a set of basic components to quickly put together an application
       })}
   </AppDropdown>
 </AppTopBar>
-{/*Top bar of the application*/}
+
 <AppBody>
     <AppSidenav>
-            {[
-                { link: '/', name: 'Home' },
-                { link: '/contact', name: 'Contact' },
-              ].map((page) => {
+            {sidenav.items.map((page) => {
                 return <Link
                     key={page.link}
                     to={page.link}
                     className='app-sidenav-link'
-                    onClick={() => store.dispatch(toggleSidenav())}>
+                    onClick={() => this.toggleSidenav())}>
                     {page.name}
                 </Link>
             })}
     </AppSidenav>
     <AppContent>
-        {/*Whatever you want here (e.g.) <Router></Router> */}
+        {/* any content, e.g. <Router></Router> */}
     </AppContent>
 </AppBody>
-{/*Top bar of the application*/}
-<AppFooter></AppFooter>
 ```
 
 ### AppTopBar
@@ -134,25 +131,48 @@ The sidenav provides an easy way to navigate to different application pages.
 
 ```jsx
 // ...
-
-let pages = [
-    { link: '/', name: 'Home' },
-    { link: '/contact', name: 'Contact' },
-];
-
+render() {
+    let sidenav = this.state.sidenav;
+    return (
+        <AppSidenav isOpen={this.state.sidenav.isOpen}>
+                {this.state.sidenav.map((page) => {
+                    return <Link
+                        key={page.link}
+                        to={page.link}
+                        className='app-sidenav-link'
+                        onClick={() => this.toggleSidenav()}>
+                        {page.name}
+                    </Link>
+                })}
+        </AppSidenav>
+    )
+}
 // ...
-
-<AppSidenav>
-        {pages.map((page) => {
-            return <Link
-                key={page.link}
-                to={page.link}
-                className='app-sidenav-link'
-                onClick={() => store.dispatch(toggleSidenav())}>
-                {page.name}
-            </Link>
-        })}
-</AppSidenav>
+componentWillMount() {
+    this.setState({ sidenav: {
+        isOpen: false,
+        items: [
+            {
+                link: '/',
+                name: 'home'
+            }, {
+                link: '/xui',
+                name: 'Contact'
+            }
+        ]
+    }})
+}
+// ...
+toggleSideneav() {
+    let sidenav = this.state.sidenav
+        this.setState({
+            ...this.state,
+            sidenav: {
+                ...sidenav,
+                isOpen: !sidenav.isOpen
+            }
+        });
+}
 ```
 
 ### Search

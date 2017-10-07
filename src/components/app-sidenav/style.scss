@@ -1,4 +1,5 @@
-@import '../../../app.scss';
+@import '../../bilo-ui.scss';
+$dim-sidebar: 15em;
 .sidenav {
     position: absolute;
     background: lighten($col-background, 2%);
