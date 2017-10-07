@@ -6,6 +6,7 @@ import Icon from './icon'
 module.exports = {
     AppBody,
     AppTopBar,
+    Button,
     Search,
     Icon
 }

@@ -3,7 +3,7 @@ import '../../bilo-ui.scss';
 
 export const Button = (props) => {
     return (
-        <div>
+        <div className={'button'}>
 
         </div>
     );
