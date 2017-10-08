@@ -1,0 +1,13 @@
+{
+  "files.autoSave": "afterDelay",
+  "editor.tabSize": 2,
+  "[javascript]" : {
+      "editor.tabSize": 4
+  },
+  "window.zoomLevel": 0,
+
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle":"line",
+  "terminal.integrated.confirmOnExit": true
+}

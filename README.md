@@ -5,6 +5,7 @@ This is an npm package used for frontend web development.
 ## Setting up
 
 To develop locally (in `{local-path-to}/bilo-ui/`) run:
+
 |command|effect|
 |:-|:-|
 |`npm install`| installs all dependencies|
