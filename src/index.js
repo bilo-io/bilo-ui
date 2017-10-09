@@ -6,6 +6,7 @@ import {
   Icon,
   Loader,
   LoaderType,
+  Map,
   Search,
 } from './components/';
 
@@ -20,5 +21,6 @@ module.exports = {
   Icon,
   Loader,
   LoaderType,
+  Map,
   Search,
 };

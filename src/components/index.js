@@ -4,6 +4,7 @@ import AppTopBar from './app-top-bar'
 import Button from './button'
 import Icon from './icon'
 import Loader, { LoaderType } from './loader'
+import Map from './map'
 import Search from './search'
 
 module.exports = {
@@ -14,5 +15,6 @@ module.exports = {
     Icon,
     Loader,
     LoaderType,
+    Map,
     Search,
 }

@@ -3,8 +3,8 @@ import './style.scss'
 
 export const Search = (props) => {
     return (
-        <div>
-            {props.tag
+        <div className={props.className}>
+            {props.tag && props.tag.length > 0
                 ? <label>{props.tag}:{props.selection}</label>
                 : null
 }
@@ -35,6 +35,7 @@ export const Search = (props) => {
 
 const SearchInput = (props) => {
     return (<input
+        className={props.className}    
         type='tex'
         placeholder={props.hint}
         defaultValue={props.value}

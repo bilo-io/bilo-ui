@@ -1,0 +1,17 @@
+@import '~leaflet/dist/leaflet.css';
+
+.map-container {
+    position: relative;
+    background: #1E1E1E;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.map-component {
+    position: absolute;
+    background: rgba(#1E1E1E, 0.1);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
