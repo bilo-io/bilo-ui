@@ -4,10 +4,15 @@ import './style.scss'
 export const Search = (props) => {
     return (
         <div>
-            <label>{props.tag}:{props.selection}</label>
+            {props.tag
+                ? <label>{props.tag}:{props.selection}</label>
+                : null
+}
             <SearchInput
                 hint={props.placeholder}
-                value={props.selection ? props.selection : props.searchTerm }
+                value={props.selection
+                ? props.selection
+                : props.searchTerm}
                 update={(e) => {
                 props.searchHandler(props.tag, e.target.value);
             }}/> {props.showSuggestions
@@ -29,9 +34,11 @@ export const Search = (props) => {
 }
 
 const SearchInput = (props) => {
-    return (
-        <input type='tex' placeholder={props.hint} defaultValue={props.value} onChange={props.update}/>
-    )
+    return (<input
+        type='tex'
+        placeholder={props.hint}
+        defaultValue={props.value}
+        onChange={props.update}/>)
 }
 
 const SearchSuggestion = (props) => {
