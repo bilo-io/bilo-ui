@@ -1,0 +1,29 @@
+@import '~bilo-ui/dist/bilo-ui.scss';
+
+.search-results {
+    margin-top: calc(-1em - 2px);
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    $padding: 1em;
+    .search-item {
+        position: relative;
+        height: 3em;
+        line-height: 3em;
+        width: calc( 100% - 2 * #{$padding});
+        padding: {
+            left: $padding;
+            right: $padding;
+        }
+        background: white;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+
+        &:hover {
+            color: $col-active;
+            cursor: pointer;
+        }
+    }
+}
+
