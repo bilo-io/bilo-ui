@@ -1,6 +1,6 @@
 {
   "name": "bilo-ui",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "XUI is a set of experimental ui elements and utilities for frontend web development.",
   "main": "dist/index.js",
   "scripts": {

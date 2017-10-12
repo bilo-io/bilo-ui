@@ -166,13 +166,13 @@ componentWillMount() {
 // ...
 toggleSideneav() {
     let sidenav = this.state.sidenav
-        this.setState({
-            ...this.state,
-            sidenav: {
-                ...sidenav,
-                isOpen: !sidenav.isOpen
-            }
-        });
+    this.setState({
+        ...this.state,
+        sidenav: {
+            ...sidenav,
+            isOpen: !sidenav.isOpen
+        }
+    });
 }
 ```
 
@@ -185,9 +185,9 @@ Search using an API endpoint, with simple text queries.
     tag='search_id'                                 
     placeholder='search...'
     showSuggestions={true}
-    searchHandler={() => {console.log('handle search')}}
+    search={(query,tag) => {console.log('handle search')}}
     suggestions={this.props.searchResults.search_id}
-    selectResult={this.props.selectPlace}
+    select={(item)=>{ console.log(`selected ${item}`)}}
 />
 ```
 

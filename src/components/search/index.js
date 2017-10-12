@@ -1,8 +1,5 @@
-
-
-
 import React from 'react';
-import './style.scss'
+import style from './style.scss'
 
 export const Search = (props) => {
     return (
@@ -12,17 +9,17 @@ export const Search = (props) => {
                 hint={props.placeholder}
                 value={props.selection ? props.selection : props.searchTerm }
                 update={(e) => {
-                props.searchHandler(props.tag, e.target.value);
-            }}/> {props.showSuggestions
-                ? <div className='search-results'>
+                props.search(props.tag, e.target.value);
+            }}/> {props.suggestionsOn
+                ? <div className={style.searchResults}>
                         {(props.suggestions || []).map((result, idx) => {
                             return <SearchSuggestion
                                 key={idx}
-                                label={result.formatted_address}
+                                label={result.label}
                                 onClick={() => {
-                                props.selectResult(props.tag, result)
+                                props.select(props.tag, result)
                             }}>
-                                {result.formatted_address}
+                                {result.label}
                             </SearchSuggestion>
                         })}
                     </div>
@@ -33,13 +30,13 @@ export const Search = (props) => {
 
 const SearchInput = (props) => {
     return (
-        <input type='tex' placeholder={props.hint} defaultValue={props.value} onChange={props.update}/>
+        <input type='text' placeholder={props.hint} defaultValue={props.value} onChange={props.update}/>
     )
 }
 
 const SearchSuggestion = (props) => {
     return (
-        <div className='search-item' onClick={props.onClick}>{props.children}</div>
+        <div className={style.searchItem} onClick={props.onClick}>{props.children}</div>
     )
 }
 

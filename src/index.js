@@ -2,10 +2,10 @@ import {
   AppBody,
   AppSidenav,
   AppTopBar,
-  Loader,
-  LoaderType,
   Button,
   Icon,
+  Loader,
+  LoaderType,
   Search,
 } from './components/';
 
@@ -17,8 +17,8 @@ module.exports = {
   AppTopBar,
   AppSidenav,
   Button,
-  Search,
   Icon,
   Loader,
-  LoaderType
+  LoaderType,
+  Search,
 };
