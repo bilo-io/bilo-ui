@@ -24,6 +24,15 @@ You can use the local version of `bilo-ui` to work on other projects, rather tha
 >- In `some-other-proj` directory running `npm unlink bilo-ui`
 >- To unlink it globally, run: `npm remove -g bilo-ui`
 
+## Updating
+
+To update the package, you need to:
+- update the version number in the `package.json`
+- run `npm run deploy` 
+    - which unlinks the package if it was linked
+    - creates the build folder (`dist`)
+    - publishes that folder as a package to `https://npmjs.com/bilo-ui`
+
 ## Colors
 
 ### Color Palette

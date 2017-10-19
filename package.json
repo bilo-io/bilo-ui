@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "webpack -p --colors -w",
+    "deploy" : "npm unlink && npm publish",
     "build": "webpack -p",
     "prepublish": "npm run build"
   },
