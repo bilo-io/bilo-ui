@@ -176,6 +176,8 @@ toggleSideneav() {
 }
 ```
 
+You can also specify your own theme, overriding the `sidenav` and `sidenav-link` classes.
+
 ### Search
 
 Search using an API endpoint, with simple text queries.
