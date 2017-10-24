@@ -5,10 +5,10 @@ export const AppSidenav = (props) => {
     return props.isOpen
         ? (
             <div
-                className={'sidenav ' + props.isOpen
-                ? 'open'
-                : ''}
-                style={props.style}>
+                className={`sidenav 
+                    ${props.className || ''} 
+                    ${props.isOpen ? 'open' : ''}`}
+                style={props.style || {}}>
                 {props.children}
             </div>
         )

@@ -3,7 +3,9 @@ import './style.scss'
 
 export const AppBody = (props) => {
     return (
-        <div className='app-body'>
+        <div 
+            className={`app-body ${props.className || ''}`}
+            style={props.style || {}}>
             {props.children}
         </div>
     )

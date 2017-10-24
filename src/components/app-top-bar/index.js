@@ -3,7 +3,9 @@ import './style.scss'
 
 export const AppTopBar = (props) => {
     return (
-        <div className='app-top-bar'>
+        <div 
+            className={`app-top-bar ${props.className || ''}`}
+            style={props.style || {}}>
             {props.children}
         </div>
     )

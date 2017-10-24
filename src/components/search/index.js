@@ -1,34 +1,34 @@
 import React from 'react';
-import './style.scss'
+import style from './style.scss'
 
 export const Search = (props) => {
     return (
-        <div className={props.className}>
-            {props.tag && props.tag.length > 0
-                ? <label>{props.tag}:{props.selection}</label>
+        <div>
+            {props.tag.length > 0
+                ? <label>{props.tag} {props.selection}</label>
                 : null
-}
+            }
             <SearchInput
                 hint={props.placeholder}
                 value={props.selection
                 ? props.selection
                 : props.query}
                 update={(e) => {
-                props.searchHandler(props.tag, e.target.value);
-            }}/> {props.showSuggestions
-                ? <div className='search-results'>
+                    props.search(props.tag, e.target.value);
+                }} /> {props.suggestionsOn
+                    ? <div className={style.searchResults}>
                         {(props.suggestions || []).map((result, idx) => {
                             return <SearchSuggestion
                                 key={idx}
-                                label={result.formatted_address}
+                                label={result.label}
                                 onClick={() => {
-                                props.selectResult(props.tag, result)
-                            }}>
-                                {result.formatted_address}
+                                    props.select(props.tag, result)
+                                }}>
+                                {result.label}
                             </SearchSuggestion>
                         })}
                     </div>
-                : null}
+                    : null}
         </div>
     )
 }
@@ -44,7 +44,7 @@ const SearchInput = (props) => {
 
 const SearchSuggestion = (props) => {
     return (
-        <div className='search-item' onClick={props.onClick}>{props.children}</div>
+        <div className={'search-item'} onClick={props.onClick}>{props.children}</div>
     )
 }
 
