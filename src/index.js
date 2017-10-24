@@ -9,6 +9,9 @@ import {
   Map,
   Search,
 } from './components/';
+import {
+  Tapi
+} from './apis';
 
 import './bilo-ui.scss';
 
@@ -23,4 +26,6 @@ module.exports = {
   LoaderType,
   Map,
   Search,
+  // APIs
+  Tapi,
 };

@@ -7,7 +7,8 @@ export const AppSidenav = (props) => {
             <div
                 className={'sidenav ' + props.isOpen
                 ? 'open'
-                : ''}>
+                : ''}
+                style={props.style}>
                 {props.children}
             </div>
         )

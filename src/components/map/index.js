@@ -36,7 +36,7 @@ export default class Map extends React.Component {
             zoomControl: false,
             attributionControl: false,
         })
-            .setView([-33.915835, 18.420381], 5)
+            .setView(this.props.center || [-33.915835, 18.420381], this.props.zoom || 5)
             .addLayer(tileLayer);
     }
     clearMap() {

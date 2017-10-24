@@ -184,10 +184,10 @@ Search using an API endpoint, with simple text queries.
 <Search
     tag='search_id'                                 
     placeholder='search...'
-    showSuggestions={true}
-    searchHandler={() => {console.log('handle search')}}
+    search={(tag, q) => {console.log('handle search')}}
+    select={(tag, item) => {console.log('select item: ', item)}}
     suggestions={this.props.searchResults.search_id}
-    selectResult={this.props.selectPlace}
+    suggestionsOn={true}
 />
 ```
 

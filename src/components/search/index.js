@@ -12,7 +12,7 @@ export const Search = (props) => {
                 hint={props.placeholder}
                 value={props.selection
                 ? props.selection
-                : props.searchTerm}
+                : props.query}
                 update={(e) => {
                 props.searchHandler(props.tag, e.target.value);
             }}/> {props.showSuggestions
@@ -38,7 +38,7 @@ const SearchInput = (props) => {
         className={props.className}    
         type='tex'
         placeholder={props.hint}
-        defaultValue={props.value}
+        value={props.value}
         onChange={props.update}/>)
 }
 
