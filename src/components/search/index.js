@@ -1,10 +1,10 @@
 import React from 'react';
-import style from './style.scss'
+import style from './style.scss';
 
 export const Search = (props) => {
     return (
         <div>
-            {props.tag.length > 0
+            {props.tag && props.tag.length > 0
                 ? <label>{props.tag} {props.selection}</label>
                 : null
             }
@@ -14,7 +14,8 @@ export const Search = (props) => {
                 ? props.selection
                 : props.query}
                 update={(e) => {
-                    props.search(props.tag, e.target.value);
+                    props.search(props.tag, e.target.value)
+                    props.onChange(props.tag, props.searchState)    ;
                 }} /> {props.suggestionsOn
                     ? <div className={style.searchResults}>
                         {(props.suggestions || []).map((result, idx) => {
@@ -36,7 +37,7 @@ export const Search = (props) => {
 const SearchInput = (props) => {
     return (<input
         className={props.className}    
-        type='tex'
+        type='text'
         placeholder={props.hint}
         value={props.value}
         onChange={props.update}/>)
@@ -46,6 +47,17 @@ const SearchSuggestion = (props) => {
     return (
         <div className={'search-item'} onClick={props.onClick}>{props.children}</div>
     )
+}
+
+export class SearchState {
+    constructor() {
+        this.suggestions = [];
+        this.query = [];
+    }
+
+    static createEmpty() {
+        return new SearchState();
+    }
 }
 
 export default Search;

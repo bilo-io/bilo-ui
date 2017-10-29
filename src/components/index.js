@@ -5,6 +5,7 @@ import Button from './button'
 import Icon from './icon'
 import Loader, { LoaderType } from './loader'
 import Map from './map'
+import MDReader from './md-reader';
 import Search from './search'
 
 module.exports = {
@@ -16,5 +17,6 @@ module.exports = {
     Loader,
     LoaderType,
     Map,
+    MDReader,
     Search,
 }
