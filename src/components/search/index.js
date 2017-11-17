@@ -9,6 +9,7 @@ export const Search = (props) => {
                 : null
             }
             <SearchInput
+                style={props.style}    
                 hint={props.placeholder}
                 value={props.selection
                 ? props.selection
@@ -36,6 +37,7 @@ export const Search = (props) => {
 
 const SearchInput = (props) => {
     return (<input
+        style={props.style}    
         className={props.className}    
         type='text'
         placeholder={props.hint}

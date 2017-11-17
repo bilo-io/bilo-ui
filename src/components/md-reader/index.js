@@ -25,26 +25,29 @@ export default class MDReader extends React.Component {
     constructor(props) {
         super(props);
     }
+    componentDidMount() {
+        this.checkProps(this.props);
+    }
     componentWillReceiveProps(nextProps) {
-        console.log({nextProps});
-        let {markdown, url} = nextProps;
+        this.checkProps(nextProps);
+    }
+    checkProps(props) {
+        let {markdown, url} = props;
         this.setState({
             ...this.state,
             markdown,
             url
         }, () => {
-            nextProps.url
-                ? this.fetchMD(nextProps.url)
+            props.url != this.props.url
+                ? this.fetchMD(props.url)
                 : null;
-            nextProps.markdown
-                ? this.processMD(nextProps.markdown)
+            props.markdown != this.props.markdown
+                ? this.processMD(props.markdown)
                 : null;
         });
-
     }
     fetchMD(url) {
         this.loading = true;
-        console.log('Loading: ', this.loading)
         if (!url) {
             console.warn('no url specified!: ', url)
             return;
@@ -65,13 +68,12 @@ export default class MDReader extends React.Component {
         let lines = markdown
             .split('\n')
             .filter(line => line.substr(0, 1) === '#');
-        console.log({lines});
         this.setState({
             ...this.state,
             markdown,
             lines,
             headings: lines.map(line => line.substr(2, line.length))
-        }, () => console.log(this.state))
+        })
         // convert & highlight
         this.convertMDtoHTML(markdown);
     }
@@ -81,8 +83,6 @@ export default class MDReader extends React.Component {
             html: marked(markdown)
         }, () => {
             this.loading = false;
-            console.log('Loading: ', this.loading)
-            console.log(this.state)
         });
     }
     render() {
@@ -98,7 +98,7 @@ export default class MDReader extends React.Component {
                                     })}
                                 </div>
                             : null
-}
+                        }
                         <div className='markdown-container'>
                             {this.state.html
                                 ? <div

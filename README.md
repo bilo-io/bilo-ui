@@ -16,11 +16,11 @@ To develop locally (in `{local-path-to}/bilo-ui/`) run:
 ## Symlinks
 You can use the local version of `bilo-ui` to work on other projects, rather than the one hosted on `npmjs.com`. This is achieved with symlinking node_modules.
 
->NOTE: **Linking**
+>**Linking**
 >- in the directory `bilo-ui/` run `npm link`
 >- in the directory `some-other-proj/` run `npm link bilo-ui`
 
->NOTE: **Unlinking**
+>**Unlinking**
 >- In `some-other-proj` directory running `npm unlink bilo-ui`
 >- To unlink it globally, run: `npm remove -g bilo-ui`
 
