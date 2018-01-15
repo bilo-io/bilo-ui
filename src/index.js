@@ -4,11 +4,13 @@ import {
   AppTopBar,
   Button,
   Icon,
+  If,
   Loader,
   LoaderType,
   Map,
   MDReader,
   Search,
+  SearchState,
 } from './components/';
 import {
   Tapi
@@ -16,21 +18,23 @@ import {
 
 import './bilo-ui.scss';
 
-export * from './components';
-export * from './apis';
+// export * from './components';
+// export * from './apis';
+// export * from './utils';
 
-// module.exports = {
-//   // Components
-//   AppBody,
-//   AppTopBar,
-//   AppSidenav,
-//   Button,
-//   Icon,
-//   Loader,
-//   LoaderType,
-//   Map,
-//   Search,
-//   SearchState,
-//   // APIs
-//   Tapi,
-// };
+module.exports = {
+  // Components
+  AppBody,
+  AppTopBar,
+  AppSidenav,
+  Button,
+  Icon,
+  If,
+  Loader,
+  LoaderType,
+  Map,
+  Search,
+  SearchState,
+  // APIs
+  Tapi,
+};

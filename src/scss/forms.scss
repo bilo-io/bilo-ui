@@ -1,16 +1,16 @@
 @import './colors.scss';
 .input {
     position: relative;
-    width: calc(100% - 0rem);
+    width: calc(100% - 0em);
     // padding: 1rem;
-    text-indent: 1rem;
+    text-indent: 1em;
     overflow: hidden;
     text-overflow: ellipsis;
     padding-top: 1rem;
     padding-bottom: 1rem;
     background: rgba(grey, 0.1);
     color: $col-active;
-    font-size: 1.1em;
+    font-size: 1em;
     border: none;
     outline: none;
     border-bottom: 1px solid $col-lightgrey;
