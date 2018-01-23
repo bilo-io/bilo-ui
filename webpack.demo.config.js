@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 var DIST = path.resolve(__dirname, 'demo/');
 var SRC = path.resolve(__dirname, 'src/');
@@ -10,39 +11,46 @@ var config = {
     entry: SRC + '/app/index.js',
     output: {
         path: DIST,
-        publicPath: '/demo',
-        filename: 'index.js',
-        // library: ["XUI"],
-        // libraryTarget: 'umd',
+        publicPath: '/',
+        filename: 'app.js'
     },
+    // resolve: {
+    //     modules: [
+    //         path.resolve('./'),
+    //         path.resolve('./src/app'),
+    //         path.resolve('./node_modules')
+    //     ]
+    // },
     module: {
-        rules: [{
-            test: /\.(js|jsx)$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/
-        }, {
-            test: /\.(css|scss)$/,
-            loaders: ['style-loader', 'css-loader', 'sass-loader'],
-            exclude: /node_modules/
-        }, {
-            test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-            loader: 'file-loader?name=assets/[name].[ext]',
-        }]
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            }, {
+                test: /\.(css|scss)$/,
+                loaders: ['style-loader', 'css-loader', 'sass-loader']
+            }, {
+                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                loader: 'file-loader?name=assets/[name].[ext]'
+            }
+        ]
     },
     plugins: [
-        new CopyWebpackPlugin([
-            {from: './src/bilo-ui.scss', to: './'},
-            {from: './src/scss', to: './scss'}
-        ])
+        // new Visualizer({filename: './stats.html'}),
+        new HtmlWebpackPlugin({template: './src/app/index.html', filename: 'index.html', inject: 'body'}),
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: 'node_modules/highlight.js/styles/monokai.css',
+        //         to: './scss/'
+        //     }
+        // ])
     ],
     devServer: {
         historyApiFallback: true,
-        stats: 'minimal',
-        port: 8888
+        stats: 'minimal'
     },
-    // node: {
-    //     fs: 'empty'
-    // }
+    // node: {     fs: 'empty' }
 };
 
 module.exports = config;

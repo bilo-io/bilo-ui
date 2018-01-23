@@ -1,10 +1,19 @@
 import React, { Component } from 'react'
+import { If } from '../../components'
 import Icons from './icons'
 import Inputs from './inputs'
 import Media from './media'
 import Loaders from './loaders'
+import './style.scss'
 
 export default class BiloUI extends Component {
+    state = {
+        activePage: 'home'
+    }
+    selectSection = (page) => {
+        this.setState({ ...this.state, activePage: page }, () => console.log(this.state))
+    }
+
     render() {
         const uiPages = [
             'home',

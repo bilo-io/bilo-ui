@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {If, Button, Icon, Loader, LoaderType} from 'bilo-ui';
-import CodeDemo from '../../../components/code-demo'
-import { Slider } from '../components/Slider'
-import { MultiSlider } from '../components/MultiSlider'
-import { Input } from '../components/Input'
+import {If, Button, Icon, Loader, LoaderType} from '../../components';
+import CodeDemo from '../../components/code-demo'
+import { Slider } from '../../components/Slider'
+import { MultiSlider } from '../../components/MultiSlider'
+import { Input } from '../../components/Input'
 
 export default class Inputs extends Component {
     render() {

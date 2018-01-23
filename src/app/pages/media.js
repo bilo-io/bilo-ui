@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CodeDemo from '../../../components/code-demo'
+import CodeDemo from '../../components/code-demo'
 
 export default class Media extends Component {
     render() {

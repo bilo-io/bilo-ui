@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Icon, Loader, LoaderType } from 'bilo-ui';
-import CodeDemo from '../../../components/code-demo'
+import { Button, Icon, Loader, LoaderType } from '../../components';
+import CodeDemo from '../../components/code-demo'
 
 export default class Loaders extends Component {
     render() {
