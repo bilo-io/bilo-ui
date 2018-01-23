@@ -54,16 +54,34 @@ export default class Inputs extends Component {
 
                     <div>
                         <label>checkboxes</label>
-                        <input type='checkbox' />
-                        <input type='checkbox' />
-                        <input type='checkbox' />
+                        <label>
+                            <input type='checkbox' />
+                            checkbox 1
+                        </label>
+                        <label>
+                            <input type='checkbox' />
+                            checkbox 2
+                        </label>
+                        <label>
+                            <input type='checkbox' />
+                            checkbox 3
+                        </label>
                     </div>
 
                     <div>
                         <label>radio buttons</label>
-                        <input type='radio' />
-                        <input type='radio' />
-                        <input type='radio' />
+                        <label>
+                            <input type='radio' />
+                            radio 1
+                        </label>
+                        <label>
+                            <input type='radio' />
+                            radio 2
+                        </label>
+                        <label>
+                            <input type='radio' />
+                            radio 3
+                        </label>
                     </div>
             </div>
         return (
