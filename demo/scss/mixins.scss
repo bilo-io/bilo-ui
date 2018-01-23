@@ -1,0 +1,298 @@
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow: inset $top $left $blur $color;
+        -moz-box-shadow: inset $top $left $blur $color;
+        box-shadow: inset $top $left $blur $color;
+    }
+    @else {
+        -webkit-box-shadow: $top $left $blur $color;
+        -moz-box-shadow: $top $left $blur $color;
+        box-shadow: $top $left $blur $color;
+    }
+}
+
+@mixin text-field {
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: .5em;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    @include rounded();
+    @include box-shadow(0, 1px, 2px, rgba(0, 0, 0, 0.2));
+}
+
+@mixin button($color: $red, $text_color: $white) {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: .5em 2em .55em;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    @include rounded();
+    @include box-shadow(0, 1px, 2px, rgba(0, 0, 0, 0.2));
+    color: $text_color !important;
+    font-weight: bold;
+    border: solid 1px darken($color, 18%);
+    background: $color;
+    @include gradient(saturate($color, 15%), darken($color, 15%));
+    &:hover {
+        text-decoration: none;
+        background: saturate($color, 10%);
+        @include gradient(saturate($color, 5%), darken($color, 5%));
+    }
+    &:active {
+        position: relative;
+        top: 1px;
+        color: saturate($color, 15%);
+        @include gradient(saturate($color, 15%), lighten($color, 15%));
+    }
+}
+
+@mixin rounded($radius: 0.5em) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin gradient($from, $to) {
+    background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+    background: -moz-linear-gradient(top, $from, $to);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+}
+
+// The following mixins acquired from EngageInteractive:
+// http://engageinteractive.co.uk/blog/top-10-scss-mixins
+
+/**
+    To quickly centre a block element without having to worry 
+    about if there is any top or bottom margin already applied.
+
+    USAGE: @include push--auto;
+ */
+
+@mixin push--auto {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+
+/**
+    When using ::before and ::after you'll always need these three, 
+    so we're saving two lines of code every time you use this.
+
+    USAGE: 
+    div::after {
+        @include pseudo;
+        top: -1rem; left: -1rem;
+        width: 1rem; height: 1rem;
+    }
+    */
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+
+/**
+    We use this for creating scalable elements 
+    (usually images / background images) that maintain a ratio.
+
+    USAGE: @include responsive-ratio(16,9);
+    */
+
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+    $padding: unquote( ( $y / $x) * 100 + '%');
+    @if $pseudo {
+        &:before {
+            @include pseudo($pos: relative);
+            width: 100%;
+            padding-top: $padding;
+        }
+    }
+    @else {
+        padding-top: $padding;
+    }
+}
+
+
+/**
+    This mixin takes all the hassle out of creating that triangle you'll see 
+    coming out of most traditional tooltips, all without images, you just 
+    specify it's colour, how big you want it, the direction it's  going to 
+    come out of your element and you're done!
+ */
+
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false) {
+    @include pseudo($pos: $position);
+    width: 0;
+    height: 0;
+    @if $round {
+        border-radius: 3px;
+    }
+    @if $direction==down {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+        margin-top: 0 - round( $size / 2.5);
+    }
+    @else if $direction==up {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+        margin-bottom: 0 - round( $size / 2.5);
+    }
+    @else if $direction==right {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+        margin-right: -$size;
+    }
+    @else if $direction==left {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+        margin-left: -$size;
+    }
+}
+
+
+/**
+    Take the pain out of setting styles for a font. 
+    (This assumes you have already included the font), 
+    set your fallback font once and you never have to worry again.
+ */
+
+@mixin font-source-sans($size: false, $colour: false, $weight: false, $lh: false) {
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    @if $size {
+        font-size: $size;
+    }
+    @if $colour {
+        color: $colour;
+    }
+    @if $weight {
+        font-weight: $weight;
+    }
+    @if $lh {
+        line-height: $lh;
+    }
+}
+
+
+/**
+    They're a pain as you have to set the style in all 
+    the separate formats, this sorts it for you.
+
+    USAGE: 
+    input,  
+    textarea {  
+        @include input-placeholder {
+            color: $grey;
+        }
+    }
+ */
+
+@mixin input-placeholder {
+    &.placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+    &::-webkit-input-placeholder {
+        @content;
+    }
+}
+
+
+/**
+    A massive time saver! You can just use pixel values but we
+    have some default breakpoints setup that work too, another 
+    time saver while keeping your breakpoints consistent.
+
+    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)
+    .site-header {
+        padding: 2rem;
+        font-size: 1.8rem;
+        @include mq('tablet-wide') {
+            padding-top: 4rem;
+            font-size: 2.4rem;
+        }
+    }
+ */
+
+$breakpoints: ( "phone": 400px, "phone-wide": 480px, "phablet": 560px, "tablet-small": 640px, "tablet": 768px, "tablet-wide": 1024px, "desktop": 1248px, "desktop-wide": 1440px);
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type==max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+
+/**
+    It is easy to loose track of your z-index values when 
+    working in several different files, so we created this.
+    
+    USAGE: 
+        // Then where ever you're wanting to use a z-index value, name it the
+        // same as your class and add in it into your variables/setting file, 
+        // like below. You'll never have a "z-index: 99999999;" headache again.
+    .site-header {
+        z-index: z('site-header');
+    }
+ */
+
+@function z($name) {
+    @if index($z-indexes, $name) {
+        @return (length($z-indexes) - index($z-indexes, $name))+1;
+    }
+    @else {
+        @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+        @return null;
+    }
+}
+
+$z-indexes: ( "outdated-browser", "modal", "site-header", "page-wrapper", "site-footer");
+
+/**
+    Simple and effective for when you need to trigger hardware acceleration
+    for some animation, keeping everything fast, slick and flicker-free.
+ */
+
+@mixin hardware($backface: true, $perspective: 1000) {
+    @if $backface {
+        backface-visibility: hidden;
+    }
+    perspective: $perspective;
+}
+
+
+/**
+    When you include the mixin, you only have to 
+    specify your boundry with a max width value.
+ */
+@mixin truncate($truncation-boundary) {
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
