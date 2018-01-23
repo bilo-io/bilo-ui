@@ -6,7 +6,7 @@ var SRC = path.resolve(__dirname, 'src/');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var config = {
-    devtool: 'source-map',
+    devtool: 'source-maps',
     entry: SRC + '/index.js',
     output: {
         path: DIST,
