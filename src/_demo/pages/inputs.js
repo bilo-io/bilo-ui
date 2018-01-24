@@ -39,11 +39,26 @@ export default class Inputs extends Component {
                 }/>
                 <CodeDemo title={`Basic`} code={ 
                     <div>
-                        <Input type='text' label='text' />
-                        <Input type='number' label='number' />
-                        <Input type='email' label='email' />
-                        <Input type='password' label='password' />
-                        <Input type='tel' label='tel' />
+                        <Input
+                            type='text'
+                            label='text'
+                            defaultValue='dummy text'/>
+                        <Input 
+                            type='number' 
+                            label='number'
+                            defaultValue='12345' />
+                        <Input 
+                            type='email' 
+                            label='email'
+                            defaultValue='user@email.com' />
+                        <Input 
+                            type='password' 
+                            label='password'
+                            defaultValue='somepasswordtext' />
+                        <Input 
+                            type='tel' 
+                            label='tel'
+                            defaultValue='+27214240494' />
                     </div> 
                 }/>
                 <CodeDemo title={`Dates`} code={

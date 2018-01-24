@@ -1,0 +1,25 @@
+@import '../../bilo-ui.scss';
+
+.thumb {
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    // background: $col-active;
+    background: red;
+    color: red;
+    cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    @extend .thumb;
+    margin-top: 0px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    // box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+input[type=range]::-moz-range-thumb {
+    @extend .thumb;
+}
+
+input[type=range]::-ms-thumb {
+    @extend .thumb;
+}

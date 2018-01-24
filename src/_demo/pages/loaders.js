@@ -11,6 +11,7 @@ export default class Loaders extends Component {
                     <div>
                         <Loader type={LoaderType.SPINNER}/>
                         <Loader type={LoaderType.RAINBOW} />
+                        <Loader type={LoaderType.FULLSCREEN} />
                     </div> 
                 } />
             </div>
