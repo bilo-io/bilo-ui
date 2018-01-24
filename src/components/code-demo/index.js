@@ -6,14 +6,14 @@ import jsxToString from 'jsx-to-string-2'
 
 class CodeDemo extends React.Component {
     state = {
-        isOpen: true
+        isOpen: false
     }
 
     componentDidMount() {
         const { code, title, functionNameOnly, useFunctionCode } = this.props;
         this.setState({
             codeString: jsxToString(code, {
-                functionNameOnly: true,
+                // functionNameOnly: true,
                 useFunctionCode: true
             })
         })

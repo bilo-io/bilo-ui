@@ -6,11 +6,24 @@ import { MultiSlider } from '../../components/MultiSlider'
 import { Input } from '../../components/Input'
 
 export default class Inputs extends Component {
+    state = {
+        radio: {
+            selection: 'radio 1'
+        }
+    }
+    handleRadioOptionChange = (e) => {
+        this.setState({
+            radio: {
+                selection: e.target.value
+            }
+        })
+    }
     render() {
+        const { radio } = this.state;
         return (
             <div className='ws-card'>
                 <h2>Inputs</h2>
-                <CodeDemo title={`Ranges`}code={ 
+                <CodeDemo title={`Ranges`} code={ 
                     <div>
                         <Slider 
                             min={0}
@@ -23,9 +36,8 @@ export default class Inputs extends Component {
                             defaultRange={[40,60]}
                             onChange={ (e) => console.log(e.target.value)} />             */}
                     </div>
-                 } />
-
-                <CodeDemo title={`Basic`}code={ 
+                }/>
+                <CodeDemo title={`Basic`} code={ 
                     <div>
                         <Input type='text' label='text' />
                         <Input type='number' label='number' />
@@ -33,33 +45,17 @@ export default class Inputs extends Component {
                         <Input type='password' label='password' />
                         <Input type='tel' label='tel' />
                     </div> 
-                } />
-                <CodeDemo title={`Dates`}code={
+                }/>
+                <CodeDemo title={`Dates`} code={
                     <div>
-                        <div>
-                            <label>date</label>
-                            <input type='date' />
-                        </div> 
-                        <div>
-                            <label>time</label>
-                            <input type='time' />
-                        </div>
-                        <div>
-                            <label>datetime</label>
-                            <input type='datetime-local' />
-                        </div>
+                        <Input type='date' label='date' />
+                        <Input type='time' label='time' />
+                        <Input type='datetime' label='datetime-local' />
                     </div>
                 }/>
-                <CodeDemo title={`Other`}code={ 
+                <CodeDemo title={`Other`} code={
                     <div>
-                        <div>
-                            <label>color</label>
-                            <input type='color' />
-                        </div>
-                        <div>
-                            <label>range</label>
-                            <input type='range' />
-                        </div>
+                        <Input type='color' label='color' />
                         <div>
                             <label>checkboxes</label>
                             <label>
@@ -75,23 +71,48 @@ export default class Inputs extends Component {
                                 checkbox 3
                             </label>
                         </div>
-                        <div>
-                            <label>radio buttons</label>
+                    </div>
+                }/>
+                <CodeDemo title={`Radio`} code={
+                    <div
+                            style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'stretch',
+                            justifyContent: 'space-between'
+                        }}>
+                        <div className="radio">
                             <label>
-                                <input type='radio' />
-                                radio 1
+                                <input
+                                    type="radio"
+                                    value="radio 1"
+                                    checked={radio.selection === 'radio 1'}
+                                    onChange={this.handleRadioOptionChange}/>
+                                <span><Icon name='text-width'/>&nbsp;Text</span>
                             </label>
+                        </div>
+                        <div className="radio">
                             <label>
-                                <input type='radio' />
-                                radio 2
+                                <input
+                                    type="radio"
+                                    value="radio 2"
+                                    checked={radio.selection === 'radio 2'}
+                                    onChange={this.handleRadioOptionChange}/>
+                                <span><Icon name='picture-o'/>&nbsp;Image</span>
                             </label>
+                        </div>
+                        <div className="radio">
                             <label>
-                                <input type='radio' />
-                                radio 3
+                                <input
+                                    type="radio"
+                                    value="radio 3"
+                                    checked={radio.selection === 'radio 3'}
+                                    onChange={this.handleRadioOptionChange}/>
+                                <span><Icon name='music'/>&nbsp;Audio</span>
                             </label>
                         </div>
                     </div>
-                 }/>
+                }/>
             </div>
         )
     }
