@@ -1,0 +1,54 @@
+@import '../bilo-ui.scss';
+// @import './styles/loader.scss';
+
+// Colors
+$col-lightgrey:  $col-lightgrey;
+$col-background: $col-background;
+$col-active: #00adee !global;
+$col-accent: #00ffee !global;
+$col-text: $col-text; 
+$col-dark: #1d1d1d;
+
+// Dimensions
+$dim-navbar: 3em;
+$dim-sidebar: 25em;
+$content-x: $dim-sidebar;
+$content-y: $dim-navbar;
+$content-height: calc(100vh - #{$dim-navbar});
+$content-width: calc(100vw - #{$dim-sidebar});
+
+// Layout
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+$padding: 2em;
+.page {
+    position: relative;
+    background: $col-background;
+    color: $col-text;
+    width: 100vw;
+}
+
+.page-padded {
+    height: calc(100% - 2 * #{$padding});
+    padding: $padding;
+}
+
+ // Elements
+input,input:hover,input:focus,contenteditable,
+textarea, textarea:hover,textarea:focus {
+    @extend .input;
+    color: $col-active;
+    border-color: $col-active;
+    margin-bottom: 1em;
+}
+button {
+    @extend .button;
+    color: $col-active;
+    border-color: $col-active;
+    &:hover {
+        color: white;
+        background-color: $col-active;
+    }
+}

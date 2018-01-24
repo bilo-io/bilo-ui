@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var Visualizer = require('webpack-visualizer-plugin');
 var path = require('path');
 var DIST = path.resolve(__dirname, 'demo/');
 var SRC = path.resolve(__dirname, 'src/');
@@ -8,19 +9,19 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var config = {
     devtool: 'source-maps',
-    entry: SRC + '/app/index.js',
+    entry: SRC + '/_demo/index.js',
     output: {
         path: DIST,
         publicPath: '/',
-        filename: 'app.js'
+        filename: 'demo.js'
     },
-    // resolve: {
-    //     modules: [
-    //         path.resolve('./'),
-    //         path.resolve('./src/app'),
-    //         path.resolve('./node_modules')
-    //     ]
-    // },
+    resolve: {
+        modules: [
+            path.resolve('./'),
+            path.resolve('./src/'),
+            path.resolve('./node_modules')
+        ]
+    },
     module: {
         rules: [
             {
@@ -37,8 +38,8 @@ var config = {
         ]
     },
     plugins: [
-        // new Visualizer({filename: './stats.html'}),
-        new HtmlWebpackPlugin({template: './src/app/index.html', filename: 'index.html', inject: 'body'}),
+        new Visualizer({filename: './stats.html'}),
+        new HtmlWebpackPlugin({template: './src/_demo/index.html', filename: 'index.html', inject: 'body'}),
         // new CopyWebpackPlugin([
         //     {
         //         from: 'node_modules/highlight.js/styles/monokai.css',
