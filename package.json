@@ -3,11 +3,15 @@
   "version": "0.0.10",
   "description": "XUI is a set of experimental ui elements and utilities for frontend web development.",
   "main": "dist/index.js",
+  "engines" : {
+    "node": "8.4.0"
+  },
   "scripts": {
     "dev": "webpack -p --colors -w",
     "deploy": "npm unlink && npm build && npm publish",
     "build": "webpack -p",
     "prepublish": "npm run build",
+    "start": "node ./artifact/server.js",
     "demo:dev": "webpack-dev-server -w --color --inline --progress --config webpack.demo.config.js",
     "demo:build": "rm -rf artifact && webpack -p --config webpack.demo.config.js && mkdir artifact && cp server.js ./artifact && cp -r ./demo ./artifact",
     "demo:publish": "echo 'TODO: write code to publish updated kitchensink'",
