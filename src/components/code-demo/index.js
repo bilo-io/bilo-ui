@@ -30,7 +30,7 @@ class CodeDemo extends React.Component {
         const { isOpen, codeString } = this.state;
         const { code, title } = this.props;
         return this.state && code ? (
-            <div className='ws-card'>
+            <div className='ws-card' style={{paddingBottom: '1em'}}>
                 <div className='code-demo'>
                     <span className='title'>{ title }</span>
                     <div className='toggle' onClick={() => this.toggle()}>

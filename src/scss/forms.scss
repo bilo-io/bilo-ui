@@ -1,4 +1,6 @@
 @import './colors.scss';
+@import './buttons.scss';
+
 .input {
     position: relative;
     width: calc(100% - 0em);
@@ -28,37 +30,4 @@
     @extend .input;
     margin-bottom: 1em;
     max-width: 100%;
-}
-.button {
-    background: transparent;
-    color: $col-active;
-    position: relative;
-    height: 3rem;
-    padding: {
-        top: 1rem;
-        bottom: 1rem;
-        left: 3rem;
-        right: 3rem;
-    }
-    font-size: 1rem;
-    outline: none;
-    border: none;
-    border-radius: 2px;
-    border: 1px solid $col-active;
-    cursor: pointer;
-    .loading {
-        color: transparent;
-    }
-
-    &:hover {
-        background: rgba($col-active, 0.5);
-        color: white;
-    }
-}
-
-.button-footer {
-    position: absolute;
-    bottom: 0;
-    width: calc(100% - 1rem);
-    margin: 0.5rem;
 }

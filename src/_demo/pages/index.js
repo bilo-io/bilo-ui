@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { If } from '../../components'
+import Application from './application'
+import Buttons from './buttons'
+import Cards from './cards'
 import Icons from './icons'
 import Inputs from './inputs'
-import Media from './media'
 import Loaders from './loaders'
+import Media from './media'
 import './style.scss'
 
 export default class BiloUI extends Component {
@@ -17,10 +20,15 @@ export default class BiloUI extends Component {
     render() {
         const uiPages = [
             'home',
+            'application',
+            'buttons',
+            'cards',
+            'dropdowns',
             'icons',
             'inputs',
             'loaders',
             'media',
+            'modals',
         ]
         const { activePage } = this.state
         return (
@@ -39,11 +47,23 @@ export default class BiloUI extends Component {
                 </div>
                 <div className={'nav-content'}>
                     <If isTrue={activePage === 'home'}>
+                        <Application />
+                        <Buttons />
+                        <Cards />
                         <Icons />
                         <Inputs />    
                         <Media />    
                         <Loaders />  
                     </If>    
+                    <If isTrue={activePage === 'application'}>
+                        <Application />
+                    </If>
+                    <If isTrue={activePage === 'buttons'}>
+                        <Buttons />
+                    </If>
+                    <If isTrue={activePage === 'cards'}>
+                        <Cards />
+                    </If>
                     <If isTrue={activePage === 'icons'}>
                         <Icons />
                     </If>
