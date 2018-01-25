@@ -1,6 +1,6 @@
 import React, { Component }  from 'react'
 import Button from '../../components/button'
-import CodeDemo from '../../components/code-demo'
+import CodeDemo from '../../components/CodeDemo'
 
 export default class Buttons extends Component {
     render() {

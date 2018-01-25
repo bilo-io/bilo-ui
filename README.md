@@ -115,7 +115,7 @@ The top bar displays the title of the app (potentially of the route) along with 
         height: $dim-app-top-bar;
     }
   */}
-</AppTobBar>
+</AppTopBar>
 ```
 
 ### AppBody
