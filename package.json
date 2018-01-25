@@ -4,7 +4,8 @@
   "description": "XUI is a set of experimental ui elements and utilities for frontend web development.",
   "main": "dist/index.js",
   "engines" : {
-    "node": "8.4.0"
+    "node": "8.4.0",
+    "npm": "5.3.0"
   },
   "scripts": {
     "dev": "webpack -p --colors -w",
@@ -14,7 +15,7 @@
     "start": "node ./artifact/server.js",
     "demo:dev": "webpack-dev-server -w --color --inline --progress --config webpack.demo.config.js",
     "demo:build": "rm -rf artifact && webpack -p --config webpack.demo.config.js && mkdir artifact && cp server.js ./artifact && cp -r ./demo ./artifact",
-    "demo:publish": "echo 'TODO: write code to publish updated kitchensink'",
+    "demo:publish": "git push heroku master",
     "demo:serve": "node ./artifact/server.js"
   },
   "repository": {
