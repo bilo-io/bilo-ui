@@ -13,7 +13,7 @@ export class App extends React.Component {
         let {sidenav} = this.state;
         return this.state
             ?
-            <div>
+            <div className='fullscreen'>
                 <AppTopBar>
                     Bilo UI
                 </AppTopBar>
