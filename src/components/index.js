@@ -1,13 +1,13 @@
-import AppBody from './app-body'
-import AppSidenav from './app-sidenav'
-import AppTopBar from './app-top-bar'
-import Button from './button'
-import Icon from './icon'
-import If from './if'
+import AppBody from './AppBody'
+import AppSidenav from './AppSidenav'
+import AppTopBar from './AppTopBar'
+import Button from './Button'
+import Icon from './Icon'
+import If from './If'
 import Loader, { LoaderType } from './loader'
-import Map from './map'
-import MDReader from './md-reader';
-import Search from './search'
+import Map from './Map'
+import MDReader from './MDReader';
+import Search from './Search'
 
 module.exports = {
     AppBody,
