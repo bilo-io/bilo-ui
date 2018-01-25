@@ -1,5 +1,13 @@
 $dim-panel-size: 25rem;
 $dim-panel-padding: 1rem;
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
 .panel-side {
     position: relative;
     display: inline-block;

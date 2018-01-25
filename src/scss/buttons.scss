@@ -1,0 +1,65 @@
+.button {
+  position: relative;
+  height: 3rem;
+  padding: {
+      top: 1rem;
+      bottom: 1rem;
+      left: 2rem;
+      right: 2rem;
+  }
+  margin: 3em 1em 1em 1em;
+  font-size: 1rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  // outline: none;
+  // border: none;
+}
+
+.button-footer {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 1rem);
+  margin: 0.5rem;
+}
+
+.primary {
+
+  background: $col-active;
+  border-color: $col-active;
+  color: white;
+
+  &:hover {
+      background: white; 
+      color: rgba($col-active, 0.5);
+  }
+}
+
+$col-secondary: rgba(grey, 0.5);
+.secondary {
+  background: $col-secondary;
+  border-color: $col-secondary;
+  color: $col-active;
+  
+  &:hover {
+      background: rgba($col-active, 0.2);
+      color: $col-active;
+  }
+}
+
+$col-warning: orange;
+.warning {
+  background: $col-warning;
+  border-color: $col-warning;
+  color: white;
+
+  &:hover {
+      background: rgba($col-warning, 0.2);
+      color: white;
+  }
+}
+
+.hollow {
+  border-width: 1px;
+  background: transparent;
+}

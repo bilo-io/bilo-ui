@@ -3,13 +3,20 @@
   "version": "0.0.10",
   "description": "XUI is a set of experimental ui elements and utilities for frontend web development.",
   "main": "dist/index.js",
+  "engines" : {
+    "node": "8.4.0",
+    "npm": "5.3.0"
+  },
   "scripts": {
     "dev": "webpack -p --colors -w",
     "deploy": "npm unlink && npm build && npm publish",
     "build": "webpack -p",
     "prepublish": "npm run build",
+    "start": "node ./artifact/server.js",
     "demo:dev": "webpack-dev-server -w --color --inline --progress --config webpack.demo.config.js",
-    "demo:build": "webpack -p --config webpack.demo.config.js"
+    "demo:build": "rm -rf artifact && webpack -p --config webpack.demo.config.js && mkdir artifact && cp server.js ./artifact && cp -r ./demo ./artifact",
+    "demo:publish": "git push heroku master",
+    "demo:serve": "node ./artifact/server.js"
   },
   "repository": {
     "type": "git",
@@ -44,6 +51,8 @@
     "webpack-visualizer-plugin": "^0.1.11"
   },
   "dependencies": {
+    "express": "^4.16.2",
+    "express-history-api-fallback": "^2.2.1",
     "highlight.js": "^9.12.0",
     "leaflet": "^1.2.0",
     "marked": "^0.3.6",
