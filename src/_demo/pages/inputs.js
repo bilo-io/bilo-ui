@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {If, Button, Icon, Loader, LoaderType} from '../../components';
-import CodeDemo from '../../components/CodeDemo'
+import CodeDemo from '../../components/code-demo'
 import { Slider } from '../../components/Slider'
-import { MultiSlider } from '../../components/MultiSlider'
-import { Input } from '../../components/Input'
+import { MultiSlider } from '../../components/multi-slider'
+import { Input } from '../../components/input'
 
 export default class Inputs extends Component {
     state = {

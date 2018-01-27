@@ -3,6 +3,7 @@ import { If } from '../../components'
 import Application from './application'
 import Buttons from './buttons'
 import Cards from './cards'
+import Dropdowns from './dropdowns'
 import Icons from './icons'
 import Inputs from './inputs'
 import Loaders from './loaders'
@@ -11,7 +12,7 @@ import './style.scss'
 
 export default class BiloUI extends Component {
     state = {
-        activePage: 'home'
+        activePage: 'all'
     }
     selectSection = (page) => {
         this.setState({ ...this.state, activePage: page }, () => console.log(this.state))
@@ -19,7 +20,7 @@ export default class BiloUI extends Component {
 
     render() {
         const uiPages = [
-            'home',
+            'all',
             'application',
             'buttons',
             'cards',
@@ -46,10 +47,11 @@ export default class BiloUI extends Component {
                     }    
                 </div>
                 <div className={'nav-content'}>
-                    <If isTrue={activePage === 'home'}>
+                    <If isTrue={activePage === 'all'}>
                         <Application />
                         <Buttons />
                         <Cards />
+                        <Dropdowns />
                         <Icons />
                         <Inputs />    
                         <Media />    
@@ -63,6 +65,9 @@ export default class BiloUI extends Component {
                     </If>
                     <If isTrue={activePage === 'cards'}>
                         <Cards />
+                    </If>
+                    <If isTrue={activePage === 'dropdowns'}>
+                        <Dropdowns />
                     </If>
                     <If isTrue={activePage === 'icons'}>
                         <Icons />

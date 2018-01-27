@@ -1,11 +1,11 @@
 import React, { Component }  from 'react'
-import CodeDemo from '../../components/CodeDemo'
-import AppBody from '../../components/AppBody'
-import AppSidenav from '../../components/AppSidenav'
-import AppTopBar from '../../components/AppTopBar'
-import AppToaster, { addToast } from '../../components/AppToaster'
-import Button from '../../components/Button'
-import Icon from '../../components/Icon'
+import CodeDemo from '../../components/code-demo'
+import AppBody from '../../components/app-body'
+import AppSidenav from '../../components/app-sidenav'
+import AppTopBar from '../../components/app-topbar'
+import AppToaster, { addToast } from '../../components/app-toaster'
+import Button from '../../components/button'
+import Icon from '../../components/icon'
 export default class Application extends Component {
     state = {
         sidenav: {
@@ -25,11 +25,17 @@ export default class Application extends Component {
                 },
             ]
         },
+        sidenavLeft: {
+            isOpen: false,
+        },
+        sidenavRight: {
+            isOpen: false,
+        },
         toaster: {
         }
     }
     render() {
-        const { sidenav, toaster } = this.state
+        const { sidenav, sidenavLeft, sidenavRight, toaster } = this.state
         const reactIcon = 'https://raw.githubusercontent.com/bilo-io/resources/master/logo/react.png'
         return (
             <div>
@@ -102,8 +108,33 @@ export default class Application extends Component {
                 }/>
                 <CodeDemo title='AppSidenav' code={
                     <div style={{position: 'relative', height: '50vh'}}>
-                        <AppSidenav isOpen={true} fromRight={true}/>
-                        
+                        <AppSidenav 
+                            isOpen={sidenavLeft.isOpen}>
+                            {sidenav.items.map((page, i) => 
+                                <div
+                                    key={i}
+                                    className='sidenav-link'
+                                    onClick={this.toggleSidenavLeft}>
+                                    {page.name}
+                                </div>
+                            )}
+                        </AppSidenav>
+                        <AppSidenav 
+                            isOpen={sidenavRight.isOpen}
+                            fromRight={true}>
+                            {sidenav.items.map((page, i) => 
+                                <div
+                                    key={i}
+                                    className='sidenav-link'
+                                    onClick={this.toggleSidenavRight}>
+                                    {page.name}
+                                </div>
+                            )}
+                        </AppSidenav>
+                        <div style={{position: 'absolute', left: '30%', top: '40%'}}>
+                            <Button className='primary' onClick={this.toggleSidenavLeft}>Left</Button>
+                            <Button className='primary' onClick={this.toggleSidenavRight}>Right</Button>
+                        </div>
                     </div>                   
                 }/>
                 <CodeDemo title='AppToaster' code={
@@ -141,6 +172,20 @@ export default class Application extends Component {
             }
         }, () => console.log(this.state.sidenav));
     }
+    toggleSidenavLeft = () => this.setState({
+        ...this.state,
+        sidenavLeft: {
+            ...this.state.sidenavLeft,
+            isOpen: !this.state.sidenavLeft.isOpen
+        }
+    })
+    toggleSidenavRight = () => this.setState({
+        ...this.state,
+        sidenavRight: {
+            ...this.state.sidenavRight,
+            isOpen: !this.state.sidenavRight.isOpen
+        }
+    })
     addToast(text, type) {
         this.setState({
             ...this.state,

@@ -15,7 +15,8 @@ export class App extends React.Component {
             ?
             <div className='fullscreen'>
                 <AppTopBar>
-                    Bilo UI
+                    <img src='https://www.adamscenter.org/wp-content/uploads/2015/03/code-icon.png' />
+                    bilo-ui
                 </AppTopBar>
                 <AppBody>
                     <BiloUI />

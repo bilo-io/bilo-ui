@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CodeDemo from '../../components/CodeDemo'
+import CodeDemo from '../../components/code-demo'
 import Audio from '../../components/audio'
 import Video from '../../components/video'
 import Youtube from '../../components/Youtube'

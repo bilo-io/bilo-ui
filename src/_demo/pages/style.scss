@@ -15,10 +15,12 @@ $background: #333;
   overflow-y: auto;
 }
 
+$nav-item-size: 0.8em;
 .nav-item {
-  height: 1em;
-  line-height: 1em;
-  padding: 1em;
+  height: $nav-item-size;
+  line-height: $nav-item-size;
+  padding: $nav-item-size;
+  font-size: $nav-item-size;
   color: rgba(white, 0.8);
   background: $background;
   cursor: pointer;

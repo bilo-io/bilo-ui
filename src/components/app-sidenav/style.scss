@@ -1,0 +1,46 @@
+@import '../../bilo-ui.scss';
+$dim-sidebar: 15em;
+.sidenav {
+    position: relative;
+    background: lighten($col-background, 0%);
+    color: $col-text;
+    width: 0;
+    height: 100%;
+    z-index: 150;
+    top: 0;
+    transition: width 1s;
+}
+
+.open {
+    width: $dim-sidebar;
+    background: lighten($col-background, 2%);
+    color: $col-text;
+    height: 100%;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+$padding: 1em;
+.sidenav-link {
+    // position: absolute;
+    display: inline-block;
+    width:calc(100% - 2 * #{$padding});
+    line-height: 1em;
+    height: 1em;
+    color: $col-text;
+    padding: $padding;
+    text-decoration: none;
+    &:hover {
+        color: $col-active;
+        background: lighten($col-background, 5%);
+        border-left: 3px solid $col-active;
+        width:calc(100% - 2 * #{$padding});
+        padding-left: calc(#{$padding} - 3px);
+    }
+}
