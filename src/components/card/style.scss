@@ -1,10 +1,11 @@
 $padding: 1em;
 .card {
-  // background: #fff;
   border-radius: 2px;
   display: inline-block;
-  // height: 300px;
-  // margin: 1rem;
+  margin: {
+    right: 0.5em;
+    bottom: 0.5em;
+  }
   position: relative;
   width: calc(100% - 2 * #{ $padding});
   padding: $padding;

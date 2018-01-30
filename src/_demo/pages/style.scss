@@ -24,7 +24,10 @@ $nav-item-size: 0.8em;
   color: rgba(white, 0.8);
   background: $background;
   cursor: pointer;
-
+  a {
+    text-decoration: none;
+  }
+  text-decoration: none;
   &:hover {
     color: $col-active;
     // background-color: rgba($col-active,0.2);

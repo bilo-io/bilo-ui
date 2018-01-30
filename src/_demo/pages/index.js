@@ -4,20 +4,24 @@ import Application from './application'
 import Buttons from './buttons'
 import Cards from './cards'
 import Dropdowns from './dropdowns'
+import Files from './files'
 import Icons from './icons'
 import Inputs from './inputs'
 import Loaders from './loaders'
 import Media from './media'
 import './style.scss'
+import { Link } from 'react-router-dom'
 
 export default class BiloUI extends Component {
     state = {
-        activePage: 'all'
+        activePage: 'files'
     }
-    selectSection = (page) => {
-        this.setState({ ...this.state, activePage: page }, () => console.log(this.state))
+    componentDidMount() {
+        console.log(this.props.location)
+        const page = this.props.location.hash.slice(1)
+        console.log('hash: ', page)
+        this.selectSection(page)
     }
-
     render() {
         const uiPages = [
             'all',
@@ -25,6 +29,7 @@ export default class BiloUI extends Component {
             'buttons',
             'cards',
             'dropdowns',
+            'files',
             'icons',
             'inputs',
             'loaders',
@@ -37,12 +42,21 @@ export default class BiloUI extends Component {
                 <div className={'nav-menu'}>
                     {
                         uiPages.map((page) => {
-                            return <div
+                            // return <div
+                            //     key={`xui-page-${page}`}
+                            //     className={`nav-item ${page === activePage ? 'nav-item-active' : ''}`}
+                            //     onClick={() => this.selectSection(page)}>
+                            //     {page.toLocaleUpperCase()}
+                            // </div>
+                            return <Link
                                 key={`xui-page-${page}`}
-                                className={`nav-item ${page === activePage ? 'nav-item-active' : ''}`}
+                                to={`${this.props.location.pathname}#${page}`}
                                 onClick={() => this.selectSection(page)}>
-                                {page.toLocaleUpperCase()}
-                            </div>
+                                <div
+                                    className={`nav-item ${page === activePage ? 'nav-item-active' : ''}`}>
+                                    {page.toLocaleUpperCase()}
+                                </div>
+                            </Link>
                         })
                     }    
                 </div>
@@ -52,6 +66,7 @@ export default class BiloUI extends Component {
                         <Buttons />
                         <Cards />
                         <Dropdowns />
+                        <Files />
                         <Icons />
                         <Inputs />    
                         <Media />    
@@ -69,6 +84,9 @@ export default class BiloUI extends Component {
                     <If isTrue={activePage === 'dropdowns'}>
                         <Dropdowns />
                     </If>
+                    <If isTrue={activePage === 'files'}>
+                        <Files />
+                    </If>
                     <If isTrue={activePage === 'icons'}>
                         <Icons />
                     </If>
@@ -84,5 +102,8 @@ export default class BiloUI extends Component {
                 </div>
             </div>
         )
+    }
+    selectSection = (page) => {
+        this.setState({ ...this.state, activePage: page }, () => console.log(this.state))
     }
 }

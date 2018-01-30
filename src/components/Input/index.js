@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.scss'
 
 export const Input = (props) => {
     const { 
@@ -20,7 +21,7 @@ export const Input = (props) => {
                 type={ type } 
                 placeholder={ placeholder }
                 style={ style }
-                className={ className }
+                className={ `input ${className}` }
                 min={ min ? min : undefined }
                 max={ max ? max : undefined }
                 defaultValue={ defaultValue }
