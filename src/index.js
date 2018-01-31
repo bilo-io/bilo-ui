@@ -1,16 +1,22 @@
 import {
   AppBody,
-  AppSidenav,
   AppTopBar,
+  AppSidenav,
+  AppToaster,
+  Audio,
   Button,
+  Card,
+  Dropdown,
   Icon,
   If,
   Loader,
   LoaderType,
   Map,
-  MDReader,
   Search,
   SearchState,
+  Switch,
+  Video,
+  Youtube,
 } from './components/';
 import {
   Tapi
@@ -27,7 +33,11 @@ module.exports = {
   AppBody,
   AppTopBar,
   AppSidenav,
+  AppToaster,
+  Audio,
   Button,
+  Card,
+  Dropdown,
   Icon,
   If,
   Loader,
@@ -35,6 +45,9 @@ module.exports = {
   Map,
   Search,
   SearchState,
+  Switch,
+  Video,
+  Youtube,
   // APIs
-  Tapi,
+  Tapi
 };
