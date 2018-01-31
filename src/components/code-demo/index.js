@@ -28,7 +28,7 @@ class CodeDemo extends React.Component {
     
     render() {
         const { isOpen, codeString } = this.state;
-        const { code, title } = this.props;
+        const { code, title, language } = this.props;
         return this.state && code ? (
             <div className='ws-card' style={{paddingBottom: '1em'}}>
                 <div className='code-demo'>
@@ -40,7 +40,7 @@ class CodeDemo extends React.Component {
                     <div className='code-block'>
                         {
                             code && isOpen
-                            ? <Highlight language={'html'}>
+                            ? <Highlight language={language || 'html'}>
                                 {codeString ? codeString : ''}
                             </Highlight> 
                             :null
