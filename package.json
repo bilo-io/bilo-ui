@@ -12,11 +12,12 @@
     "deploy": "npm unlink && npm build && npm publish",
     "build": "webpack -p",
     "prepublish": "npm run build",
-    "start": "node ./artifact/server.js",
+    "serve": "node ./artifact/server.js",
     "demo:dev": "webpack-dev-server -w --color --inline --progress --config webpack.demo.config.js",
     "demo:build": "rm -rf artifact && webpack -p --config webpack.demo.config.js && mkdir artifact && cp server.js ./artifact && cp -r ./demo ./artifact",
     "demo:publish": "git push heroku master",
-    "demo:serve": "node ./artifact/server.js"
+    "demo:serve": "node ./artifact/server.js",
+    "start": "osascript ./scripts/dev_and_demo.scpt"
   },
   "repository": {
     "type": "git",
