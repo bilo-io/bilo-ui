@@ -5,6 +5,7 @@ import AppToaster from './app-toaster'
 import Audio from './audio'
 import Button from './button'
 import Card from './card'
+// import CodeDemo from './code-demo'
 import Dropdown from './dropdown'
 import Icon from './icon'
 import If from './if'
@@ -25,9 +26,11 @@ module.exports = {
     Audio,
     Button,
     Card,
+    // CodeDemo,
     Dropdown,
     Icon,
     If,
+    Input,
     Loader,
     LoaderType,
     Map,

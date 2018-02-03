@@ -10,9 +10,9 @@ To develop locally (in `{local-path-to}/bilo-ui/`) run:
 |:-|:-|
 |`npm install`| installs all dependencies|
 |`npm run dev`| runs in watch mode, recompiling (to `dist/`) after each change|
-|`npm link`| create symlink for other packages depending on this|
-|`npm unlink`| unlinks local package|
+|`npm run demo:dev`| runs a demo of the webapp, served on [http://localhost:8080](http://localhost:8080)|
 
+# Development
 ## Symlinks
 You can use the local version of `bilo-ui` to work on other projects, rather than the one hosted on `npmjs.com`. This is achieved with symlinking node_modules.
 

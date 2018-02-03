@@ -104,6 +104,6 @@ export default class BiloUI extends Component {
         )
     }
     selectSection = (page) => {
-        this.setState({ ...this.state, activePage: page }, () => console.log(this.state))
+        this.setState({ ...this.state, activePage: (page || 'all') }, () => console.log(this.state))
     }
 }

@@ -4,7 +4,7 @@ import './style.scss'
 export const Dropdown = (props) => {
     const { options, onChange } = props
     return <div>
-        <select onChange={onChange}>
+        <select className='dropdown' onChange={onChange}>
             {options.map( (option, i) => (
                 <option 
                     key={`[${i}]-${option.value}`} 

@@ -1,13 +1,20 @@
+$button-height: 3rem;
 .button {
   position: relative;
-  height: 3rem;
+  height: $button-height;
   padding: {
       top: 1rem;
       bottom: 1rem;
-      left: 2rem;
-      right: 2rem;
+      left: 1rem;
+      right: 1rem;
   }
-  margin: 3em 1em 1em 1em;
+  margin: {
+    top:1em; 
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+  }
+
   font-size: 1rem;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -63,3 +70,11 @@ $col-warning: orange;
   border-width: 1px;
   background: transparent;
 }
+
+.rounded {
+  width: $button-height;
+  height: $button-height;
+  border-radius: 50%;//calc(#{$button-height} / 2);
+  // padding: 0;
+}
+

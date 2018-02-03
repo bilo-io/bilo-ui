@@ -1,6 +1,7 @@
 import React, { Component }  from 'react'
 import Button from '../../components/button'
 import CodeDemo from '../../components/code-demo'
+import { Icon } from '../../components'
 
 export default class Buttons extends Component {
     render() {
@@ -43,6 +44,20 @@ export default class Buttons extends Component {
                         </Button>
                         <Button className='link warning'>
                             Warning
+                        </Button>
+                    </div>
+                } />
+                
+                <CodeDemo title='Rounded' code={
+                    <div>
+                        <Button className='primary rounded'>
+                            <Icon name='microphone' />
+                        </Button>
+                        <Button className='rounded'>
+                            <Icon name='react' />
+                        </Button>
+                        <Button className='warning rounded'>
+                            <Icon name='react' />
                         </Button>
                     </div>
                 }/>

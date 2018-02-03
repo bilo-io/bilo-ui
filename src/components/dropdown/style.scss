@@ -1,5 +1,9 @@
-$select-height: 2em;
+@import '../../bilo-ui.scss';
+
+$select-height: 3em;
 select {
+  position: relative;
+  width: 100%;
   -webkit-appearance: none; 
   -moz-appearance: none;
   appearance: none;       /* remove default arrow */
@@ -7,6 +11,26 @@ select {
   height: $select-height;
   line-height: $select-height;
   text-indent: calc(#{$select-height} / 2);
+  // input style
+  // text-indent: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background: rgba(grey, 0.1);
+  color: $col-active;
+  // font-size: 1em;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $col-lightgrey;
+  border-radius: 4px; 
+  
+  &:hover {
+      border-bottom: 1px solid $col-active;
+  }
+  &:focus {
+      border-bottom: 2px solid $col-active;
+  }
 }
 
 .select-style {

@@ -4,7 +4,7 @@ import './style.scss'
 import Highlight from 'react-highlight.js'
 import jsxToString from 'jsx-to-string-2'
 
-class CodeDemo extends React.Component {
+export default class CodeDemo extends React.Component {
     state = {
         isOpen: false
     }
@@ -52,5 +52,3 @@ class CodeDemo extends React.Component {
         ) : null
     }
 }
-
-export default CodeDemo;

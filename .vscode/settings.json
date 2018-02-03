@@ -4,7 +4,7 @@
   "[javascript]" : {
       "editor.tabSize": 4
   },
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
 
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.cursorBlinking": true,

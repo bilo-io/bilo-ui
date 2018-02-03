@@ -6,7 +6,7 @@ export const Icon = (props) => {
         <i
             style={style}
             onClick={onClick}
-            className={`${className ? className : ''} fa fa-${name}
+            className={`${className ? className : ''} fas fa-${name}
             ${size ? `fa-${size}`: ''}
             ${transform ? `fa-${transform}`: ''}`}/>
     )
