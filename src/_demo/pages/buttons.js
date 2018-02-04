@@ -19,6 +19,9 @@ export default class Buttons extends Component {
                         <Button className='warning' onClick={() => alert('Clicked warning button')}>
                             Warning
                         </Button>
+                        <Button className='danger' onClick={() => alert('Clicked warning button')}>
+                            Danger
+                        </Button>
                     </div>
                 }/>
                 <CodeDemo title='Hollow' code={
@@ -31,6 +34,9 @@ export default class Buttons extends Component {
                         </Button>
                         <Button className='hollow warning'>
                             Warning
+                        </Button>
+                        <Button className='hollow danger'>
+                            Danger
                         </Button>
                     </div>
                 }/>
@@ -45,19 +51,42 @@ export default class Buttons extends Component {
                         <Button className='link warning'>
                             Warning
                         </Button>
+                        <Button className='link danger'>
+                            Danger
+                        </Button>
                     </div>
                 } />
                 
                 <CodeDemo title='Rounded' code={
                     <div>
                         <Button className='primary rounded'>
-                            <Icon name='microphone' />
+                            <Icon name='bars' />
                         </Button>
-                        <Button className='rounded'>
-                            <Icon name='react' />
+                        <Button className='secondary rounded'>
+                            <Icon name='question' />
                         </Button>
                         <Button className='warning rounded'>
-                            <Icon name='react' />
+                            <Icon name='exclamation' />
+                        </Button>
+                        <Button className='danger rounded'>
+                            <Icon name='trash' />
+                        </Button>
+                    </div>
+                } />
+                
+                <CodeDemo title='Rounded' code={
+                    <div>
+                        <Button className='primary filled'>
+                            <Icon name='microphone' />
+                        </Button>
+                        <Button className='filled'>
+                            This is a full width button
+                        </Button>
+                        <Button className='warning filled'>
+                            The CSS class is 'filled'
+                        </Button>
+                        <Button className='danger filled'>
+                            The CSS class is 'filled'
                         </Button>
                     </div>
                 }/>

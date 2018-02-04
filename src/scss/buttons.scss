@@ -1,25 +1,19 @@
 $button-height: 3rem;
+
 .button {
   position: relative;
   height: $button-height;
-  padding: {
-      top: 1rem;
-      bottom: 1rem;
-      left: 1rem;
-      right: 1rem;
-  }
+  padding: 0.5em;
   margin: {
-    top:1em; 
-    bottom: 1rem;
-    left: 1rem;
-    right: 1rem;
+    left: 0.5em;
+    right: 0.5em;
   }
 
   font-size: 1rem;
   border: 1px solid transparent;
   border-radius: 4px;
   cursor: pointer;
-  // outline: none;
+  outline: none;
   // border: none;
 }
 
@@ -66,9 +60,22 @@ $col-warning: orange;
   }
 }
 
+$col-danger: red;
+.danger {
+  background: $col-danger;
+  border-color: $col-danger;
+  color: white;
+
+  &:hover {
+      background: rgba($col-danger, 0.2);
+      color: white;
+  }
+}
+
 .hollow {
   border-width: 1px;
   background: transparent;
+  color: inherit;
 }
 
 .rounded {
@@ -78,3 +85,9 @@ $col-warning: orange;
   // padding: 0;
 }
 
+.filled {
+  position: relative;
+  border-radius: 0;
+  width: 100%;
+  margin: 0;
+}

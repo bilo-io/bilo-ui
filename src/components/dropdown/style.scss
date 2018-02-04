@@ -10,21 +10,21 @@ select {
   // background-image: url(...);   /* add custom arrow */
   height: $select-height;
   line-height: $select-height;
-  text-indent: calc(#{$select-height} / 2);
+  // text-indent: calc(#{$select-height} / 2);
   // input style
-  // text-indent: 1em;
+  text-indent: 1em;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  // padding-top: 1em;
+  // padding-bottom: 1em;
   background: rgba(grey, 0.1);
   color: $col-active;
-  // font-size: 1em;
+  font-size: 1em;
   border: none;
   outline: none;
   border-bottom: 1px solid $col-lightgrey;
   border-radius: 4px; 
-  
+  margin-bottom: 0.5em;
   &:hover {
       border-bottom: 1px solid $col-active;
   }

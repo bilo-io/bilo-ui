@@ -5,11 +5,11 @@ export const Button = (props) => {
     const { className, style, onClick } = props
     
     return (
-        <span 
+        <button 
             className={`button ${className ? className : ''}`}
             onClick={onClick}>
             {props.children}
-        </span>
+        </button>
     );
 };
 

@@ -9,7 +9,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var config = {
     devtool: 'source-maps',
-    entry: SRC + '/_demo/index.js',
+    entry: {
+        main: SRC + '/_demo/index.js'
+    },
     output: {
         path: DIST,
         publicPath: '/',

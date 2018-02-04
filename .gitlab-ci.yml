@@ -55,16 +55,16 @@ create_dist:
   script:
       - npm run build
 
-build_artifact:
-  stage: artifact
-  script:
-      - mkdir artifact
-      - mv dist/ ./artifact
-      - cp server.js ./artifact
-      - cp package.json ./artifact
-      - cd ./artifact
-      - npm install --production
-      - cd ../
-  cache:
-    paths: 
-      - artifact/
+# build_artifact:
+#   stage: artifact
+#   script:
+#       - mkdir artifact
+#       - mv dist/ ./artifact
+#       - cp server.js ./artifact
+#       - cp package.json ./artifact
+#       - cd ./artifact
+#       - npm install --production
+#       - cd ../
+#   cache:
+#     paths: 
+#       - artifact/
