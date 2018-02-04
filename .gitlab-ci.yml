@@ -12,6 +12,7 @@ stages:
   - test
   - build
   - artifact
+  - deploy
 
 build_server_status:
   stage: status
@@ -54,6 +55,23 @@ create_dist:
   stage: build
   script:
       - npm run build
+
+create_static:
+  stage: deploy
+  script:
+    - npm run static:build
+
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r ./static/* .public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
 
 # build_artifact:
 #   stage: artifact
