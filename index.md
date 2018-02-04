@@ -10,7 +10,9 @@ To develop locally (in `{local-path-to}/bilo-ui/`) run:
 |:-|:-|
 |`npm install`| installs all dependencies|
 |`npm run dev`| runs in watch mode, recompiling (to `dist/`) after each change|
-|`npm run demo:dev`| runs a demo of the webapp, served on [http://localhost:8080](http://localhost:8080)|
+|`npm run dev:demo`| runs a demo of the webapp, served on [http://localhost:8080](http://localhost:8080)|
+
+Demo: [https://bilo-io.github.io/bilo-ui/](https://bilo-io.github.io/bilo-ui/)
 
 # Development
 ## Symlinks

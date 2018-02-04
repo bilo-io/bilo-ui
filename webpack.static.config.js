@@ -14,7 +14,7 @@ var config = {
         main: SRC + '/_demo/index.js'
     },
     output: {
-        path: path.resolve(__dirname, './'),
+        path: path.resolve(__dirname, './docs/'),
         filename: 'docs.js',
         libraryTarget: 'umd'
     },
