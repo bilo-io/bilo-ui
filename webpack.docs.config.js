@@ -18,13 +18,6 @@ var config = {
         filename: 'docs.js',
         libraryTarget: 'umd'
     },
-    // resolve: {
-    //     modules: [
-    //         path.resolve('./'),
-    //         path.resolve('./src/'),
-    //         path.resolve('./node_modules')
-    //     ]
-    // },
     module: {
         rules: [
             {

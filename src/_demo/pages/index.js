@@ -51,7 +51,8 @@ export default class BiloUI extends Component {
                             return <Link
                                 key={`xui-page-${page}`}
                                 to={`${this.props.location.pathname}#${page}`}
-                                onClick={() => this.selectSection(page)}>
+                                onClick={() => this.selectSection(page)}
+                                className='no-link'>
                                 <div
                                     className={`nav-item ${page === activePage ? 'nav-item-active' : ''}`}>
                                     {page.toLocaleUpperCase()}
