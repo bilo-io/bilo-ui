@@ -15,7 +15,7 @@
     "dev:demo": "webpack-dev-server -w --color --inline --progress --config webpack.demo.config.js",
     "build": "webpack -p",
     "build:demo": "webpack -p --config webpack.demo.config.js && mkdir artifact && cp server.js ./artifact && cp -r ./demo ./artifact",
-    "build:docs": "webpack -p --config webpack.static.config.js",
+    "build:docs": "webpack -p --config webpack.docs.config.js",
     "serve": "node ./artifact/server.js",
     "clean":"rm -rf artifact && rm -rf dist",
     "clean:docs": "rm -rf ./index.html && rm -rf ./assets && rm -rf ./docs.js",
