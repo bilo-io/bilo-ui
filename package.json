@@ -17,6 +17,7 @@
     "demo:build": "rm -rf artifact && webpack -p --config webpack.demo.config.js && mkdir artifact && cp server.js ./artifact && cp -r ./demo ./artifact",
     "demo:publish": "git push heroku master",
     "demo:serve": "node ./artifact/server.js",
+    "static:build": "rm -rf artifact && webpack -p --config webpack.static.config.js && mkdir artifact && cp server.js ./artifact && cp -r ./demo ./artifact",
     "start": "osascript ./scripts/dev_and_demo.scpt"
   },
   "repository": {
@@ -48,6 +49,7 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "sass-loader": "^6.0.6",
+    "static-site-generator-webpack-plugin": "^3.4.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.6.1",
