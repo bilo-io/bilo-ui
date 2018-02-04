@@ -1,218 +1,58 @@
 # bilo-ui
 
-This is an npm package used for frontend web development.
+This is an [React](https://reactjs.org/) component library used for frontend web development.
 
-## Setting up
+Demo available here: [https://bilo-io.github.io/bilo-ui](https://bilo-io.github.io/bilo-ui)
 
-To develop locally (in `{local-path-to}/bilo-ui/`) run:
+## Get started
 
-|command|effect|
-|:-|:-|
-|`npm install`| installs all dependencies|
-|`npm run dev`| runs in watch mode, recompiling (to `dist/`) after each change|
-|`npm run dev:demo`| runs a demo of the webapp, served on [http://localhost:8080](http://localhost:8080)|
+- Installation
 
-Demo: [https://bilo-io.github.io/bilo-ui/](https://bilo-io.github.io/bilo-ui/)
-
-# Development
-## Symlinks
-You can use the local version of `bilo-ui` to work on other projects, rather than the one hosted on `npmjs.com`. This is achieved with symlinking node_modules.
-
->**Linking**
->- in the directory `bilo-ui/` run `npm link`
->- in the directory `some-other-proj/` run `npm link bilo-ui`
-
->**Unlinking**
->- In `some-other-proj` directory running `npm unlink bilo-ui`
->- To unlink it globally, run: `npm remove -g bilo-ui`
-
-## Updating
-
-To update the package, you need to:
-- update the version number in the `package.json`
-- run `npm run deploy` 
-    - which unlinks the package if it was linked
-    - creates the build folder (`dist`)
-    - publishes that folder as a package to `https://npmjs.com/bilo-ui`
-
-## Colors
-
-### Color Palette
-
-|color|value|
-|:----|:----|
-| `$ws-col-accent`    | <div style="background-color: #00FFEE; border: 1px solid grey">accent</div> |
-| `$ws-col-primary`   | <div style="background-color: #28E0B5; border: 1px solid grey">primary</div> |
-| `$ws-col-secondary` | <div style="background-color: #2D363D; border: 1px solid grey">secondary</div> |
-| `$ws-col-background`| <div style="background-color: #1e1e1e; border: 1px solid grey">background</div> |
-| `$ws-col-text`      | <div style="background-color: #F8F8F8; border: 1px solid grey">text color</div> |
-
-### SCSS
-
-```scss
-$ws-col-accent:     #00FFEE;
-$ws-col-primary:    #28E0B5;
-$ws-col-secondary:  #2D363D;
-$ws-col-background: #1e1e1e;
-$ws-col-text:       #F8F8F8;
-
-$col-lightgrey:     darken(#EFEFEF, 30%);
-$col-background:    $ws-col-background;
-$col-active:        $ws-col-primary;
-$col-accent:        $ws-col-accent;
-$col-text:          $ws-col-text; 
+```
+npm install bilo-ui --save-dev
 ```
 
-## Components
-
-You can combine a set of basic components to quickly put together an application. For example:
-
+- Example Usage:
 ```jsx
-{/*Top bar of the application*/}
-<AppTopBar>
-  <i
-    className='fa fa-bars' 
-    onClick={() => this.toggleSidenav()}
-  />
-  <h1>My Application</h1>
-  {/*TODO: AppDropdown*/}
-  <AppDropdown 
-      name={} 
-      icon={} 
-      faIcon={}>
-      {items.map((item) => {
-          return <a>{item}</a>
-      })}
-  </AppDropdown>
-</AppTopBar>
+import { Button, Card, If } from 'bilo-ui'
 
-<AppBody>
-    <AppSidenav>
-            {sidenav.items.map((page) => {
-                return <Link
-                    key={page.link}
-                    to={page.link}
-                    className='app-sidenav-link'
-                    onClick={() => this.toggleSidenav())}>
-                    {page.name}
-                </Link>
-            })}
-    </AppSidenav>
-    <AppContent>
-        {/* any content, e.g. <Router></Router> */}
-    </AppContent>
-</AppBody>
+export const MyComponent = (props) => (
+    <div>
+        <Card className='padded'>
+            <If isTrue={true}>
+                <Button className='primary' onClick={
+                        () => alert('bilo-ui button clicked')
+                }>
+                    Show dialog
+                </Button>
+            </If>
+            <If isTrue={false}>
+                <Button className='warning' onClick={
+                    () => alert('bilo-ui button clicked')
+                }>
+                    Button should be invisible
+                </Button>
+            </If>
+        </Card>
+    </div>
+)
 ```
 
-### AppTopBar
+## Development
 
-The top bar displays the title of the app (potentially of the route) along with basic navigation, etc.
+1) Get the library onto your local machine
+- `git clone https://github.com/bilo-io/bilo-ui.git`
+- `cd ./bilo-ui`
+- `npm install`
 
-```jsx
-<AppTopBar>
-  {/* 
-    style: {
-        $dim-app-top-bar: 4em;
-        top: 0;
-        height: $dim-app-top-bar;
-    }
-  */}
-</AppTopBar>
-```
+2) Create symlinks
 
-### AppBody
+- `npm link`
+- `npm run dev`
 
-Displays the application content.
+> To preview your changes, add this command:
+- `npm run dev:demo` ... preview running on [http://localhost:8080](http://localhost:8080)
 
-```jsx
-<AppBody>
-  {/* 
-    style: {
-      top: $dim-app-top-bar,
-      height: cal(100% - dim-app-top-bar),
-      display: flex,
-      flex-direction: row,
-    }
-  */}
-</AppBody>
-```
+>NOTE: To link to your the local copy of `bilo-ui`, run `npm link bilo-ui` in your project
 
-### Sidenav
 
-The sidenav provides an easy way to navigate to different application pages.
-
-```jsx
-// ...
-render() {
-    let sidenav = this.state.sidenav;
-    return (
-        <AppSidenav isOpen={this.state.sidenav.isOpen}>
-                {this.state.sidenav.map((page) => {
-                    return <Link
-                        key={page.link}
-                        to={page.link}
-                        className='app-sidenav-link'
-                        onClick={() => this.toggleSidenav()}>
-                        {page.name}
-                    </Link>
-                })}
-        </AppSidenav>
-    )
-}
-// ...
-componentWillMount() {
-    this.setState({ sidenav: {
-        isOpen: false,
-        items: [
-            {
-                link: '/',
-                name: 'home'
-            }, {
-                link: '/xui',
-                name: 'Contact'
-            }
-        ]
-    }})
-}
-// ...
-toggleSideneav() {
-    let sidenav = this.state.sidenav
-    this.setState({
-        ...this.state,
-        sidenav: {
-            ...sidenav,
-            isOpen: !sidenav.isOpen
-        }
-    });
-}
-```
-
-You can also specify your own theme, overriding the `sidenav` and `sidenav-link` classes.
-
-### Search
-
-Search using an API endpoint, with simple text queries.
-
-```jsx
-<Search
-    tag='search_id'                                 
-    placeholder='search...'
-    search={(tag, q) => {console.log('handle search')}}
-    select={(tag, item) => {console.log('select item: ', item)}}
-    suggestions={this.props.searchResults.search_id}
-    suggestionsOn={true}
-/>
-```
-
-## Icons
-
-Icons supported in this web ui pack are from [FontAwesome](http://fontawesome.io).
-
-```jsx
-<Icon 
-  names={['menu']}          // (required) at least 1 icon (stacks icons if more)
-  spin={true}               // (optional) rotates icon
-  flipX={true}              // (optional) flip along x axis (upside down)
-  flipY={false}             // (optional) flip along x axis (upside down)
-  />
-```
