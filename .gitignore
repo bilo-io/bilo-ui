@@ -5,3 +5,4 @@ node_modules
 dist
 demo/
 artifact/
+index.md
