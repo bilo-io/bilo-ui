@@ -9,7 +9,6 @@ const SRC = path.resolve(__dirname, 'src/');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var config = {
-    devtool: 'source-maps',
     entry: {
         main: SRC + '/_demo/index.js'
     },
@@ -34,7 +33,6 @@ var config = {
         ]
     },
     plugins: [
-        // new Visualizer({filename: './stats.html'}),
         new HtmlWebpackPlugin({ template: './src/_demo/index.html', filename: 'index.html', inject: 'body' }),
         new StaticSiteGeneratorPlugin({
             paths: [
@@ -42,23 +40,14 @@ var config = {
               '/world/'
             ],
             locals: {
-              // Properties here are merged into `locals`
-              // passed to the exported render function
               greet: 'Hello'
             }
           })
-        // new CopyWebpackPlugin([
-        //     {
-        //         from: 'node_modules/highlight.js/styles/monokai.css',
-        //         to: './scss/'
-        //     }
-        // ])
     ],
     devServer: {
         historyApiFallback: true,
         stats: 'minimal'
-    },
-    // node: {     fs: 'empty' }
+    }
 };
 
 module.exports = config;
