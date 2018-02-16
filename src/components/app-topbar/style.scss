@@ -28,6 +28,11 @@ $height: calc(#{$dim-navbar-height} - 2 * #{$padding});
     }
 
     img {
+        height: $height;
+        width: auto;
+    }
+
+    .app-icon {
         width: $height;
         height: $height;
         margin-right: 1em;

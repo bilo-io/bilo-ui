@@ -4,6 +4,7 @@ import Application from './application'
 import Buttons from './buttons'
 import Cards from './cards'
 import Dropdowns from './dropdowns'
+import Errors from './errors'
 import Files from './files'
 import Icons from './icons'
 import Inputs from './inputs'
@@ -29,6 +30,7 @@ export default class BiloUI extends Component {
             'buttons',
             'cards',
             'dropdowns',
+            'errors',
             'files',
             'icons',
             'inputs',
@@ -67,6 +69,7 @@ export default class BiloUI extends Component {
                         <Buttons />
                         <Cards />
                         <Dropdowns />
+                        <Errors />
                         <Files />
                         <Icons />
                         <Inputs />    
@@ -84,6 +87,9 @@ export default class BiloUI extends Component {
                     </If>
                     <If isTrue={activePage === 'dropdowns'}>
                         <Dropdowns />
+                    </If>
+                    <If isTrue={activePage === 'errors'}>
+                        <Errors />
                     </If>
                     <If isTrue={activePage === 'files'}>
                         <Files />
