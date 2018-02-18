@@ -7,7 +7,7 @@ export const Card = (props) => {
         <div
             style={style}
             onClick={ onClick }
-            className={`card card-${depth || '1'} ${className}`}>
+            className={`card card-${depth || '1'} ${className || ''}`}>
             {children}
         </div>
     )

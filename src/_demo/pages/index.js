@@ -9,6 +9,7 @@ import Icons from './icons'
 import Inputs from './inputs'
 import Loaders from './loaders'
 import Media from './media'
+import Time from './time'
 import './style.scss'
 import { Link } from 'react-router-dom'
 
@@ -35,6 +36,7 @@ export default class BiloUI extends Component {
             'loaders',
             'media',
             'modals',
+            'time',
         ]
         const { activePage } = this.state
         return (
@@ -62,6 +64,7 @@ export default class BiloUI extends Component {
                     }    
                 </div>
                 <div className={'nav-content'}>
+
                     <If isTrue={activePage === 'all'}>
                         <Application />
                         <Buttons />
@@ -72,7 +75,11 @@ export default class BiloUI extends Component {
                         <Inputs />    
                         <Media />    
                         <Loaders />  
+                        <Time />
                     </If>    
+                    <If isTrue={activePage === 'time'}>
+                        <Time />
+                    </If>
                     <If isTrue={activePage === 'application'}>
                         <Application />
                     </If>

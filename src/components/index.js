@@ -4,7 +4,9 @@ import AppTopBar from './app-topbar'
 import AppToaster from './app-toaster'
 import Audio from './audio'
 import Button from './button'
+import ButtonGroup from './button-group'
 import Card from './card'
+import Collapsible from './collapsible'
 // import CodeDemo from './code-demo'
 import Dropdown from './dropdown'
 import Icon from './icon'
@@ -25,7 +27,9 @@ module.exports = {
     AppToaster,
     Audio,
     Button,
+    ButtonGroup,
     Card,
+    Collapsible,
     // CodeDemo,
     Dropdown,
     Icon,
