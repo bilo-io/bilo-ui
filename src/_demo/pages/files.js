@@ -1,5 +1,6 @@
 import React, { Component }  from 'react'
 import CodeDemo from '../../components/code-demo'
+import Input from '../../components/input'
 
 export default class Files extends Component {
     render() {
