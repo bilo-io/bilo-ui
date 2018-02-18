@@ -1,0 +1,17 @@
+.error {
+  border: 1px solid red;
+  border-radius: 2px;
+  background: rgba(red, 0.1);
+
+  .title {
+    color: darkred;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .description {
+    color: darkred;
+    font-size: 0.8em;
+    font-weight: lighter;
+  }
+}
