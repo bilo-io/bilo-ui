@@ -38,6 +38,7 @@ module.exports = {
     Loader,
     LoaderType,
     Map,
+    MDReader,
     Search,
     SearchState,
     Switch,

@@ -32,7 +32,8 @@ export default class MDReader extends React.Component {
         this.checkProps(nextProps);
     }
     checkProps(props) {
-        let {markdown, url} = props;
+        const { markdown, url } = props;
+        console.log('receiving props', props, this.props)
         this.setState({
             ...this.state,
             markdown,
@@ -65,17 +66,19 @@ export default class MDReader extends React.Component {
     }
     processMD(markdown) {
         // get headings:
+        console.log('processing markdown', markdown)
         let lines = markdown
             .split('\n')
             .filter(line => line.substr(0, 1) === '#');
         this.setState({
             ...this.state,
+            loading: false,
             markdown,
             lines,
             headings: lines.map(line => line.substr(2, line.length))
-        })
+        }, () => this.convertMDtoHTML(markdown)
+        )
         // convert & highlight
-        this.convertMDtoHTML(markdown);
     }
     convertMDtoHTML(markdown) {
         this.setState({
@@ -83,30 +86,31 @@ export default class MDReader extends React.Component {
             html: marked(markdown)
         }, () => {
             this.loading = false;
+            console.log('markdown HTML: ', this.state.html)
         });
     }
     render() {
         return this.state
-            ? (!this.loading
+            ? (this.loading
                 ? <Loader type={LoaderType.RAINBOW}/>
                 : (
                     <div className='markdown-wrapper'>
-                        {this.props.showHeadings
+                        {/* {this.props.showHeadings
                             ? <div className='markdown-nav'>
                                     {(this.state.headings || []).map((heading) => {
                                         return <div key={heading}>{heading}</div>
                                     })}
                                 </div>
                             : null
-                        }
+                        } */}
                         <div className='markdown-container'>
                             {this.state.html
                                 ? <div
-                                        className='markdown'
-                                        dangerouslySetInnerHTML={{
+                                    className='markdown'
+                                    dangerouslySetInnerHTML={{
                                         __html: this.state.html
                                     }}></div>
-                                : null}
+                                : 'Could not process markdown file. Raw content:\n' + this.state.markdown}
                         </div>
                     </div>
                 ))
