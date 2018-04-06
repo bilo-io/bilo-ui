@@ -9,7 +9,7 @@ import {
     MultiSlider,
     Slider,
     Switch,
-} from '../../../'
+} from '../../components/'
 import CodeDemo from '../../components/code-demo'
 
 

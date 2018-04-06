@@ -4,7 +4,7 @@ import CodeDemo from '../../components/code-demo'
 import Select from '../../components/select'
 import List from '../../components/list'
 
-export default class Lists extends Component {
+export class Lists extends Component {
     state = {
         options: [
             { label: 'first', value: '1', isOn: false, icon: 'help'},
@@ -51,7 +51,7 @@ export default class Lists extends Component {
                             />
                     </span>    
                 } />
-                <CodeDemo title='List with Icon' code={
+                {/* <CodeDemo title='List with Icon' code={
                     <List 
                         hasIcons
                         items={ options }
@@ -74,8 +74,10 @@ export default class Lists extends Component {
                         onClick={this.clickHandler}
                         onChange={this.changeHandler}
                     />
-                }/>
+                }/> */}
             </div>
         )
     }
 }
+
+export default Lists

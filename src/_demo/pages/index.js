@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { If } from '../../../'
+import { If } from '../../'
 import Application from './application'
 import Buttons from './buttons'
 import Cards from './cards'
@@ -8,7 +8,7 @@ import Errors from './errors'
 import Files from './files'
 import Icons from './icons'
 import Inputs from './inputs'
-// import Lists from './lists'
+import Lists from './lists'
 import Loaders from './loaders'
 import Media from './media'
 import Time from './time'
@@ -78,7 +78,7 @@ export default class BiloUI extends Component {
                         <Files />
                         <Icons />
                         <Inputs />    
-                        {/* <Lists /> */}
+                        <Lists />
                         <Loaders />  
                         <Media />    
                         <Time />
@@ -111,7 +111,7 @@ export default class BiloUI extends Component {
                         <Inputs />
                     </If>
                     <If isTrue={activePage === 'lists'}>
-                        {/* <Lists /> */}
+                        <Lists />
                     </If>
                     <If isTrue={activePage === 'media'}>
                         <Media />

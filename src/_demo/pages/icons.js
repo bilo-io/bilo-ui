@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Button, Icon, Loader, LoaderType} from '../../../'
+import {Button, Icon, Loader, LoaderType} from '../../'
 import CodeDemo from '../../components/code-demo'
 
 export default class Icons extends Component {

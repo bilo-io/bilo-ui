@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Icon, If, List } from '../'
+import { Icon, If } from '../../components'
 import './style.scss'
 
 export default class Badges extends Component {
@@ -15,12 +15,14 @@ export default class Badges extends Component {
             <div className='badges'>
                 {
                     (items || []).map((item, i) =>
-                        <If isTrue={item.isOn} key={`badge-${i}`}>
+                        <If key={`badge-${i}`} isTrue={item.isOn}>
                             <span
                                 className='badge'>
                                 {item.label}
                                 <span className='close'
-                                    onClick={this.onClose(i,item)}><Icon name='times' /></span>
+                                onClick={this.onClose(i, item)}>
+                                <Icon name='times' />
+                            </span>
                             </span>
                         </If>
                     )
