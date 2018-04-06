@@ -3,6 +3,9 @@
 .list-container {
   background: white;
   $list-size: 0.5em;
+  .active {
+    color: $col-active;
+  }
   .item {
     position: relative;
     overflow: hidden;
@@ -12,7 +15,7 @@
     width: calc(100% - 2 * #{$list-size});
     border-bottom: 1px solid rgba(grey, 0.3);
     &:hover {
-      color: $col-active;
+      @extend .active;
       background: rgba($col-active, 0.1);
     }
 

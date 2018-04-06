@@ -47,7 +47,7 @@ export default class List extends Component {
                                     ? <Icon className='icon' name={item.icon.name} />
                                     : null
                             }
-                            {item && item.label}
+                            <span className={`${item.isOn ? 'active' : ''}`}>{item && item.label}</span>
                         </div>
                     )
                 }

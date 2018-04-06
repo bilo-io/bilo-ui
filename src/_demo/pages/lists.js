@@ -53,10 +53,10 @@ export default class Lists extends Component {
                 } />
                 <CodeDemo title='List with Icon' code={
                     <List 
-                    hasIcons
-                    items={ options }
-                    onClick={this.clickHandler}
-                    onChange={this.changeHandler}
+                        hasIcons
+                        items={ options }
+                        onClick={this.clickHandler}
+                        onChange={this.changeHandler}
                     />
                 } />
                 <CodeDemo title='List with Checkbox' code={
