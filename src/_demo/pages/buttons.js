@@ -1,7 +1,7 @@
 import React, { Component }  from 'react'
 import Button from '../../components/button'
 import CodeDemo from '../../components/code-demo'
-import { Icon } from '../../components'
+import { Icon } from '../../../'
 
 export default class Buttons extends Component {
     render() {

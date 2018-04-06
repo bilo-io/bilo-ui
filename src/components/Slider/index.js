@@ -25,3 +25,5 @@ export const Slider = (props) => {
             onChange={ onChange }/>
     )
 }
+
+export default Slider

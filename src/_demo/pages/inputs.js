@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
-import {If, Button, Icon, Loader, LoaderType} from '../../components';
+import {
+    Button,
+    Icon,
+    If,
+    Input,
+    Loader,
+    LoaderType,
+    MultiSlider,
+    Slider,
+    Switch,
+} from '../../../'
 import CodeDemo from '../../components/code-demo'
-import { Slider } from '../../components/Slider'
-import { MultiSlider } from '../../components/multi-slider'
-import { Input } from '../../components/input'
+
 
 export default class Inputs extends Component {
     state = {
@@ -23,6 +31,7 @@ export default class Inputs extends Component {
         return (
             <div className='ws-card'>
                 <h2>Inputs</h2>
+                <Switch />
                 <CodeDemo title={`Ranges`} code={ 
                     <div>
                         <Slider 
@@ -87,6 +96,9 @@ export default class Inputs extends Component {
                             </label>
                         </div>
                     </div>
+                } />
+                <CodeDemo title='Switches' code={
+                    <Switch />
                 }/>
                 <CodeDemo title={`Radio`} code={
                     <div

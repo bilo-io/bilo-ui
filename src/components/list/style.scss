@@ -1,0 +1,27 @@
+@import '../../bilo-ui.scss';
+
+.list-container {
+  background: white;
+  $list-size: 0.5em;
+  .item {
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
+    padding: $list-size;
+    width: calc(100% - 2 * #{$list-size});
+    border-bottom: 1px solid rgba(grey, 0.3);
+    &:hover {
+      color: $col-active;
+      background: rgba($col-active, 0.1);
+    }
+
+    .checkbox {
+      margin-right: 1em;
+    }
+
+    .icon {
+      margin-right: 1em;
+    }
+  }
+}

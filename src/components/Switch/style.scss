@@ -1,5 +1,6 @@
-// @import '../../../../styles/index.scss';
+// @import '../../bilo-ui.scss';
 
+$col-active: #00adee;
 $dim-switch-width: 60px;
 $dim-switch-height: 26px;
 .switch {
@@ -9,12 +10,16 @@ $dim-switch-height: 26px;
     height: $dim-switch-height;
 }
 
+
 /* Hide default HTML checkbox */
+
 .switch input {
-    display: none;
+    // display: none;
 }
 
+
 /* The slider */
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -54,7 +59,9 @@ input:checked+.slider:before {
     transform: translateX($dim-switch-height);
 }
 
+
 /* Rounded sliders */
+
 .slider.round {
     border-radius: $dim-switch-height;
 }

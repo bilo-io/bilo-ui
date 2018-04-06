@@ -1,0 +1,41 @@
+@import '../../bilo-ui.scss';
+
+.badges {
+  position: relative;
+  width: 100%;
+  min-height: 2em;
+  // padding: 1em;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+}
+.badge {
+  height: 2em;
+  width: auto;
+  margin: 0.25em;
+  padding: {
+    left: 1em;
+    right: 0.5em;
+    top: 0.25em;
+    bottom: 0.25em;
+  }
+  border-radius: 1rem;
+  color: white;
+  background-color: #00adee;
+
+  &:hover {
+    color: $col-active;
+    background-color: white;
+  }
+
+  .close {
+    position: relative;
+    right: 0;
+    margin-left: 1em;
+    cursor: pointer;
+    &:hover {
+      color: $col-active;
+      background-color: white;
+    }
+  }
+}
