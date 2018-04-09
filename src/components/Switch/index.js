@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react';
 import './style.scss'
 
-export default class Switch extends React.Component {
+export class Switch extends Component {
     render() {
         const { isRound, isChecked, onChange } = this.props
         const defaultOnChange = onChange ? onChange : (e) => console.log('switch not handling ', e.target.value) 
@@ -12,4 +12,6 @@ export default class Switch extends React.Component {
             </label>
          )
      }
- }
+}
+ 
+export default Switch

@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react';
 import './style.scss';
 
-export default class Loader extends React.Component {
+export class Loader extends Component {
     constructor(props) {
         super(props)
     }
@@ -44,3 +44,5 @@ export const FullScreenLoader = (props) => (
         <div id='loader'></div>
     </div>
 )
+
+export default Loader

@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import {AppTopBar, AppSidenav, AppBody, Icon} from '../components'
 import BiloUI from './pages/'
 require('./app.scss');
 
-export class App extends React.Component {
+export class App extends Component {
     componentWillMount() {
         this.setState({
         })

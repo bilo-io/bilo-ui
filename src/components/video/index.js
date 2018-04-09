@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-export default class Video extends React.Component {
+export class Video extends Component {
     render() {
         const { src, width, height, type } = this.props
         return (
@@ -14,3 +14,5 @@ export default class Video extends React.Component {
         )
     }
 }
+
+export default Video

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 require('./style.scss');
 
 export const AppSidenav = (props) => {

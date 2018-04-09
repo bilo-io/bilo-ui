@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
-import Badges from '../../components/badges'
-import CodeDemo from '../../components/code-demo'
-import Select from '../../components/select'
-import List from '../../components/list'
+// import Badges from '../../components/badges'
+// import CodeDemo from '../../components/code-demo'
+// import List from '../../components/list'
+import {
+    Badges,
+    CodeDemo,
+    List
+} from '../../components'
 
 export class Lists extends Component {
     state = {
@@ -51,7 +55,7 @@ export class Lists extends Component {
                             />
                     </span>    
                 } />
-                {/* <CodeDemo title='List with Icon' code={
+                <CodeDemo title='List with Icon' code={
                     <List 
                         hasIcons
                         items={ options }
@@ -74,7 +78,7 @@ export class Lists extends Component {
                         onClick={this.clickHandler}
                         onChange={this.changeHandler}
                     />
-                }/> */}
+                }/>
             </div>
         )
     }

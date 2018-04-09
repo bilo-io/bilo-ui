@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Loader, {LoaderType} from '../../components/loader';
 require('./style.scss');
 var axios = require('axios');
@@ -21,7 +21,7 @@ marked.setOptions({
     }
 })
 
-export default class MDReader extends React.Component {
+export default class MDReader extends Component {
     constructor(props) {
         super(props);
     }

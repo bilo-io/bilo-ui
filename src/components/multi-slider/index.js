@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 
 export const MultiSlider = (props) => {
@@ -40,3 +40,4 @@ export const MultiSlider = (props) => {
     )
 }
 
+export default MultiSlider

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import style from './style.scss';
 
 export const Search = (props) => {

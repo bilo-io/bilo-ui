@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import List from '../list'
 
-export default class Select extends Component {
+export class Select extends Component {
     render() {
         const { multiple } = this.props
         return (
@@ -11,3 +11,5 @@ export default class Select extends Component {
         )
     }
 }
+
+export default Select

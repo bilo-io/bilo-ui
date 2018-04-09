@@ -1,0 +1,32 @@
+@import '../../bilo-ui.scss';
+
+.tree{
+  position: relative;
+  background: white;
+  color: black;
+  font-size: 12px;
+
+  .leaf {
+    cursor: pointer;
+    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+
+    &:hover {
+      background-color: rgba($col-active, 0.3);
+      color: $col-active;
+    }
+    
+    .leaf-icon {
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+    
+    .no-icon {
+      margin-right: 1em;
+    }
+
+  }
+}

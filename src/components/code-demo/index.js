@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Icon } from '../'
 import './style.scss'
 import Highlight from 'react-highlight.js'
 import jsxToString from 'jsx-to-string-2'
 
-export default class CodeDemo extends React.Component {
+export class CodeDemo extends Component {
     state = {
         isOpen: false
     }
@@ -52,3 +52,5 @@ export default class CodeDemo extends React.Component {
         ) : null
     }
 }
+
+export default CodeDemo

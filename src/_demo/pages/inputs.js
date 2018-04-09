@@ -7,9 +7,8 @@ import {
     Loader,
     LoaderType,
     MultiSlider,
-    Slider,
-    Switch,
-} from '../../components/'
+    Slider
+} from '../../components'
 import CodeDemo from '../../components/code-demo'
 
 
@@ -31,7 +30,7 @@ export default class Inputs extends Component {
         return (
             <div className='ws-card'>
                 <h2>Inputs</h2>
-                <Switch />
+                {/* <Switch /> */}
                 <CodeDemo title={`Ranges`} code={ 
                     <div>
                         <Slider 
@@ -97,9 +96,9 @@ export default class Inputs extends Component {
                         </div>
                     </div>
                 } />
-                <CodeDemo title='Switches' code={
+                {/* <CodeDemo title='Switches' code={
                     <Switch />
-                }/>
+                }/> */}
                 <CodeDemo title={`Radio`} code={
                     <div
                             style={{

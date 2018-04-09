@@ -12,6 +12,7 @@ import Lists from './lists'
 import Loaders from './loaders'
 import Media from './media'
 import Time from './time'
+import Trees from './trees'
 import './style.scss'
 import { Link } from 'react-router-dom'
 
@@ -41,6 +42,7 @@ export default class BiloUI extends Component {
             'media',
             'modals',
             'time',
+            'trees',
         ]
         const { activePage } = this.state
         return (
@@ -82,10 +84,8 @@ export default class BiloUI extends Component {
                         <Loaders />  
                         <Media />    
                         <Time />
+                        <Trees />
                     </If>    
-                    <If isTrue={activePage === 'time'}>
-                        <Time />
-                    </If>
                     <If isTrue={activePage === 'application'}>
                         <Application />
                     </If>
@@ -113,11 +113,17 @@ export default class BiloUI extends Component {
                     <If isTrue={activePage === 'lists'}>
                         <Lists />
                     </If>
+                    <If isTrue={activePage === 'loaders'}>
+                        <Loaders />
+                    </If>
                     <If isTrue={activePage === 'media'}>
                         <Media />
                     </If> 
-                    <If isTrue={activePage === 'loaders'}>
-                        <Loaders />
+                    <If isTrue={activePage === 'time'}>
+                        <Time />
+                    </If>
+                    <If isTrue={activePage === 'trees'}>
+                        <Trees />
                     </If>
                 </div>
             </div>

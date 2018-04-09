@@ -1,5 +1,10 @@
 @import '../../bilo-ui.scss';
 
+.scroll {
+  max-height: 10em;
+  overflow: hidden;
+  overflow-y: auto;
+}
 .list-container {
   background: white;
   $list-size: 0.5em;

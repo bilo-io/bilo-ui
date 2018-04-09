@@ -11,16 +11,16 @@
     "deploy": "npm unlink && npm build && npm publish",
     "prepublish": "npm run build",
     "start": "osascript ./scripts/dev_and_demo.scpt",
+    "serve": "node ./artifact/server.js",
     "dev": "webpack -p --colors -w",
     "dev:demo": "webpack-dev-server -w --color --inline --progress --config webpack.demo.config.js",
+    "dev:all": "yarn start",
     "build": "webpack -p",
     "build:demo": "webpack -p --config webpack.demo.config.js && mkdir artifact && cp server.js ./artifact && cp -r ./demo ./artifact",
-    "build:docs": "webpack -p --config webpack.docs.config.js",
-    "serve": "node ./artifact/server.js",
+    "build:all": "yarn build && yarn build:demo",
     "clean": "rm -rf artifact && rm -rf dist",
-    "clean:docs": "rm -rf ./index.html && rm -rf ./assets && rm -rf ./docs.js",
     "clean:demo": "rm -rf ./demo",
-    "clean:all": "npm run clean && npm run clean:docs && npm run clean demo"
+    "clean:all": "yarn clean && yarn clean:demo"
   },
   "repository": {
     "type": "git",

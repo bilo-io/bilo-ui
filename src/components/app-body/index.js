@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react';
 import './style.scss'
 
 export const AppBody = (props) => {

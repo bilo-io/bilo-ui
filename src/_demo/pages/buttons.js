@@ -1,7 +1,5 @@
 import React, { Component }  from 'react'
-// import Button from '../../components'
-// import CodeDemo from '../../components'
-import { Button, CodeDemo, Icon } from '../../components'
+import { Button, CodeDemo, Icon } from '../../'
 
 export default class Buttons extends Component {
     render() {
@@ -56,7 +54,6 @@ export default class Buttons extends Component {
                         </Button>
                     </div>
                 } />
-                
                 <CodeDemo title='Rounded' code={
                     <div>
                         <Button className='primary rounded'>
@@ -73,7 +70,6 @@ export default class Buttons extends Component {
                         </Button>
                     </div>
                 } />
-                
                 <CodeDemo title='Rounded' code={
                     <div>
                         <Button className='primary filled'>

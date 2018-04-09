@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import L from 'leaflet';
 import './style.scss';
 
@@ -6,7 +6,7 @@ var map = {}
 var pointLayer = [];
 var lineLayer = [];
 
-export default class Map extends React.Component {
+export default class Map extends Component {
     constructor(props) {
         super(props)
     }

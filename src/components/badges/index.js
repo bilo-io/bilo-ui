@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Icon, If } from '../../components'
 import './style.scss'
 
-export default class Badges extends Component {
+export class Badges extends Component {
     onClose = (i, item) => () => {
         this.props.onClose(i, {
             ...item,
@@ -10,11 +10,17 @@ export default class Badges extends Component {
         })
     }
     render() {
-        const { onChange, onClose, items } = this.props
+        const {
+            hint,
+            items,
+            onChange,
+            onClose
+        } = this.props
         return (
             <div className='badges'>
                 {
-                    (items || []).map((item, i) =>
+                    items.length
+                        ? items.map((item, i) =>
                         <If key={`badge-${i}`} isTrue={item.isOn}>
                             <span
                                 className='badge'>
@@ -24,10 +30,12 @@ export default class Badges extends Component {
                                 <Icon name='times' />
                             </span>
                             </span>
-                        </If>
-                    )
+                        </If>)
+                        : <span>{hint}</span>
                 }
             </div>
         )
     }
 }
+
+export default Badges

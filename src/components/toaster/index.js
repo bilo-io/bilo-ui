@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 export const Toaster = (props) => {
     return (

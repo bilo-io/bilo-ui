@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-export default class Audio extends React.Component {
+export class Audio extends Component {
     render() {
         const { src, style, width, height, type } = this.props
         return (
@@ -10,3 +10,5 @@ export default class Audio extends React.Component {
         )
     }
 }
+
+export default Audio

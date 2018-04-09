@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Icon } from '../icon'
 import './style.scss'
 
-export default class List extends Component {
+export class List extends Component {
     onClick = (index, item) => () => {
         const { multiple, onClick, onChange } = this.props
         if (multiple) {
@@ -22,9 +22,15 @@ export default class List extends Component {
         })
     }
     render() {
-        const { items, onClick, multiple, hasIcons } = this.props
+        const {
+            items,
+            onClick,
+            multiple,
+            hasIcons,
+            scroll
+        } = this.props
         return (
-            <div className={`list-container`}>
+            <div className={`list-container ${scroll ? 'scroll':''}`}>
                 {
                     (items || []).map((item, i) =>
                         <div key={`list-item-${i}`}
@@ -55,3 +61,5 @@ export default class List extends Component {
         )
     }
 }
+
+export default List
