@@ -15,17 +15,20 @@ import Time from './time'
 import Trees from './trees'
 import './style.scss'
 import { Link } from 'react-router-dom'
+import propTypesToObject from '../../util/proptype-obj'
+import CodeDemo from '../../components/code-demo'
 
 export default class BiloUI extends Component {
     state = {
         activePage: 'files'
     }
     componentDidMount() {
-        console.log(this.props.location)
         const page = this.props.location.hash.slice(1)
-        console.log('hash: ', page)
         this.selectSection(page)
+        console.log('proptypes:', CodeDemo.propTypes)
+        // console.log('output:', propTypesToObject(CodeDemo.propTypes))
     }
+
     render() {
         const uiPages = [
             'all',

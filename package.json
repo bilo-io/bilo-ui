@@ -10,7 +10,7 @@
   "scripts": {
     "deploy": "npm unlink && npm build && npm publish",
     "prepublish": "npm run build",
-    "start": "osascript ./scripts/dev_and_demo.scpt",
+    "start": "bash ./scripts/dev_and_demo.sh",
     "serve": "node ./artifact/server.js",
     "dev": "webpack -p --colors -w",
     "dev:demo": "webpack-dev-server -w --color --inline --progress --config webpack.demo.config.js",
@@ -20,7 +20,8 @@
     "build:all": "yarn build && yarn build:demo",
     "clean": "rm -rf artifact && rm -rf dist",
     "clean:demo": "rm -rf ./demo",
-    "clean:all": "yarn clean && yarn clean:demo"
+    "clean:all": "yarn clean && yarn clean:demo",
+    "bump": "semver-bump"
   },
   "repository": {
     "type": "git",

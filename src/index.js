@@ -2,4 +2,4 @@ import './bilo-ui.scss';
 
 export * from './components'
 export * from './apis'
-export * from './utils'
+export * from './util'
