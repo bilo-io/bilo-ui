@@ -57,15 +57,15 @@ export class Tree extends Component {
 
     clickNode = (data) => () => {
         if (data.children) {
-            this.folderAction()
+            this.toggle()
         } else {
-            this.leafAction()
+            this.props.onClick(data)
         }
     }
 
     render() {
-        const { data, isOpen, depth, onClick } = this.props
-        const { tree } = this.state
+        const { data, depth, onClick } = this.props
+        const { tree, isOpen } = this.state
         let icon = this.icon(tree)
 
         return <div className='tree'>
