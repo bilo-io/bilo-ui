@@ -38,21 +38,30 @@ export const MyComponent = (props) => (
 )
 ```
 
-## Development
+## Setting up
 
-1) Get the library onto your local machine
-- `git clone https://github.com/bilo-io/bilo-ui.git`
+- `git clone http://github.com/bilo-io/bilo-ui` 
 - `cd ./bilo-ui`
-- `npm install`
+- `yarn`
+- `yarn dev`
+- `yarn dev:demo`
 
-2) Create symlinks
+> `dev:demo` recompiles the preview of the package, run on [http://localhost:3030](http://localhost:3030)
+> `dev` recompiles the package `bilo-ui` after each edit, useful when linking this package as a dependency locally
+## Symlinking
 
-- `npm link`
-- `npm run dev`
+- `yarn link` in this repository
+- `yarn dev`
 
-> To preview your changes, add this command:
-- `npm run dev:demo` ... preview running on [http://localhost:8080](http://localhost:8080)
+>NOTE: To link to your the local copy of `bilo-ui`, run `yarn link bilo-ui` in your project
 
->NOTE: To link to your the local copy of `bilo-ui`, run `npm link bilo-ui` in your project
+## Building & Releasing
 
+- `yarn build`
+- `yarn build:demo`
+- `yarn deploy`
+
+> `yarn build:all` builds both the preview (demo) and the npm package
+>
+> TODO: semver bumping for release process
 
