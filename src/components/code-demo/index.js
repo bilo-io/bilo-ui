@@ -19,12 +19,21 @@ const props = {
     functionNameOnly: PropTypes.bool,
     useFunctionCode: PropTypes.bool
 }
-const propTypeObject = propTypesToObject({propTypes: props})
-const propTypeDesc = propTypesToDescriptions({propTypes: props, data: docs.propTypes.CodeDemo})
+const propTypeObject = propTypesToObject({
+    propTypes: props
+})
+const propTypeDesc = propTypesToDescriptions({
+    propTypes: props,
+    data: docs.propTypes.CodeDemo
+})
 // TOD: merge these with a deep copy (e.g. 'deep-assing')
 const propTypeDocs = {
     ...propTypeObject,
-    // ...propTypeDesc
+    ...propTypeDesc,
+    propTypes: {
+        ...propTypeObject.propTypes,
+        ...propTypeDesc.propTypes
+    }
 }
 export class CodeDemo extends Component {
     static propTypes = {
