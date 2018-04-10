@@ -13,7 +13,7 @@
     "start": "bash ./scripts/dev_and_demo.sh",
     "serve": "node ./artifact/server.js",
     "dev": "webpack -p --colors -w",
-    "dev:demo": "webpack-dev-server -w --color --inline --progress --config webpack.demo.config.js",
+    "dev:demo": "webpack-dev-server -w --color --inline --progress --config webpack.docs.config.js",
     "dev:all": "yarn start",
     "build": "webpack -p",
     "build:demo": "yarn clean:demo && webpack -p --config webpack.docs.config.js && mv ./demo ./docs",
