@@ -4,9 +4,10 @@ import PropTypes from 'prop-types'
 import {Card, Icon} from '../'
 import './style.scss'
 // PropTypes
-import propTypesToObject from '../../util/proptype-obj'
-import propTypesToDescriptions from '../../util/proptype-desc';
-import docs from '../../util/proptypes'
+import PropTypeDocs from './'
+// import propTypesToObject from '../../util/proptype-obj'
+// import propTypesToDescriptions from '../../util/proptype-desc';
+// import docs from '../../util/proptypes'
 // Code
 import Highlight from 'react-highlight.js'
 import jsxToString from 'jsx-to-string-2'
@@ -19,22 +20,7 @@ const props = {
     functionNameOnly: PropTypes.bool,
     useFunctionCode: PropTypes.bool
 }
-const propTypeObject = propTypesToObject({
-    propTypes: props
-})
-const propTypeDesc = propTypesToDescriptions({
-    propTypes: props,
-    data: docs.propTypes.CodeDemo
-})
-// TOD: merge these with a deep copy (e.g. 'deep-assing')
-const propTypeDocs = {
-    ...propTypeObject,
-    ...propTypeDesc,
-    propTypes: {
-        ...propTypeObject.propTypes,
-        ...propTypeDesc.propTypes
-    }
-}
+
 export class CodeDemo extends Component {
     static propTypes = {
         ...props
@@ -44,14 +30,20 @@ export class CodeDemo extends Component {
     }
 
     componentDidMount() {
-        const {code, title, functionNameOnly, useFunctionCode} = this.props;
+        const {
+            code,
+            title,
+            functionNameOnly,
+            useFunctionCode,
+            propTypes
+        } = this.props;
         this.setState({
             codeString: jsxToString(code, {
                 // functionNameOnly: true,
                 useFunctionCode: true
             })
         })
-        console.log('proptypes', propTypeDocs)
+        // console.log('proptypes', propTypeDocs)
     }
 
     toggle() {
@@ -63,7 +55,7 @@ export class CodeDemo extends Component {
 
     render() {
         const {isOpen, codeString} = this.state;
-        const {code, title, language} = this.props;
+        const {code, title, language, propTypes} = this.props;
         return this.state && code
             ? (
                 <div
@@ -81,7 +73,11 @@ export class CodeDemo extends Component {
                             {code && isOpen
                                 ? <div>
                                     <Card>
-                                        <PropTypesDocs propTypes={propTypeDocs} />
+                                        {
+                                            props
+                                                ? <PropTypeDocs propTypes={this.props.propTypes} />
+                                                : null
+                                        }
                                     </Card>
                                     <Card>
                                         <Highlight language={language || 'html'}>
@@ -102,36 +98,4 @@ export class CodeDemo extends Component {
     }
 }
 
-export const PropTypesDocs = (props) => {
-    return <Table propTypes={props.propTypes}/>
-}
-
-const getRows = propTypes => Object
-    .keys(propTypes)
-    .map(prop => (
-        <tr key={prop}>
-            <td>{prop}</td>
-            <td><pre>{propTypes[prop].type}</pre></td>
-            <td>{propTypes[prop].required && propTypes[prop]
-                    .required
-                    .toString()}</td>
-            <td>{propTypes[prop].description}</td>
-        </tr>
-    ));
-
-const Table = ({propTypes}) => (
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Required?</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            {getRows(propTypes)}
-        </tbody>
-    </table>
-);
 export default CodeDemo
