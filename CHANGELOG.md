@@ -1,12 +1,4 @@
-## v0.0.12
+## v1.0.0
 
-- helloooo
-
-## v0.1.0
-
-- another one
-
-## v0.0.12
-
-- patch test
+- semver tool updating package & changelog
 
