@@ -1,0 +1,50 @@
+[core]
+	excludesfile = /Users/bilolwabona/.gitignore_global
+[difftool "gitkraken"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "gitkraken"]
+	cmd = /Applications/GitKraken.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Bilo Lwabona
+	email = bilo.lwabona@gmail.com
+[alias]
+	pl = pull origin
+	ps = push origin
+	rhh = reset HEAD --hard
+	cp = cherry-pick
+	st = status
+	sts = status -s
+	cl = clone
+	cm = commit -m
+	co = checkout
+	br = branch 
+	diff = diff --word-diff
+	dc = diff --cached
+	# http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+	# commits
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	# file log
+	filelog = log -u
+	fl = log -u
+	# last commit
+	dl = "!git ll -1"
+	dlc = diff --cached
+	# list aliases
+	alias = "!git config -l | grep alias | cut -c 7-"
+	la = "!git config -l | grep alias | cut -c 7-"
+	# stash
+	sl = stash list
+	sa = stash apply
+	ss = stash save
+	# tags
+	lasttag = describe --tags --abbrev=0
+	lt = describe --tags --abbrev=0
+	f = "!git ls-files | grep -i"
+  new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+
