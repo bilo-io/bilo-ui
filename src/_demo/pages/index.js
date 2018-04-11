@@ -45,7 +45,7 @@ export default class BiloUI extends Component {
             'media',
             'modals',
             'time',
-            'trees',
+            // 'trees',
         ]
         const { activePage } = this.state
         return (
