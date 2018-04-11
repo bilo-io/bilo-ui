@@ -1,4 +1,5 @@
 const colors = require('colors')
+const exec = require('child_process').exec;
 const fs = require('fs')
 const package = require('../package.json')
 const readline = require('readline');
@@ -21,13 +22,14 @@ rl.question(bumpQuestion, (answer) => {
     setNewVersion(Number(answer))
 })
 
-updateFile = (fileName, update) => {
+updateFile = (fileName, update, callback) => {
     fs.readFile(fileName, (err, data) => {
         fs.writeFile(fileName, `${update}\n\n${data}`, 'utf8', (err) => {
             if (err) {
                 console.err('could not update changelog')
                 process.exit(1)
             }
+            callback()
         })
     })
 }
@@ -35,8 +37,9 @@ updateFile = (fileName, update) => {
 updateChangeLog = (newVersion) => {
     rl.question(bumpMessage, (answer) => {
         const updateMessage = `## v${newVersion}\n\n- ${answer}`
-        updateFile('CHANGELOG.md', updateMessage)
-        updatePackage(package.version, newVersion)
+        updateFile('CHANGELOG.md', updateMessage, () => {
+            updatePackage(package.version, newVersion)
+        })
         rl.close()
     })
 }
@@ -52,6 +55,7 @@ updatePackage = (oldVersion, newVersion) => {
             if (err) {
                 console.err('could not update package.json\n\n'.red, err)
             }
+            pushBump()
             console.log(`\n- "version": "${package.version}"`.red + `\n+ "version": "${newVersion}"\n`.green)
         })
     })
@@ -78,4 +82,22 @@ setNewVersion = (bumpType) => {
     console.log(`\n- ${package.version}`.red + `\n+ ${newVersion}\n`.green)
 
     updateChangeLog(newVersion)
+}
+
+pushBump = () => {
+    exec(`git add -u`, (err, stdout, stderr) => {
+        if (err) {
+            process.exit(1)
+        }
+        exec(`git commit -m "version bump: v${package.version}"`, (err, stdout, stderr) => {
+            if (err) {
+                process.exit(1)
+            }
+            exec(`git push origin master`, (err, stdout, stderr) => {
+                if (err) {
+                    process.exit(1)
+                }
+            })
+        })
+    })
 }
