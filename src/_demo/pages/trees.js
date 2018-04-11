@@ -81,8 +81,8 @@ export class Trees extends Component {
             ]
         }
     }
-    treeClickAction = (item) => () => {
-        console.log('leaf clicked: ', item)
+    treeClickAction = (item, i) => {
+        console.log('clicked: ', item, i)
     }
     render() {
         const {treeData} = this.state;
@@ -90,6 +90,8 @@ export class Trees extends Component {
             <Tree
                 data={treeData}
                 depth={0}
+                index={0}
+                path={[]}
                 onClick={this.treeClickAction}/>
         </div>
     }

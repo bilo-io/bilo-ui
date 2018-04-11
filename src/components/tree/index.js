@@ -1,10 +1,19 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import {Icon, Loader, LoaderType} from '../'
 import './style.scss'
 
 export class Tree extends Component {
     componentWillMount() {
         const { data, isOpen } = this.props
+        const tree = this.buildTree(data)
+        this.setState({
+            ...this.state,
+            tree
+        }, () => console.log(tree))
+    }
+    componentWillReceiveProps(nextProps, nextState) {
+        const { data } = nextProps
         const tree = this.buildTree(data)
         this.setState({
             ...this.state,
@@ -28,8 +37,8 @@ export class Tree extends Component {
         // Folder
         if (treeNode.children) {
             return treeNode.isOpen
-            ? <Icon name='folder-open'/>
-            : <Icon name='folder'/>
+            ? <Icon name='angle-down'/>
+            : <Icon name='angle-right'/>
         }
         // Status Icon
         switch (treeNode.status) {
@@ -47,24 +56,23 @@ export class Tree extends Component {
     }
 
     toggle = () => {
-        console.log('toggling:', this.state)
         this.props.onClick()
         this.setState({
             ...this.state,
             isOpen: !this.state.isOpen
-        }, console.log(this.state))
+        }, console.log('toggled', this.state))
     }
 
-    clickNode = (data) => () => {
+    clickNode = (data, i) => () => {
         if (data.children) {
-            this.toggle()
+            this.toggle(i)
         } else {
-            this.props.onClick(data)
+            this.props.onClick(data, [...this.props.path,i])
         }
     }
 
     render() {
-        const { data, depth, onClick } = this.props
+        const { data, depth, onClick, index, path } = this.props
         const { tree, isOpen } = this.state
         let icon = this.icon(tree)
 
@@ -73,8 +81,10 @@ export class Tree extends Component {
                 key={`node`}
                 icon={icon}
                 data={tree}
+                path={path}
+                index={index}
                 depth={depth}
-                onClick={ this.clickNode(tree) }
+                onClick={ this.clickNode(tree, index) }
             />
             {(tree.isOpen) && (tree.children || []).map((node, i) => {
                 icon = this.icon(node)
@@ -83,16 +93,19 @@ export class Tree extends Component {
                         key={i}
                         data={node}
                         depth={depth + 1}
+                        index={ i }
+                        path={[...path, i]}
                         isOpen={node.isOpen}
-                        onClick={this.clickNode}
+                        onClick={this.props.onClick}
                     />
                     : <TreeNode
                         key={i}
                         data={node}
+                        path={[...path, index]}
                         depth={depth + 1}
                         icon={icon}
-                        onClick={this.clickNode(node)}
                         isOpen={node.isOpen}
+                        onClick={this.clickNode(node, i)}
                     />
             })}
         </div>

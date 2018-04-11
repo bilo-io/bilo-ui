@@ -3,10 +3,11 @@ import './style.scss';
 
 export default class Now extends Component {
     render() {
+        const { date } = this.props
         return (
             <div className='time-now'>
                 {/* {this.getFullDate()} */}
-                {Date.now()}
+                {date}
             </div>
         )
     }
