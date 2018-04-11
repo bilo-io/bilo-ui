@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './style.scss'
 
-export default class AppToaster extends Component {
+export class AppToaster extends Component {
     constructor(props) {
         super(props)
         this.toasts = []
@@ -63,3 +63,5 @@ export const addToast = (context, text, type) => {
         }
     }))
 }
+
+export default AppToaster

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-export default class Catch extends Component {
+export class Catch extends Component {
     static propTypes = {
     }
     state = {
@@ -26,3 +26,5 @@ export default class Catch extends Component {
         )
     }
 }
+
+export default Catch
