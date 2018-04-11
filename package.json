@@ -1,6 +1,6 @@
 {
   "name": "bilo-ui",
-  "version": "1.0.0",
+  "version": "0.0.12",
   "description": "XUI is a set of experimental ui elements and utilities for frontend web development.",
   "main": "dist/index.js",
   "engines": {},
@@ -19,7 +19,8 @@
     "clean": "rm -rf artifact && rm -rf dist",
     "clean:demo": "rm -rf ./demo",
     "clean:all": "yarn clean && yarn clean:demo",
-    "bump": "node ./scripts/semver.js"
+    "bump": "node ./scripts/semver.js",
+    "release": "node ./scripts/command.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "child_process": "^1.0.2",
     "colors": "^1.2.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
