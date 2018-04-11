@@ -55,7 +55,7 @@ updatePackage = (oldVersion, newVersion) => {
             if (err) {
                 console.err('could not update package.json\n\n'.red, err)
             }
-            pushBump()
+            pushBump(newVersion)
             console.log(`\n- "version": "${package.version}"`.red + `\n+ "version": "${newVersion}"\n`.green)
         })
     })
@@ -84,12 +84,12 @@ setNewVersion = (bumpType) => {
     updateChangeLog(newVersion)
 }
 
-pushBump = () => {
+pushBump = (newVersion) => {
     exec(`git add -u`, (err, stdout, stderr) => {
         if (err) {
             process.exit(1)
         }
-        exec(`git commit -m "version bump: v${package.version}"`, (err, stdout, stderr) => {
+        exec(`git commit -m "version bump: v${newVersion}"`, (err, stdout, stderr) => {
             if (err) {
                 process.exit(1)
             }
