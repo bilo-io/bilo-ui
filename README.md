@@ -42,10 +42,11 @@ export const MyComponent = (props) => (
 - `cd ./bilo-ui`
 - `yarn`
 - `yarn dev`
-- `yarn dev:demo`
+- `yarn dev:docs`
 
-> `dev:demo` recompiles the preview of the package, run on [http://localhost:3030](http://localhost:3030)
+> `dev:docs` recompiles the preview of the package, run on [http://localhost:3030](http://localhost:3030)
 > `dev` recompiles the package `bilo-ui` after each edit, useful when linking this package as a dependency locally
+
 ## Symlinking
 
 - `yarn link` in this repository
@@ -56,10 +57,10 @@ export const MyComponent = (props) => (
 ## Building & Releasing
 
 - `yarn build`
-- `yarn build:demo`
+- `yarn build:docs`
 - `yarn deploy`
 
-> `yarn build:all` builds both the preview (demo) and the npm package
+> `yarn build:all` builds both the preview (docs) and the npm package
 >
 > TODO: semver bumping for release process
 
