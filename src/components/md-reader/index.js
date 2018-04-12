@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import Loader, {LoaderType} from '../../components/loader';
 require('./style.scss');
 var axios = require('axios');
@@ -21,7 +22,15 @@ marked.setOptions({
     }
 })
 
+export const propTypesMDReader = {
+    markdown: PropTypes.string,
+    url: PropTypes.string
+}
+
 export default class MDReader extends Component {
+    static propTypes = {
+        ...propTypesMDReader
+    }
     constructor(props) {
         super(props);
     }

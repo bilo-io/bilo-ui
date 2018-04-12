@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Icon } from '../icon'
 import './style.scss'
 
+export const propTypesList = {
+    items: PropTypes.array,
+    onClick: PropTypes.func,
+    multiple: PropTypes.bool,
+    hasIcons: PropTypes.bool,
+    scroll: PropTypes.bool
+}
 export class List extends Component {
+    static propTypes = {
+        ...propTypesList
+    }
     onClick = (index, item) => () => {
         const { multiple, onClick, onChange } = this.props
         if (multiple) {

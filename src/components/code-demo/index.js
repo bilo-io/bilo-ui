@@ -3,16 +3,11 @@ import PropTypes from 'prop-types'
 // import deepAssign from 'deep-assign'
 import {Card, Icon} from '../'
 import './style.scss'
-// PropTypes
-import PropTypeDocs from './'
-// import propTypesToObject from '../../util/proptype-obj'
-// import propTypesToDescriptions from '../../util/proptype-desc';
-// import docs from '../../util/proptypes'
 // Code
 import Highlight from 'react-highlight.js'
 import jsxToString from 'jsx-to-string-2'
 
-const props = {
+const propTypesCodeDemo = {
     title: PropTypes.string,
     isOpen: PropTypes.bool,
     code: PropTypes.object,
@@ -23,7 +18,7 @@ const props = {
 
 export class CodeDemo extends Component {
     static propTypes = {
-        ...props
+        ...propTypesCodeDemo
     }
     state = {
         isOpen: false
@@ -34,16 +29,14 @@ export class CodeDemo extends Component {
             code,
             title,
             functionNameOnly,
-            useFunctionCode,
-            propTypes
+            useFunctionCode
         } = this.props;
+
         this.setState({
             codeString: jsxToString(code, {
-                // functionNameOnly: true,
                 useFunctionCode: true
             })
         })
-        // console.log('proptypes', propTypeDocs)
     }
 
     toggle() {
@@ -71,24 +64,17 @@ export class CodeDemo extends Component {
                         <br/>
                         <div className='code-block'>
                             {code && isOpen
-                                ? <div>
-                                    <Card>
+                                ? <Card>
+                                    <Highlight language={language || 'html'}>
                                         {
-                                            props
-                                                ? <PropTypeDocs propTypes={this.props.propTypes} />
-                                                : null
-                                        }
-                                    </Card>
-                                    <Card>
-                                        <Highlight language={language || 'html'}>
-                                            {codeString
+                                            codeString
                                                 ? codeString
-                                                : ''}
-                                        </Highlight>
-                                    </Card>
-                                </div>
+                                                : ''
+                                        }
+                                    </Highlight>
+                                </Card>
                                 : null
-}
+                        }
                         </div>
                     </div>
                     {code}

@@ -1,10 +1,16 @@
 import React, {Component} from 'react'
-
+import PropTypes from 'prop-types'
 import Button from '../../components/button'
 import Icon from '../../components/icon'
 import If from '../../components/if'
 
+export const propTypesCollapsible = {
+    label: PropTypes.string
+}
 export default class Collapsible extends Component {
+    static propTypes = {
+        ...propTypesCollapsible
+    }
     state = {
         isOpen: false
     }

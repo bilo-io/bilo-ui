@@ -15,7 +15,6 @@ import Time from './time'
 import Trees from './trees'
 import './style.scss'
 import { Link } from 'react-router-dom'
-import propTypesToObject from '../../util/proptype-obj'
 import CodeDemo from '../../components/code-demo'
 
 export default class BiloUI extends Component {

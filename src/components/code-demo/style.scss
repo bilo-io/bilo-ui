@@ -1,18 +1,5 @@
 @import '~highlight.js/styles/vs2015.css';
-// PropType Table
-table {
-  position: relative;
-  width: 100%;
-}
-tr {
-  line-height: 1.5;
-  text-indent: 1em;
-}
-tbody tr:nth-child(odd){
-  background-color: rgba(grey, 0.1);
-  color: #fff;
-}
-// Code Demo
+
 .code-demo {
     margin-bottom: 2em;
     .toggle {

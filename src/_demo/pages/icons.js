@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
-import {Button, Icon, Loader, LoaderType} from '../../'
+import { Button, Icon, propTypesIcon, Loader, LoaderType } from '../../'
+import docs from '../../util/proptypes'
 import CodeDemo from '../../components/code-demo'
+import PropTypes from '../../components/prop-type-docs'
 
 export default class Icons extends Component {
+    componentWillMount() {
+        console.log(propTypesIcon, docs.propTypes.Icon)
+    }
     render() {
         return (
             <div className='ws-card'>
                 <h2>Icons</h2>
                 
-                    <div>
+                <div>
+                        <PropTypes propTypes={propTypesIcon} docs={docs.propTypes.Icon} />
                         <CodeDemo title='social media' code={ 
                             <div>
                                 <Icon name={'google'} style={{ padding: '1em' }} />
@@ -42,7 +48,6 @@ export default class Icons extends Component {
                             </div>
                         }/>
                     </div>
-                 } />
             </div>
         )
     }

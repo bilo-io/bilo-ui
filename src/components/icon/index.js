@@ -1,36 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-const props = {
-    name: PropTypes.string,
-    color: PropTypes.string,
-    className: PropTypes.string,
-    style: PropTypes.string,
-    size: PropTypes.string,
-    transform: PropTypes.string,
+
+export const propTypesIcon = {
     animation: PropTypes.string,
     animEvent: PropTypes.string,
-    onClick: PropTypes.func
+    className: PropTypes.string,
+    color: PropTypes.string,
+    name: PropTypes.string,
+    onClick: PropTypes.func,
+    size: PropTypes.string,
+    style: PropTypes.object,
+    transform: PropTypes.string,
 }
 export class Icon extends React.Component {
+    static propTypes = {
+        ...propTypesIcon
+    }
     render() {
         const {
-            name,
-            color,
-            className,
-            style,
-            size,
-            transform,
             animation,
             animEvent,
-            onClick
-        } = props;
+            className,
+            color,
+            name,
+            onClick,
+            size,
+            style,
+            transform,
+        } = this.props;
             
-            const customStyle = {
-                ...style,
-                color
-            }
-            return (
-                <i
+        const customStyle = {
+            ...style,
+            color
+        }
+        return (
+            <i
                 style={customStyle}
                 onClick={onClick}
                 className={
@@ -48,9 +52,10 @@ export class Icon extends React.Component {
                             ? '-' + animEvent
                             : ''}`
                         : ''}`
-                } />
-            )
-        }
+                }
+            />
+        )
+    }
 }
 
 export default Icon;

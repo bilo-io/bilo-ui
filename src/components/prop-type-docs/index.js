@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
-import propTypesToObject from '../../util/proptype-obj'
-import propTypesToDescriptions from '../../util/proptype-desc'
+import propTypesToObject from './getObject'
+import propTypesToDescriptions from './getDescription'
 import docs from '../../util/proptypes'
 
 export default class PropTypeDocs extends Component {
     componentWillMount() {
         const propTypeObject = propTypesToObject({
-            propTypes: props
+            propTypes: this.props.propTypes
         })
         const propTypeDesc = propTypesToDescriptions({
-            propTypes: props,
-            data: docs.propTypes.CodeDemo
+            propTypes: this.props.propTypes,
+            data: this.props.docs
         })
         // TOD: merge these with a deep copy (e.g. 'deep-assing')
         const propTypeDocs = {

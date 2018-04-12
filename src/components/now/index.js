@@ -1,7 +1,14 @@
-import React, { Component }  from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './style.scss';
 
+export const propTypesNow = {
+    date: PropTypes.object
+}
 export default class Now extends Component {
+    static propTypes = {
+        ...propTypesNow
+    }
     render() {
         const { date } = this.props
         return (

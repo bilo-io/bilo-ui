@@ -1,29 +1,41 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 import './style.scss'
 
-export const Slider = (props) => {
-    const { min, max, step, defaultValue, onChange, className, style } = props
-    Slider.propTypes = {
-        min: PropTypes.number,
-        max: PropTypes.number,
-        step: PropTypes.number,
-        defaultValue: PropTypes.number,
-        onChange: PropTypes.func,
-        className: PropTypes.object,
-        style: PropTypes.object
+export const propTypesSlider = {
+    className: PropTypes.object,
+    defaultValue: PropTypes.number,
+    max: PropTypes.number,
+    min: PropTypes.number,
+    onChange: PropTypes.func,
+    step: PropTypes.number,
+    style: PropTypes.object
+}
+export class Slider extends Component {
+    static propTypes = {
+        ...propTypesSlider
     }
-    return (
-        <input
+    render() {
+        const {
+            className,
+            defaultValue,
+            max,
+            min,
+            onChange,
+            step,
+            style
+        } = this.props
+        return (<input
             type='range'
-            style={ style }
-            className={ className }
-            min={ min }
-            max={ max }
-            step={ step }
-            defaultValue={ defaultValue }
-            onChange={ onChange }/>
-    )
+            className={className}
+            defaultValue={defaultValue}
+            min={min}
+            max={max}
+            onChange={onChange}
+            step={step}
+            style={style}
+        />)
+    }
 }
 
 export default Slider

@@ -1,14 +1,22 @@
-import React, { Component } from 'react';
-import './style.scss';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import './style.scss'
 
+export const propTypesLoader = {
+    type: PropTypes.string,
+    loading: PropTypes.bool
+}
 export class Loader extends Component {
+    static propTypes = {
+        ...propTypesLoader
+    }
     constructor(props) {
         super(props)
     }
 
     render() {
-        let loaderType = this.props.type || LoaderType.SPINNER;
-        let loading = this.props.loading;
+        const { loading, type } = this.props
+        let loaderType = type || LoaderType.SPINNER
         switch (loaderType) {
             case LoaderType.SPINNER:
                 return <Spinner />    
@@ -17,6 +25,7 @@ export class Loader extends Component {
             case LoaderType.FULLSCREEN:
                 return <FullScreenLoader/>
             default:
+                console.warn(`<Loader />: couldn't find loader with type: "${loaderType}"`)    
                 return (
                     <div>Loading...</div>
                 )

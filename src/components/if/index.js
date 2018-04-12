@@ -1,11 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-export const If = (props) => {
-    return (
-        props.isTrue
-            ? props.children
-            : null
-    )
+export const propTypesIf = {
+    isTrue: PropTypes.bool.isRequired
+}
+export class If extends Component {
+    static propTypes = {
+        ...propTypesIf
+    }
+    render() {
+        return (
+            this.props.isTrue
+                ? this.props.children
+                : null
+        )
+    }
 }
 
-export default If;
+export default If
