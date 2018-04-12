@@ -1,6 +1,6 @@
-## v0.0.12
+## v0.0.13
 
-- still tweaking things
+- fixed time bug
 
 ## v0.0.12
 
