@@ -1,8 +1,8 @@
 # bilo-ui
 
-This is an [React](https://reactjs.org/) component library used for frontend web development.
+A [React](https://reactjs.org/) component library for frontend web dev.
 
-Demo available here: [https://bilo-io.github.io/bilo-ui](https://bilo-io.github.io/bilo-ui)
+#### [Live Demo](https://bilo-io.github.io/bilo-ui)
 
 ## Get started
 
@@ -17,24 +17,22 @@ npm install bilo-ui --save-dev
 import { Button, Card, If } from 'bilo-ui'
 
 export const MyComponent = (props) => (
-    <div>
-        <Card className='padded'>
-            <If isTrue={true}>
-                <Button className='primary' onClick={
-                        () => alert('bilo-ui button clicked')
-                }>
-                    Show dialog
-                </Button>
-            </If>
-            <If isTrue={false}>
-                <Button className='warning' onClick={
+    <Card className='padded'>
+        <If isTrue={true}>
+            <Button className='primary' onClick={
                     () => alert('bilo-ui button clicked')
-                }>
-                    Button should be invisible
-                </Button>
-            </If>
-        </Card>
-    </div>
+            }>
+                Show dialog
+            </Button>
+        </If>
+        <If isTrue={false}>
+            <Button className='warning' onClick={
+                () => alert('bilo-ui button clicked')
+            }>
+                Button should be invisible
+            </Button>
+        </If>
+    </Card>
 )
 ```
 
