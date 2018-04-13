@@ -1,16 +1,21 @@
+const style = 'An object, inline styling to be applied to the component'
+const className = 'A string, css classes to be appended to the existing'
+const onClick = 'A callback to trigger what happens after clicking the component: () => {}'
+const onChange = 'A callback to trigger what happens after the component changes: (e) => {}'
+
 export default {
     AppBody : {
         propTypes: {
-            className: 'PropTypes.string',
-            style: 'PropTypes.object'
+            className,
+            style
         }
     },
     AppSidenav : {
         propTypes: {
             style: 'PropTypes.string',
             className: 'PropTypes.string',
-            isOpen: 'PropTypes.bool',
-            fromRight: 'PropTypes.bool'
+            isOpen: 'A boolean to show, hide the sidenav component',
+            fromRight: 'Dictates whether the sidenav should open from the right (defaults to the left)'
         }
     },
     AppToaster : {
@@ -20,14 +25,15 @@ export default {
     },
     AppTopBar : {
         propTypes: {
-            style: 'PropTypes.object',
-            className: 'PropTypes.string'
+            className,
+            style
         }
     },
     Audio : {
         propTypes: {
             src: 'PropTypes.string',
-            style: 'PropTypes.object',
+            className,
+            style,
             width: 'PropTypes.string',
             height: 'PropTypes.string',
             type: 'PropTypes.string'
@@ -38,30 +44,30 @@ export default {
             closeable: 'PropTypes.bool',
             hint: 'PropTypes.string',
             items: 'PropTypes.array',
-            onChange: 'PropTypes.func',
+            onChange,
             onClose: 'PropTypes.func'
         }
     },
     Button : {
         propTypes: {
-            style: 'PropTypes.object',
-            className: 'PropTypes.string',
-            onClick: 'PropTypes.func'
+            className,
+            style,
+            onClick
         }
     },
     ButtonGroup : {
         propTypes: {
             alignment: 'PropTypes.string',
-            className: 'PropTypes.string',
-            style: 'PropTypes.object'
+            className,
+            style
         }
     },
     Card : {
         propTypes: {
-            className: 'PropTypes.string',
-            depth: 'PropTypes.string',
-            onClick: 'PropTypes.func',
-            style: 'PropTypes.object'
+            className,
+            depth: 'A number indicating the intensity of the box-shadow (values: [1,2,3,4,5])',
+            onClick,
+            style
         }
     },
     Catch : {
@@ -83,13 +89,14 @@ export default {
     },
     Dropdown : {
         propTypes: {
-            label: 'PropTypes.string',
-            options: 'PropTypes.array',
-            onChange: 'PropTypes.func'
+            label: 'The label for the dropdown (e.g. the name of the category of items)',
+            options: 'The actual items to appear in the dropdown',
+            onChange
         }
     },
     Icon : {
         propTypes: {
+            animation: 'A font-awesome animation (e.g. "spin")',
             isOpen: 'Determines whether the Component is expanded/visible.',
             color: 'The color of the icon',
             className: 'The classes to apply',
@@ -107,30 +114,31 @@ export default {
     },
     Input : {
         propTypes: {
-            className: 'PropTypes.string',
+            className,
             defaultValue: 'PropTypes.string',
+            value: 'PropTypes.string',
             label: 'PropTypes.string',
-            max: 'PropTypes.number',
-            min: 'PropTypes.number',
-            onChange: 'PropTypes.func',
-            placeholder: 'PropTypes.string',
-            type: 'PropTypes.string',
-            style: 'PropTypes.object'
+            max: 'For range inputs the maximum number',
+            min: 'For range inputs the minimum number',
+            onChange,
+            placeholder: 'The text indicating what should be entered',
+            type: 'The type of input (e.g. "text", "number", "password", etc.)',
+            style
         }
     },
     List : {
         propTypes: {
             items: 'PropTypes',
-            onClick: 'PropTypes',
-            multiple: 'PropTypes',
-            hasIcons: 'PropTypes',
-            scroll: 'PropTypes'
+            onClick,
+            multiple: 'To indicate whether multiple items in the list are selectable',
+            hasIcons: 'Dictates whether icons should be rendered for each item in the lest',
+            scroll: 'Dictates whether the list will scroll (in this case it will also get a max height)'
         }
     },
     Loader : {
         propTypes: {
-            type: 'PropTypes.string',
-            loading: 'PropTypes.bool'
+            type: 'A string to choose one of the default loaders (import LoaderType and use as "LoaderType.SPINNER")',
+            loading: 'A boolean that determines wether to show the loader'
         }
     },
     Map : {
@@ -142,8 +150,8 @@ export default {
     },
     MDReader : {
         propTypes: {
-            markdown: 'PropTypes.string',
-            url: 'PropTypes.string'
+            markdown: 'A string of markdown to render',
+            url: 'A link to the markdown file, which will be downloaded and rendered'
         }
     },
     MultiSlider : {
@@ -153,9 +161,9 @@ export default {
             step: 'PropTypes.number',
             defaultRange: 'PropTypes.array',
             defaultValue: 'PropTypes.number',
-            onChange: 'PropTypes.func',
-            className: 'PropTypes.object',
-            style: 'PropTypes.object'
+            onChange,
+            className,
+            style
         }
     },
     Now : {
@@ -168,14 +176,14 @@ export default {
     },
     Search : {
         propTypes: {
-            onChange: 'PropTypes.func',
+            onChange,
             placeholder: 'PropTypes.string',
             query: 'PropTypes.string',
             search: 'PropTypes.func',
             searchState: 'PropTypes.object',
             select: 'PropTypes.func',
             selection: 'PropTypes.object',
-            style: 'PropTypes.string',
+            style,
             suggestions: 'PropTypes.array',
             suggestionsOn: 'PropTypes.bool',
             tag: 'PropTypes.string',
@@ -192,16 +200,16 @@ export default {
             defaultValue: 'PropTypes.number',
             max: 'PropTypes.number',
             min: 'PropTypes.number',
-            onChange: 'PropTypes.func',
+            onChange,
             step: 'PropTypes.number',
-            style: 'PropTypes.object'
+            style
         }
     },
     Switch : {
         propTypes: {
             isRound: 'PropTypes.bool',
             isChecked: 'PropTypes.bool',
-            onChange: 'PropTypes.func'
+            onChange
         }
     },
     Time : {
@@ -209,21 +217,21 @@ export default {
     },
     Toaster : {
         propTypes: {
-            toasts: 'PropTypes.array'
+            toasts: 'An array of toasts to be rendered'
         }
     },
     Tree : {
         propTypes: {
             data: 'PropTypes.object',
-            depth: 'PropTypes.number',
-            onClick: 'PropTypes.func',
-            index: 'PropTypes.number',
-            path: 'PropTypes.array'
+            depth: 'A number indiating the level of nesting',
+            onClick,
+            index: 'The index of the specific tree node amongs it\'s siblings',
+            path: 'A path to the tree node, using the index of each element, starting from the root'
         }
     },
     Video : {
         propTypes: {
-            src: 'PropTypes.string',
+            src: 'Url to the file',
             width: 'PropTypes.string',
             height: 'PropTypes.string',
             type: 'PropTypes.string'

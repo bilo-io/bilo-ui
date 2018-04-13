@@ -15,7 +15,7 @@
     "dev:docs": "webpack-dev-server -w --color --inline --progress --config webpack.docs.config.js",
     "dev:all": "yarn start",
     "build": "webpack -p",
-    "build:docs": "yarn clean:docs && webpack -p --config webpack.docs.config.js && mv ./demo ./docs",
+    "build:docs": "yarn clean:docs && webpack --config webpack.docs.config.js && mv ./demo ./docs",
     "build:server": "webpack -p --config webpack.docs.config.js && mkdir artifact && cp server.js ./artifact && cp -r ./demo ./artifact",
     "build:all": "yarn build && yarn build:docs && yarn build:server",
     "clean": "rm -rf artifact && rm -rf dist",

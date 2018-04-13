@@ -24,8 +24,6 @@ export default class BiloUI extends Component {
     componentDidMount() {
         const page = this.props.location.hash.slice(1)
         this.selectSection(page)
-        console.log('proptypes:', CodeDemo.propTypes)
-        // console.log('output:', propTypesToObject(CodeDemo.propTypes))
     }
 
     render() {
@@ -52,12 +50,6 @@ export default class BiloUI extends Component {
                 <div className={'nav-menu'}>
                     {
                         uiPages.map((page) => {
-                            // return <div
-                            //     key={`xui-page-${page}`}
-                            //     className={`nav-item ${page === activePage ? 'nav-item-active' : ''}`}
-                            //     onClick={() => this.selectSection(page)}>
-                            //     {page.toLocaleUpperCase()}
-                            // </div>
                             return <Link
                                 key={`xui-page-${page}`}
                                 to={`${this.props.location.pathname}#${page}`}
@@ -72,7 +64,6 @@ export default class BiloUI extends Component {
                     }    
                 </div>
                 <div className={'nav-content'}>
-
                     <If isTrue={activePage === 'all'}>
                         <Application />
                         <Buttons />
@@ -86,7 +77,7 @@ export default class BiloUI extends Component {
                         <Loaders />  
                         <Media />    
                         <Time />
-                        <Trees />
+                        {/* <Trees /> */}
                     </If>    
                     <If isTrue={activePage === 'application'}>
                         <Application />
