@@ -13,7 +13,7 @@ var config = {
     }, 
     output: { 
         path: DIST, 
-        publicPath: './', 
+        publicPath: '/', 
         filename: 'demo.js' 
     }, 
     // resolve: { 
