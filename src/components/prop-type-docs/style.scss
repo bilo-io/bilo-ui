@@ -1,14 +1,27 @@
+@import '../../bilo-ui.scss';
 @import '~highlight.js/styles/vs2015.css';
 
 table {
-  position: relative;
-  width: 100%;
+    position: relative;
+    width: 100%;
+}
+
+th {
+    text-align: left;
 }
 tr {
-  line-height: 1.5;
-  text-indent: 1em;
+    height: 2em;
+    text-indent: 1em;
+    &:hover {
+        background: rgba(white, 0.4);
+    }
+    &:nth-child(odd) {
+        background: rgba(white, 0.2);
+        color: $col-active;
+    }
 }
-tbody tr:nth-child(odd){
-  background-color: rgba(grey, 0.1);
-  color: #fff;
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(grey, 0.1);
+    color: #fff;
 }

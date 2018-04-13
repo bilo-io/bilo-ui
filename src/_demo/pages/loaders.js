@@ -8,6 +8,7 @@ import {
     PropTypeDocs,
     propTypesLoader
 } from '../../'
+import docs from '../../util/proptypes'
 import CodeDemo from '../../components/code-demo'
 
 export default class Loaders extends Component {

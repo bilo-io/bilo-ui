@@ -5,6 +5,8 @@ import {
     PropTypeDocs,
     propTypesTree
 } from '../../'
+import docs from '../../util/proptypes'
+
 export class Trees extends Component {
     state = {
         treeData: {

@@ -1,8 +1,16 @@
 import React, { Component } from 'react'
-import CodeDemo from '../../components/code-demo'
-import Audio from '../../components/audio'
-import Video from '../../components/video'
-import Youtube from '../../components/youtube'
+import {
+    Audio,
+    CodeDemo,
+    Video,
+    Youtube,
+    PropTypeDocs,
+    propTypesAudio,
+    propTypesVideo,
+    propTypesYoutube
+} from '../../'
+
+import docs from '../../util/proptypes'
 
 export default class Media extends Component {
     render() {

@@ -3,7 +3,8 @@ import {
     Badges,
     CodeDemo,
     List,
-    PropTypeDocs
+    PropTypeDocs,
+    propTypesList
 } from '../../components'
 import docs from '../../util/proptypes'
 

@@ -20,7 +20,11 @@ const getPropInfo = method => {
   const propTypes = [
     'string',
     'node',
-    'bool'
+    'bool',
+    'func',
+    'number',
+    'array',
+    'object'
   ];
 
   return propTypes.reduce((obj, curr) => {

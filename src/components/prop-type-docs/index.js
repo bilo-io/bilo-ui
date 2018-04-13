@@ -3,33 +3,44 @@ import PropTypes from 'prop-types'
 import propTypesToObject from './getObject'
 import propTypesToDescriptions from './getDescription'
 import docs from '../../util/proptypes'
-
+import './style.scss'
 export class PropTypeDocs extends Component {
-    componentWillMount() {
+    componentDidMount() {
+        const {
+            docs,
+            propTypes
+        } = this.props
         const propTypeObject = propTypesToObject({
-            propTypes: this.props.propTypes
+            propTypes: propTypes
         })
         const propTypeDesc = propTypesToDescriptions({
-            propTypes: this.props.propTypes,
-            data: this.props.docs
+            data: this.props.docs.propTypes,
+            propTypes: this.props.propTypes
         })
-        // TOD: merge these with a deep copy (e.g. 'deep-assing')
-        const propTypeDocs = {
-            ...propTypeObject,
-            ...propTypeDesc,
-            propTypes: {
-                ...propTypeObject.propTypes,
-                ...propTypeDesc.propTypes
+        // TODO: merge these with a deep copy (e.g. 'deep-assing')
+        const keys = Object.keys(propTypeObject)
+        let propTypeDocs = {}
+        keys.forEach((key) => {
+            let obj = {
+                ...propTypeObject[key],
+                ...propTypeDesc[key]
             }
-        }
-
-        this.setState({
-            props: propTypeDocs
+            propTypeDocs[key] = obj
         })
+
+        
+        console.log({
+            propTypeDocs
+        })
+        this.setState({
+            propTypes: propTypeDocs
+        }, () => console.log(this.state))
     }
 
     render() {
-        return <Table propTypes={this.props.propTypes}/>
+        return this.state
+            ? <Table propTypes={this.state.propTypes} />
+            : null
     }
 }
 
@@ -39,9 +50,7 @@ const getRows = propTypes => Object
         <tr key={prop}>
             <td>{prop}</td>
             <td><pre>{propTypes[prop].type}</pre></td>
-            <td>{propTypes[prop].required && propTypes[prop]
-                    .required
-                    .toString()}</td>
+            <td>{propTypes[prop].required ? 'Yes':'No'}</td>
             <td>{propTypes[prop].description}</td>
         </tr>
     ));

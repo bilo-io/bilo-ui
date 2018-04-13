@@ -7,7 +7,7 @@ export const propTypesYoutube = {
     videoId: PropTypes.string,
     autoPlay: PropTypes.bool
 }
-export default class Youtube extends Component {
+export class Youtube extends Component {
     static propTypes = {
         ...propTypesYoutube
     }
@@ -29,3 +29,5 @@ export default class Youtube extends Component {
             : ''}`}></iframe>
     }
 }
+
+export default Youtube

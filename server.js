@@ -15,4 +15,4 @@ ______     __     __         ______     __  __     __
   \/_____/   \/_/   \/_____/   \/_____/   \/_____/   \/_/
 
  `)
-console.log('listening on port: ' + port);
+console.log('listening on http://localhost:' + port);
