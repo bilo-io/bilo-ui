@@ -1,11 +1,21 @@
 import React, { Component }  from 'react'
-import { Button, CodeDemo, Icon } from '../../'
-
+import {
+    Button,
+    CodeDemo,
+    Icon,
+    PropTypeDocs,
+    propTypesButton
+} from '../../'
+import docs from '../../util/proptypes'
 export default class Buttons extends Component {
     render() {
         return (
             <div>
                 <h3>Buttons</h3>
+                <PropTypeDocs 
+                    docs={docs.Button}
+                    propTypes={propTypesButton}    
+                />
                 <CodeDemo title='Primary' code={
                     <div>
                         <Button className='primary' onClick={() => alert('Clicked primary button')}>

@@ -14,7 +14,7 @@ export class Audio extends Component {
     render() {
         const {src, style, width, height, type} = this.props
         return (
-            <audio controls width={width} style={style}>
+            <audio controls width={width} height={height} style={style}>
                 <source src={src}/>
             </audio>
         )

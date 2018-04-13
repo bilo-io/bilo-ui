@@ -1,12 +1,20 @@
+// https://codepen.io/sdthornton/pen/wBZdXq
 import React, { Component }  from 'react'
 import CodeDemo from '../../components/code-demo'
-import Card from '../../components/card'
-
-// https://codepen.io/sdthornton/pen/wBZdXq
+import {
+    Card,
+    PropTypeDocs,
+    propTypesCard
+} from '../../components'
+import docs from '../../util/proptypes'
 export default class Cards extends Component {
     render() {
         return (
             <div className='ws-card'>
+                <PropTypeDocs
+                    docs={docs.Card}
+                    propTypes={propTypesCard}    
+                />    
                 <CodeDemo title='vertical alignment' code={
                     <div>
                         <Card className='padded'>

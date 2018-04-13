@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-// import Badges from '../../components/badges'
-// import CodeDemo from '../../components/code-demo'
-// import List from '../../components/list'
 import {
     Badges,
     CodeDemo,
-    List
+    List,
+    PropTypeDocs
 } from '../../components'
+import docs from '../../util/proptypes'
 
 export class Lists extends Component {
     state = {
@@ -42,6 +41,10 @@ export class Lists extends Component {
         const { options } = this.state
         return (
             <div>
+                <PropTypeDocs 
+                    docs={docs.List}    
+                    propTypes={propTypesList}    
+                />
                 <CodeDemo title='List with Badge' code={
                     <span>
                         <Badges

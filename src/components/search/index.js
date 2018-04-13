@@ -3,17 +3,17 @@ import PropTypes from 'prop-types'
 import style from './style.scss';
 
 export const propTypesSearch = {
-    tag: PropTypes.string,
-    selection: PropTypes.object,
-    style: PropTypes.string,
+    onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    searchState: PropTypes.object,
-    suggestions: PropTypes.array,
     query: PropTypes.string,
     search: PropTypes.func,
-    onChange: PropTypes.func,
+    searchState: PropTypes.object,
+    select: PropTypes.func,
+    selection: PropTypes.object,
+    style: PropTypes.string,
+    suggestions: PropTypes.array,
     suggestionsOn: PropTypes.bool,
-    select: PropTypes.func
+    tag: PropTypes.string,
 }
 export class Search extends Component {
     static propTypes = {

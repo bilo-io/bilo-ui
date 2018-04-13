@@ -7,10 +7,12 @@ import {
     Loader,
     LoaderType,
     MultiSlider,
-    Slider
+    Slider,
+    PropTypeDocs,
+    propTypesInput
 } from '../../components'
+import docs from '../../util/proptypes'
 import CodeDemo from '../../components/code-demo'
-
 
 export default class Inputs extends Component {
     state = {
@@ -30,7 +32,10 @@ export default class Inputs extends Component {
         return (
             <div className='ws-card'>
                 <h2>Inputs</h2>
-                {/* <Switch /> */}
+                <PropTypeDocs
+                    docs={docs.Input}
+                    propTypes={propTypesInput}
+                />
                 <CodeDemo title={`Ranges`} code={ 
                     <div>
                         <Slider 

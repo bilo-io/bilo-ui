@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './style.scss'
 
+export const propTypesAppToaster = {
+    toast: PropTypes.object
+}
 export class AppToaster extends Component {
+    static propTypes = {
+        ...propTypesAppToaster
+    }
     constructor(props) {
         super(props)
         this.toasts = []

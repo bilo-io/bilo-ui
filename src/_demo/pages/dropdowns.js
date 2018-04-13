@@ -1,11 +1,19 @@
 import React, { Component }  from 'react'
-import CodeDemo from '../../components/code-demo'
-import Dropdown from '../../components/dropdown'
-
+import {
+    CodeDemo,
+    Dropdown,
+    PropTypeDocs,
+    propTypesDropdown
+} from '../../' 
+import docs from '../../util/proptypes'
 export default class Dropdowns extends Component {
     render() {
         return (
             <div>
+                <PropTypeDocs
+                    docs={docs.Dropdown}
+                    propTypes={propTypesDropdown}    
+                />
                 <CodeDemo title='dropdowns' code={
                     <Dropdown 
                     onChange={(e) => console.log(e.target.value)}

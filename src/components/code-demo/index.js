@@ -7,7 +7,7 @@ import './style.scss'
 import Highlight from 'react-highlight.js'
 import jsxToString from 'jsx-to-string-2'
 
-const propTypesCodeDemo = {
+export const propTypesCodeDemo = {
     title: PropTypes.string,
     isOpen: PropTypes.bool,
     code: PropTypes.object,

@@ -1,11 +1,17 @@
 import React, { Component }  from 'react'
-import CodeDemo from '../../components/code-demo'
-import AppBody from '../../components/app-body'
-import AppSidenav from '../../components/app-sidenav'
-import AppTopBar from '../../components/app-topbar'
-import AppToaster, { addToast } from '../../components/app-toaster'
-import Button from '../../components/button'
-import Icon from '../../components/icon'
+import {
+    AppBody,
+    AppSidenav,
+    AppTopBar,
+    AppToaster,
+    Button,
+    CodeDemo,
+    Icon,
+    PropTypeDocs,
+    propTypesAppTopBar
+} from '../../components'
+
+import docs from '../../util/proptypes'
 export default class Application extends Component {
     state = {
         sidenav: {
@@ -39,6 +45,10 @@ export default class Application extends Component {
         const reactIcon = 'https://raw.githubusercontent.com/bilo-io/resources/master/logo/react.png'
         return (
             <div>
+                <PropTypeDocs
+                    propTypes={propTypesAppTopBar}    
+                    docs={docs.AppTopBar}
+                />
                 <CodeDemo title='Application' code={
                     <div style={{position: 'relative', height: '50vh'}}>
                         <AppTopBar>

@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
-import {Tree} from '../../'
-import {Catch} from '../../'
+import {
+    Catch,
+    Tree,
+    PropTypeDocs,
+    propTypesTree
+} from '../../'
 export class Trees extends Component {
     state = {
         treeData: {
@@ -87,12 +91,17 @@ export class Trees extends Component {
     render() {
         const {treeData} = this.state;
         return <div>
+            <PropTypeDocs
+                docs={docs.Tree}
+                propTypes={propTypesTree}
+            />
             <Tree
                 data={treeData}
                 depth={0}
                 index={0}
                 path={[]}
-                onClick={this.treeClickAction}/>
+                onClick={this.treeClickAction}
+            />
         </div>
     }
 }

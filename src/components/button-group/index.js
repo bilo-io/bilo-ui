@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 import './style.scss'
 
-const propTypesButtonGroup = {
+export const propTypesButtonGroup = {
     alignment: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object

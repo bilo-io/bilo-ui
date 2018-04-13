@@ -4,7 +4,7 @@ import propTypesToObject from './getObject'
 import propTypesToDescriptions from './getDescription'
 import docs from '../../util/proptypes'
 
-export default class PropTypeDocs extends Component {
+export class PropTypeDocs extends Component {
     componentWillMount() {
         const propTypeObject = propTypesToObject({
             propTypes: this.props.propTypes
@@ -60,4 +60,6 @@ const Table = ({propTypes}) => (
             {getRows(propTypes)}
         </tbody>
     </table>
-);
+)
+
+export default PropTypeDocs

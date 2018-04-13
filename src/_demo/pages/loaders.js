@@ -1,5 +1,13 @@
 import React, {Component} from 'react'
-import {Button, Card, Icon, Loader, LoaderType} from '../../'
+import {
+    Button,
+    Card,
+    Icon,
+    Loader,
+    LoaderType,
+    PropTypeDocs,
+    propTypesLoader
+} from '../../'
 import CodeDemo from '../../components/code-demo'
 
 export default class Loaders extends Component {
@@ -7,14 +15,19 @@ export default class Loaders extends Component {
         return (
             <Card className='padded'>
                 <h2>Loaders</h2>
+                <PropTypeDocs
+                    docs={docs.Loader}
+                    propTypes={propTypesLoader}
+                />
                 <CodeDemo
-                    code={<div  style={{
-                        height: '30em'
-                    }}>
-                        <Loader type={LoaderType.SPINNER} />
-                        <Loader type={LoaderType.RAINBOW} />
-                        <Loader type={LoaderType.FULLSCREEN} />
-                    </div>} />
+                    code={
+                        <div style={{ height: '30em' }}>
+                            <Loader type={LoaderType.SPINNER}/>
+                            <Loader type={LoaderType.RAINBOW}/>
+                            <Loader type={LoaderType.FULLSCREEN} />
+                        </div>
+                    }
+                />
             </Card>
         )
     }
