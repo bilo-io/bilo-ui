@@ -15,7 +15,7 @@ import Time from './time'
 import Trees from './trees'
 import './style.scss'
 import { Link } from 'react-router-dom'
-import CodeDemo from '../../components/code-demo'
+import CodeDocs from '../../components/code-docs'
 
 export default class BiloUI extends Component {
     state = {

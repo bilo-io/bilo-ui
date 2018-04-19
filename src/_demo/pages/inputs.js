@@ -12,7 +12,7 @@ import {
     propTypesInput
 } from '../../components'
 import docs from '../../util/proptypes'
-import CodeDemo from '../../components/code-demo'
+import CodeDocs from '../../components/code-docs'
 
 export default class Inputs extends Component {
     state = {
@@ -36,7 +36,7 @@ export default class Inputs extends Component {
                     docs={docs.Input}
                     propTypes={propTypesInput}
                 />
-                <CodeDemo title={`Ranges`} code={ 
+                <CodeDocs title={`Ranges`} code={ 
                     <div>
                         <Slider 
                             min={0}
@@ -50,7 +50,7 @@ export default class Inputs extends Component {
                             onChange={ (e) => console.log(e.target.value)} />             */}
                     </div>
                 }/>
-                <CodeDemo title={`Basic`} code={ 
+                <CodeDocs title={`Basic`} code={ 
                     <div>
                         <Input
                             type='text'
@@ -74,14 +74,14 @@ export default class Inputs extends Component {
                             defaultValue='+27214240494' />
                     </div> 
                 }/>
-                <CodeDemo title={`Dates`} code={
+                <CodeDocs title={`Dates`} code={
                     <div>
                         <Input type='date' label='date' />
                         <Input type='time' label='time' />
                         <Input type='datetime' label='datetime-local' />
                     </div>
                 }/>
-                <CodeDemo title={`Other`} code={
+                <CodeDocs title={`Other`} code={
                     <div>
                         <Input type='color' label='color' />
                         <div>
@@ -101,10 +101,10 @@ export default class Inputs extends Component {
                         </div>
                     </div>
                 } />
-                {/* <CodeDemo title='Switches' code={
+                {/* <CodeDocs title='Switches' code={
                     <Switch />
                 }/> */}
-                <CodeDemo title={`Radio`} code={
+                <CodeDocs title={`Radio`} code={
                     <div
                             style={{
                             display: 'flex',

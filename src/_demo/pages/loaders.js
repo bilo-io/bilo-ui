@@ -9,7 +9,7 @@ import {
     propTypesLoader
 } from '../../'
 import docs from '../../util/proptypes'
-import CodeDemo from '../../components/code-demo'
+import CodeDocs from '../../components/code-docs'
 
 export default class Loaders extends Component {
     render() {
@@ -20,7 +20,7 @@ export default class Loaders extends Component {
                     docs={docs.Loader}
                     propTypes={propTypesLoader}
                 />
-                <CodeDemo
+                <CodeDocs
                     code={
                         <div style={{ height: '30em' }}>
                             <Loader type={LoaderType.SPINNER}/>

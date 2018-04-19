@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Icon, Loader, LoaderType } from '../../'
-import CodeDemo from '../../components/code-demo'
+import CodeDocs from '../../components/code-docs'
 import Catch from '../../components/catch'
 
 export default class Errors extends Component {
@@ -8,7 +8,7 @@ export default class Errors extends Component {
         return (
             <div className='ws-card'>
                 <h2>Loaders</h2>
-                <CodeDemo code={ 
+                <CodeDocs code={ 
                     <div>
                         <Catch>
                             Showing state: {this.state && this.state.person}

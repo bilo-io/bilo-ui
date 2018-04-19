@@ -5,7 +5,7 @@ import {
     AppTopBar,
     AppToaster,
     Button,
-    CodeDemo,
+    CodeDocs,
     Icon,
     PropTypeDocs,
     propTypesAppTopBar
@@ -49,7 +49,7 @@ export default class Application extends Component {
                     propTypes={propTypesAppTopBar}    
                     docs={docs.AppTopBar}
                 />
-                <CodeDemo title='Application' code={
+                <CodeDocs title='Application' code={
                     <div style={{position: 'relative', height: '50vh'}}>
                         <AppTopBar>
                             <img
@@ -89,7 +89,7 @@ export default class Application extends Component {
                         </AppBody>
                     </div>                   
                 }/>
-                <CodeDemo title='AppTopBar' code={
+                <CodeDocs title='AppTopBar' code={
                     <div style={{position: 'relative'}}>
                         <AppTopBar style={{backgroune: '', color: ''}}>
                             <img
@@ -116,7 +116,7 @@ export default class Application extends Component {
                         </AppTopBar>
                     </div>                   
                 }/>
-                <CodeDemo title='AppSidenav' code={
+                <CodeDocs title='AppSidenav' code={
                     <div style={{position: 'relative', height: '50vh'}}>
                         <AppSidenav 
                             isOpen={sidenavLeft.isOpen}>
@@ -147,7 +147,7 @@ export default class Application extends Component {
                         </div>
                     </div>                   
                 }/>
-                <CodeDemo title='AppToaster' code={
+                <CodeDocs title='AppToaster' code={
                     <div style={{ position: 'relative', height: '20em' }}>
                         <AppToaster toast={ toaster.toast ? toaster.toast : undefined }/>
                         <div style={{ position: 'relative', top: '17em' }}>

@@ -90,8 +90,10 @@ export class Trees extends Component {
     treeClickAction = (item, i) => {
         console.log('clicked: ', item, i)
     }
+    modifyTree = (item, path) => {
+    }
     render() {
-        const {treeData} = this.state;
+        const {treeData} = this.state
         return <div>
             <PropTypeDocs
                 docs={docs.Tree}

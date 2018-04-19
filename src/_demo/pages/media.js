@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {
     Audio,
-    CodeDemo,
+    CodeDocs,
     Video,
     Youtube,
     PropTypeDocs,
@@ -21,7 +21,7 @@ export default class Media extends Component {
                     docs={docs.Audio}    
                     propTypes={propTypesAudio}    
                 />
-                <CodeDemo title='audio' code={ 
+                <CodeDocs title='audio' code={ 
                     <Audio
                         style={{ width: '100%'}}
                         src="https://www.w3schools.com/html/horse.ogg"
@@ -31,7 +31,7 @@ export default class Media extends Component {
                     docs={docs.Video}
                     propTypes={propTypesVideo}    
                 />
-                <CodeDemo title='video' code={ 
+                <CodeDocs title='video' code={ 
                     <Video 
                         width='100%' 
                         height='auto'
@@ -42,7 +42,7 @@ export default class Media extends Component {
                     docs={docs.Youtube}    
                     propTypes={propTypesYoutube}    
                 />
-                <CodeDemo title='Youtube' code={
+                <CodeDocs title='Youtube' code={
                     <Youtube
                         videoId={'FoExPq04OQQ'} />
                 }/>

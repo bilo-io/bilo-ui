@@ -1,7 +1,7 @@
 import React, { Component }  from 'react'
 import {
     Button,
-    CodeDemo,
+    CodeDocs,
     Icon,
     PropTypeDocs,
     propTypesButton
@@ -16,7 +16,7 @@ export default class Buttons extends Component {
                     docs={docs.Button}
                     propTypes={propTypesButton}    
                 />
-                <CodeDemo title='Primary' code={
+                <CodeDocs title='Primary' code={
                     <div>
                         <Button className='primary' onClick={() => alert('Clicked primary button')}>
                             Primary
@@ -32,7 +32,7 @@ export default class Buttons extends Component {
                         </Button>
                     </div>
                 }/>
-                <CodeDemo title='Hollow' code={
+                <CodeDocs title='Hollow' code={
                     <div>
                         <Button className='hollow primary'>
                             Primary
@@ -48,7 +48,7 @@ export default class Buttons extends Component {
                         </Button>
                     </div>
                 }/>
-                <CodeDemo title='Links' code={
+                <CodeDocs title='Links' code={
                     <div>
                         <Button className='link primary'>
                             Primary
@@ -64,7 +64,7 @@ export default class Buttons extends Component {
                         </Button>
                     </div>
                 } />
-                <CodeDemo title='Rounded' code={
+                <CodeDocs title='Rounded' code={
                     <div>
                         <Button className='primary rounded'>
                             <Icon name='bars' />
@@ -80,7 +80,7 @@ export default class Buttons extends Component {
                         </Button>
                     </div>
                 } />
-                <CodeDemo title='Rounded' code={
+                <CodeDocs title='Rounded' code={
                     <div>
                         <Button className='primary filled'>
                             <Icon name='microphone' />

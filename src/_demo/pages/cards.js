@@ -1,6 +1,6 @@
 // https://codepen.io/sdthornton/pen/wBZdXq
 import React, { Component }  from 'react'
-import CodeDemo from '../../components/code-demo'
+import CodeDocs from '../../components/code-docs'
 import {
     Card,
     PropTypeDocs,
@@ -15,7 +15,7 @@ export default class Cards extends Component {
                     docs={docs.Card}
                     propTypes={propTypesCard}    
                 />    
-                <CodeDemo title='vertical alignment' code={
+                <CodeDocs title='vertical alignment' code={
                     <div>
                         <Card className='padded'>
                             card depth 1                
@@ -39,7 +39,7 @@ export default class Cards extends Component {
                         <br />
                     </div>
                 }/>
-                <CodeDemo title='horizontal alignment' code={
+                <CodeDocs title='horizontal alignment' code={
                     <div style={{display: 'flex', flexDirection: 'row'}}>
                         <Card className='padded'>
                             card depth 1                

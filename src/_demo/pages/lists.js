@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {
     Badges,
-    CodeDemo,
+    CodeDocs,
     List,
     PropTypeDocs,
     propTypesList
@@ -46,7 +46,7 @@ export class Lists extends Component {
                     docs={docs.List}    
                     propTypes={propTypesList}    
                 />
-                <CodeDemo title='List with Badge' code={
+                <CodeDocs title='List with Badge' code={
                     <span>
                         <Badges
                             items={ options }
@@ -59,7 +59,7 @@ export class Lists extends Component {
                             />
                     </span>    
                 } />
-                <CodeDemo title='List with Icon' code={
+                <CodeDocs title='List with Icon' code={
                     <List 
                         hasIcons
                         items={ options }
@@ -67,14 +67,14 @@ export class Lists extends Component {
                         onChange={this.changeHandler}
                     />
                 } />
-                <CodeDemo title='List with Checkbox' code={
+                <CodeDocs title='List with Checkbox' code={
                     <List 
                         onClick={this.clickHandler}
                         onChange={this.changeHandler}
                         items={ options }
                     />
                 } />
-                <CodeDemo title='List icon and checkbox' code={
+                <CodeDocs title='List icon and checkbox' code={
                     <List 
                         multiple    
                         hasIcons

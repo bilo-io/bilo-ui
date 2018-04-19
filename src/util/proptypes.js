@@ -77,7 +77,7 @@ export default {
             info: 'PropTypes.string'
         }
     },
-    CodeDemo : {
+    CodeDocs : {
         propTypes: {
             isOpen: 'Determines whether the Component is expanded/visible.'
         }

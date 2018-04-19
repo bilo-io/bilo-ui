@@ -7,7 +7,7 @@ import './style.scss'
 import Highlight from 'react-highlight.js'
 import jsxToString from 'jsx-to-string-2'
 
-export const propTypesCodeDemo = {
+export const propTypesCodeDocs = {
     title: PropTypes.string,
     isOpen: PropTypes.bool,
     code: PropTypes.object,
@@ -16,9 +16,9 @@ export const propTypesCodeDemo = {
     useFunctionCode: PropTypes.bool
 }
 
-export class CodeDemo extends Component {
+export class CodeDocs extends Component {
     static propTypes = {
-        ...propTypesCodeDemo
+        ...propTypesCodeDocs
     }
     state = {
         isOpen: false
@@ -56,7 +56,7 @@ export class CodeDemo extends Component {
                     style={{
                     paddingBottom: '1em'
                 }}>
-                    <div className='code-demo'>
+                    <div className='code-docs'>
                         <span className='title'>{title}</span>
                         <div className='toggle' onClick={() => this.toggle()}>
                             <Icon name='code'/>
@@ -84,4 +84,4 @@ export class CodeDemo extends Component {
     }
 }
 
-export default CodeDemo
+export default CodeDocs

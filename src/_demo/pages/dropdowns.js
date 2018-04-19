@@ -1,6 +1,6 @@
 import React, { Component }  from 'react'
 import {
-    CodeDemo,
+    CodeDocs,
     Dropdown,
     PropTypeDocs,
     propTypesDropdown
@@ -14,7 +14,7 @@ export default class Dropdowns extends Component {
                     docs={docs.Dropdown}
                     propTypes={propTypesDropdown}    
                 />
-                <CodeDemo title='dropdowns' code={
+                <CodeDocs title='dropdowns' code={
                     <Dropdown 
                     onChange={(e) => console.log(e.target.value)}
                     options={[

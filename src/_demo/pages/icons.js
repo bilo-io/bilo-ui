@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {
     Button,
-    CodeDemo,
+    CodeDocs,
     Icon,
     Loader,
     LoaderType,
@@ -23,7 +23,7 @@ export default class Icons extends Component {
                         docs={docs.Icon}
                         propTypes={propTypesIcon}
                     />
-                    <CodeDemo title='social media' code={ 
+                    <CodeDocs title='social media' code={ 
                         <div>
                             <Icon name={'google'} style={{ padding: '1em' }} />
                             <Icon name={'facebook-official'} style={{ padding: '1em' }} />
@@ -31,7 +31,7 @@ export default class Icons extends Component {
                             <Icon name={'linkedin'} style={{ padding: '1em' }} />
                         </div>
                     }/>
-                    <CodeDemo title='arrows' code={ 
+                    <CodeDocs title='arrows' code={ 
                         <div>
                             <Icon name={'arrow-left'} style={{ padding: '1em' }} />
                             <Icon name={'arrow-down'} style={{ padding: '1em' }} />
@@ -39,7 +39,7 @@ export default class Icons extends Component {
                             <Icon name={'arrow-up'} style={{ padding: '1em' }} />
                         </div>
                     }/>
-                    <CodeDemo title='user interface' code={ 
+                    <CodeDocs title='user interface' code={ 
                         <div>
                             <Icon name={'bars'} style={{ padding: '1em' }} />
                             <Icon name={'envelope'} style={{ padding: '1em' }} />
@@ -47,7 +47,7 @@ export default class Icons extends Component {
                             <Icon name={'heart-o'} style={{ padding: '1em' }} />
                         </div>
                     }/>
-                    <CodeDemo title='rotation' code={ 
+                    <CodeDocs title='rotation' code={ 
                         <div>
                             <Icon name={'bars'} style={{ padding: '1em' }}/>
                             <Icon name={'bars'} transform={'rotate-90'} style={{ padding: '1em' }}/>
