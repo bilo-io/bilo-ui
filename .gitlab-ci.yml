@@ -20,6 +20,7 @@ build_server_status:
     - ls
     - node -v
     - npm -v
+    - yarn -v
 
 clean_node_modules:
   stage: clean
@@ -38,13 +39,14 @@ install_global_dependencies:
   stage: setup
   script:
     - npm install -g webpack
+    - npm install -g yarn
   only: 
     - dev
     
 install_dependencies:
   stage: setup
   script:
-    - npm install
+    - yarn
 
 test_webapp:
   stage: test
@@ -54,12 +56,12 @@ test_webapp:
 create_dist:
   stage: build
   script:
-      - npm run build
+      - yarn build
 
 create_static:
   stage: deploy
   script:
-    - npm run static:build
+    - yarn build:docs
 
 pages:
   stage: deploy
