@@ -122,8 +122,8 @@ export default class Inputs extends Component {
                         <Switch
                             isRound
                             isChecked={isChecked}
-                            // onChange={this.setState({ isChecked: !isChecked})}
                             title={'custom switch'}
+                            onChange={(e) => this.setState({ isChecked: !isChecked})}
                         />
                     </div>    
                 }/>
