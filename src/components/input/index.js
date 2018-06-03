@@ -22,6 +22,7 @@ export class Input extends Component {
         const {
             className,
             defaultValue,
+            value,
             label,
             max,
             min,
@@ -31,22 +32,28 @@ export class Input extends Component {
             style,
         } = this.props
 
+        const props = this.props
+
         return (
             <div>
                 <label>{label}</label>
-                <input
-                    type={type}
-                    placeholder={placeholder}
-                    style={style}
-                    className={`input ${className}`}
-                    min={min
-                        ? min
-                        : undefined}
-                    max={max
-                        ? max
-                        : undefined}
-                    defaultValue={defaultValue}
-                    onChange={onChange}/>
+                {
+                    type === 'textarea'
+                        ? <textarea
+                            { ...props }
+                            className={`textarea ${className}`}
+                        />
+                        : <input
+                            { ...props }
+                            className={`input ${className}`}
+                            min={min
+                                ? min
+                                : undefined}
+                            max={max
+                                ? max
+                                : undefined}
+                        />
+                }
             </div>
         )
     }

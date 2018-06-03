@@ -3,7 +3,6 @@
   "version": "0.0.13",
   "description": "XUI is a set of experimental ui elements and utilities for frontend web development.",
   "main": "dist/index.js",
-  "engines": {},
   "scripts": {
     "deploy": "yarn unlink && yarn build && npm publish",
     "bump": "node ./scripts/semver.js",
@@ -12,7 +11,7 @@
     "start": "bash ./scripts/dev_and_demo.sh",
     "serve": "node ./artifact/server.js",
     "dev": "webpack -p --colors -w",
-    "dev:docs": "webpack-dev-server -w --color --inline --progress --config webpack.docs.config.js",
+    "dev:docs": "webpack-dev-server -w --color --inline --config webpack.docs.config.js",
     "dev:all": "yarn start",
     "build": "webpack -p",
     "build:docs": "yarn clean:docs && webpack --config webpack.docs.config.js && mv ./demo ./docs",

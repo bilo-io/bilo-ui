@@ -1,6 +1,6 @@
 @import '../../bilo-ui.scss';
 
-$select-height: 3em;
+$select-height: 2em;
 select {
   position: relative;
   width: 100%;
@@ -23,7 +23,6 @@ select {
   border: none;
   outline: none;
   border-bottom: 1px solid $col-lightgrey;
-  border-radius: 4px; 
   margin-bottom: 0.5em;
   &:hover {
       border-bottom: 1px solid $col-active;
@@ -31,12 +30,27 @@ select {
   &:focus {
       border-bottom: 2px solid $col-active;
   }
+  background:
+    linear-gradient(45deg, transparent 50%, $col-active 50%),
+    linear-gradient(135deg, $col-active 50%, transparent 50%);
+    // linear-gradient(to right, skyblue, skyblue);
+  background-position:
+    calc(100% - 1.2em) calc(1em), 
+    calc(100% - 1.2em + 5px) calc(1em),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+  background-color: rgba(white, 0.1);
+  border-radius: 0;
 }
 
 .select-style {
   border: 1px solid #ccc;
   width: 120px;
-  border-radius: 3px;
+  // border-radius: 3px;
   overflow: hidden;
   // background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
 }

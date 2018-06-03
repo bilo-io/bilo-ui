@@ -58,22 +58,22 @@ create_dist:
   script:
       - yarn build
 
-create_static:
+create_docs:
   stage: deploy
   script:
     - yarn build:docs
 
-pages:
-  stage: deploy
-  script:
-    - mkdir .public
-    - cp -r ./static/* .public
-    - mv .public public
-  artifacts:
-    paths:
-      - public
-  only:
-    - master
+# pages:
+#   stage: deploy
+#   script:
+#     - mkdir .public
+#     - cp -r ./docs/* .public
+#     - mv .public public
+#   artifacts:
+#     paths:
+#       - public
+#   only:
+#     - master
 
 # build_artifact:
 #   stage: artifact

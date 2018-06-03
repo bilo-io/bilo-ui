@@ -8,6 +8,7 @@ import {
     LoaderType,
     MultiSlider,
     Slider,
+    Switch,
     PropTypeDocs,
     propTypesInput
 } from '../../components'
@@ -18,9 +19,11 @@ export default class Inputs extends Component {
     state = {
         radio: {
             selection: 'radio 1'
-        }
+        },
+        isChecked: true
     }
     handleRadioOptionChange = (e) => {
+        e.preventDefaults()
         this.setState({
             radio: {
                 selection: e.target.value
@@ -28,7 +31,7 @@ export default class Inputs extends Component {
         })
     }
     render() {
-        const { radio } = this.state;
+        const { radio, isChecked } = this.state;
         return (
             <div className='ws-card'>
                 <h2>Inputs</h2>
@@ -84,6 +87,7 @@ export default class Inputs extends Component {
                 <CodeDocs title={`Other`} code={
                     <div>
                         <Input type='color' label='color' />
+                        <br />
                         <div>
                             <label>checkboxes</label>
                             <label>
@@ -99,11 +103,30 @@ export default class Inputs extends Component {
                                 checkbox 3
                             </label>
                         </div>
+                        <br />
+                        <div>
+                        </div>
                     </div>
                 } />
-                {/* <CodeDocs title='Switches' code={
-                    <Switch />
-                }/> */}
+                <CodeDocs title='Switches' code={
+                    <div>
+                        <Switch />
+                        <Switch
+                            isRound
+                            isChecked={isChecked}
+                            style={{
+                                width: 'auto'
+                            }}
+                            onChange={(e) => this.setState({ isChecked: !isChecked})}
+                            />
+                        <Switch
+                            isRound
+                            isChecked={isChecked}
+                            // onChange={this.setState({ isChecked: !isChecked})}
+                            title={'custom switch'}
+                        />
+                    </div>    
+                }/>
                 <CodeDocs title={`Radio`} code={
                     <div
                             style={{

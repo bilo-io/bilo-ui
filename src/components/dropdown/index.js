@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Icon } from '../'
 import './style.scss'
 
 export const propTypesDropdown = {
@@ -14,7 +15,9 @@ export class Dropdown extends Component {
     render() {
         const { options, onChange, label } = this.props
         return <div>
-            <label>{label}</label>
+            <label>
+                {label}
+            </label>
             <select className='dropdown' onChange={onChange}>
                 {options.map( (option, i) => (
                     <option 
