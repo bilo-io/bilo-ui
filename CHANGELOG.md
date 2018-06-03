@@ -1,3 +1,7 @@
+## v0.1.0
+
+- added <Switch /> component
+
 ## v0.0.13
 
 - fixed time bug
