@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {
     Button,
+    Card,
     Icon,
     If,
     Input,
@@ -12,6 +13,7 @@ import {
     PropTypeDocs,
     propTypesInput
 } from '../../components'
+import Dropdowns from './dropdowns'
 import docs from '../../util/proptypes'
 import CodeDocs from '../../components/code-docs'
 
@@ -34,11 +36,14 @@ export default class Inputs extends Component {
         const { radio, isChecked } = this.state;
         return (
             <div className='ws-card'>
+                <Dropdowns />    
+                
                 <h2>Inputs</h2>
                 <PropTypeDocs
                     docs={docs.Input}
                     propTypes={propTypesInput}
                 />
+
                 <CodeDocs title={`Ranges`} code={ 
                     <div>
                         <Slider 
@@ -77,6 +82,7 @@ export default class Inputs extends Component {
                             defaultValue='+27214240494' />
                     </div> 
                 }/>
+                
                 <CodeDocs title={`Dates`} code={
                     <div>
                         <Input type='date' label='date' />

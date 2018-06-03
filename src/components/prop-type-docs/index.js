@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Card } from '../'
 import PropTypes from 'prop-types'
 import propTypesToObject from './getObject'
 import propTypesToDescriptions from './getDescription'
@@ -39,7 +40,7 @@ export class PropTypeDocs extends Component {
 
     render() {
         return this.state
-            ? <Table propTypes={this.state.propTypes} />
+            ? <Card><Table propTypes={this.state.propTypes} /></Card>
             : null
     }
 }

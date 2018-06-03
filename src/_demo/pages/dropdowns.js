@@ -10,11 +10,12 @@ export default class Dropdowns extends Component {
     render() {
         return (
             <div>
+                <h2>Dropdowns</h2>
                 <PropTypeDocs
                     docs={docs.Dropdown}
                     propTypes={propTypesDropdown}    
                 />
-                <CodeDocs title='dropdowns' code={
+                <CodeDocs title='basic' code={
                     <Dropdown 
                     onChange={(e) => console.log(e.target.value)}
                     options={[

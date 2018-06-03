@@ -7,8 +7,8 @@ $background: #232323;
 .nav-menu {
   position: fixed;
   left: 0;
-  top: 3em;
-  height: $panel-height;
+  top: 0;
+  height: 100%;
   width: $panel-width;
   background: $background;
   overflow: hidden;
@@ -43,11 +43,11 @@ $nav-item-size: 0.8em;
 
 .nav-content {
   position: fixed;
+  top: 0;
   left: $panel-width;
-  top: 3em;
   width: calc(100% - #{$panel-width + $padding + $padding});
+  height: calc(100% - 2 * #{$padding});
   padding: $padding;
-  height: calc(#{$panel-height} - 2 * #{$padding});
   overflow: hidden;
   overflow-y: auto;
 }

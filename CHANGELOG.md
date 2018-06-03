@@ -1,3 +1,7 @@
+## v0.1.1
+
+- updated components & docs
+
 ## v0.1.0
 
 - added <Switch /> component

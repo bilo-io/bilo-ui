@@ -20,8 +20,8 @@ export class Dropdown extends Component {
             </label>
             <select className='dropdown' onChange={onChange}>
                 {options.map( (option, i) => (
-                    <option 
-                    key={`[${i}]-${option.value}`} 
+                    <option
+                    key={`[${i}]-${option.value}`}
                     value={option.value}>{option.label}</option>
                 ))}
             </select>

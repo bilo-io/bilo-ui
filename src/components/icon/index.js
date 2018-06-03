@@ -28,32 +28,33 @@ export class Icon extends React.Component {
             style,
             transform,
         } = this.props;
-            
+
         const customStyle = {
             ...style,
             color
         }
         return (
-            <i
-                style={customStyle}
-                onClick={onClick}
-                className={
-                    `${className
-                        ? className
-                        : ''} fas fa-${name} ` +
-                    `${size
-                        ? `fa-${size} `
-                        : ''}` +
-                    `${transform
-                        ? `fa-${transform} `
-                        : ''}` +
-                    `${animation
-                        ? `fa-${animation} animated${animEvent
-                            ? '-' + animEvent
+            <span onClick={onClick}>
+                <i
+                    style={customStyle}
+                    className={
+                        `${className
+                            ? className
+                            : ''} fas fa-${name} ` +
+                        `${size
+                            ? `fa-${size} `
+                            : ''}` +
+                        `${transform
+                            ? `fa-${transform} `
+                            : ''}` +
+                        `${animation
+                            ? `fa-${animation} animated${animEvent
+                                ? '-' + animEvent
+                                : ''}`
                             : ''}`
-                        : ''}`
-                }
-            />
+                    }
+                />
+            </span>
         )
     }
 }
