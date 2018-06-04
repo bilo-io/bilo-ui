@@ -27,7 +27,7 @@ export const propTypesMDReader = {
     url: PropTypes.string
 }
 
-export default class MDReader extends Component {
+export class MDReader extends Component {
     static propTypes = {
         ...propTypesMDReader
     }
@@ -126,3 +126,5 @@ export default class MDReader extends Component {
             : null;
     }
 }
+
+export default MDReader

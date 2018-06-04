@@ -2,6 +2,8 @@ var webpack = require('webpack');
 var path = require('path');
 var DIST = path.resolve(__dirname, 'dist/');
 var SRC = path.resolve(__dirname, 'src/');
+var marked = require('marked');
+var renderer = new marked.Renderer();
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -27,6 +29,19 @@ var config = {
         }, {
             test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
             loader: 'file-loader?name=assets/[name].[ext]',
+        }, {
+            test: /\.md$/,
+            use: [
+                {
+                    // loader: 'html-loader'
+                // }, {
+                    loader: 'markdown-loader',
+                    options: {
+                        pedantic: true,
+                        renderer
+                    }
+                }
+            ]
         }]
     },
     plugins: [

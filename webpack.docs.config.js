@@ -5,6 +5,8 @@ const path = require('path');
 const DIST = path.resolve(__dirname, 'demo/');
 const SRC = path.resolve(__dirname, 'src/');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const marked = require('marked')
+var renderer = new marked.Renderer();
 
 var config = {
     devtool: 'source-maps',
@@ -13,8 +15,8 @@ var config = {
     },
     output: {
         path: DIST,
-        publicPath: './',
-        filename: 'demo.js'
+        publicPath: '/',
+        filename: './demo.js'
     },
     // resolve: {
     //     modules: [
@@ -35,6 +37,19 @@ var config = {
             }, {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
                 loader: 'file-loader?name=assets/[name].[ext]'
+            }, {
+                test: /\.md$/,
+                use: [
+                    {
+                        loader: 'html-loader'
+                    }, {
+                        loader: 'markdown-loader',
+                        options: {
+                            pedantic: true,
+                            renderer
+                        }
+                    }
+                ]
             }
         ]
     },

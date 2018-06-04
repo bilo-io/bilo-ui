@@ -46,7 +46,7 @@ export default class Application extends Component {
         return (
             <div>
                 <PropTypeDocs
-                    propTypes={propTypesAppTopBar}    
+                    propTypes={propTypesAppTopBar}
                     docs={docs.AppTopBar}
                 />
                 <CodeDocs title='Application' code={
@@ -62,7 +62,7 @@ export default class Application extends Component {
                             <AppToaster toast={ toaster.toast ? toaster.toast : undefined }/>
                             <AppSidenav
                                 isOpen={sidenav.isOpen}>
-                                {sidenav.items.map((page, i) => 
+                                {sidenav.items.map((page, i) =>
                                     <div
                                         key={i}
                                         className='sidenav-link'
@@ -87,7 +87,7 @@ export default class Application extends Component {
                                 add toast
                             </Button>
                         </AppBody>
-                    </div>                   
+                    </div>
                 }/>
                 <CodeDocs title='AppTopBar' code={
                     <div style={{position: 'relative'}}>
@@ -114,13 +114,13 @@ export default class Application extends Component {
                                 width='48'/>
                             Application Title Bar
                         </AppTopBar>
-                    </div>                   
+                    </div>
                 }/>
                 <CodeDocs title='AppSidenav' code={
                     <div style={{position: 'relative', height: '50vh'}}>
-                        <AppSidenav 
+                        <AppSidenav
                             isOpen={sidenavLeft.isOpen}>
-                            {sidenav.items.map((page, i) => 
+                            {sidenav.items.map((page, i) =>
                                 <div
                                     key={i}
                                     className='sidenav-link'
@@ -129,10 +129,10 @@ export default class Application extends Component {
                                 </div>
                             )}
                         </AppSidenav>
-                        <AppSidenav 
+                        <AppSidenav
                             isOpen={sidenavRight.isOpen}
                             fromRight={true}>
-                            {sidenav.items.map((page, i) => 
+                            {sidenav.items.map((page, i) =>
                                 <div
                                     key={i}
                                     className='sidenav-link'
@@ -145,7 +145,7 @@ export default class Application extends Component {
                             <Button className='primary' onClick={this.toggleSidenavLeft}>Left</Button>
                             <Button className='primary' onClick={this.toggleSidenavRight}>Right</Button>
                         </div>
-                    </div>                   
+                    </div>
                 }/>
                 <CodeDocs title='AppToaster' code={
                     <div style={{ position: 'relative', height: '20em' }}>
@@ -166,8 +166,8 @@ export default class Application extends Component {
                                 onClick={() => this.addToast('this is a toast', 'warning')}>
                                 add toast
                             </Button>
-                        </div>    
-                    </div>                   
+                        </div>
+                    </div>
                 }/>
             </div>
         )

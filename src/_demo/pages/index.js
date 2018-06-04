@@ -15,7 +15,9 @@ import Time from './time'
 import Trees from './trees'
 import './style.scss'
 import { Link } from 'react-router-dom'
+import MDReader from '../../components/md-reader'
 import CodeDocs from '../../components/code-docs'
+import readme from '../../../README.md'
 
 export default class BiloUI extends Component {
     state = {
@@ -28,6 +30,7 @@ export default class BiloUI extends Component {
 
     render() {
         const uiPages = [
+            'intro',
             'all',
             'application',
             'buttons',
@@ -61,7 +64,7 @@ export default class BiloUI extends Component {
                                 </div>
                             </Link>
                         })
-                    }    
+                    }
                 </div>
                 <div className={'nav-content'}>
                     <If isTrue={activePage === 'all'}>
@@ -72,13 +75,19 @@ export default class BiloUI extends Component {
                         <Errors />
                         <Files />
                         <Icons />
-                        <Inputs />    
+                        <Inputs />
                         <Lists />
-                        <Loaders />  
-                        <Media />    
+                        <Loaders />
+                        <Media />
                         <Time />
                         {/* <Trees /> */}
-                    </If>    
+                    </If>
+                    <If isTrue={activePage === 'intro'}>
+                        {/* <Intro />     */}
+                        <div>
+                        <MDReader markdown={readme} />
+                        </div>
+                    </If>
                     <If isTrue={activePage === 'application'}>
                         <Application />
                     </If>
@@ -111,7 +120,7 @@ export default class BiloUI extends Component {
                     </If>
                     <If isTrue={activePage === 'media'}>
                         <Media />
-                    </If> 
+                    </If>
                     <If isTrue={activePage === 'time'}>
                         <Time />
                     </If>
