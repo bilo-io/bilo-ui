@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 149);
@@ -15655,25 +15655,32 @@ var MDReader = exports.MDReader = function (_Component) {
     }, {
         key: 'checkProps',
         value: function checkProps(props) {
-            var _this2 = this;
-
             var markdown = props.markdown,
                 url = props.url;
 
             console.log('receiving props', props, this.props);
+            // , () => {
+            // props.url !== this.props.url
+            //     ? this.fetchMD(props.url)
+            //     : null;
+            // props.markdown !== this.props.markdown
+            //     ? this.processMD(props.markdown)
+            //     : null;
+            this.fetchMD(props.url);
+            this.processMD(props.markdown);
+            // });
             this.setState(_extends({}, this.state, {
                 markdown: markdown,
                 url: url
-            }), function () {
-                props.url != _this2.props.url ? _this2.fetchMD(props.url) : null;
-                props.markdown != _this2.props.markdown ? _this2.processMD(props.markdown) : null;
-            });
+            }));
         }
     }, {
         key: 'fetchMD',
         value: function fetchMD(url) {
-            var _this3 = this;
+            var _this2 = this;
 
+            console.log('fetching markdown: ', url);
+            if (!url || url.length === 0) return;
             this.loading = true;
             if (!url) {
                 console.warn('no url specified!: ', url);
@@ -15681,18 +15688,19 @@ var MDReader = exports.MDReader = function (_Component) {
             }
             console.log('fetching Markdown: ', this.props.url);
             axios.get(url).then(function (response) {
-                _this3.processMD(response.data);
+                _this2.processMD(response.data);
             }).catch(function (e) {
-                console.warn(e), console.log(_this3.state);
+                console.warn(e), console.log(_this2.state);
             });
         }
     }, {
         key: 'processMD',
         value: function processMD(markdown) {
-            var _this4 = this;
+            var _this3 = this;
 
             // get headings:
             console.log('processing markdown', markdown);
+            if (!markdown || markdown.length === 0) return;
             var lines = markdown.split('\n').filter(function (line) {
                 return line.substr(0, 1) === '#';
             });
@@ -15704,20 +15712,20 @@ var MDReader = exports.MDReader = function (_Component) {
                     return line.substr(2, line.length);
                 })
             }), function () {
-                return _this4.convertMDtoHTML(markdown);
+                return _this3.convertMDtoHTML(markdown);
             });
             // convert & highlight
         }
     }, {
         key: 'convertMDtoHTML',
         value: function convertMDtoHTML(markdown) {
-            var _this5 = this;
+            var _this4 = this;
 
             this.setState(_extends({}, this.state, {
                 html: marked(markdown)
             }), function () {
-                _this5.loading = false;
-                console.log('markdown HTML: ', _this5.state.html);
+                _this4.loading = false;
+                console.log('markdown HTML: ', _this4.state.html);
             });
         }
     }, {
@@ -86085,7 +86093,7 @@ var BiloUI = function (_Component) {
                                 'div',
                                 {
                                     className: 'nav-item ' + (page === activePage ? 'nav-item-active' : '') },
-                                page.toLocaleUpperCase()
+                                page === 'intro' ? 'bilo-ui' : page.toLocaleUpperCase()
                             )
                         );
                     })

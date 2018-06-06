@@ -21,7 +21,7 @@ import readme from '../../../README.md'
 
 export default class BiloUI extends Component {
     state = {
-        activePage: 'files'
+        activePage: 'home-page'
     }
     componentDidMount() {
         const page = this.props.location.hash.slice(1)
@@ -30,7 +30,7 @@ export default class BiloUI extends Component {
 
     render() {
         const uiPages = [
-            'intro',
+            'home',
             'all',
             'application',
             'buttons',
@@ -60,7 +60,10 @@ export default class BiloUI extends Component {
                                 className='no-link'>
                                 <div
                                     className={`nav-item ${page === activePage ? 'nav-item-active' : ''}`}>
-                                    {page.toLocaleUpperCase()}
+                                    {
+                                        page === 'home'
+                                            ? 'bilo-ui'
+                                            : page.toLocaleUpperCase()}
                                 </div>
                             </Link>
                         })
@@ -80,12 +83,11 @@ export default class BiloUI extends Component {
                         <Loaders />
                         <Media />
                         <Time />
-                        {/* <Trees /> */}
+                        <Trees />
                     </If>
-                    <If isTrue={activePage === 'intro'}>
-                        {/* <Intro />     */}
+                    <If isTrue={activePage === 'home'}>
                         <div>
-                        <MDReader markdown={readme} />
+                            <MDReader markdown={readme} />
                         </div>
                     </If>
                     <If isTrue={activePage === 'application'}>

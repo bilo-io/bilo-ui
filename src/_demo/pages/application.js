@@ -6,6 +6,7 @@ import {
     AppToaster,
     Button,
     CodeDocs,
+    If,
     Icon,
     PropTypeDocs,
     propTypesAppTopBar
@@ -59,7 +60,7 @@ export default class Application extends Component {
                             <span>Application structure</span>
                         </AppTopBar>
                         <AppBody>
-                            <AppToaster toast={ toaster.toast ? toaster.toast : undefined }/>
+                            <AppToaster toast={ toaster.toast }/>
                             <AppSidenav
                                 isOpen={sidenav.isOpen}>
                                 {sidenav.items.map((page, i) =>
@@ -71,21 +72,32 @@ export default class Application extends Component {
                                     </div>
                                     )}
                             </AppSidenav>
-                            <Button
-                                className='primary'
-                                onClick={() => addToast(this, 'this is a toast', 'primary' )}>
-                                add toast
-                            </Button>
-                            <Button
-                                className='secondary'
-                                onClick={() => addToast(this,'this is a toast', 'secondary')}>
-                                add toast
-                            </Button>
-                            <Button
-                                className='warning'
-                                onClick={() => addToast(this,'this is a toast', 'warning')}>
-                                add toast
-                            </Button>
+                            <div style={{
+                                position: 'relative',
+                                // bottom: '1em'
+                                margin: 'auto'
+                            }}>
+                                <Button
+                                    className='primary'
+                                    onClick={() => this.addToast('this is a toast', 'primary' )}>
+                                    add toast
+                                </Button>
+                                <Button
+                                    className='secondary'
+                                    onClick={() => this.addToast('this is a toast', 'secondary')}>
+                                    add toast
+                                </Button>
+                                <Button
+                                    className='warning'
+                                    onClick={() => this.addToast('this is a toast', 'warning')}>
+                                    add toast
+                                </Button>
+                                <Button
+                                    className='danger'
+                                    onClick={() => this.addToast('this is a toast', 'danger')}>
+                                    add toast
+                                </Button>
+                            </div>
                         </AppBody>
                     </div>
                 }/>
@@ -116,7 +128,7 @@ export default class Application extends Component {
                         </AppTopBar>
                     </div>
                 }/>
-                <CodeDocs title='AppSidenav' code={
+                {/* <CodeDocs title='AppSidenav' code={
                     <div style={{position: 'relative', height: '50vh'}}>
                         <AppSidenav
                             isOpen={sidenavLeft.isOpen}>
@@ -146,11 +158,11 @@ export default class Application extends Component {
                             <Button className='primary' onClick={this.toggleSidenavRight}>Right</Button>
                         </div>
                     </div>
-                }/>
+                }/> */}
                 <CodeDocs title='AppToaster' code={
                     <div style={{ position: 'relative', height: '20em' }}>
-                        <AppToaster toast={ toaster.toast ? toaster.toast : undefined }/>
-                        <div style={{ position: 'relative', top: '17em' }}>
+                        <AppToaster toast={ toaster.toast }/>
+                        <div style={{ position: 'absolute', bottom: '0', margin: 'auto' }}>
                             <Button
                                 className='primary'
                                 onClick={() => this.addToast('this is a toast', 'primary')}>
@@ -164,6 +176,11 @@ export default class Application extends Component {
                             <Button
                                 className='warning'
                                 onClick={() => this.addToast('this is a toast', 'warning')}>
+                                add toast
+                            </Button>
+                            <Button
+                                className='danger'
+                                onClick={() => this.addToast('this is a toast', 'danger')}>
                                 add toast
                             </Button>
                         </div>

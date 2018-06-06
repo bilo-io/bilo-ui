@@ -35,11 +35,11 @@ $back-col: #eea230;
 $green-col: rgb(41, 252, 153);
 .code {
     color: $green-col;
-    border: 0.5px solid $code-col;
-    border-radius: 4px;
-    padding: 4px;
-    margin: 2px;
+    // border: 0.5px solid $code-col;
     background: rgba($code-col, 0.02);
+    border-radius: 4px;
+    padding: 1px;
+    margin: 2px;
     font-weight: bold;
 }
 
@@ -54,6 +54,7 @@ $green-col: rgb(41, 252, 153);
     p,li,td {
         code {
             @extend .code;
+            font-family: 'Courier New', Courier, monospace;
         }
     }
     pre {

@@ -60,7 +60,7 @@ export class List extends Component {
                                     : null
                             }
                             {
-                                hasIcons && item.icon 
+                                hasIcons && item.icon
                                     ? <Icon className='icon' name={item.icon.name} />
                                     : null
                             }

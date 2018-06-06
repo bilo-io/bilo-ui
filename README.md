@@ -38,7 +38,7 @@ export const MyComponent = (props) => (
 
 ## Setting up
 
-- `git clone http://github.com/bilo-io/bilo-ui` 
+- `git clone http://github.com/bilo-io/bilo-ui`
 - `cd ./bilo-ui`
 - `yarn`
 - `yarn dev`

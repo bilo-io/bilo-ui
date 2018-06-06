@@ -13,7 +13,7 @@ export class Lists extends Component {
         options: [
             { label: 'first', value: '1', isOn: false, icon: 'help'},
             { label: 'second', value: '2', isOn: true, icon: 'help'},
-            { label: 'third', value: '3', isOn: false, icon: 'help'} 
+            { label: 'third', value: '3', isOn: false, icon: 'help'}
         ]
     }
     clickHandler = (index, item) => {
@@ -42,25 +42,25 @@ export class Lists extends Component {
         const { options } = this.state
         return (
             <div>
-                <PropTypeDocs 
-                    docs={docs.List}    
-                    propTypes={propTypesList}    
+                <PropTypeDocs
+                    docs={docs.List}
+                    propTypes={propTypesList}
                 />
                 <CodeDocs title='List with Badge' code={
                     <span>
                         <Badges
                             items={ options }
                             onClose={this.changeHandler}/>
-                        <List 
-                            multiple    
+                        <List
+                            multiple
                             items={ options }
                             onClick={this.clickHandler}
                             onChange={this.changeHandler}
                             />
-                    </span>    
+                    </span>
                 } />
                 <CodeDocs title='List with Icon' code={
-                    <List 
+                    <List
                         hasIcons
                         items={ options }
                         onClick={this.clickHandler}
@@ -68,15 +68,15 @@ export class Lists extends Component {
                     />
                 } />
                 <CodeDocs title='List with Checkbox' code={
-                    <List 
+                    <List
                         onClick={this.clickHandler}
                         onChange={this.changeHandler}
                         items={ options }
                     />
                 } />
                 <CodeDocs title='List icon and checkbox' code={
-                    <List 
-                        multiple    
+                    <List
+                        multiple
                         hasIcons
                         items={ options }
                         onClick={this.clickHandler}

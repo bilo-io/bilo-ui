@@ -43,20 +43,25 @@ export class MDReader extends Component {
     checkProps(props) {
         const { markdown, url } = props;
         console.log('receiving props', props, this.props)
+        // , () => {
+            // props.url !== this.props.url
+            //     ? this.fetchMD(props.url)
+            //     : null;
+            // props.markdown !== this.props.markdown
+            //     ? this.processMD(props.markdown)
+            //     : null;
+                this.fetchMD(props.url)
+                this.processMD(props.markdown)
+        // });
         this.setState({
             ...this.state,
             markdown,
             url
-        }, () => {
-            props.url != this.props.url
-                ? this.fetchMD(props.url)
-                : null;
-            props.markdown != this.props.markdown
-                ? this.processMD(props.markdown)
-                : null;
-        });
+        })
     }
     fetchMD(url) {
+        console.log('fetching markdown: ', url)
+        if(!url || url.length === 0) return
         this.loading = true;
         if (!url) {
             console.warn('no url specified!: ', url)
@@ -76,6 +81,7 @@ export class MDReader extends Component {
     processMD(markdown) {
         // get headings:
         console.log('processing markdown', markdown)
+        if(!markdown || markdown.length === 0) return
         let lines = markdown
             .split('\n')
             .filter(line => line.substr(0, 1) === '#');

@@ -1,11 +1,10 @@
-var webpack = require('webpack');
-var path = require('path');
-var DIST = path.resolve(__dirname, 'dist/');
-var SRC = path.resolve(__dirname, 'src/');
-var marked = require('marked');
-var renderer = new marked.Renderer();
-
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack')
+const path = require('path')
+const DIST = path.resolve(__dirname, 'dist/')
+const SRC = path.resolve(__dirname, 'src/')
+const marked = require('marked')
+const renderer = new marked.Renderer()
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 var config = {
     devtool: 'source-maps',
@@ -33,7 +32,7 @@ var config = {
             test: /\.md$/,
             use: [
                 {
-                    // loader: 'html-loader'
+                // loader: 'html-loader'
                 // }, {
                     loader: 'markdown-loader',
                     options: {

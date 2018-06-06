@@ -21,14 +21,21 @@ $toast-height: 3em;
   background: $col-active;
   color: white;
 }
+
+.toast-secondary {
+  @extend .toast;
+  background: #333;
+  color: white;
+}
+
 .toast-warning {
   @extend .toast;
   background: orange;
   color: white;
 }
 
-.toast-secondary {
+.toast-danger {
   @extend .toast;
-  background: #333;
+  background: red;
   color: white;
 }

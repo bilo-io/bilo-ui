@@ -6,7 +6,14 @@ const DIST = path.resolve(__dirname, 'demo/');
 const SRC = path.resolve(__dirname, 'src/');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const marked = require('marked')
-var renderer = new marked.Renderer();
+const renderer = new marked.Renderer();
+
+const NODE_ENV = process.env.UI_ENV
+console.log(`
+ENV: ${NODE_ENV}
+`)
+
+const publicPath = NODE_ENV==='development' ? '/' : './'
 
 var config = {
     devtool: 'source-maps',
@@ -15,7 +22,7 @@ var config = {
     },
     output: {
         path: DIST,
-        publicPath: '/',
+        publicPath,
         filename: './demo.js'
     },
     // resolve: {
