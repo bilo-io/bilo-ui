@@ -15522,6 +15522,8 @@ var Loader = exports.Loader = function (_Component) {
             switch (loaderType) {
                 case LoaderType.SPINNER:
                     return _react2.default.createElement(Spinner, null);
+                case LoaderType.SPINNER_2:
+                    return _react2.default.createElement(Spinner, { double: true });
                 case LoaderType.RAINBOW:
                     return _react2.default.createElement(RainBowLoader, null);
                 case LoaderType.FULLSCREEN:
@@ -15543,11 +15545,12 @@ var Loader = exports.Loader = function (_Component) {
 Loader.propTypes = _extends({}, propTypesLoader);
 var LoaderType = exports.LoaderType = {
     SPINNER: 'spinner',
+    SPINNER_2: 'spinner-2',
     FULLSCREEN: 'fullscreen',
     RAINBOW: 'rainbow'
 };
 var Spinner = exports.Spinner = function Spinner(props) {
-    return _react2.default.createElement('span', { className: 'loader' });
+    return _react2.default.createElement('span', { className: 'loader ' + (props.double ? 'double' : '') });
 };
 
 var RainBowLoader = exports.RainBowLoader = function RainBowLoader(props) {
@@ -39073,7 +39076,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.toast-container {\n  position: absolute;\n  width: 100%;\n  top: 0;\n  z-index: 10; }\n\n.toast, .toast-primary, .toast-warning, .toast-secondary {\n  position: relative;\n  padding: 1em;\n  margin-bottom: 0.25em;\n  z-index: 10; }\n\n.toast-primary {\n  background: #00adee;\n  color: white; }\n\n.toast-warning {\n  background: orange;\n  color: white; }\n\n.toast-secondary {\n  background: #333;\n  color: white; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.toast-container {\n  position: absolute;\n  width: 100%;\n  top: 0;\n  z-index: 10; }\n\n.toast, .toast-primary, .toast-secondary, .toast-warning, .toast-danger {\n  position: relative;\n  padding: 1em;\n  margin-bottom: 0.25em;\n  z-index: 10; }\n\n.toast-primary {\n  background: #00adee;\n  color: white; }\n\n.toast-secondary {\n  background: #333;\n  color: white; }\n\n.toast-warning {\n  background: orange;\n  color: white; }\n\n.toast-danger {\n  background: red;\n  color: white; }\n", ""]);
 
 // exports
 
@@ -82424,7 +82427,7 @@ exports = module.exports = __webpack_require__(5)(false);
 exports.i(__webpack_require__(499), "");
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.markdown-wrapper {\n  display: flex;\n  align-items: stretch;\n  width: 100%; }\n\n.markdown-container {\n  width: 100%;\n  position: relative;\n  top: 0;\n  left: 0;\n  height: calc(100%);\n  padding: 2em;\n  overflow-y: auto; }\n\n.markdown-nav {\n  padding: 2em;\n  width: calc(20em - 2 * 2em);\n  height: calc(100%);\n  background: #1e1e1e;\n  color: #00adee; }\n  .markdown-nav div {\n    line-height: 1.8em; }\n\n.code, .markdown p code, .markdown li code, .markdown td code {\n  color: #29fc99;\n  border: 0.5px solid #00adee;\n  border-radius: 4px;\n  padding: 4px;\n  margin: 2px;\n  background: rgba(0, 173, 238, 0.02);\n  font-weight: bold; }\n\n.markdown {\n  width: 100%;\n  height: 100%;\n  line-height: 1.8em;\n  margin-left: auto;\n  margin-right: auto; }\n  .markdown pre {\n    background: #333;\n    color: white;\n    padding: 1em;\n    border-radius: 4px;\n    overflow: auto; }\n  .markdown a {\n    color: #00adee; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.markdown-wrapper {\n  display: flex;\n  align-items: stretch;\n  width: 100%; }\n\n.markdown-container {\n  width: 100%;\n  position: relative;\n  top: 0;\n  left: 0;\n  height: calc(100%);\n  padding: 2em;\n  overflow-y: auto; }\n\n.markdown-nav {\n  padding: 2em;\n  width: calc(20em - 2 * 2em);\n  height: calc(100%);\n  background: #1e1e1e;\n  color: #00adee; }\n  .markdown-nav div {\n    line-height: 1.8em; }\n\n.code, .markdown p code, .markdown li code, .markdown td code {\n  color: #29fc99;\n  background: rgba(0, 173, 238, 0.02);\n  border-radius: 4px;\n  padding: 1px;\n  margin: 2px;\n  font-weight: bold; }\n\n.markdown {\n  width: 100%;\n  height: 100%;\n  line-height: 1.8em;\n  margin-left: auto;\n  margin-right: auto; }\n  .markdown p code, .markdown li code, .markdown td code {\n    font-family: 'Courier New', Courier, monospace; }\n  .markdown pre {\n    background: #333;\n    color: white;\n    padding: 1em;\n    border-radius: 4px;\n    overflow: auto; }\n  .markdown a {\n    color: #00adee; }\n", ""]);
 
 // exports
 
@@ -86051,7 +86054,7 @@ var BiloUI = function (_Component) {
         }
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = BiloUI.__proto__ || Object.getPrototypeOf(BiloUI)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            activePage: 'files'
+            activePage: 'home-page'
         }, _this.selectSection = function (page) {
             _this.setState(_extends({}, _this.state, { activePage: page || 'all' }), function () {
                 return console.log(_this.state);
@@ -86070,7 +86073,7 @@ var BiloUI = function (_Component) {
         value: function render() {
             var _this2 = this;
 
-            var uiPages = ['intro', 'all', 'application', 'buttons', 'cards', 'dropdowns', 'errors', 'files', 'icons', 'inputs', 'lists', 'loaders', 'media', 'modals', 'time'];
+            var uiPages = ['home', 'all', 'application', 'buttons', 'cards', 'dropdowns', 'errors', 'files', 'icons', 'inputs', 'lists', 'loaders', 'media', 'modals', 'time'];
             var activePage = this.state.activePage;
 
             return _react2.default.createElement(
@@ -86093,7 +86096,7 @@ var BiloUI = function (_Component) {
                                 'div',
                                 {
                                     className: 'nav-item ' + (page === activePage ? 'nav-item-active' : '') },
-                                page === 'intro' ? 'bilo-ui' : page.toLocaleUpperCase()
+                                page === 'home' ? 'bilo-ui' : page.toLocaleUpperCase()
                             )
                         );
                     })
@@ -86115,11 +86118,12 @@ var BiloUI = function (_Component) {
                         _react2.default.createElement(_lists2.default, null),
                         _react2.default.createElement(_loaders2.default, null),
                         _react2.default.createElement(_media2.default, null),
-                        _react2.default.createElement(_time2.default, null)
+                        _react2.default.createElement(_time2.default, null),
+                        _react2.default.createElement(_trees2.default, null)
                     ),
                     _react2.default.createElement(
                         _.If,
-                        { isTrue: activePage === 'intro' },
+                        { isTrue: activePage === 'home' },
                         _react2.default.createElement(
                             'div',
                             null,
@@ -87334,7 +87338,7 @@ var Application = function (_Component) {
                         _react2.default.createElement(
                             _components.AppBody,
                             null,
-                            _react2.default.createElement(_components.AppToaster, { toast: toaster.toast ? toaster.toast : undefined }),
+                            _react2.default.createElement(_components.AppToaster, { toast: toaster.toast }),
                             _react2.default.createElement(
                                 _components.AppSidenav,
                                 {
@@ -87351,31 +87355,48 @@ var Application = function (_Component) {
                                 })
                             ),
                             _react2.default.createElement(
-                                _components.Button,
-                                {
-                                    className: 'primary',
-                                    onClick: function onClick() {
-                                        return addToast(_this2, 'this is a toast', 'primary');
+                                'div',
+                                { style: {
+                                        position: 'relative',
+                                        // bottom: '1em'
+                                        margin: 'auto'
                                     } },
-                                'add toast'
-                            ),
-                            _react2.default.createElement(
-                                _components.Button,
-                                {
-                                    className: 'secondary',
-                                    onClick: function onClick() {
-                                        return addToast(_this2, 'this is a toast', 'secondary');
-                                    } },
-                                'add toast'
-                            ),
-                            _react2.default.createElement(
-                                _components.Button,
-                                {
-                                    className: 'warning',
-                                    onClick: function onClick() {
-                                        return addToast(_this2, 'this is a toast', 'warning');
-                                    } },
-                                'add toast'
+                                _react2.default.createElement(
+                                    _components.Button,
+                                    {
+                                        className: 'primary',
+                                        onClick: function onClick() {
+                                            return _this2.addToast('this is a toast', 'primary');
+                                        } },
+                                    'add toast'
+                                ),
+                                _react2.default.createElement(
+                                    _components.Button,
+                                    {
+                                        className: 'secondary',
+                                        onClick: function onClick() {
+                                            return _this2.addToast('this is a toast', 'secondary');
+                                        } },
+                                    'add toast'
+                                ),
+                                _react2.default.createElement(
+                                    _components.Button,
+                                    {
+                                        className: 'warning',
+                                        onClick: function onClick() {
+                                            return _this2.addToast('this is a toast', 'warning');
+                                        } },
+                                    'add toast'
+                                ),
+                                _react2.default.createElement(
+                                    _components.Button,
+                                    {
+                                        className: 'danger',
+                                        onClick: function onClick() {
+                                            return _this2.addToast('this is a toast', 'danger');
+                                        } },
+                                    'add toast'
+                                )
                             )
                         )
                     ) }),
@@ -87418,62 +87439,13 @@ var Application = function (_Component) {
                             'Application Title Bar'
                         )
                     ) }),
-                _react2.default.createElement(_components.CodeDocs, { title: 'AppSidenav', code: _react2.default.createElement(
-                        'div',
-                        { style: { position: 'relative', height: '50vh' } },
-                        _react2.default.createElement(
-                            _components.AppSidenav,
-                            {
-                                isOpen: sidenavLeft.isOpen },
-                            sidenav.items.map(function (page, i) {
-                                return _react2.default.createElement(
-                                    'div',
-                                    {
-                                        key: i,
-                                        className: 'sidenav-link',
-                                        onClick: _this2.toggleSidenavLeft },
-                                    page.name
-                                );
-                            })
-                        ),
-                        _react2.default.createElement(
-                            _components.AppSidenav,
-                            {
-                                isOpen: sidenavRight.isOpen,
-                                fromRight: true },
-                            sidenav.items.map(function (page, i) {
-                                return _react2.default.createElement(
-                                    'div',
-                                    {
-                                        key: i,
-                                        className: 'sidenav-link',
-                                        onClick: _this2.toggleSidenavRight },
-                                    page.name
-                                );
-                            })
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { style: { position: 'absolute', left: '30%', top: '40%' } },
-                            _react2.default.createElement(
-                                _components.Button,
-                                { className: 'primary', onClick: this.toggleSidenavLeft },
-                                'Left'
-                            ),
-                            _react2.default.createElement(
-                                _components.Button,
-                                { className: 'primary', onClick: this.toggleSidenavRight },
-                                'Right'
-                            )
-                        )
-                    ) }),
                 _react2.default.createElement(_components.CodeDocs, { title: 'AppToaster', code: _react2.default.createElement(
                         'div',
                         { style: { position: 'relative', height: '20em' } },
-                        _react2.default.createElement(_components.AppToaster, { toast: toaster.toast ? toaster.toast : undefined }),
+                        _react2.default.createElement(_components.AppToaster, { toast: toaster.toast }),
                         _react2.default.createElement(
                             'div',
-                            { style: { position: 'relative', top: '17em' } },
+                            { style: { position: 'absolute', bottom: '0', margin: 'auto' } },
                             _react2.default.createElement(
                                 _components.Button,
                                 {
@@ -87498,6 +87470,15 @@ var Application = function (_Component) {
                                     className: 'warning',
                                     onClick: function onClick() {
                                         return _this2.addToast('this is a toast', 'warning');
+                                    } },
+                                'add toast'
+                            ),
+                            _react2.default.createElement(
+                                _components.Button,
+                                {
+                                    className: 'danger',
+                                    onClick: function onClick() {
+                                        return _this2.addToast('this is a toast', 'danger');
                                     } },
                                 'add toast'
                             )
@@ -89108,7 +89089,7 @@ exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  
 /* 576 */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 id=\"bilo-ui\">bilo-ui</h1>\n<p>A <a href=\"https://reactjs.org/\">React</a> component library for frontend web dev.</p>\n<h4 id=\"live-demo\"><a href=\"https://bilo-io.github.io/bilo-ui\">Live Demo</a></h4>\n<h2 id=\"get-started\">Get started</h2>\n<ul>\n<li>Installation</li>\n</ul>\n<p><code>npm install bilo-ui --save-dev</code></p>\n<ul>\n<li>Example Usage:\n<code>`</code>jsx\nimport { Button, Card, If } from &#39;bilo-ui&#39;</li>\n</ul>\n<p>export const MyComponent = (props) =&gt; (\n    <Card className='padded'>\n        <If isTrue={true}>\n            &lt;Button className=&#39;primary&#39; onClick={\n                    () =&gt; alert(&#39;bilo-ui button clicked&#39;)\n            }&gt;\n                Show dialog\n            </Button>\n        </If>\n        <If isTrue={false}>\n            &lt;Button className=&#39;warning&#39; onClick={\n                () =&gt; alert(&#39;bilo-ui button clicked&#39;)\n            }&gt;\n                Button should be invisible\n            </Button>\n        </If>\n    </Card>\n)\n<code>`</code></p>\n<h2 id=\"setting-up\">Setting up</h2>\n<ul>\n<li><code>git clone http://github.com/bilo-io/bilo-ui</code> </li>\n<li><code>cd ./bilo-ui</code></li>\n<li><code>yarn</code></li>\n<li><code>yarn dev</code></li>\n<li><code>yarn dev:docs</code></li>\n</ul>\n<blockquote>\n<p><code>dev:docs</code> recompiles the preview of the package, run on <a href=\"http://localhost:3030\">http://localhost:3030</a>\n<code>dev</code> recompiles the package <code>bilo-ui</code> after each edit, useful when linking this package as a dependency locally</p>\n</blockquote>\n<h2 id=\"symlinking\">Symlinking</h2>\n<ul>\n<li><code>yarn link</code> in this repository</li>\n<li><code>yarn dev</code></li>\n</ul>\n<blockquote>\n<p>NOTE: To link to your the local copy of <code>bilo-ui</code>, run <code>yarn link bilo-ui</code> in your project</p>\n</blockquote>\n<h2 id=\"building-releasing\">Building &amp; Releasing</h2>\n<ul>\n<li><code>yarn build</code></li>\n<li><code>yarn build:docs</code></li>\n<li><code>yarn deploy</code></li>\n</ul>\n<blockquote>\n<p><code>yarn build:all</code> builds both the preview (docs) and the npm package</p>\n<p>TODO: semver bumping for release process</p>\n</blockquote>\n";
+module.exports = "<h1 id=\"bilo-ui\">bilo-ui</h1>\n<p>A <a href=\"https://reactjs.org/\">React</a> component library for frontend web dev.</p>\n<h4 id=\"live-demo\"><a href=\"https://bilo-io.github.io/bilo-ui\">Live Demo</a></h4>\n<h2 id=\"get-started\">Get started</h2>\n<ul>\n<li>Installation</li>\n</ul>\n<p><code>npm install bilo-ui --save-dev</code></p>\n<ul>\n<li>Example Usage:\n<code>`</code>jsx\nimport { Button, Card, If } from &#39;bilo-ui&#39;</li>\n</ul>\n<p>export const MyComponent = (props) =&gt; (\n    <Card className='padded'>\n        <If isTrue={true}>\n            &lt;Button className=&#39;primary&#39; onClick={\n                    () =&gt; alert(&#39;bilo-ui button clicked&#39;)\n            }&gt;\n                Show dialog\n            </Button>\n        </If>\n        <If isTrue={false}>\n            &lt;Button className=&#39;warning&#39; onClick={\n                () =&gt; alert(&#39;bilo-ui button clicked&#39;)\n            }&gt;\n                Button should be invisible\n            </Button>\n        </If>\n    </Card>\n)\n<code>`</code></p>\n<h2 id=\"setting-up\">Setting up</h2>\n<ul>\n<li><code>git clone http://github.com/bilo-io/bilo-ui</code></li>\n<li><code>cd ./bilo-ui</code></li>\n<li><code>yarn</code></li>\n<li><code>yarn dev</code></li>\n<li><code>yarn dev:docs</code></li>\n</ul>\n<blockquote>\n<p><code>dev:docs</code> recompiles the preview of the package, run on <a href=\"http://localhost:3030\">http://localhost:3030</a>\n<code>dev</code> recompiles the package <code>bilo-ui</code> after each edit, useful when linking this package as a dependency locally</p>\n</blockquote>\n<h2 id=\"symlinking\">Symlinking</h2>\n<ul>\n<li><code>yarn link</code> in this repository</li>\n<li><code>yarn dev</code></li>\n</ul>\n<blockquote>\n<p>NOTE: To link to your the local copy of <code>bilo-ui</code>, run <code>yarn link bilo-ui</code> in your project</p>\n</blockquote>\n<h2 id=\"building-releasing\">Building &amp; Releasing</h2>\n<ul>\n<li><code>yarn build</code></li>\n<li><code>yarn build:docs</code></li>\n<li><code>yarn deploy</code></li>\n</ul>\n<blockquote>\n<p><code>yarn build:all</code> builds both the preview (docs) and the npm package</p>\n<p>TODO: semver bumping for release process</p>\n</blockquote>\n";
 
 /***/ }),
 /* 577 */
