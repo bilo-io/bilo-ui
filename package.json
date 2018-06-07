@@ -4,7 +4,7 @@
   "description": "XUI is a set of experimental ui elements and utilities for frontend web development.",
   "main": "dist/index.js",
   "scripts": {
-    "deploy": "yarn unlink && yarn build && npm publish",
+    "deploy": "bash ./scripts/deploy.sh",
     "bump": "node ./scripts/semver.js",
     "release": "npm publish",
     "prepublish": "yarn build",

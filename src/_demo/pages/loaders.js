@@ -23,7 +23,7 @@ export default class Loaders extends Component {
                 <CodeDocs
                     code={
                         <div style={{ height: '30em' }}>
-                            <Loader type={LoaderType.SPINNER}/>
+                            <Loader type={LoaderType.SPINNER} />
                             <Loader type={LoaderType.RAINBOW}/>
                             <Loader type={LoaderType.FULLSCREEN} />
                         </div>

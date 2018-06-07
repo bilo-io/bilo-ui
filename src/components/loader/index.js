@@ -19,13 +19,15 @@ export class Loader extends Component {
         let loaderType = type || LoaderType.SPINNER
         switch (loaderType) {
             case LoaderType.SPINNER:
-                return <Spinner />    
+                return <Spinner />
+            case LoaderType.SPINNER_2:
+                return <Spinner double />
             case LoaderType.RAINBOW:
                 return <RainBowLoader/>
             case LoaderType.FULLSCREEN:
                 return <FullScreenLoader/>
             default:
-                console.warn(`<Loader />: couldn't find loader with type: "${loaderType}"`)    
+                console.warn(`<Loader />: couldn't find loader with type: "${loaderType}"`)
                 return (
                     <div>Loading...</div>
                 )
@@ -34,10 +36,12 @@ export class Loader extends Component {
 }
 export const LoaderType = {
     SPINNER: 'spinner',
+    SPINNER_2: 'spinner-2',
     FULLSCREEN: 'fullscreen',
     RAINBOW: 'rainbow'
 }
-export const Spinner = (props) => <span className='loader'></span>
+export const Spinner = (props) =>
+    <span className={`loader ${props.double ? 'double' : ''}`} />
 
 export const RainBowLoader = (props) => <div className='bar-loader'>
     <div className='bar1'></div>
