@@ -49,13 +49,26 @@ export const setState = (payload) => {
 
 //#region REST Resource manipulation
 /**
+ *
+ *
+ * @param {*} state
+ * @param {*} id
+ * @returns
+ */
+const accessMember = (state, id) => {
+    // const keys = Object.keys(searchObj)
+    // state.find( e => keys.forEach( key => searchObj.key === searchObj.key))
+    return state.find( member => member.id === id)
+}
+
+/**
  * creates a new member of a collection in redux
  *
  * @param {*} state
  * @param {*} payload
  * @returns
  */
-const createMember = (state, payload) => {
+export const createMember = (state, payload) => {
     const memberIndex = state.findIndex(item => item.id === payload.meta.id)
     return [
         ...state,
@@ -69,7 +82,7 @@ const createMember = (state, payload) => {
  * @param {*} payload
  * @returns
  */
-const updateMember = (state, payload) => {
+export const updateMember = (state, payload) => {
     const memberIndex = state.findIndex(item => item.id === payload.meta.id)
     return [
         ...state.slice(0, memberIndex),
@@ -84,7 +97,7 @@ const updateMember = (state, payload) => {
  * @param {*} payload
  * @returns
  */
-const deleteMember = (state, payload) => {
+export const deleteMember = (state, payload) => {
     return memberIndex = state.filter(item => item.id !== payload.meta.id)
 }
 //#endregion

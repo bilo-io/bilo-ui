@@ -17,30 +17,30 @@ export default class Media extends Component {
         return (
             <div className='ws-card'>
                 <h2>Media</h2>
-                <PropTypeDocs 
-                    docs={docs.Audio}    
-                    propTypes={propTypesAudio}    
+                <PropTypeDocs
+                    docs={docs.Audio}
+                    propTypes={propTypesAudio}
                 />
-                <CodeDocs title='audio' code={ 
+                <CodeDocs title='audio' code={
                     <Audio
                         style={{ width: '100%'}}
                         src="https://www.w3schools.com/html/horse.ogg"
                     />
                 } />
-                <PropTypeDocs 
+                <PropTypeDocs
                     docs={docs.Video}
-                    propTypes={propTypesVideo}    
+                    propTypes={propTypesVideo}
                 />
-                <CodeDocs title='video' code={ 
-                    <Video 
-                        width='100%' 
+                <CodeDocs title='video' code={
+                    <Video
+                        width='100%'
                         height='auto'
                         src="https://www.w3schools.com/html/movie.mp4" type="video/mp4"
                     />
                 } />
-                <PropTypeDocs 
-                    docs={docs.Youtube}    
-                    propTypes={propTypesYoutube}    
+                <PropTypeDocs
+                    docs={docs.Youtube}
+                    propTypes={propTypesYoutube}
                 />
                 <CodeDocs title='Youtube' code={
                     <Youtube

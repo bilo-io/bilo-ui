@@ -11,16 +11,16 @@
     "start": "bash ./scripts/dev_and_demo.sh",
     "serve": "node ./artifact/server.js",
     "dev": "webpack -p --colors -w",
+    "dev:all": "yarn start",
     "dev:docs": "UI_ENV=development yarn docs-build",
     "docs-build": "webpack-dev-server -w --color --inline --config webpack.docs.config.js",
-    "dev:all": "yarn start",
     "build": "webpack -p",
+    "build:all": "yarn clean:all && yarn build && yarn build:docs && yarn build:server",
     "build:docs": "yarn clean:docs && UI_ENV=production webpack --config webpack.docs.config.js && mv ./demo ./docs",
     "build:server": "webpack -p --config webpack.docs.config.js && mkdir artifact && cp server.js ./artifact && cp -r ./demo ./artifact",
-    "build:all": "yarn clean:all && yarn build && yarn build:docs && yarn build:server",
     "clean": "rm -rf artifact && rm -rf dist",
-    "clean:docs": "rm -rf docs && rm -rf demo",
-    "clean:all": "yarn clean && yarn clean:docs"
+    "clean:all": "yarn clean && yarn clean:docs",
+    "clean:docs": "rm -rf docs && rm -rf demo"
   },
   "repository": {
     "type": "git",

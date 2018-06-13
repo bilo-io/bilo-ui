@@ -29,7 +29,6 @@ export class PropTypeDocs extends Component {
             propTypeDocs[key] = obj
         })
 
-        
         console.log({
             propTypeDocs
         })

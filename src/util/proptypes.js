@@ -31,21 +31,20 @@ export default {
     },
     Audio : {
         propTypes: {
-            src: 'PropTypes.string',
+            src: 'The URL of the audio file',
             className,
             style,
-            width: 'PropTypes.string',
-            height: 'PropTypes.string',
-            type: 'PropTypes.string'
+            width: 'The width of the component',
+            height: 'The height of the component',
         }
     },
     Badges : {
         propTypes: {
-            closeable: 'PropTypes.bool',
-            hint: 'PropTypes.string',
-            items: 'PropTypes.array',
+            closeable: 'Whether you can delete the badge',
+            hint: 'A placeholder for the badges container, when no badges have been added',
+            items: 'The actual badges',
             onChange,
-            onClose: 'PropTypes.func'
+            onClose: 'Callback that happens when you remove a badge'
         }
     },
     Button : {

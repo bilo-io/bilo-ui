@@ -22,7 +22,7 @@ export class Badges extends Component {
             })
     }
     render() {
-        const {hint, items, onChange, onClose, closeable} = this.props
+        const {hint, items, onChange, isCloseable} = this.props
         return (
             <div className='badges'>
                 {items.length

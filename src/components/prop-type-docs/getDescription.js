@@ -4,5 +4,5 @@ export const propTypesToDescriptions = ({ propTypes, data }) => Object.keys(prop
       description: data[curr]
     }
   }), {});
-  
-  export default propTypesToDescriptions;
+
+export default propTypesToDescriptions;

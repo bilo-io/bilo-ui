@@ -2,11 +2,10 @@
 
 .app-body {
     position: relative;
-    // top: $dim-navbar-height;
     top: 0;
     left: 0;
-    width: 100%;
-    height: calc(100% - #{$dim-navbar-height});
+    width: 100vw;
+    height: calc(100vh - #{$dim-navbar-height});
     overflow-y: auto;
     display: flex;
     flex-direction: row;
