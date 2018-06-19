@@ -13,11 +13,11 @@ import Loaders from './loaders'
 import Media from './media'
 import Time from './time'
 import Trees from './trees'
-import './style.scss'
 import { Link } from 'react-router-dom'
 import MDReader from '../../components/md-reader'
 import CodeDocs from '../../components/code-docs'
 import readme from '../../../README.md'
+// import './style.scss'
 
 export default class BiloUI extends Component {
     state = {

@@ -14,48 +14,66 @@ var config = {
         publicPath: '/dist',
         filename: 'index.js',
         library: ["XUI"],
-        libraryTarget: 'umd',
+        libraryTarget: 'umd'
     },
     module: {
-        rules: [{
-            test: /\.(js|jsx)$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/
-        }, {
-            test: /\.(css|scss)$/,
-            loaders: ['style-loader', 'css-loader', 'sass-loader'],
-            exclude: /node_modules/
-        }, {
-            test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-            loader: 'file-loader?name=assets/[name].[ext]',
-        }, {
-            test: /\.md$/,
-            use: [
-                {
-                // loader: 'html-loader'
-                // }, {
-                    loader: 'markdown-loader',
-                    options: {
-                        pedantic: true,
-                        renderer
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            }, {
+                test: /\.(css|scss)$/,
+                loaders: [
+                    'style-loader', 'css-loader', 'sass-loader'
+                ],
+                exclude: /node_modules/
+            }, {
+                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                loader: 'file-loader?name=assets/[name].[ext]'
+            }, {
+                test: /\.md$/,
+                use: [
+                    {
+                        // loader: 'html-loader' }, {
+                        loader: 'markdown-loader',
+                        options: {
+                            pedantic: true,
+                            renderer
+                        }
                     }
-                }
-            ]
-        }]
+                ]
+            }, {
+                test: /\.stories\.jsx?$/,
+                loaders: [
+                    {
+                      loader: require.resolve('@storybook/addon-storysource/loader'),
+                      options: {
+                        prettierConfig: {
+                          printWidth: 80,
+                          singleQuote: false,
+                        }
+                      }
+                    }
+                  ],
+                  enforce: 'pre',
+            }
+        ]
     },
-    plugins: [
-        new CopyWebpackPlugin([
-            {from: './src/bilo-ui.scss', to: './'},
-            {from: './src/scss', to: './scss'}
-        ])
-    ],
+    plugins: [new CopyWebpackPlugin([
+            {
+                from: './src/bilo-ui.scss',
+                to: './'
+            }, {
+                from: './src/scss',
+                to: './scss'
+            }
+        ])],
     devServer: {
         historyApiFallback: true,
         stats: 'minimal'
     },
-    // node: {
-    //     fs: 'empty'
-    // }
+    // node: {     fs: 'empty' }
 };
 
 module.exports = config;
