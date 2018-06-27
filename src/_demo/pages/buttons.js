@@ -16,9 +16,13 @@ export default class Buttons extends Component {
                     docs={docs.Button}
                     propTypes={propTypesButton}
                 />
-                <CodeDocs title='Primary' code={
+                <CodeDocs title='Primary'
+                    code={
                     <ButtonPrimary />
-                } />
+                    }
+                    propDocs={docs.Button}
+                    propTypes={propTypesButton}
+                />
                 <CodeDocs title='Hollow' code={
                     <ButtonHollow />
                 } />

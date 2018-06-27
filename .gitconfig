@@ -11,6 +11,7 @@
 	email = bilo.lwabona@gmail.com
 [alias]
 	# custom
+	aa = add -A
 	pl = pull origin
 	ps = push origin
 	rhh = reset HEAD --hard
