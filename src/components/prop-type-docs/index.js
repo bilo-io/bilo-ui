@@ -39,7 +39,7 @@ export class PropTypeDocs extends Component {
 
     render() {
         return this.state
-            ? <Card><Table propTypes={this.state.propTypes} /></Card>
+            ? <Table propTypes={this.state.propTypes} />
             : null
     }
 }

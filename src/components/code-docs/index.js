@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 import {Code} from './code'
-import {Card, Icon} from '../'
+import { Card, Icon, Tabs, If, PropTypeDocs  } from '../'
 import './style.scss'
 
 export const propTypesCodeDocs = {
-    title: PropTypes.string,
-    isOpen: PropTypes.bool,
     code: PropTypes.object,
+    isOpen: PropTypes.bool,
+    title: PropTypes.string,
 }
 
 export class CodeDocs extends Component {
@@ -15,7 +15,8 @@ export class CodeDocs extends Component {
         ...propTypesCodeDocs
     }
     state = {
-        isOpen: false
+        isOpen: false,
+        activeTab: 0
     }
 
     toggle() {
@@ -27,7 +28,42 @@ export class CodeDocs extends Component {
 
     render() {
         const {isOpen} = this.state
-        const {code, title, language} = this.props
+        const { code, title, language } = this.props
+        const selectTab = (i) => {
+            console.log(`<CodeDocs/>: selectTab(${i})`)
+            this.setState({
+                activeTab: i
+            })
+        }
+
+        const renderDocs = () => {
+            const { activeTab } = this.state
+            const tabs = ['code', 'propTypes']
+            return <div>
+                <Tabs
+                    tabs={tabs}
+                    activeTab={activeTab}
+                    selectTab={selectTab}
+                />
+                <If isTrue={activeTab === 1}>
+                    <Card className='code-block'>
+                        <Code
+                            code={code}
+                            language={language || 'html'}
+                        />
+                    </Card>
+                </If>
+                <If isTrue={activeTab === 0}>
+                    <Card>
+                        <PropTypeDocs
+                            propTypes={propTypesCodeDocs}
+                            docs={{ propTypes: propTypesCodeDocs }}
+                        />
+                    </Card>
+                </If>
+            </div>
+        }
+
         return this.state && code
             ? (
                 <div
@@ -44,10 +80,8 @@ export class CodeDocs extends Component {
                         <div className='code-block'>
                             {
                                 isOpen
-                                    ? <Card className='code-block'>
-                                    <Code code={ code } language={ language || 'html' } />
-                                </Card>
-                                : null
+                                    ? renderDocs()
+                                    : null
                             }
                         </div>
                     </div>

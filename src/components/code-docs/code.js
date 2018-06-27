@@ -3,29 +3,36 @@ import PropTypes from 'prop-types'
 import Highlight from 'react-highlight.js'
 import jsxToString from 'jsx-to-string-2'
 
-export const propTypesCodeDocs = {
+export const propTypesCode = {
     code: PropTypes.object,
     language: PropTypes.string,
-    functionNameOnly: PropTypes.bool,
-    useFunctionCode: PropTypes.bool
+    jsxFunctionName: PropTypes.bool
 }
 
 export class Code extends Component {
     static propTypes = {
-        ...propTypesCodeDocs
+        ...propTypesCode
+    }
+    static defaultProps = {
+        code: `<div>This is example code</div>`,
+        language: `html`,
+        jsxFunctionName: true
     }
     state = {
         isOpen: false
     }
-
     componentDidMount() {
-        const { code, language } = this.props
+        const { code, language, jsxFunctionCode, jsxFunctionName } = this.props
+
         this.setState({
             codeString: ['jsx', 'html'].includes(language)
                 ? jsxToString(code, {
-                    useFunctionCode: true
+                    useFunctionCode: true,
+                    functionNameOnly: jsxFunctionName
                 })
-                : `ERROR: COULD NOT PROCESS CODE WITH LANG: ${language}`
+                : code.string
+                    ? code.string
+                    : `ERROR: COULD NOT PROCESS CODE WITH LANG: ${language}`
         })
     }
     render() {
