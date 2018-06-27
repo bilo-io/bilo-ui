@@ -1,19 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
-// import deepAssign from 'deep-assign'
-import {Card, Icon} from '../'
+import {Code} from './code'
+import { Card, Icon, Tabs, If, PropTypeDocs  } from '../'
 import './style.scss'
-// Code
-import Highlight from 'react-highlight.js'
-import jsxToString from 'jsx-to-string-2'
 
 export const propTypesCodeDocs = {
-    title: PropTypes.string,
-    isOpen: PropTypes.bool,
     code: PropTypes.object,
-    language: PropTypes.string,
-    functionNameOnly: PropTypes.bool,
-    useFunctionCode: PropTypes.bool
+    isOpen: PropTypes.bool,
+    title: PropTypes.string,
 }
 
 export class CodeDocs extends Component {
@@ -21,22 +15,8 @@ export class CodeDocs extends Component {
         ...propTypesCodeDocs
     }
     state = {
-        isOpen: false
-    }
-
-    componentDidMount() {
-        const {
-            code,
-            title,
-            functionNameOnly,
-            useFunctionCode
-        } = this.props;
-
-        this.setState({
-            codeString: jsxToString(code, {
-                useFunctionCode: true
-            })
-        })
+        isOpen: false,
+        activeTab: 0
     }
 
     toggle() {
@@ -47,8 +27,43 @@ export class CodeDocs extends Component {
     }
 
     render() {
-        const {isOpen, codeString} = this.state;
-        const {code, title, language, propTypes} = this.props;
+        const {isOpen} = this.state
+        const { code, title, language } = this.props
+        const selectTab = (i) => {
+            console.log(`<CodeDocs/>: selectTab(${i})`)
+            this.setState({
+                activeTab: i
+            })
+        }
+
+        const renderDocs = () => {
+            const { activeTab } = this.state
+            const tabs = ['code', 'propTypes']
+            return <div>
+                <Tabs
+                    tabs={tabs}
+                    activeTab={activeTab}
+                    selectTab={selectTab}
+                />
+                <If isTrue={activeTab === 0}>
+                    <Card className='code-block'>
+                        <Code
+                            code={code}
+                            language={language || 'html'}
+                        />
+                    </Card>
+                </If>
+                <If isTrue={activeTab === 1}>
+                    <Card>
+                        <PropTypeDocs
+                            propTypes={propTypesCodeDocs}
+                            docs={{ propTypes: propTypesCodeDocs }}
+                        />
+                    </Card>
+                </If>
+            </div>
+        }
+
         return this.state && code
             ? (
                 <div
@@ -63,18 +78,11 @@ export class CodeDocs extends Component {
                         </div>
                         <br/>
                         <div className='code-block'>
-                            {code && isOpen
-                                ? <Card>
-                                    <Highlight language={language || 'html'}>
-                                        {
-                                            codeString
-                                                ? codeString
-                                                : ''
-                                        }
-                                    </Highlight>
-                                </Card>
-                                : null
-                        }
+                            {
+                                isOpen
+                                    ? renderDocs()
+                                    : null
+                            }
                         </div>
                     </div>
                     {code}

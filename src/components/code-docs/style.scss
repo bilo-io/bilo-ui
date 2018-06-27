@@ -1,23 +1,32 @@
 @import '~highlight.js/styles/vs2015.css';
 
 .code-docs {
-    margin-bottom: 2em;
-    .toggle {
-      position: relative;
-      float: right;
-      cursor: pointer;
-      
-      &:hover {
-        color: #00adee;
-      }
-    }
+  margin-bottom: 2em;
+  .toggle {
+    position: relative;
+    float: right;
+    right: 1em;
+    cursor: pointer;
 
-    .title {
-      position: relative;
-      // float: left;
+    &:hover {
+      color: #00adee;
     }
+  }
 
-    .code-block {
-      
+  .title {
+    position: relative;
+  }
+
+  .code-block {
+    pre {
+        // padding: {
+        //   top: 0;
+        //   bottom: 0;
+        // }
+        margin: {
+          top: 0;
+          bottom: 0;
+        }
     }
+  }
 }

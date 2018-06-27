@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import '../../bilo-ui.scss'
+// import '../../bilo-ui.scss'
 
 export const propTypesButton = {
     style: PropTypes.object,

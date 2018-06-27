@@ -1,0 +1,29 @@
+.tab-container {
+  .tab-panel {
+    display: flex;
+    .tab-button-active {
+      color: #00adee;
+      background: transparent;
+      border-bottom: 2px solid #00adee;
+    }
+    .tab-button {
+      padding: 1em;
+      position: relative;
+      cursor: pointer;
+      &:hover {
+        color: #00adee;
+      }
+    }
+
+    .tab-panel-v {
+      flex-direction: column;
+    }
+    .tab-panel-v {
+      flex-direction: row;
+    }
+  }
+
+  .tab-content {
+
+  }
+}
