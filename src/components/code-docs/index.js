@@ -1,19 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
-// import deepAssign from 'deep-assign'
+import {Code} from './code'
 import {Card, Icon} from '../'
 import './style.scss'
-// Code
-import Highlight from 'react-highlight.js'
-import jsxToString from 'jsx-to-string-2'
 
 export const propTypesCodeDocs = {
     title: PropTypes.string,
     isOpen: PropTypes.bool,
     code: PropTypes.object,
-    language: PropTypes.string,
-    functionNameOnly: PropTypes.bool,
-    useFunctionCode: PropTypes.bool
 }
 
 export class CodeDocs extends Component {
@@ -24,21 +18,6 @@ export class CodeDocs extends Component {
         isOpen: false
     }
 
-    componentDidMount() {
-        const {
-            code,
-            title,
-            functionNameOnly,
-            useFunctionCode
-        } = this.props;
-
-        this.setState({
-            codeString: jsxToString(code, {
-                useFunctionCode: true
-            })
-        })
-    }
-
     toggle() {
         this.setState({
             ...this.state,
@@ -47,8 +26,8 @@ export class CodeDocs extends Component {
     }
 
     render() {
-        const {isOpen, codeString} = this.state;
-        const {code, title, language, propTypes} = this.props;
+        const {isOpen} = this.state
+        const {code, title, language} = this.props
         return this.state && code
             ? (
                 <div
@@ -63,18 +42,13 @@ export class CodeDocs extends Component {
                         </div>
                         <br/>
                         <div className='code-block'>
-                            {code && isOpen
-                                ? <Card>
-                                    <Highlight language={language || 'html'}>
-                                        {
-                                            codeString
-                                                ? codeString
-                                                : ''
-                                        }
-                                    </Highlight>
+                            {
+                                isOpen
+                                    ? <Card className='code-block'>
+                                    <Code code={ code } language={ language || 'html' } />
                                 </Card>
                                 : null
-                        }
+                            }
                         </div>
                     </div>
                     {code}

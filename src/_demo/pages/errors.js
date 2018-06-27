@@ -38,7 +38,7 @@ class Error extends Component {
     }
     render() {
         if(this.state && this.state.thrownError) {
-            throw new Error('Simulated Error', 'This error message was intentional, for the purpose of demoing the <Catch /> component.')
+            // throw new Error('Simulated Error', 'This error message was intentional, for the purpose of demoing the <Catch /> component.')
         }
         return <div>Error will happen soon {this.state.timeout}</div>
     }
