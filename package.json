@@ -7,7 +7,7 @@
     "deploy": "bash ./scripts/deploy.sh",
     "bump": "node ./scripts/semver.js",
     "release": "npm publish",
-    "prepublish": "yarn build",
+    "prepare": "yarn build",
     "storybook": "start-storybook -p 6006",
     "start": "bash ./scripts/dev_and_demo.sh",
     "serve": "node ./artifact/server.js",
