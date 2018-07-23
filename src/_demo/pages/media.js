@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {
     Audio,
     CodeDocs,
-    Soundcloud,
+    SoundCloud,
     Video,
     Youtube,
     PropTypeDocs,
@@ -62,6 +62,9 @@ export default class Media extends Component {
                             <Youtube videoId={'y2dUIeo7POg'} />
                             <Youtube videoId={'0YyBoKyNsnI'} />
                         </div>
+                }/>
+                <CodeDocs title='SoundCloud' code={
+                    <SoundCloud trackId={474841506} />
                 }/>
             </div>
         )
