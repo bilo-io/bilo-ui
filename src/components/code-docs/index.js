@@ -45,7 +45,7 @@ export class CodeDocs extends Component {
                     activeTab={activeTab}
                     selectTab={selectTab}
                 />
-                <If isTrue={activeTab === 0}>
+                <If truthy={activeTab === 0}>
                     <Card className='code-block'>
                         <Code
                             code={code}
@@ -53,7 +53,7 @@ export class CodeDocs extends Component {
                         />
                     </Card>
                 </If>
-                <If isTrue={activeTab === 1}>
+                <If truthy={activeTab === 1}>
                     <Card>
                         <PropTypeDocs
                             propTypes={propTypesCodeDocs}

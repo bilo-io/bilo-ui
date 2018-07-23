@@ -6,3 +6,4 @@ dist
 demo/
 artifact/
 yarn-error.log
+lib

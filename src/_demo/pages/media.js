@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
     Audio,
     CodeDocs,
+    Soundcloud,
     Video,
     Youtube,
     PropTypeDocs,
@@ -17,34 +18,50 @@ export default class Media extends Component {
         return (
             <div className='ws-card'>
                 <h2>Media</h2>
-                <PropTypeDocs
-                    docs={docs.Audio}
-                    propTypes={propTypesAudio}
-                />
-                <CodeDocs title='audio' code={
+                <CodeDocs
+                    title='audio'
+                    propDocs={propTypesAudio}
+                    propTypes={docs.Audio}
+                    code={
                     <Audio
                         style={{ width: '100%'}}
                         src="https://www.w3schools.com/html/horse.ogg"
                     />
                 } />
-                <PropTypeDocs
-                    docs={docs.Video}
-                    propTypes={propTypesVideo}
-                />
-                <CodeDocs title='video' code={
+                <CodeDocs
+                    title='Soundcloud'
+                    // propDocs={docs.Soundcloud}
+                    // propTypes={propTypesSoundcloud}
+                    code={
+                    <Soundcloud
+                        isCustomPlayer
+                        url='https://soundcloud.com/user493736/tracks'
+                        clientId='idiykIpBJvGcwHGMw9L8ApZ9uYDEq2J4'
+                        onReady={() => console.log('track is loaded!')}
+                    />
+                }/>
+                <CodeDocs
+                    title='video'
+                    propDocs={propTypesVideo}
+                    propTypes={docs.Video}
+                    code={
                     <Video
                         width='100%'
                         height='auto'
                         src="https://www.w3schools.com/html/movie.mp4" type="video/mp4"
                     />
                 } />
-                <PropTypeDocs
-                    docs={docs.Youtube}
+                <CodeDocs
+                    title='Youtube'
+                    propDocs={docs.Youtube}
                     propTypes={propTypesYoutube}
-                />
-                <CodeDocs title='Youtube' code={
-                    <Youtube
-                        videoId={'FoExPq04OQQ'} />
+                    code={
+                        <div>
+                            <Youtube videoId={'FoExPq04OQQ'} />
+                            <Youtube videoId={'MiwYS8E_m14'} />
+                            <Youtube videoId={'y2dUIeo7POg'} />
+                            <Youtube videoId={'0YyBoKyNsnI'} />
+                        </div>
                 }/>
             </div>
         )

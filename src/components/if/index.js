@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export const propTypesIf = {
-    isTrue: PropTypes.bool.isRequired
+    truthy: PropTypes.bool.isRequired
 }
 export class If extends Component {
     static propTypes = {
@@ -10,7 +10,7 @@ export class If extends Component {
     }
     render() {
         return (
-            this.props.isTrue
+            this.props.truthy
                 ? this.props.children
                 : null
         )

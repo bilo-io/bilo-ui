@@ -18,14 +18,14 @@ import { Button, Card, If } from 'bilo-ui'
 
 export const MyComponent = (props) => (
     <Card className='padded'>
-        <If isTrue={true}>
+        <If truthy={true}>
             <Button className='primary' onClick={
                     () => alert('bilo-ui button clicked')
             }>
                 Show dialog
             </Button>
         </If>
-        <If isTrue={false}>
+        <If truthy={false}>
             <Button className='warning' onClick={
                 () => alert('bilo-ui button clicked')
             }>

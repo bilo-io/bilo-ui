@@ -1,11 +1,11 @@
-//#region Remote Data 
+//#region Remote Data
 /**
  * initialises state for remote data in the form { data: obj_or_array, isInit: true }
  *
  * @param {*} obj
  * @returns { data: obj, isInit: true }
  */
-const initState = (obj) => {
+export const initState = (obj) => {
     return Array.isArray(obj)
         ? {
             data: [],
@@ -55,7 +55,7 @@ export const setState = (payload) => {
  * @param {*} id
  * @returns
  */
-const accessMember = (state, id) => {
+export const accessMember = (state, id) => {
     // const keys = Object.keys(searchObj)
     // state.find( e => keys.forEach( key => searchObj.key === searchObj.key))
     return state.find( member => member.id === id)

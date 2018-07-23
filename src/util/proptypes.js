@@ -108,7 +108,7 @@ export default {
     },
     If : {
         propTypes: {
-            isTrue: 'PropTypes.bool.isRequired'
+            truthy: 'PropTypes.bool.isRequired'
         }
     },
     Input : {

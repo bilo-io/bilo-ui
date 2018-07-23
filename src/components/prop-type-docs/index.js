@@ -8,6 +8,7 @@ import './style.scss'
 export class PropTypeDocs extends Component {
     componentDidMount() {
         const {
+            DEBUG,
             docs,
             propTypes
         } = this.props
@@ -28,13 +29,13 @@ export class PropTypeDocs extends Component {
             }
             propTypeDocs[key] = obj
         })
-
-        console.log({
-            propTypeDocs
-        })
         this.setState({
             propTypes: propTypeDocs
-        }, () => console.log(this.state))
+        }, () => DEBUG && console.log(this.state))
+    }
+    componentDidMount() {
+        const { propTypes } = this.props
+        console.log({ propTypes })
     }
 
     render() {

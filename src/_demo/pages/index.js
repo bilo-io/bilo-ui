@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { If } from '../../'
+import Async from './async'
 import Application from './application'
 import Buttons from './buttons'
 import Cards from './cards'
 import Dropdowns from './dropdowns'
 import Errors from './errors'
 import Files from './files'
+import Forms from './forms'
 import Icons from './icons'
 import Inputs from './inputs'
 import Lists from './lists'
@@ -30,6 +32,7 @@ export default class BiloUI extends Component {
     render() {
         const uiPages = [
             'home',
+            'async',
             'all',
             'application',
             'buttons',
@@ -37,6 +40,7 @@ export default class BiloUI extends Component {
             'dropdowns',
             'errors',
             'files',
+            'forms',
             'icons',
             'inputs',
             'lists',
@@ -69,7 +73,8 @@ export default class BiloUI extends Component {
                     }
                 </div>
                 <div className={'nav-content'}>
-                    <If isTrue={activePage === 'all'}>
+                    <If truthy={activePage === 'all'}>
+                        <Async />
                         <Application />
                         <Buttons />
                         <Cards />
@@ -84,48 +89,54 @@ export default class BiloUI extends Component {
                         <Time />
                         <Trees />
                     </If>
-                    <If isTrue={activePage === 'home'}>
+                    <If truthy={activePage === 'home'}>
                         <div>
                             <MDReader markdown={readme} />
                         </div>
                     </If>
-                    <If isTrue={activePage === 'application'}>
+                    <If truthy={activePage === 'application'}>
                         <Application />
                     </If>
-                    <If isTrue={activePage === 'buttons'}>
+                    <If truthy={activePage === 'async'}>
+                        <Async />
+                    </If>
+                    <If truthy={activePage === 'buttons'}>
                         <Buttons />
                     </If>
-                    <If isTrue={activePage === 'cards'}>
+                    <If truthy={activePage === 'cards'}>
                         <Cards />
                     </If>
-                    <If isTrue={activePage === 'dropdowns'}>
+                    <If truthy={activePage === 'dropdowns'}>
                         <Dropdowns />
                     </If>
-                    <If isTrue={activePage === 'errors'}>
+                    <If truthy={activePage === 'errors'}>
                         <Errors />
                     </If>
-                    <If isTrue={activePage === 'files'}>
+                    <If truthy={activePage === 'files'}>
                         <Files />
                     </If>
-                    <If isTrue={activePage === 'icons'}>
+                    <If truthy={activePage === 'forms'}>
+                        <Forms />
+                    </If>
+                    <If truthy={activePage === 'icons'}>
                         <Icons />
                     </If>
-                    <If isTrue={activePage === 'inputs'}>
+                    <If truthy={activePage === 'inputs'}>
                         <Inputs />
                     </If>
-                    <If isTrue={activePage === 'lists'}>
+                    <If truthy={activePage === 'lists'}>
                         <Lists />
                     </If>
-                    <If isTrue={activePage === 'loaders'}>
+                    <If truthy={activePage === 'loaders'}>
                         <Loaders />
                     </If>
-                    <If isTrue={activePage === 'media'}>
+                    <If truthy={activePage === 'media'}>
                         <Media />
                     </If>
-                    <If isTrue={activePage === 'time'}>
+                    <If truthy={activePage === 'time'}>
                         <Time />
                     </If>
-                    <If isTrue={activePage === 'trees'}>
+                    <If truthy={activePage === 'trees'}>
                         <Trees />
                     </If>
                 </div>

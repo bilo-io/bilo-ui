@@ -26,7 +26,7 @@ export class Badges extends Component {
         return (
             <div className='badges'>
                 {items.length
-                    ? items.map((item, i) => <If key={`badge-${i}`} isTrue={item.isOn}>
+                    ? items.map((item, i) => <If key={`badge-${i}`} truthy={item.isOn}>
                         <span className='badge'>
                             {item.label}
                             <span className='close' onClick={this.onClose(i, item)}>

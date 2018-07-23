@@ -6,7 +6,7 @@ $col-lightgrey:  $col-lightgrey;
 $col-background: $col-background;
 $col-active: #00adee !global;
 $col-accent: #00ffee !global;
-$col-text: $col-text; 
+$col-text: $col-text;
 $col-dark: #1d1d1d;
 
 // Dimensions
@@ -24,14 +24,20 @@ body {
 
 $padding: 2em;
 .page {
-    position: relative;
-    background: $col-background;
+    position: fixed;
+    // background: transparent;
     color: $col-text;
     width: 100vw;
+    height: 100vh;
+
+    title {
+        font-size: 2em;
+    }
 }
 
 .page-padded {
     height: calc(100% - 2 * #{$padding});
+    width: calc(100% - 2 * #{$padding});
     padding: $padding;
 }
 

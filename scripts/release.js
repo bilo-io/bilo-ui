@@ -15,7 +15,7 @@ exec(`git add -u`, (err, stdout, stderr) => {
         //     if (err) {
         //         process.exit(1)
         //     }
-        //     exec(`npm publish`, (err, stdout, stderr) => { 
+        //     exec(`npm publish`, (err, stdout, stderr) => {
         //         if (err) {
         //             process.exit(1)
         //         }

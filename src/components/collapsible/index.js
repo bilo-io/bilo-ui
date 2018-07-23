@@ -26,7 +26,7 @@ export default class Collapsible extends Component {
                             : 'chevron-down'}/>
                 </Button>
                 <label>{label}</label>
-                <If isTrue={isOpen}>
+                <If truthy={isOpen}>
                     {children}
                 </If>
             </div>

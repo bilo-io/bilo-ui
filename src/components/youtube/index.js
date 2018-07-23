@@ -12,21 +12,22 @@ export class Youtube extends Component {
         ...propTypesYoutube
     }
     render() {
-        const {width, height, videoId, autoPlay} = this.props
+        const {width, height, videoId, autoPlay, style} = this.props
 
         return <iframe
             style={{
-            border: '0px'
-        }}
+                border: '0px',
+                ...style
+            }}
             width={width
-            ? width
-            : '100%'}
+                ? width
+                : 640}
             height={height
-            ? height
-            : 'auto'}
+                ? height
+                : 400}
             src={`https://www.youtube.com/embed/${videoId}${autoPlay
-            ? '?autoplay=1'
-            : ''}`}></iframe>
+                ? '?autoplay=1'
+                : ''}`}></iframe>
     }
 }
 

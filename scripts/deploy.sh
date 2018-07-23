@@ -2,5 +2,7 @@
 
 yarn build
 git add docs
-git commit -m "updated docs" #prompt for deploy message
+echo "deploy (commit) message"
+read commitMessage
+git commit -m "$commitMessage" #prompt for deploy message
 git push origin master
