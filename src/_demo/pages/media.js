@@ -28,7 +28,14 @@ export default class Media extends Component {
                         src="https://www.w3schools.com/html/horse.ogg"
                     />
                 } />
-                <CodeDocs
+                <CodeDocs title='SoundCloud' code={
+                    <div>
+                        <SoundCloud trackId={392809137} />
+                        <SoundCloud trackId={474841506} />
+                        <SoundCloud trackId={474841507} />
+                    </div>
+                }/>
+                {/* <CodeDocs
                     title='Soundcloud'
                     // propDocs={docs.Soundcloud}
                     // propTypes={propTypesSoundcloud}
@@ -39,7 +46,7 @@ export default class Media extends Component {
                         clientId='idiykIpBJvGcwHGMw9L8ApZ9uYDEq2J4'
                         onReady={() => console.log('track is loaded!')}
                     />
-                }/>
+                }/> */}
                 <CodeDocs
                     title='video'
                     propDocs={propTypesVideo}
@@ -62,9 +69,6 @@ export default class Media extends Component {
                             <Youtube videoId={'y2dUIeo7POg'} />
                             <Youtube videoId={'0YyBoKyNsnI'} />
                         </div>
-                }/>
-                <CodeDocs title='SoundCloud' code={
-                    <SoundCloud trackId={474841506} />
                 }/>
             </div>
         )

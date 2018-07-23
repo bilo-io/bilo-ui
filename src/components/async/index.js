@@ -21,7 +21,7 @@ export class Async extends Component {
                         : <span>!loading</span>
                 }
                 {
-                    data.isError && !data.isLoading &&
+                    resource.isError && !resource.isLoading &&
                     <AsyncError error={resource.error} />
                 }
                 {
@@ -38,9 +38,10 @@ export const AsyncError = (props) => {
     const { error } = props
     console.log(error)
     return <div className='async-error'>
-        <h4>{error}</h4>
+        <h4>{error.message}</h4>
         <div>
-                {error.message}
+                {/* {error.message} */}
+                This is an error
         </div>
     </div>
 }

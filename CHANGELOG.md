@@ -1,3 +1,7 @@
+## v0.1.3
+
+- fixed some bugs
+
 ## v0.1.2
 
 - added soundcloud component (embed)
