@@ -58,6 +58,7 @@ export const MyComponent = (props) => (
 
 - `yarn build`
 - `yarn build:docs`
+- `yarn bump`
 - `yarn deploy`
 
 > `yarn build:all` builds both the preview (docs) and the npm package

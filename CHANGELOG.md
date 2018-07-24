@@ -1,3 +1,7 @@
+## v0.1.4
+
+- removed console errors
+
 ## v0.1.3
 
 - fixed some bugs

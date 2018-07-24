@@ -26,6 +26,9 @@ export default class Loaders extends Component {
                             <Loader type={LoaderType.SPINNER} />
                             <Loader type={LoaderType.RAINBOW}/>
                             <Loader type={LoaderType.FULLSCREEN} />
+                            <Loader type={LoaderType.ELLIPSIS} />
+                            {/* <Loader type={LoaderType.MDSPINNER} /> */}
+                            <Loader type={LoaderType.UI3SPIN} />
                         </div>
                     }
                 />
