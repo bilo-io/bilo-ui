@@ -13,6 +13,7 @@ import Inputs from './inputs'
 import Lists from './lists'
 import Loaders from './loaders'
 import Media from './media'
+import Modals from './modals'
 import Time from './time'
 import Trees from './trees'
 import { Link } from 'react-router-dom'
@@ -86,6 +87,7 @@ export default class BiloUI extends Component {
                         <Lists />
                         <Loaders />
                         <Media />
+                        <Modals />
                         <Time />
                         <Trees />
                     </If>
@@ -132,6 +134,9 @@ export default class BiloUI extends Component {
                     </If>
                     <If truthy={activePage === 'media'}>
                         <Media />
+                    </If>
+                    <If truthy={activePage === 'media'}>
+                        <Modals />
                     </If>
                     <If truthy={activePage === 'time'}>
                         <Time />
