@@ -1,3 +1,7 @@
+## v0.1.6
+
+- updated buttons
+
 ## v0.1.5
 
 - cleaned

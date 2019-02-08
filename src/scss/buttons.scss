@@ -4,6 +4,10 @@ $button-height: 3rem;
   position: relative;
   height: $button-height;
   padding: 0.5em;
+  padding: {
+    left: 1em;
+    right: 1em;
+  }
   margin: {
     left: 0.5em;
     right: 0.5em;
@@ -11,10 +15,10 @@ $button-height: 3rem;
 
   font-size: 1rem;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 6px;
+  border-width: 0px;
   cursor: pointer;
   outline: none;
-  // border: none;
 }
 
 .button-footer {
@@ -25,18 +29,18 @@ $button-height: 3rem;
 }
 
 .primary {
-
   background: $col-active;
   border-color: $col-active;
   color: white;
 
   &:hover {
-      background: white; 
+      background: white;
       color: rgba($col-active, 0.5);
   }
 }
 
 $col-secondary: rgba(grey, 0.5);
+.default,
 .secondary {
   background: $col-secondary;
   border-color: $col-secondary;
@@ -47,6 +51,20 @@ $col-secondary: rgba(grey, 0.5);
       color: $col-active;
   }
 }
+
+$col-success: lightseagreen;
+.success {
+  color: lightseagreen;
+  background: $col-success;
+  border-color: $col-success;
+  color: white;
+
+  &:hover {
+      background: rgba($col-success, 0.2);
+      color: white;
+  }
+}
+
 
 $col-warning: orange;
 .warning {
@@ -61,6 +79,8 @@ $col-warning: orange;
 }
 
 $col-danger: red;
+$col-error: $col-danger;
+.error,
 .danger {
   background: $col-danger;
   border-color: $col-danger;
@@ -73,9 +93,48 @@ $col-danger: red;
 }
 
 .hollow {
-  border-width: 1px;
+  border-width: 2px;
   background: transparent;
   color: inherit;
+
+  &.default,
+  &.primary{
+    color: $col-active;
+    &:hover {
+      color: white;
+      background: $col-active;
+    }
+  }
+  &.secondary{
+    color: $col-secondary;
+    &:hover {
+      color: white;
+      background: $col-secondary;
+    }
+  }
+  &.success{
+    color: $col-success;
+    &:hover {
+      color: white;
+      background: $col-success;
+    }
+  }
+  &.warning {
+    color: $col-warning;
+    &:hover {
+      color: white;
+      background: $col-warning;
+    }
+  }
+
+  &.error,
+  &.danger {
+    color: $col-error;
+    &:hover {
+      color: white;
+      background: $col-error;
+    }
+  }
 }
 
 .rounded {
@@ -90,4 +149,55 @@ $col-danger: red;
   border-radius: 0;
   width: 100%;
   margin: 0;
+}
+
+.link {
+  @extend .hollow;
+  background: transparent;
+  border: none;
+  // border-bottom: 1px solid $col-active;
+  text-decoration: underline;
+
+  &:hover {
+    color: $col-active;
+    background: transparent;
+  }
+
+  &.default,
+  &.primary {
+    border-color: $col-active;
+    &:hover {
+      color: $col-active;
+      background: transparent;
+    }
+  }
+  &.secondary {
+    border-color: $col-secondary;
+    &:hover {
+      color: $col-active;
+      background: transparent;
+    }
+  }
+  &.success {
+    border-color: $col-success;
+    &:hover {
+      color: $col-active;
+      background: transparent;
+    }
+  }
+  &.warning {
+    border-color: $col-warning;
+    &:hover {
+      color: $col-active;
+      background: transparent;
+    }
+  }
+  &.error,
+  &.danger {
+    border-color: $col-error;
+    &:hover {
+      color: $col-active;
+      background: transparent;
+    }
+  }
 }
