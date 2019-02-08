@@ -44,7 +44,6 @@ updateChangeLog = (newVersion) => {
     })
 }
 
-
 updatePackage = (oldVersion, newVersion) => {
     fs.readFile('package.json', 'utf8', (err, data) => {
         const fileUpdate = data.replace(
@@ -75,12 +74,10 @@ setNewVersion = (bumpType) => {
             newVersion = `${Number(semver.major(version)) + 1}.0.0`
             break
         default:
-        console.log(`\nYou need to pick 1 | 2 | 3 for a semver update\n`.yellow)    
+            console.log(`\nYou need to pick 1 | 2 | 3 for a semver update\n`.yellow)
             process.exit(1)
     }
-
     console.log(`\n- ${package.version}`.red + `\n+ ${newVersion}\n`.green)
-
     updateChangeLog(newVersion)
 }
 
@@ -93,11 +90,17 @@ pushBump = (newVersion) => {
             if (err) {
                 process.exit(1)
             }
-            exec(`git push origin master`, (err, stdout, stderr) => {
+            exec(`git tag -a v${newVersion} -m "version bump: v${newVersion}"`, (err, stdout, stderr) => {
                 if (err) {
                     process.exit(1)
                 }
+                exec(`git push origin master --tags`, (err, stdout, stderr) => {
+                    if (err) {
+                        process.exit(1)
+                    }
+                })
             })
+
         })
     })
 }

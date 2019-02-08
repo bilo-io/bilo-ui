@@ -10,12 +10,12 @@
   background: rgba(black,0.5);
   z-index: 1000;
 
-  $dim-modal-med: 30em;
+  $dim-modal-med: 30rem;
   $dim-modal-large: calc(100vw - 8rem);
   $dim-modal-width: calc(100% - 2rem);
   .modal {
       position: relative;
-      max-width: $dim-modal-med;
+      max-width: $dim-modal-large;
       border-radius: 0.25em;
       background: white;
       margin: auto;

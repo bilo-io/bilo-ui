@@ -7,3 +7,13 @@ $col-text: #F8F8F8;
 .col-active {
     color: $col-active;
 }
+
+.col-error {
+    color: red;
+}
+.col-success {
+    color: green;
+}
+.col-warning {
+    color: yellow;
+}

@@ -14,22 +14,15 @@ export class Iframe extends Component {
     }
 
     render() {
-        const iframeStyle = {
-            width: '100%',
-            height: '100%',
-            border: '0',
-            position: 'absolute'
-        }
-
-        return <iframe
-                ref='iframe'
-                {...this.props}
-                frameBorder={'0'}
-                width={'100%'}
-                height={'100%'}
-                // style={iframeStyle}
-                className='iframe'
-            />
+        return <div className='iframe-container'>
+                <iframe
+                    {...this.props}
+                    ref='iframe'
+                    frameBorder={'0'}
+                    width={'100%'}
+                    height={'100%'}
+                />
+            </div>
     }
 }
 

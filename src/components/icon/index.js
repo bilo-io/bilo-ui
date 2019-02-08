@@ -16,6 +16,9 @@ export class Icon extends React.Component {
     static propTypes = {
         ...propTypesIcon
     }
+    static defaultProps = {
+        faStyle: 'solid'
+    }
     render() {
         const {
             animation,
@@ -27,7 +30,10 @@ export class Icon extends React.Component {
             size,
             style,
             transform,
+            faStyle,
+            DEBUG
         } = this.props;
+        DEBUG && console.log({faStyle})
 
         const customStyle = {
             ...style,
@@ -40,7 +46,7 @@ export class Icon extends React.Component {
                     className={
                         `${className
                             ? className
-                            : ''} fas fa-${name} ` +
+                            : ''} ${faStyle === 'solid' ? 'fas': 'far'} fa-${name} ` +
                         `${size
                             ? `fa-${size} `
                             : ''}` +

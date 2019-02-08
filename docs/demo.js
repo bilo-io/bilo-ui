@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 151);
+/******/ 	return __webpack_require__(__webpack_require__.s = 153);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -261,9 +261,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(152);
+  module.exports = __webpack_require__(154);
 } else {
-  module.exports = __webpack_require__(153);
+  module.exports = __webpack_require__(155);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -294,11 +294,11 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(168)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(170)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(170)();
+  module.exports = __webpack_require__(172)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -499,70 +499,6 @@ module.exports = assign;
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2014-2015, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * @providesModule warning
- */
-
-
-
-var emptyFunction = __webpack_require__(19);
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var warning = emptyFunction;
-
-if (process.env.NODE_ENV !== 'production') {
-  warning = function (condition, format) {
-    for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-      args[_key - 2] = arguments[_key];
-    }
-
-    if (format === undefined) {
-      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-    }
-
-    if (format.indexOf('Failed Composite propType: ') === 0) {
-      return; // Ignore CompositeComponent proptype check.
-    }
-
-    if (!condition) {
-      var argIndex = 0;
-      var message = 'Warning: ' + format.replace(/%s/g, function () {
-        return args[argIndex++];
-      });
-      if (typeof console !== 'undefined') {
-        console.error(message);
-      }
-      try {
-        // --- Welcome to debugging React ---
-        // This error was thrown as a convenience so that you can use this stack
-        // to find the callsite that caused this warning to fire.
-        throw new Error(message);
-      } catch (x) {}
-    }
-  };
-}
-
-module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
@@ -606,7 +542,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(199);
+var	fixUrls = __webpack_require__(201);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -919,6 +855,70 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2014-2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * @providesModule warning
+ */
+
+
+
+var emptyFunction = __webpack_require__(19);
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = emptyFunction;
+
+if (process.env.NODE_ENV !== 'production') {
+  warning = function (condition, format) {
+    for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+      args[_key - 2] = arguments[_key];
+    }
+
+    if (format === undefined) {
+      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+
+    if (format.indexOf('Failed Composite propType: ') === 0) {
+      return; // Ignore CompositeComponent proptype check.
+    }
+
+    if (!condition) {
+      var argIndex = 0;
+      var message = 'Warning: ' + format.replace(/%s/g, function () {
+        return args[argIndex++];
+      });
+      if (typeof console !== 'undefined') {
+        console.error(message);
+      }
+      try {
+        // --- Welcome to debugging React ---
+        // This error was thrown as a convenience so that you can use this stack
+        // to find the callsite that caused this warning to fire.
+        throw new Error(message);
+      } catch (x) {}
+    }
+  };
+}
+
+module.exports = warning;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1039,7 +1039,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _appBody = __webpack_require__(196);
+var _appBody = __webpack_require__(198);
 
 Object.keys(_appBody).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1051,7 +1051,7 @@ Object.keys(_appBody).forEach(function (key) {
   });
 });
 
-var _appSidenav = __webpack_require__(200);
+var _appSidenav = __webpack_require__(202);
 
 Object.keys(_appSidenav).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1063,7 +1063,7 @@ Object.keys(_appSidenav).forEach(function (key) {
   });
 });
 
-var _appTopbar = __webpack_require__(203);
+var _appTopbar = __webpack_require__(205);
 
 Object.keys(_appTopbar).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1075,7 +1075,7 @@ Object.keys(_appTopbar).forEach(function (key) {
   });
 });
 
-var _appToaster = __webpack_require__(206);
+var _appToaster = __webpack_require__(208);
 
 Object.keys(_appToaster).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1087,7 +1087,7 @@ Object.keys(_appToaster).forEach(function (key) {
   });
 });
 
-var _async = __webpack_require__(209);
+var _async = __webpack_require__(211);
 
 Object.keys(_async).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1099,7 +1099,7 @@ Object.keys(_async).forEach(function (key) {
   });
 });
 
-var _audio = __webpack_require__(212);
+var _audio = __webpack_require__(214);
 
 Object.keys(_audio).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1111,7 +1111,7 @@ Object.keys(_audio).forEach(function (key) {
   });
 });
 
-var _badges = __webpack_require__(213);
+var _badges = __webpack_require__(215);
 
 Object.keys(_badges).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1123,7 +1123,7 @@ Object.keys(_badges).forEach(function (key) {
   });
 });
 
-var _button = __webpack_require__(101);
+var _button = __webpack_require__(65);
 
 Object.keys(_button).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1135,7 +1135,7 @@ Object.keys(_button).forEach(function (key) {
   });
 });
 
-var _buttonGroup = __webpack_require__(216);
+var _buttonGroup = __webpack_require__(218);
 
 Object.keys(_buttonGroup).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1147,7 +1147,7 @@ Object.keys(_buttonGroup).forEach(function (key) {
   });
 });
 
-var _card = __webpack_require__(219);
+var _card = __webpack_require__(221);
 
 Object.keys(_card).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1159,7 +1159,7 @@ Object.keys(_card).forEach(function (key) {
   });
 });
 
-var _collapsible = __webpack_require__(222);
+var _collapsible = __webpack_require__(224);
 
 Object.keys(_collapsible).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1183,7 +1183,7 @@ Object.keys(_code).forEach(function (key) {
   });
 });
 
-var _codeDocs = __webpack_require__(35);
+var _codeDocs = __webpack_require__(31);
 
 Object.keys(_codeDocs).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1195,7 +1195,7 @@ Object.keys(_codeDocs).forEach(function (key) {
   });
 });
 
-var _dropdown = __webpack_require__(478);
+var _dropdown = __webpack_require__(480);
 
 Object.keys(_dropdown).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1207,7 +1207,7 @@ Object.keys(_dropdown).forEach(function (key) {
   });
 });
 
-var _icon = __webpack_require__(65);
+var _icon = __webpack_require__(66);
 
 Object.keys(_icon).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1231,7 +1231,7 @@ Object.keys(_if).forEach(function (key) {
   });
 });
 
-var _iframe = __webpack_require__(481);
+var _iframe = __webpack_require__(139);
 
 Object.keys(_iframe).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1243,7 +1243,7 @@ Object.keys(_iframe).forEach(function (key) {
   });
 });
 
-var _input = __webpack_require__(139);
+var _input = __webpack_require__(140);
 
 Object.keys(_input).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1255,7 +1255,7 @@ Object.keys(_input).forEach(function (key) {
   });
 });
 
-var _loader = __webpack_require__(140);
+var _loader = __webpack_require__(141);
 
 Object.keys(_loader).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1267,7 +1267,7 @@ Object.keys(_loader).forEach(function (key) {
   });
 });
 
-var _list = __webpack_require__(486);
+var _list = __webpack_require__(487);
 
 Object.keys(_list).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1279,7 +1279,7 @@ Object.keys(_list).forEach(function (key) {
   });
 });
 
-var _map = __webpack_require__(489);
+var _map = __webpack_require__(490);
 
 Object.keys(_map).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1291,7 +1291,7 @@ Object.keys(_map).forEach(function (key) {
   });
 });
 
-var _mdReader = __webpack_require__(141);
+var _mdReader = __webpack_require__(142);
 
 Object.keys(_mdReader).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1303,7 +1303,7 @@ Object.keys(_mdReader).forEach(function (key) {
   });
 });
 
-var _multiSlider = __webpack_require__(521);
+var _multiSlider = __webpack_require__(522);
 
 Object.keys(_multiSlider).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1315,7 +1315,7 @@ Object.keys(_multiSlider).forEach(function (key) {
   });
 });
 
-var _propTypeDocs = __webpack_require__(522);
+var _propTypeDocs = __webpack_require__(523);
 
 Object.keys(_propTypeDocs).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1327,7 +1327,7 @@ Object.keys(_propTypeDocs).forEach(function (key) {
   });
 });
 
-var _search = __webpack_require__(527);
+var _search = __webpack_require__(528);
 
 Object.keys(_search).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1339,7 +1339,7 @@ Object.keys(_search).forEach(function (key) {
   });
 });
 
-var _slider = __webpack_require__(530);
+var _slider = __webpack_require__(531);
 
 Object.keys(_slider).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1351,7 +1351,7 @@ Object.keys(_slider).forEach(function (key) {
   });
 });
 
-var _soundCloud = __webpack_require__(533);
+var _soundCloud = __webpack_require__(534);
 
 Object.keys(_soundCloud).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1363,7 +1363,7 @@ Object.keys(_soundCloud).forEach(function (key) {
   });
 });
 
-var _switch = __webpack_require__(536);
+var _switch = __webpack_require__(537);
 
 Object.keys(_switch).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1375,7 +1375,7 @@ Object.keys(_switch).forEach(function (key) {
   });
 });
 
-var _soundcloud = __webpack_require__(539);
+var _soundcloud = __webpack_require__(540);
 
 Object.keys(_soundcloud).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1387,7 +1387,7 @@ Object.keys(_soundcloud).forEach(function (key) {
   });
 });
 
-var _tabs = __webpack_require__(557);
+var _tabs = __webpack_require__(558);
 
 Object.keys(_tabs).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1399,7 +1399,7 @@ Object.keys(_tabs).forEach(function (key) {
   });
 });
 
-var _tree = __webpack_require__(560);
+var _tree = __webpack_require__(561);
 
 Object.keys(_tree).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1411,7 +1411,7 @@ Object.keys(_tree).forEach(function (key) {
   });
 });
 
-var _video = __webpack_require__(563);
+var _video = __webpack_require__(564);
 
 Object.keys(_video).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1423,7 +1423,7 @@ Object.keys(_video).forEach(function (key) {
   });
 });
 
-var _youtube = __webpack_require__(564);
+var _youtube = __webpack_require__(565);
 
 Object.keys(_youtube).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -1459,23 +1459,23 @@ var ReactCurrentOwner = __webpack_require__(21);
 var ReactDOMFeatureFlags = __webpack_require__(114);
 var ReactElement = __webpack_require__(12);
 var ReactEmptyComponentRegistry = __webpack_require__(115);
-var ReactInstanceHandles = __webpack_require__(34);
+var ReactInstanceHandles = __webpack_require__(35);
 var ReactInstanceMap = __webpack_require__(41);
 var ReactMarkupChecksum = __webpack_require__(117);
 var ReactPerf = __webpack_require__(14);
 var ReactReconciler = __webpack_require__(29);
-var ReactUpdateQueue = __webpack_require__(71);
+var ReactUpdateQueue = __webpack_require__(72);
 var ReactUpdates = __webpack_require__(16);
 
 var assign = __webpack_require__(5);
 var emptyObject = __webpack_require__(42);
 var containsNode = __webpack_require__(118);
-var instantiateReactComponent = __webpack_require__(73);
+var instantiateReactComponent = __webpack_require__(74);
 var invariant = __webpack_require__(3);
 var setInnerHTML = __webpack_require__(49);
-var shouldUpdateReactComponent = __webpack_require__(75);
-var validateDOMNesting = __webpack_require__(76);
-var warning = __webpack_require__(6);
+var shouldUpdateReactComponent = __webpack_require__(76);
+var validateDOMNesting = __webpack_require__(77);
+var warning = __webpack_require__(7);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
 var nodeCache = {};
@@ -2914,8 +2914,8 @@ module.exports = ReactPerf;
 "use strict";
 
 
-var bind = __webpack_require__(143);
-var isBuffer = __webpack_require__(502);
+var bind = __webpack_require__(144);
+var isBuffer = __webpack_require__(503);
 
 /*global toString:true*/
 
@@ -3235,7 +3235,7 @@ module.exports = {
 
 
 
-var CallbackQueue = __webpack_require__(72);
+var CallbackQueue = __webpack_require__(73);
 var PooledClass = __webpack_require__(24);
 var ReactPerf = __webpack_require__(14);
 var ReactReconciler = __webpack_require__(29);
@@ -3616,7 +3616,7 @@ Object.keys(_components).forEach(function (key) {
   });
 });
 
-var _apis = __webpack_require__(566);
+var _apis = __webpack_require__(567);
 
 Object.keys(_apis).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -3628,7 +3628,7 @@ Object.keys(_apis).forEach(function (key) {
   });
 });
 
-var _util = __webpack_require__(568);
+var _util = __webpack_require__(569);
 
 Object.keys(_util).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -3640,7 +3640,7 @@ Object.keys(_util).forEach(function (key) {
   });
 });
 
-__webpack_require__(584);
+__webpack_require__(585);
 
 /***/ }),
 /* 21 */
@@ -4038,11 +4038,11 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(543)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(544)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(545)();
+  module.exports = __webpack_require__(546)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -4365,7 +4365,7 @@ module.exports = DOMProperty;
 
 
 
-var ReactRef = __webpack_require__(413);
+var ReactRef = __webpack_require__(415);
 
 /**
  * Helper to call ReactRef.attachRefs with this composite component, split out
@@ -4483,7 +4483,7 @@ var PooledClass = __webpack_require__(24);
 
 var assign = __webpack_require__(5);
 var emptyFunction = __webpack_require__(19);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 /**
  * @interface Event
@@ -4649,6 +4649,174 @@ module.exports = SyntheticEvent;
 
 /***/ }),
 /* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.CodeDocs = exports.propTypesCodeDocs = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(2);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _code = __webpack_require__(103);
+
+var _ = __webpack_require__(10);
+
+__webpack_require__(478);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var propTypesCodeDocs = exports.propTypesCodeDocs = {
+    code: _propTypes2.default.object,
+    isOpen: _propTypes2.default.bool,
+    title: _propTypes2.default.string
+};
+
+var CodeDocs = exports.CodeDocs = function (_Component) {
+    _inherits(CodeDocs, _Component);
+
+    function CodeDocs() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, CodeDocs);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CodeDocs.__proto__ || Object.getPrototypeOf(CodeDocs)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            isOpen: false,
+            activeTab: 0
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(CodeDocs, [{
+        key: 'toggle',
+        value: function toggle() {
+            this.setState(_extends({}, this.state, {
+                isOpen: !this.state.isOpen
+            }));
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            var isOpen = this.state.isOpen;
+            var _props = this.props,
+                code = _props.code,
+                title = _props.title,
+                language = _props.language;
+
+            var selectTab = function selectTab(i) {
+                console.log('<CodeDocs/>: selectTab(' + i + ')');
+                _this2.setState({
+                    activeTab: i
+                });
+            };
+
+            var renderDocs = function renderDocs() {
+                var activeTab = _this2.state.activeTab;
+
+                var tabs = ['code', 'propTypes'];
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(_.Tabs, {
+                        tabs: tabs,
+                        activeTab: activeTab,
+                        selectTab: selectTab
+                    }),
+                    _react2.default.createElement(
+                        _.If,
+                        { truthy: activeTab === 0 },
+                        _react2.default.createElement(
+                            _.Card,
+                            { className: 'code-block' },
+                            _react2.default.createElement(_code.Code, {
+                                code: code,
+                                language: language || 'html'
+                            })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _.If,
+                        { truthy: activeTab === 1 },
+                        _react2.default.createElement(
+                            _.Card,
+                            null,
+                            _react2.default.createElement(_.PropTypeDocs, {
+                                propTypes: propTypesCodeDocs,
+                                docs: { propTypes: propTypesCodeDocs }
+                            })
+                        )
+                    )
+                );
+            };
+
+            return this.state && code ? _react2.default.createElement(
+                'div',
+                {
+                    className: 'ws-card',
+                    style: {
+                        paddingBottom: '1em'
+                    } },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'code-docs' },
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'title' },
+                        title
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'toggle', onClick: function onClick() {
+                                return _this2.toggle();
+                            } },
+                        _react2.default.createElement(_.Icon, { name: 'code' })
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'code-block' },
+                        isOpen ? renderDocs() : null
+                    )
+                ),
+                code
+            ) : null;
+        }
+    }]);
+
+    return CodeDocs;
+}(_react.Component);
+
+CodeDocs.propTypes = _extends({}, propTypesCodeDocs);
+exports.default = CodeDocs;
+
+/***/ }),
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4916,7 +5084,7 @@ module.exports = SoundCloud;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4975,7 +5143,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5072,7 +5240,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5381,174 +5549,6 @@ module.exports = ReactInstanceHandles;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.CodeDocs = exports.propTypesCodeDocs = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(2);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _code = __webpack_require__(103);
-
-var _ = __webpack_require__(10);
-
-__webpack_require__(476);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var propTypesCodeDocs = exports.propTypesCodeDocs = {
-    code: _propTypes2.default.object,
-    isOpen: _propTypes2.default.bool,
-    title: _propTypes2.default.string
-};
-
-var CodeDocs = exports.CodeDocs = function (_Component) {
-    _inherits(CodeDocs, _Component);
-
-    function CodeDocs() {
-        var _ref;
-
-        var _temp, _this, _ret;
-
-        _classCallCheck(this, CodeDocs);
-
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
-
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CodeDocs.__proto__ || Object.getPrototypeOf(CodeDocs)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            isOpen: false,
-            activeTab: 0
-        }, _temp), _possibleConstructorReturn(_this, _ret);
-    }
-
-    _createClass(CodeDocs, [{
-        key: 'toggle',
-        value: function toggle() {
-            this.setState(_extends({}, this.state, {
-                isOpen: !this.state.isOpen
-            }));
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            var isOpen = this.state.isOpen;
-            var _props = this.props,
-                code = _props.code,
-                title = _props.title,
-                language = _props.language;
-
-            var selectTab = function selectTab(i) {
-                console.log('<CodeDocs/>: selectTab(' + i + ')');
-                _this2.setState({
-                    activeTab: i
-                });
-            };
-
-            var renderDocs = function renderDocs() {
-                var activeTab = _this2.state.activeTab;
-
-                var tabs = ['code', 'propTypes'];
-                return _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(_.Tabs, {
-                        tabs: tabs,
-                        activeTab: activeTab,
-                        selectTab: selectTab
-                    }),
-                    _react2.default.createElement(
-                        _.If,
-                        { truthy: activeTab === 0 },
-                        _react2.default.createElement(
-                            _.Card,
-                            { className: 'code-block' },
-                            _react2.default.createElement(_code.Code, {
-                                code: code,
-                                language: language || 'html'
-                            })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        _.If,
-                        { truthy: activeTab === 1 },
-                        _react2.default.createElement(
-                            _.Card,
-                            null,
-                            _react2.default.createElement(_.PropTypeDocs, {
-                                propTypes: propTypesCodeDocs,
-                                docs: { propTypes: propTypesCodeDocs }
-                            })
-                        )
-                    )
-                );
-            };
-
-            return this.state && code ? _react2.default.createElement(
-                'div',
-                {
-                    className: 'ws-card',
-                    style: {
-                        paddingBottom: '1em'
-                    } },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'code-docs' },
-                    _react2.default.createElement(
-                        'span',
-                        { className: 'title' },
-                        title
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'toggle', onClick: function onClick() {
-                                return _this2.toggle();
-                            } },
-                        _react2.default.createElement(_.Icon, { name: 'code' })
-                    ),
-                    _react2.default.createElement('br', null),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'code-block' },
-                        isOpen ? renderDocs() : null
-                    )
-                ),
-                code
-            ) : null;
-        }
-    }]);
-
-    return CodeDocs;
-}(_react.Component);
-
-CodeDocs.propTypes = _extends({}, propTypesCodeDocs);
-exports.default = CodeDocs;
-
-/***/ }),
 /* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5703,10 +5703,10 @@ module['exports'] = colors;
 
 colors.themes = {};
 
-var ansiStyles = colors.styles = __webpack_require__(571);
+var ansiStyles = colors.styles = __webpack_require__(572);
 var defineProps = Object.defineProperties;
 
-colors.supportsColor = __webpack_require__(572).supportsColor;
+colors.supportsColor = __webpack_require__(573).supportsColor;
 
 if (typeof colors.enabled === "undefined") {
   colors.enabled = colors.supportsColor() !== false;
@@ -5828,15 +5828,15 @@ var sequencer = function sequencer (map, str) {
 };
 
 // custom formatter methods
-colors.trap = __webpack_require__(575);
-colors.zalgo = __webpack_require__(576);
+colors.trap = __webpack_require__(576);
+colors.zalgo = __webpack_require__(577);
 
 // maps
 colors.maps = {};
-colors.maps.america = __webpack_require__(577);
-colors.maps.zebra = __webpack_require__(578);
-colors.maps.rainbow = __webpack_require__(579);
-colors.maps.random = __webpack_require__(580)
+colors.maps.america = __webpack_require__(578);
+colors.maps.zebra = __webpack_require__(579);
+colors.maps.rainbow = __webpack_require__(580);
+colors.maps.random = __webpack_require__(581)
 
 for (var map in colors.maps) {
   (function(map){
@@ -6006,13 +6006,13 @@ var createPath = function createPath(location) {
 
 
 var EventPluginRegistry = __webpack_require__(109);
-var EventPluginUtils = __webpack_require__(410);
+var EventPluginUtils = __webpack_require__(412);
 var ReactErrorUtils = __webpack_require__(110);
 
 var accumulateInto = __webpack_require__(111);
 var forEachAccumulated = __webpack_require__(112);
 var invariant = __webpack_require__(3);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 /**
  * Internal store for event listeners
@@ -6374,7 +6374,7 @@ module.exports = emptyObject;
 var EventConstants = __webpack_require__(22);
 var EventPluginHub = __webpack_require__(40);
 
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 var accumulateInto = __webpack_require__(111);
 var forEachAccumulated = __webpack_require__(112);
@@ -6516,7 +6516,7 @@ module.exports = EventPropagators;
 
 var SyntheticEvent = __webpack_require__(30);
 
-var getEventTarget = __webpack_require__(77);
+var getEventTarget = __webpack_require__(78);
 
 /**
  * @interface UIEvent
@@ -6649,8 +6649,8 @@ module.exports = invariant;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createLocation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return locationsAreEqual; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_resolve_pathname__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_value_equal__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_resolve_pathname__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_value_equal__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PathUtils__ = __webpack_require__(39);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -6935,12 +6935,12 @@ module.exports = escapeTextContentForBrowser;
 var EventConstants = __webpack_require__(22);
 var EventPluginHub = __webpack_require__(40);
 var EventPluginRegistry = __webpack_require__(109);
-var ReactEventEmitterMixin = __webpack_require__(411);
+var ReactEventEmitterMixin = __webpack_require__(413);
 var ReactPerf = __webpack_require__(14);
 var ViewportMetrics = __webpack_require__(113);
 
 var assign = __webpack_require__(5);
-var isEventSupported = __webpack_require__(70);
+var isEventSupported = __webpack_require__(71);
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:
@@ -7593,7 +7593,7 @@ module.exports = ReactPropTypeLocationNames;
 var SyntheticUIEvent = __webpack_require__(44);
 var ViewportMetrics = __webpack_require__(113);
 
-var getEventModifierState = __webpack_require__(78);
+var getEventModifierState = __webpack_require__(79);
 
 /**
  * @interface MouseEvent
@@ -7689,9 +7689,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(156);
+  module.exports = __webpack_require__(158);
 } else {
-  module.exports = __webpack_require__(159);
+  module.exports = __webpack_require__(161);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -7727,11 +7727,11 @@ exports.locationsAreEqual = exports.createLocation = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _resolvePathname = __webpack_require__(94);
+var _resolvePathname = __webpack_require__(95);
 
 var _resolvePathname2 = _interopRequireDefault(_resolvePathname);
 
-var _valueEqual = __webpack_require__(95);
+var _valueEqual = __webpack_require__(96);
 
 var _valueEqual2 = _interopRequireDefault(_valueEqual);
 
@@ -8025,7 +8025,7 @@ Router.childContextTypes = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path_to_regexp__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path_to_regexp__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path_to_regexp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_path_to_regexp__);
 
 
@@ -8192,6 +8192,82 @@ var createTransitionManager = function createTransitionManager() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.Button = exports.propTypesButton = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(2);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import '../../bilo-ui.scss'
+
+var propTypesButton = exports.propTypesButton = {
+    style: _propTypes2.default.object,
+    className: _propTypes2.default.string,
+    onClick: _propTypes2.default.func
+};
+
+var Button = exports.Button = function (_Component) {
+    _inherits(Button, _Component);
+
+    function Button() {
+        _classCallCheck(this, Button);
+
+        return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
+    }
+
+    _createClass(Button, [{
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                children = _props.children,
+                className = _props.className,
+                onClick = _props.onClick,
+                style = _props.style;
+
+            return _react2.default.createElement(
+                'button',
+                {
+                    className: 'button ' + (className ? className : ''),
+                    onClick: onClick },
+                children
+            );
+        }
+    }]);
+
+    return Button;
+}(_react.Component);
+
+Button.propTypes = _extends({}, propTypesButton);
+;
+
+exports.default = Button;
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 exports.Icon = exports.propTypesIcon = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -8247,8 +8323,11 @@ var Icon = exports.Icon = function (_React$Component) {
                 onClick = _props.onClick,
                 size = _props.size,
                 style = _props.style,
-                transform = _props.transform;
+                transform = _props.transform,
+                faStyle = _props.faStyle,
+                DEBUG = _props.DEBUG;
 
+            DEBUG && console.log({ faStyle: faStyle });
 
             var customStyle = _extends({}, style, {
                 color: color
@@ -8258,7 +8337,7 @@ var Icon = exports.Icon = function (_React$Component) {
                 { onClick: onClick },
                 _react2.default.createElement('i', {
                     style: customStyle,
-                    className: (className ? className : '') + ' fas fa-' + name + ' ' + ('' + (size ? 'fa-' + size + ' ' : '')) + ('' + (transform ? 'fa-' + transform + ' ' : '')) + ('' + (animation ? 'fa-' + animation + ' animated' + (animEvent ? '-' + animEvent : '') : ''))
+                    className: (className ? className : '') + ' ' + (faStyle === 'solid' ? 'fas' : 'far') + ' fa-' + name + ' ' + ('' + (size ? 'fa-' + size + ' ' : '')) + ('' + (transform ? 'fa-' + transform + ' ' : '')) + ('' + (animation ? 'fa-' + animation + ' animated' + (animEvent ? '-' + animEvent : '') : ''))
                 })
             );
         }
@@ -8268,10 +8347,13 @@ var Icon = exports.Icon = function (_React$Component) {
 }(_react2.default.Component);
 
 Icon.propTypes = _extends({}, propTypesIcon);
+Icon.defaultProps = {
+    faStyle: 'solid'
+};
 exports.default = Icon;
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8317,7 +8399,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setTextContent;
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8338,8 +8420,8 @@ module.exports = setTextContent;
 var DOMProperty = __webpack_require__(28);
 var ReactPerf = __webpack_require__(14);
 
-var quoteAttributeValueForBrowser = __webpack_require__(409);
-var warning = __webpack_require__(6);
+var quoteAttributeValueForBrowser = __webpack_require__(411);
+var warning = __webpack_require__(7);
 
 // Simplified subset
 var VALID_ATTRIBUTE_NAME_REGEX = /^[a-zA-Z_][\w\.\-]*$/;
@@ -8549,7 +8631,7 @@ module.exports = DOMPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8566,7 +8648,7 @@ module.exports = DOMPropertyOperations;
 
 
 
-var ReactDOMIDOperations = __webpack_require__(69);
+var ReactDOMIDOperations = __webpack_require__(70);
 var ReactMount = __webpack_require__(11);
 
 /**
@@ -8596,7 +8678,7 @@ var ReactComponentBrowserEnvironment = {
 module.exports = ReactComponentBrowserEnvironment;
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8615,7 +8697,7 @@ module.exports = ReactComponentBrowserEnvironment;
 
 
 var DOMChildrenOperations = __webpack_require__(106);
-var DOMPropertyOperations = __webpack_require__(67);
+var DOMPropertyOperations = __webpack_require__(68);
 var ReactMount = __webpack_require__(11);
 var ReactPerf = __webpack_require__(14);
 
@@ -8697,7 +8779,7 @@ module.exports = ReactDOMIDOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8763,7 +8845,7 @@ function isEventSupported(eventNameSuffix, capture) {
 module.exports = isEventSupported;
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8787,7 +8869,7 @@ var ReactUpdates = __webpack_require__(16);
 
 var assign = __webpack_require__(5);
 var invariant = __webpack_require__(3);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 function enqueueUpdate(internalInstance) {
   ReactUpdates.enqueueUpdate(internalInstance);
@@ -9027,7 +9109,7 @@ module.exports = ReactUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9127,7 +9209,7 @@ module.exports = CallbackQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9145,13 +9227,13 @@ module.exports = CallbackQueue;
 
 
 
-var ReactCompositeComponent = __webpack_require__(417);
+var ReactCompositeComponent = __webpack_require__(419);
 var ReactEmptyComponent = __webpack_require__(119);
 var ReactNativeComponent = __webpack_require__(120);
 
 var assign = __webpack_require__(5);
 var invariant = __webpack_require__(3);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 // To avoid a cyclic dependency, we create the final class in this module
 var ReactCompositeComponentWrapper = function () {};
@@ -9246,7 +9328,7 @@ module.exports = instantiateReactComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9304,7 +9386,7 @@ module.exports = ReactComponentEnvironment;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9353,7 +9435,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 module.exports = shouldUpdateReactComponent;
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9372,7 +9454,7 @@ module.exports = shouldUpdateReactComponent;
 
 var assign = __webpack_require__(5);
 var emptyFunction = __webpack_require__(19);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 var validateDOMNesting = emptyFunction;
 
@@ -9723,7 +9805,7 @@ module.exports = validateDOMNesting;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9758,7 +9840,7 @@ function getEventTarget(nativeEvent) {
 module.exports = getEventTarget;
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9808,7 +9890,7 @@ function getEventModifierState(nativeEvent) {
 module.exports = getEventModifierState;
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9831,7 +9913,7 @@ var ReactInstanceMap = __webpack_require__(41);
 var ReactMount = __webpack_require__(11);
 
 var invariant = __webpack_require__(3);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 /**
  * Returns the DOM node rendered by this element.
@@ -9864,7 +9946,7 @@ module.exports = findDOMNode;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9886,7 +9968,7 @@ var ReactPropTypes = __webpack_require__(127);
 var ReactPropTypeLocations = __webpack_require__(54);
 
 var invariant = __webpack_require__(3);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 var hasReadOnlyValue = {
   'button': true,
@@ -10005,7 +10087,7 @@ module.exports = LinkedValueUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10051,7 +10133,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10070,11 +10152,11 @@ module.exports = getIteratorFn;
 
 var ReactCurrentOwner = __webpack_require__(21);
 var ReactElement = __webpack_require__(12);
-var ReactInstanceHandles = __webpack_require__(34);
+var ReactInstanceHandles = __webpack_require__(35);
 
-var getIteratorFn = __webpack_require__(81);
+var getIteratorFn = __webpack_require__(82);
 var invariant = __webpack_require__(3);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 var SEPARATOR = ReactInstanceHandles.SEPARATOR;
 var SUBSEPARATOR = ':';
@@ -10247,7 +10329,7 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10303,7 +10385,7 @@ function getEventCharCode(nativeEvent) {
 module.exports = getEventCharCode;
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10323,14 +10405,14 @@ module.exports = getEventCharCode;
 module.exports = '0.14.9';
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(15);
-var normalizeHeaderName = __webpack_require__(504);
+var normalizeHeaderName = __webpack_require__(505);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -10346,10 +10428,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(144);
+    adapter = __webpack_require__(145);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(144);
+    adapter = __webpack_require__(145);
   }
   return adapter;
 }
@@ -10423,7 +10505,7 @@ module.exports = defaults;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10442,7 +10524,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10481,7 +10563,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10562,7 +10644,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10604,7 +10686,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10675,7 +10757,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10690,7 +10772,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(157);
+var isTextNode = __webpack_require__(159);
 
 /*eslint-disable no-bitwise */
 
@@ -10718,7 +10800,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10748,36 +10830,36 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(169);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserRouter", function() { return __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(174);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "HashRouter", function() { return __WEBPACK_IMPORTED_MODULE_1__HashRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(98);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return __WEBPACK_IMPORTED_MODULE_2__Link__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(176);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(179);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "NavLink", function() { return __WEBPACK_IMPORTED_MODULE_4__NavLink__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(182);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return __WEBPACK_IMPORTED_MODULE_5__Prompt__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(184);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(99);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(61);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_8__Router__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(190);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return __WEBPACK_IMPORTED_MODULE_9__StaticRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(192);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return __WEBPACK_IMPORTED_MODULE_10__Switch__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(194);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return __WEBPACK_IMPORTED_MODULE_11__matchPath__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(195);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return __WEBPACK_IMPORTED_MODULE_12__withRouter__["a"]; });
 
 
@@ -10807,7 +10889,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10884,7 +10966,7 @@ function resolvePathname(to) {
 /* harmony default export */ __webpack_exports__["default"] = (resolvePathname);
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10929,7 +11011,7 @@ function valueEqual(a, b) {
 /* harmony default export */ __webpack_exports__["default"] = (valueEqual);
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10990,7 +11072,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 };
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11100,18 +11182,18 @@ Link.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Link);
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Route__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Route__ = __webpack_require__(100);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Route__["a" /* default */]);
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11260,7 +11342,7 @@ Route.childContextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Route);
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11324,82 +11406,6 @@ var supportsGoWithoutReloadUsingHash = function supportsGoWithoutReloadUsingHash
 var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
   return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
 };
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.Button = exports.propTypesButton = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(2);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// import '../../bilo-ui.scss'
-
-var propTypesButton = exports.propTypesButton = {
-    style: _propTypes2.default.object,
-    className: _propTypes2.default.string,
-    onClick: _propTypes2.default.func
-};
-
-var Button = exports.Button = function (_Component) {
-    _inherits(Button, _Component);
-
-    function Button() {
-        _classCallCheck(this, Button);
-
-        return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
-    }
-
-    _createClass(Button, [{
-        key: 'render',
-        value: function render() {
-            var _props = this.props,
-                children = _props.children,
-                className = _props.className,
-                onClick = _props.onClick,
-                style = _props.style;
-
-            return _react2.default.createElement(
-                'button',
-                {
-                    className: 'button ' + (className ? className : ''),
-                    onClick: onClick },
-                children
-            );
-        }
-    }]);
-
-    return Button;
-}(_react.Component);
-
-Button.propTypes = _extends({}, propTypesButton);
-;
-
-exports.default = Button;
 
 /***/ }),
 /* 102 */
@@ -11483,11 +11489,11 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactHighlight = __webpack_require__(223);
+var _reactHighlight = __webpack_require__(225);
 
 var _reactHighlight2 = _interopRequireDefault(_reactHighlight);
 
-var _jsxToString = __webpack_require__(401);
+var _jsxToString = __webpack_require__(403);
 
 var _jsxToString2 = _interopRequireDefault(_jsxToString);
 
@@ -11574,184 +11580,184 @@ exports.default = Code;
 /* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var hljs = __webpack_require__(224);
+var hljs = __webpack_require__(226);
 
-hljs.registerLanguage('1c', __webpack_require__(225));
-hljs.registerLanguage('abnf', __webpack_require__(226));
-hljs.registerLanguage('accesslog', __webpack_require__(227));
-hljs.registerLanguage('actionscript', __webpack_require__(228));
-hljs.registerLanguage('ada', __webpack_require__(229));
-hljs.registerLanguage('apache', __webpack_require__(230));
-hljs.registerLanguage('applescript', __webpack_require__(231));
-hljs.registerLanguage('cpp', __webpack_require__(232));
-hljs.registerLanguage('arduino', __webpack_require__(233));
-hljs.registerLanguage('armasm', __webpack_require__(234));
-hljs.registerLanguage('xml', __webpack_require__(235));
-hljs.registerLanguage('asciidoc', __webpack_require__(236));
-hljs.registerLanguage('aspectj', __webpack_require__(237));
-hljs.registerLanguage('autohotkey', __webpack_require__(238));
-hljs.registerLanguage('autoit', __webpack_require__(239));
-hljs.registerLanguage('avrasm', __webpack_require__(240));
-hljs.registerLanguage('awk', __webpack_require__(241));
-hljs.registerLanguage('axapta', __webpack_require__(242));
-hljs.registerLanguage('bash', __webpack_require__(243));
-hljs.registerLanguage('basic', __webpack_require__(244));
-hljs.registerLanguage('bnf', __webpack_require__(245));
-hljs.registerLanguage('brainfuck', __webpack_require__(246));
-hljs.registerLanguage('cal', __webpack_require__(247));
-hljs.registerLanguage('capnproto', __webpack_require__(248));
-hljs.registerLanguage('ceylon', __webpack_require__(249));
-hljs.registerLanguage('clean', __webpack_require__(250));
-hljs.registerLanguage('clojure', __webpack_require__(251));
-hljs.registerLanguage('clojure-repl', __webpack_require__(252));
-hljs.registerLanguage('cmake', __webpack_require__(253));
-hljs.registerLanguage('coffeescript', __webpack_require__(254));
-hljs.registerLanguage('coq', __webpack_require__(255));
-hljs.registerLanguage('cos', __webpack_require__(256));
-hljs.registerLanguage('crmsh', __webpack_require__(257));
-hljs.registerLanguage('crystal', __webpack_require__(258));
-hljs.registerLanguage('cs', __webpack_require__(259));
-hljs.registerLanguage('csp', __webpack_require__(260));
-hljs.registerLanguage('css', __webpack_require__(261));
-hljs.registerLanguage('d', __webpack_require__(262));
-hljs.registerLanguage('markdown', __webpack_require__(263));
-hljs.registerLanguage('dart', __webpack_require__(264));
-hljs.registerLanguage('delphi', __webpack_require__(265));
-hljs.registerLanguage('diff', __webpack_require__(266));
-hljs.registerLanguage('django', __webpack_require__(267));
-hljs.registerLanguage('dns', __webpack_require__(268));
-hljs.registerLanguage('dockerfile', __webpack_require__(269));
-hljs.registerLanguage('dos', __webpack_require__(270));
-hljs.registerLanguage('dsconfig', __webpack_require__(271));
-hljs.registerLanguage('dts', __webpack_require__(272));
-hljs.registerLanguage('dust', __webpack_require__(273));
-hljs.registerLanguage('ebnf', __webpack_require__(274));
-hljs.registerLanguage('elixir', __webpack_require__(275));
-hljs.registerLanguage('elm', __webpack_require__(276));
-hljs.registerLanguage('ruby', __webpack_require__(277));
-hljs.registerLanguage('erb', __webpack_require__(278));
-hljs.registerLanguage('erlang-repl', __webpack_require__(279));
-hljs.registerLanguage('erlang', __webpack_require__(280));
-hljs.registerLanguage('excel', __webpack_require__(281));
-hljs.registerLanguage('fix', __webpack_require__(282));
-hljs.registerLanguage('flix', __webpack_require__(283));
-hljs.registerLanguage('fortran', __webpack_require__(284));
-hljs.registerLanguage('fsharp', __webpack_require__(285));
-hljs.registerLanguage('gams', __webpack_require__(286));
-hljs.registerLanguage('gauss', __webpack_require__(287));
-hljs.registerLanguage('gcode', __webpack_require__(288));
-hljs.registerLanguage('gherkin', __webpack_require__(289));
-hljs.registerLanguage('glsl', __webpack_require__(290));
-hljs.registerLanguage('go', __webpack_require__(291));
-hljs.registerLanguage('golo', __webpack_require__(292));
-hljs.registerLanguage('gradle', __webpack_require__(293));
-hljs.registerLanguage('groovy', __webpack_require__(294));
-hljs.registerLanguage('haml', __webpack_require__(295));
-hljs.registerLanguage('handlebars', __webpack_require__(296));
-hljs.registerLanguage('haskell', __webpack_require__(297));
-hljs.registerLanguage('haxe', __webpack_require__(298));
-hljs.registerLanguage('hsp', __webpack_require__(299));
-hljs.registerLanguage('htmlbars', __webpack_require__(300));
-hljs.registerLanguage('http', __webpack_require__(301));
-hljs.registerLanguage('hy', __webpack_require__(302));
-hljs.registerLanguage('inform7', __webpack_require__(303));
-hljs.registerLanguage('ini', __webpack_require__(304));
-hljs.registerLanguage('irpf90', __webpack_require__(305));
-hljs.registerLanguage('java', __webpack_require__(306));
-hljs.registerLanguage('javascript', __webpack_require__(307));
-hljs.registerLanguage('jboss-cli', __webpack_require__(308));
-hljs.registerLanguage('json', __webpack_require__(309));
-hljs.registerLanguage('julia', __webpack_require__(310));
-hljs.registerLanguage('julia-repl', __webpack_require__(311));
-hljs.registerLanguage('kotlin', __webpack_require__(312));
-hljs.registerLanguage('lasso', __webpack_require__(313));
-hljs.registerLanguage('ldif', __webpack_require__(314));
-hljs.registerLanguage('leaf', __webpack_require__(315));
-hljs.registerLanguage('less', __webpack_require__(316));
-hljs.registerLanguage('lisp', __webpack_require__(317));
-hljs.registerLanguage('livecodeserver', __webpack_require__(318));
-hljs.registerLanguage('livescript', __webpack_require__(319));
-hljs.registerLanguage('llvm', __webpack_require__(320));
-hljs.registerLanguage('lsl', __webpack_require__(321));
-hljs.registerLanguage('lua', __webpack_require__(322));
-hljs.registerLanguage('makefile', __webpack_require__(323));
-hljs.registerLanguage('mathematica', __webpack_require__(324));
-hljs.registerLanguage('matlab', __webpack_require__(325));
-hljs.registerLanguage('maxima', __webpack_require__(326));
-hljs.registerLanguage('mel', __webpack_require__(327));
-hljs.registerLanguage('mercury', __webpack_require__(328));
-hljs.registerLanguage('mipsasm', __webpack_require__(329));
-hljs.registerLanguage('mizar', __webpack_require__(330));
-hljs.registerLanguage('perl', __webpack_require__(331));
-hljs.registerLanguage('mojolicious', __webpack_require__(332));
-hljs.registerLanguage('monkey', __webpack_require__(333));
-hljs.registerLanguage('moonscript', __webpack_require__(334));
-hljs.registerLanguage('n1ql', __webpack_require__(335));
-hljs.registerLanguage('nginx', __webpack_require__(336));
-hljs.registerLanguage('nimrod', __webpack_require__(337));
-hljs.registerLanguage('nix', __webpack_require__(338));
-hljs.registerLanguage('nsis', __webpack_require__(339));
-hljs.registerLanguage('objectivec', __webpack_require__(340));
-hljs.registerLanguage('ocaml', __webpack_require__(341));
-hljs.registerLanguage('openscad', __webpack_require__(342));
-hljs.registerLanguage('oxygene', __webpack_require__(343));
-hljs.registerLanguage('parser3', __webpack_require__(344));
-hljs.registerLanguage('pf', __webpack_require__(345));
-hljs.registerLanguage('php', __webpack_require__(346));
-hljs.registerLanguage('pony', __webpack_require__(347));
-hljs.registerLanguage('powershell', __webpack_require__(348));
-hljs.registerLanguage('processing', __webpack_require__(349));
-hljs.registerLanguage('profile', __webpack_require__(350));
-hljs.registerLanguage('prolog', __webpack_require__(351));
-hljs.registerLanguage('protobuf', __webpack_require__(352));
-hljs.registerLanguage('puppet', __webpack_require__(353));
-hljs.registerLanguage('purebasic', __webpack_require__(354));
-hljs.registerLanguage('python', __webpack_require__(355));
-hljs.registerLanguage('q', __webpack_require__(356));
-hljs.registerLanguage('qml', __webpack_require__(357));
-hljs.registerLanguage('r', __webpack_require__(358));
-hljs.registerLanguage('rib', __webpack_require__(359));
-hljs.registerLanguage('roboconf', __webpack_require__(360));
-hljs.registerLanguage('routeros', __webpack_require__(361));
-hljs.registerLanguage('rsl', __webpack_require__(362));
-hljs.registerLanguage('ruleslanguage', __webpack_require__(363));
-hljs.registerLanguage('rust', __webpack_require__(364));
-hljs.registerLanguage('scala', __webpack_require__(365));
-hljs.registerLanguage('scheme', __webpack_require__(366));
-hljs.registerLanguage('scilab', __webpack_require__(367));
-hljs.registerLanguage('scss', __webpack_require__(368));
-hljs.registerLanguage('shell', __webpack_require__(369));
-hljs.registerLanguage('smali', __webpack_require__(370));
-hljs.registerLanguage('smalltalk', __webpack_require__(371));
-hljs.registerLanguage('sml', __webpack_require__(372));
-hljs.registerLanguage('sqf', __webpack_require__(373));
-hljs.registerLanguage('sql', __webpack_require__(374));
-hljs.registerLanguage('stan', __webpack_require__(375));
-hljs.registerLanguage('stata', __webpack_require__(376));
-hljs.registerLanguage('step21', __webpack_require__(377));
-hljs.registerLanguage('stylus', __webpack_require__(378));
-hljs.registerLanguage('subunit', __webpack_require__(379));
-hljs.registerLanguage('swift', __webpack_require__(380));
-hljs.registerLanguage('taggerscript', __webpack_require__(381));
-hljs.registerLanguage('yaml', __webpack_require__(382));
-hljs.registerLanguage('tap', __webpack_require__(383));
-hljs.registerLanguage('tcl', __webpack_require__(384));
-hljs.registerLanguage('tex', __webpack_require__(385));
-hljs.registerLanguage('thrift', __webpack_require__(386));
-hljs.registerLanguage('tp', __webpack_require__(387));
-hljs.registerLanguage('twig', __webpack_require__(388));
-hljs.registerLanguage('typescript', __webpack_require__(389));
-hljs.registerLanguage('vala', __webpack_require__(390));
-hljs.registerLanguage('vbnet', __webpack_require__(391));
-hljs.registerLanguage('vbscript', __webpack_require__(392));
-hljs.registerLanguage('vbscript-html', __webpack_require__(393));
-hljs.registerLanguage('verilog', __webpack_require__(394));
-hljs.registerLanguage('vhdl', __webpack_require__(395));
-hljs.registerLanguage('vim', __webpack_require__(396));
-hljs.registerLanguage('x86asm', __webpack_require__(397));
-hljs.registerLanguage('xl', __webpack_require__(398));
-hljs.registerLanguage('xquery', __webpack_require__(399));
-hljs.registerLanguage('zephir', __webpack_require__(400));
+hljs.registerLanguage('1c', __webpack_require__(227));
+hljs.registerLanguage('abnf', __webpack_require__(228));
+hljs.registerLanguage('accesslog', __webpack_require__(229));
+hljs.registerLanguage('actionscript', __webpack_require__(230));
+hljs.registerLanguage('ada', __webpack_require__(231));
+hljs.registerLanguage('apache', __webpack_require__(232));
+hljs.registerLanguage('applescript', __webpack_require__(233));
+hljs.registerLanguage('cpp', __webpack_require__(234));
+hljs.registerLanguage('arduino', __webpack_require__(235));
+hljs.registerLanguage('armasm', __webpack_require__(236));
+hljs.registerLanguage('xml', __webpack_require__(237));
+hljs.registerLanguage('asciidoc', __webpack_require__(238));
+hljs.registerLanguage('aspectj', __webpack_require__(239));
+hljs.registerLanguage('autohotkey', __webpack_require__(240));
+hljs.registerLanguage('autoit', __webpack_require__(241));
+hljs.registerLanguage('avrasm', __webpack_require__(242));
+hljs.registerLanguage('awk', __webpack_require__(243));
+hljs.registerLanguage('axapta', __webpack_require__(244));
+hljs.registerLanguage('bash', __webpack_require__(245));
+hljs.registerLanguage('basic', __webpack_require__(246));
+hljs.registerLanguage('bnf', __webpack_require__(247));
+hljs.registerLanguage('brainfuck', __webpack_require__(248));
+hljs.registerLanguage('cal', __webpack_require__(249));
+hljs.registerLanguage('capnproto', __webpack_require__(250));
+hljs.registerLanguage('ceylon', __webpack_require__(251));
+hljs.registerLanguage('clean', __webpack_require__(252));
+hljs.registerLanguage('clojure', __webpack_require__(253));
+hljs.registerLanguage('clojure-repl', __webpack_require__(254));
+hljs.registerLanguage('cmake', __webpack_require__(255));
+hljs.registerLanguage('coffeescript', __webpack_require__(256));
+hljs.registerLanguage('coq', __webpack_require__(257));
+hljs.registerLanguage('cos', __webpack_require__(258));
+hljs.registerLanguage('crmsh', __webpack_require__(259));
+hljs.registerLanguage('crystal', __webpack_require__(260));
+hljs.registerLanguage('cs', __webpack_require__(261));
+hljs.registerLanguage('csp', __webpack_require__(262));
+hljs.registerLanguage('css', __webpack_require__(263));
+hljs.registerLanguage('d', __webpack_require__(264));
+hljs.registerLanguage('markdown', __webpack_require__(265));
+hljs.registerLanguage('dart', __webpack_require__(266));
+hljs.registerLanguage('delphi', __webpack_require__(267));
+hljs.registerLanguage('diff', __webpack_require__(268));
+hljs.registerLanguage('django', __webpack_require__(269));
+hljs.registerLanguage('dns', __webpack_require__(270));
+hljs.registerLanguage('dockerfile', __webpack_require__(271));
+hljs.registerLanguage('dos', __webpack_require__(272));
+hljs.registerLanguage('dsconfig', __webpack_require__(273));
+hljs.registerLanguage('dts', __webpack_require__(274));
+hljs.registerLanguage('dust', __webpack_require__(275));
+hljs.registerLanguage('ebnf', __webpack_require__(276));
+hljs.registerLanguage('elixir', __webpack_require__(277));
+hljs.registerLanguage('elm', __webpack_require__(278));
+hljs.registerLanguage('ruby', __webpack_require__(279));
+hljs.registerLanguage('erb', __webpack_require__(280));
+hljs.registerLanguage('erlang-repl', __webpack_require__(281));
+hljs.registerLanguage('erlang', __webpack_require__(282));
+hljs.registerLanguage('excel', __webpack_require__(283));
+hljs.registerLanguage('fix', __webpack_require__(284));
+hljs.registerLanguage('flix', __webpack_require__(285));
+hljs.registerLanguage('fortran', __webpack_require__(286));
+hljs.registerLanguage('fsharp', __webpack_require__(287));
+hljs.registerLanguage('gams', __webpack_require__(288));
+hljs.registerLanguage('gauss', __webpack_require__(289));
+hljs.registerLanguage('gcode', __webpack_require__(290));
+hljs.registerLanguage('gherkin', __webpack_require__(291));
+hljs.registerLanguage('glsl', __webpack_require__(292));
+hljs.registerLanguage('go', __webpack_require__(293));
+hljs.registerLanguage('golo', __webpack_require__(294));
+hljs.registerLanguage('gradle', __webpack_require__(295));
+hljs.registerLanguage('groovy', __webpack_require__(296));
+hljs.registerLanguage('haml', __webpack_require__(297));
+hljs.registerLanguage('handlebars', __webpack_require__(298));
+hljs.registerLanguage('haskell', __webpack_require__(299));
+hljs.registerLanguage('haxe', __webpack_require__(300));
+hljs.registerLanguage('hsp', __webpack_require__(301));
+hljs.registerLanguage('htmlbars', __webpack_require__(302));
+hljs.registerLanguage('http', __webpack_require__(303));
+hljs.registerLanguage('hy', __webpack_require__(304));
+hljs.registerLanguage('inform7', __webpack_require__(305));
+hljs.registerLanguage('ini', __webpack_require__(306));
+hljs.registerLanguage('irpf90', __webpack_require__(307));
+hljs.registerLanguage('java', __webpack_require__(308));
+hljs.registerLanguage('javascript', __webpack_require__(309));
+hljs.registerLanguage('jboss-cli', __webpack_require__(310));
+hljs.registerLanguage('json', __webpack_require__(311));
+hljs.registerLanguage('julia', __webpack_require__(312));
+hljs.registerLanguage('julia-repl', __webpack_require__(313));
+hljs.registerLanguage('kotlin', __webpack_require__(314));
+hljs.registerLanguage('lasso', __webpack_require__(315));
+hljs.registerLanguage('ldif', __webpack_require__(316));
+hljs.registerLanguage('leaf', __webpack_require__(317));
+hljs.registerLanguage('less', __webpack_require__(318));
+hljs.registerLanguage('lisp', __webpack_require__(319));
+hljs.registerLanguage('livecodeserver', __webpack_require__(320));
+hljs.registerLanguage('livescript', __webpack_require__(321));
+hljs.registerLanguage('llvm', __webpack_require__(322));
+hljs.registerLanguage('lsl', __webpack_require__(323));
+hljs.registerLanguage('lua', __webpack_require__(324));
+hljs.registerLanguage('makefile', __webpack_require__(325));
+hljs.registerLanguage('mathematica', __webpack_require__(326));
+hljs.registerLanguage('matlab', __webpack_require__(327));
+hljs.registerLanguage('maxima', __webpack_require__(328));
+hljs.registerLanguage('mel', __webpack_require__(329));
+hljs.registerLanguage('mercury', __webpack_require__(330));
+hljs.registerLanguage('mipsasm', __webpack_require__(331));
+hljs.registerLanguage('mizar', __webpack_require__(332));
+hljs.registerLanguage('perl', __webpack_require__(333));
+hljs.registerLanguage('mojolicious', __webpack_require__(334));
+hljs.registerLanguage('monkey', __webpack_require__(335));
+hljs.registerLanguage('moonscript', __webpack_require__(336));
+hljs.registerLanguage('n1ql', __webpack_require__(337));
+hljs.registerLanguage('nginx', __webpack_require__(338));
+hljs.registerLanguage('nimrod', __webpack_require__(339));
+hljs.registerLanguage('nix', __webpack_require__(340));
+hljs.registerLanguage('nsis', __webpack_require__(341));
+hljs.registerLanguage('objectivec', __webpack_require__(342));
+hljs.registerLanguage('ocaml', __webpack_require__(343));
+hljs.registerLanguage('openscad', __webpack_require__(344));
+hljs.registerLanguage('oxygene', __webpack_require__(345));
+hljs.registerLanguage('parser3', __webpack_require__(346));
+hljs.registerLanguage('pf', __webpack_require__(347));
+hljs.registerLanguage('php', __webpack_require__(348));
+hljs.registerLanguage('pony', __webpack_require__(349));
+hljs.registerLanguage('powershell', __webpack_require__(350));
+hljs.registerLanguage('processing', __webpack_require__(351));
+hljs.registerLanguage('profile', __webpack_require__(352));
+hljs.registerLanguage('prolog', __webpack_require__(353));
+hljs.registerLanguage('protobuf', __webpack_require__(354));
+hljs.registerLanguage('puppet', __webpack_require__(355));
+hljs.registerLanguage('purebasic', __webpack_require__(356));
+hljs.registerLanguage('python', __webpack_require__(357));
+hljs.registerLanguage('q', __webpack_require__(358));
+hljs.registerLanguage('qml', __webpack_require__(359));
+hljs.registerLanguage('r', __webpack_require__(360));
+hljs.registerLanguage('rib', __webpack_require__(361));
+hljs.registerLanguage('roboconf', __webpack_require__(362));
+hljs.registerLanguage('routeros', __webpack_require__(363));
+hljs.registerLanguage('rsl', __webpack_require__(364));
+hljs.registerLanguage('ruleslanguage', __webpack_require__(365));
+hljs.registerLanguage('rust', __webpack_require__(366));
+hljs.registerLanguage('scala', __webpack_require__(367));
+hljs.registerLanguage('scheme', __webpack_require__(368));
+hljs.registerLanguage('scilab', __webpack_require__(369));
+hljs.registerLanguage('scss', __webpack_require__(370));
+hljs.registerLanguage('shell', __webpack_require__(371));
+hljs.registerLanguage('smali', __webpack_require__(372));
+hljs.registerLanguage('smalltalk', __webpack_require__(373));
+hljs.registerLanguage('sml', __webpack_require__(374));
+hljs.registerLanguage('sqf', __webpack_require__(375));
+hljs.registerLanguage('sql', __webpack_require__(376));
+hljs.registerLanguage('stan', __webpack_require__(377));
+hljs.registerLanguage('stata', __webpack_require__(378));
+hljs.registerLanguage('step21', __webpack_require__(379));
+hljs.registerLanguage('stylus', __webpack_require__(380));
+hljs.registerLanguage('subunit', __webpack_require__(381));
+hljs.registerLanguage('swift', __webpack_require__(382));
+hljs.registerLanguage('taggerscript', __webpack_require__(383));
+hljs.registerLanguage('yaml', __webpack_require__(384));
+hljs.registerLanguage('tap', __webpack_require__(385));
+hljs.registerLanguage('tcl', __webpack_require__(386));
+hljs.registerLanguage('tex', __webpack_require__(387));
+hljs.registerLanguage('thrift', __webpack_require__(388));
+hljs.registerLanguage('tp', __webpack_require__(389));
+hljs.registerLanguage('twig', __webpack_require__(390));
+hljs.registerLanguage('typescript', __webpack_require__(391));
+hljs.registerLanguage('vala', __webpack_require__(392));
+hljs.registerLanguage('vbnet', __webpack_require__(393));
+hljs.registerLanguage('vbscript', __webpack_require__(394));
+hljs.registerLanguage('vbscript-html', __webpack_require__(395));
+hljs.registerLanguage('verilog', __webpack_require__(396));
+hljs.registerLanguage('vhdl', __webpack_require__(397));
+hljs.registerLanguage('vim', __webpack_require__(398));
+hljs.registerLanguage('x86asm', __webpack_require__(399));
+hljs.registerLanguage('xl', __webpack_require__(400));
+hljs.registerLanguage('xquery', __webpack_require__(401));
+hljs.registerLanguage('zephir', __webpack_require__(402));
 
 module.exports = hljs;
 
@@ -11775,14 +11781,14 @@ module.exports = hljs;
 
 
 var DOMChildrenOperations = __webpack_require__(106);
-var DOMPropertyOperations = __webpack_require__(67);
-var ReactComponentBrowserEnvironment = __webpack_require__(68);
+var DOMPropertyOperations = __webpack_require__(68);
+var ReactComponentBrowserEnvironment = __webpack_require__(69);
 var ReactMount = __webpack_require__(11);
 
 var assign = __webpack_require__(5);
 var escapeTextContentForBrowser = __webpack_require__(50);
-var setTextContent = __webpack_require__(66);
-var validateDOMNesting = __webpack_require__(76);
+var setTextContent = __webpack_require__(67);
+var validateDOMNesting = __webpack_require__(77);
 
 /**
  * Text nodes violate a couple assumptions that React makes about components:
@@ -11908,12 +11914,12 @@ module.exports = ReactDOMTextComponent;
 
 
 
-var Danger = __webpack_require__(405);
+var Danger = __webpack_require__(407);
 var ReactMultiChildUpdateTypes = __webpack_require__(108);
 var ReactPerf = __webpack_require__(14);
 
 var setInnerHTML = __webpack_require__(49);
-var setTextContent = __webpack_require__(66);
+var setTextContent = __webpack_require__(67);
 var invariant = __webpack_require__(3);
 
 /**
@@ -12741,7 +12747,7 @@ module.exports = ReactRootIndex;
 
 
 
-var adler32 = __webpack_require__(412);
+var adler32 = __webpack_require__(414);
 
 var TAG_END = /\/?>/;
 
@@ -12793,7 +12799,7 @@ module.exports = ReactMarkupChecksum;
 
 
 
-var isTextNode = __webpack_require__(415);
+var isTextNode = __webpack_require__(417);
 
 /*eslint-disable no-bitwise */
 
@@ -13015,27 +13021,27 @@ module.exports = ReactNativeComponent;
 
 
 
-var BeforeInputEventPlugin = __webpack_require__(418);
-var ChangeEventPlugin = __webpack_require__(422);
-var ClientReactRootIndex = __webpack_require__(423);
-var DefaultEventPluginOrder = __webpack_require__(424);
-var EnterLeaveEventPlugin = __webpack_require__(425);
+var BeforeInputEventPlugin = __webpack_require__(420);
+var ChangeEventPlugin = __webpack_require__(424);
+var ClientReactRootIndex = __webpack_require__(425);
+var DefaultEventPluginOrder = __webpack_require__(426);
+var EnterLeaveEventPlugin = __webpack_require__(427);
 var ExecutionEnvironment = __webpack_require__(8);
-var HTMLDOMPropertyConfig = __webpack_require__(426);
-var ReactBrowserComponentMixin = __webpack_require__(427);
-var ReactComponentBrowserEnvironment = __webpack_require__(68);
+var HTMLDOMPropertyConfig = __webpack_require__(428);
+var ReactBrowserComponentMixin = __webpack_require__(429);
+var ReactComponentBrowserEnvironment = __webpack_require__(69);
 var ReactDefaultBatchingStrategy = __webpack_require__(124);
-var ReactDOMComponent = __webpack_require__(428);
+var ReactDOMComponent = __webpack_require__(430);
 var ReactDOMTextComponent = __webpack_require__(105);
-var ReactEventListener = __webpack_require__(444);
-var ReactInjection = __webpack_require__(446);
-var ReactInstanceHandles = __webpack_require__(34);
+var ReactEventListener = __webpack_require__(446);
+var ReactInjection = __webpack_require__(448);
+var ReactInstanceHandles = __webpack_require__(35);
 var ReactMount = __webpack_require__(11);
-var ReactReconcileTransaction = __webpack_require__(447);
-var SelectEventPlugin = __webpack_require__(450);
-var ServerReactRootIndex = __webpack_require__(451);
-var SimpleEventPlugin = __webpack_require__(452);
-var SVGDOMPropertyConfig = __webpack_require__(460);
+var ReactReconcileTransaction = __webpack_require__(449);
+var SelectEventPlugin = __webpack_require__(452);
+var ServerReactRootIndex = __webpack_require__(453);
+var SimpleEventPlugin = __webpack_require__(454);
+var SVGDOMPropertyConfig = __webpack_require__(462);
 
 var alreadyInjected = false;
 
@@ -13090,7 +13096,7 @@ function inject() {
   if (process.env.NODE_ENV !== 'production') {
     var url = ExecutionEnvironment.canUseDOM && window.location.href || '';
     if (/[?&]react_perf\b/.test(url)) {
-      var ReactDefaultPerf = __webpack_require__(461);
+      var ReactDefaultPerf = __webpack_require__(463);
       ReactDefaultPerf.start();
     }
   }
@@ -13458,7 +13464,7 @@ var ReactElement = __webpack_require__(12);
 var ReactPropTypeLocationNames = __webpack_require__(55);
 
 var emptyFunction = __webpack_require__(19);
-var getIteratorFn = __webpack_require__(81);
+var getIteratorFn = __webpack_require__(82);
 
 /**
  * Collection of methods that allow declaration and validation of props that are
@@ -13820,7 +13826,7 @@ var PooledClass = __webpack_require__(24);
 var ReactElement = __webpack_require__(12);
 
 var emptyFunction = __webpack_require__(19);
-var traverseAllChildren = __webpack_require__(82);
+var traverseAllChildren = __webpack_require__(83);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
 var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -14004,12 +14010,12 @@ module.exports = ReactChildren;
 
 
 
-var LinkedValueUtils = __webpack_require__(80);
+var LinkedValueUtils = __webpack_require__(81);
 var ReactMount = __webpack_require__(11);
 var ReactUpdates = __webpack_require__(16);
 
 var assign = __webpack_require__(5);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 var valueContextKey = '__ReactDOMSelect_value$' + Math.random().toString(36).slice(2);
 
@@ -14357,7 +14363,7 @@ var emptyObject = __webpack_require__(42);
 var invariant = __webpack_require__(3);
 var keyMirror = __webpack_require__(48);
 var keyOf = __webpack_require__(25);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 var MIXINS_KEY = keyOf({ mixins: null });
 
@@ -15129,7 +15135,7 @@ var ReactNoopUpdateQueue = __webpack_require__(134);
 var canDefineProperty = __webpack_require__(52);
 var emptyObject = __webpack_require__(42);
 var invariant = __webpack_require__(3);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 /**
  * Base class helpers for the updating state of a component.
@@ -15253,7 +15259,7 @@ module.exports = ReactComponent;
 
 
 
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 function warnTDZ(publicInstance, callerName) {
   if (process.env.NODE_ENV !== 'production') {
@@ -15378,7 +15384,7 @@ module.exports = ReactNoopUpdateQueue;
 
 
 
-var ReactDOMSelection = __webpack_require__(448);
+var ReactDOMSelection = __webpack_require__(450);
 
 var containsNode = __webpack_require__(118);
 var focusNode = __webpack_require__(125);
@@ -15562,9 +15568,9 @@ var ReactPropTypeLocationNames = __webpack_require__(55);
 var ReactCurrentOwner = __webpack_require__(21);
 
 var canDefineProperty = __webpack_require__(52);
-var getIteratorFn = __webpack_require__(81);
+var getIteratorFn = __webpack_require__(82);
 var invariant = __webpack_require__(3);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 function getDeclarationErrorAddendum() {
   if (ReactCurrentOwner.current) {
@@ -15843,6 +15849,82 @@ exports.push([module.i, "/*\n * Visual Studio 2015 dark style\n * Author: Nicola
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.Iframe = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(57);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _propTypes = __webpack_require__(2);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Iframe = exports.Iframe = function (_Component) {
+    _inherits(Iframe, _Component);
+
+    function Iframe() {
+        _classCallCheck(this, Iframe);
+
+        return _possibleConstructorReturn(this, (Iframe.__proto__ || Object.getPrototypeOf(Iframe)).apply(this, arguments));
+    }
+
+    _createClass(Iframe, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var iframe = _reactDom2.default.findDOMNode(this.refs.iframe);
+            iframe.addEventListener('load', this.props.onLoad);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'iframe-container' },
+                _react2.default.createElement('iframe', _extends({}, this.props, {
+                    ref: 'iframe',
+                    frameBorder: '0',
+                    width: '100%',
+                    height: '100%'
+                }))
+            );
+        }
+    }]);
+
+    return Iframe;
+}(_react.Component);
+
+Iframe.propTypes = {
+    src: _propTypes2.default.string.isRequired,
+    onLoad: _propTypes2.default.func
+};
+exports.default = Iframe;
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 exports.Input = exports.propTypesInput = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -15857,7 +15939,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(482);
+__webpack_require__(483);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15932,7 +16014,7 @@ Input.propTypes = _extends({}, propTypesInput);
 exports.default = Input;
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15955,7 +16037,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(484);
+__webpack_require__(485);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16068,7 +16150,7 @@ var UI3Spin = exports.UI3Spin = function UI3Spin(props) {
 };
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16091,7 +16173,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _loader = __webpack_require__(140);
+var _loader = __webpack_require__(141);
 
 var _loader2 = _interopRequireDefault(_loader);
 
@@ -16103,9 +16185,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-__webpack_require__(498);
-var axios = __webpack_require__(142);
-var marked = __webpack_require__(519);
+__webpack_require__(499);
+var axios = __webpack_require__(143);
+var marked = __webpack_require__(520);
 var _highlight = __webpack_require__(104);
 
 marked.setOptions({
@@ -16248,13 +16330,13 @@ MDReader.propTypes = _extends({}, propTypesMDReader);
 exports.default = MDReader;
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(501);
+module.exports = __webpack_require__(502);
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16272,19 +16354,19 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(15);
-var settle = __webpack_require__(505);
-var buildURL = __webpack_require__(507);
-var parseHeaders = __webpack_require__(508);
-var isURLSameOrigin = __webpack_require__(509);
-var createError = __webpack_require__(145);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(510);
+var settle = __webpack_require__(506);
+var buildURL = __webpack_require__(508);
+var parseHeaders = __webpack_require__(509);
+var isURLSameOrigin = __webpack_require__(510);
+var createError = __webpack_require__(146);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(511);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -16381,7 +16463,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(511);
+      var cookies = __webpack_require__(512);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -16460,13 +16542,13 @@ module.exports = function xhrAdapter(config) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(506);
+var enhanceError = __webpack_require__(507);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -16485,7 +16567,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16497,7 +16579,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16523,7 +16605,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16543,15 +16625,15 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _soundcloudAudio = __webpack_require__(31);
+var _soundcloudAudio = __webpack_require__(32);
 
 var _soundcloudAudio2 = _interopRequireDefault(_soundcloudAudio);
 
-var _hoistNonReactStatics = __webpack_require__(554);
+var _hoistNonReactStatics = __webpack_require__(555);
 
 var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
-var _audioStore = __webpack_require__(555);
+var _audioStore = __webpack_require__(556);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16745,13 +16827,13 @@ function withSoundCloudAudio(WrappedComponent) {
 }
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(559);
+var content = __webpack_require__(560);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -16759,7 +16841,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -16776,7 +16858,7 @@ if(false) {
 }
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16845,7 +16927,109 @@ var Dropdowns = function (_Component) {
 exports.default = Dropdowns;
 
 /***/ }),
-/* 151 */
+/* 152 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Modal = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(2);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _ = __webpack_require__(152);
+
+__webpack_require__(603);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Modal = exports.Modal = function (_Component) {
+    _inherits(Modal, _Component);
+
+    function Modal() {
+        _classCallCheck(this, Modal);
+
+        return _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).apply(this, arguments));
+    }
+
+    _createClass(Modal, [{
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                header = _props.header,
+                content = _props.content,
+                footer = _props.footer,
+                children = _props.children,
+                isOpen = _props.isOpen,
+                onClose = _props.onClose;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'modal-container ' + (!isOpen ? 'closed' : '') },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'modal' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-header' },
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            header
+                        ),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'close-button', onClick: onClose },
+                            _react2.default.createElement(_.Icon, { name: 'times' })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-body' },
+                        content || children
+                    ),
+                    footer && _react2.default.createElement(
+                        'div',
+                        { className: 'modal-footer flex-row-rev' },
+                        footer
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Modal;
+}(_react.Component);
+
+Modal.propTypes = {
+    header: _propTypes2.default.string.isRequired,
+    content: _propTypes2.default.element,
+    footer: _propTypes2.default.element,
+    children: _propTypes2.default.element,
+    isOpen: _propTypes2.default.bool.isRequired,
+    onClose: _propTypes2.default.func.isRequired
+};
+exports.default = Modal;
+
+/***/ }),
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16859,7 +17043,7 @@ var _reactDom = __webpack_require__(57);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _app = __webpack_require__(166);
+var _app = __webpack_require__(168);
 
 var _app2 = _interopRequireDefault(_app);
 
@@ -16870,7 +17054,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('root'));
 
 /***/ }),
-/* 152 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16883,7 +17067,7 @@ _reactDom2.default.render(_react2.default.createElement(_app2.default, null), do
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(33),n=__webpack_require__(45),p=__webpack_require__(17),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(34),n=__webpack_require__(45),p=__webpack_require__(17),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -16898,7 +17082,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 153 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16919,12 +17103,12 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var _assign = __webpack_require__(33);
+var _assign = __webpack_require__(34);
 var emptyObject = __webpack_require__(45);
 var invariant = __webpack_require__(18);
 var warning = __webpack_require__(23);
 var emptyFunction = __webpack_require__(17);
-var checkPropTypes = __webpack_require__(154);
+var checkPropTypes = __webpack_require__(156);
 
 // TODO: this is special because it gets imported during build.
 
@@ -18263,7 +18447,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 154 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18279,7 +18463,7 @@ module.exports = react;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(18);
   var warning = __webpack_require__(23);
-  var ReactPropTypesSecret = __webpack_require__(155);
+  var ReactPropTypesSecret = __webpack_require__(157);
   var loggedTypeFailures = {};
 }
 
@@ -18330,7 +18514,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 155 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18349,7 +18533,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 156 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18365,7 +18549,7 @@ module.exports = ReactPropTypesSecret;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),l=__webpack_require__(87),B=__webpack_require__(33),C=__webpack_require__(17),ba=__webpack_require__(88),da=__webpack_require__(89),ea=__webpack_require__(90),fa=__webpack_require__(91),ia=__webpack_require__(92),D=__webpack_require__(45);
+var aa=__webpack_require__(1),l=__webpack_require__(88),B=__webpack_require__(34),C=__webpack_require__(17),ba=__webpack_require__(89),da=__webpack_require__(90),ea=__webpack_require__(91),fa=__webpack_require__(92),ia=__webpack_require__(93),D=__webpack_require__(45);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -18585,7 +18769,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 157 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18600,7 +18784,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(158);
+var isNode = __webpack_require__(160);
 
 /**
  * @param {*} object The object to check.
@@ -18613,7 +18797,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 158 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18641,7 +18825,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 159 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18665,18 +18849,18 @@ if (process.env.NODE_ENV !== "production") {
 var React = __webpack_require__(1);
 var invariant = __webpack_require__(18);
 var warning = __webpack_require__(23);
-var ExecutionEnvironment = __webpack_require__(87);
-var _assign = __webpack_require__(33);
+var ExecutionEnvironment = __webpack_require__(88);
+var _assign = __webpack_require__(34);
 var emptyFunction = __webpack_require__(17);
-var EventListener = __webpack_require__(88);
-var getActiveElement = __webpack_require__(89);
-var shallowEqual = __webpack_require__(90);
-var containsNode = __webpack_require__(91);
-var focusNode = __webpack_require__(92);
+var EventListener = __webpack_require__(89);
+var getActiveElement = __webpack_require__(90);
+var shallowEqual = __webpack_require__(91);
+var containsNode = __webpack_require__(92);
+var focusNode = __webpack_require__(93);
 var emptyObject = __webpack_require__(45);
-var checkPropTypes = __webpack_require__(160);
-var hyphenateStyleName = __webpack_require__(162);
-var camelizeStyleName = __webpack_require__(164);
+var checkPropTypes = __webpack_require__(162);
+var hyphenateStyleName = __webpack_require__(164);
+var camelizeStyleName = __webpack_require__(166);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -34043,7 +34227,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 160 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34059,7 +34243,7 @@ module.exports = reactDom;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(18);
   var warning = __webpack_require__(23);
-  var ReactPropTypesSecret = __webpack_require__(161);
+  var ReactPropTypesSecret = __webpack_require__(163);
   var loggedTypeFailures = {};
 }
 
@@ -34110,7 +34294,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 161 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34129,7 +34313,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 162 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34144,7 +34328,7 @@ module.exports = ReactPropTypesSecret;
 
 
 
-var hyphenate = __webpack_require__(163);
+var hyphenate = __webpack_require__(165);
 
 var msPattern = /^ms-/;
 
@@ -34171,7 +34355,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 163 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34207,7 +34391,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 164 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34222,7 +34406,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(165);
+var camelize = __webpack_require__(167);
 
 var msPattern = /^-ms-/;
 
@@ -34250,7 +34434,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 165 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34285,7 +34469,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 166 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34302,11 +34486,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(93);
+var _reactRouterDom = __webpack_require__(94);
 
 var _components = __webpack_require__(10);
 
-var _pages = __webpack_require__(565);
+var _pages = __webpack_require__(566);
 
 var _pages2 = _interopRequireDefault(_pages);
 
@@ -34318,7 +34502,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-__webpack_require__(606);
+__webpack_require__(610);
 
 var App = exports.App = function (_Component) {
     _inherits(App, _Component);
@@ -34361,7 +34545,7 @@ var App = exports.App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 167 */
+/* 169 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34371,7 +34555,7 @@ exports.default = App;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(61);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34428,7 +34612,7 @@ BrowserRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (BrowserRouter);
 
 /***/ }),
-/* 168 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34444,10 +34628,10 @@ BrowserRouter.propTypes = {
 var emptyFunction = __webpack_require__(17);
 var invariant = __webpack_require__(18);
 var warning = __webpack_require__(23);
-var assign = __webpack_require__(33);
+var assign = __webpack_require__(34);
 
 var ReactPropTypesSecret = __webpack_require__(58);
-var checkPropTypes = __webpack_require__(169);
+var checkPropTypes = __webpack_require__(171);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -34978,7 +35162,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 169 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35045,7 +35229,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 170 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35110,7 +35294,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 171 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35138,7 +35322,7 @@ var _createTransitionManager = __webpack_require__(60);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
-var _DOMUtils = __webpack_require__(96);
+var _DOMUtils = __webpack_require__(97);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35423,7 +35607,7 @@ var createBrowserHistory = function createBrowserHistory() {
 exports.default = createBrowserHistory;
 
 /***/ }),
-/* 172 */
+/* 174 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -35433,7 +35617,7 @@ exports.default = createBrowserHistory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(61);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35489,7 +35673,7 @@ HashRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (HashRouter);
 
 /***/ }),
-/* 173 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35515,7 +35699,7 @@ var _createTransitionManager = __webpack_require__(60);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
-var _DOMUtils = __webpack_require__(96);
+var _DOMUtils = __webpack_require__(97);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35819,18 +36003,18 @@ var createHashHistory = function createHashHistory() {
 exports.default = createHashHistory;
 
 /***/ }),
-/* 174 */
+/* 176 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__ = __webpack_require__(177);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__["a" /* default */]);
 
 /***/ }),
-/* 175 */
+/* 177 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -35840,7 +36024,7 @@ exports.default = createHashHistory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(62);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35897,7 +36081,7 @@ MemoryRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (MemoryRouter);
 
 /***/ }),
-/* 176 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36073,7 +36257,7 @@ var createMemoryHistory = function createMemoryHistory() {
 exports.default = createMemoryHistory;
 
 /***/ }),
-/* 177 */
+/* 179 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36081,8 +36265,8 @@ exports.default = createMemoryHistory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Route__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Link__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Route__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Link__ = __webpack_require__(98);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -36154,10 +36338,10 @@ NavLink.defaultProps = {
 /* harmony default export */ __webpack_exports__["a"] = (NavLink);
 
 /***/ }),
-/* 178 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isarray = __webpack_require__(179)
+var isarray = __webpack_require__(181)
 
 /**
  * Expose `pathToRegexp`.
@@ -36586,7 +36770,7 @@ function pathToRegexp (path, keys, options) {
 
 
 /***/ }),
-/* 179 */
+/* 181 */
 /***/ (function(module, exports) {
 
 module.exports = Array.isArray || function (arr) {
@@ -36595,18 +36779,18 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 180 */
+/* 182 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__ = __webpack_require__(183);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__["a" /* default */]);
 
 /***/ }),
-/* 181 */
+/* 183 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36697,18 +36881,18 @@ Prompt.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Prompt);
 
 /***/ }),
-/* 182 */
+/* 184 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Redirect__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Redirect__ = __webpack_require__(185);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Redirect__["a" /* default */]);
 
 /***/ }),
-/* 183 */
+/* 185 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36720,7 +36904,7 @@ Prompt.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(186);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -36816,15 +37000,15 @@ Redirect.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Redirect);
 
 /***/ }),
-/* 184 */
+/* 186 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__ = __webpack_require__(187);
 /* unused harmony reexport createBrowserHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createHashHistory__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createHashHistory__ = __webpack_require__(188);
 /* unused harmony reexport createHashHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(189);
 /* unused harmony reexport createMemoryHistory */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(47);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
@@ -36843,7 +37027,7 @@ Redirect.contextTypes = {
 
 
 /***/ }),
-/* 185 */
+/* 187 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36854,7 +37038,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(101);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -37147,7 +37331,7 @@ var createBrowserHistory = function createBrowserHistory() {
 /* unused harmony default export */ var _unused_webpack_default_export = (createBrowserHistory);
 
 /***/ }),
-/* 186 */
+/* 188 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37158,7 +37342,7 @@ var createBrowserHistory = function createBrowserHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(101);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -37468,7 +37652,7 @@ var createHashHistory = function createHashHistory() {
 /* unused harmony default export */ var _unused_webpack_default_export = (createHashHistory);
 
 /***/ }),
-/* 187 */
+/* 189 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37636,18 +37820,18 @@ var createMemoryHistory = function createMemoryHistory() {
 /* unused harmony default export */ var _unused_webpack_default_export = (createMemoryHistory);
 
 /***/ }),
-/* 188 */
+/* 190 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__ = __webpack_require__(191);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__["a" /* default */]);
 
 /***/ }),
-/* 189 */
+/* 191 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37830,18 +38014,18 @@ StaticRouter.childContextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (StaticRouter);
 
 /***/ }),
-/* 190 */
+/* 192 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Switch__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Switch__ = __webpack_require__(193);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Switch__["a" /* default */]);
 
 /***/ }),
-/* 191 */
+/* 193 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37935,7 +38119,7 @@ Switch.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Switch);
 
 /***/ }),
-/* 192 */
+/* 194 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37946,18 +38130,18 @@ Switch.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__["a" /* default */]);
 
 /***/ }),
-/* 193 */
+/* 195 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__ = __webpack_require__(196);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__["a" /* default */]);
 
 /***/ }),
-/* 194 */
+/* 196 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37965,9 +38149,9 @@ Switch.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(100);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -38002,7 +38186,7 @@ var withRouter = function withRouter(Component) {
 /* harmony default export */ __webpack_exports__["a"] = (withRouter);
 
 /***/ }),
-/* 195 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -38080,7 +38264,7 @@ var withRouter = function withRouter(Component) {
 
 
 /***/ }),
-/* 196 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38103,7 +38287,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(197);
+__webpack_require__(199);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38152,13 +38336,13 @@ AppBody.propTypes = _extends({}, propTypesAppBody);
 exports.default = AppBody;
 
 /***/ }),
-/* 197 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(198);
+var content = __webpack_require__(200);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -38166,7 +38350,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -38183,7 +38367,7 @@ if(false) {
 }
 
 /***/ }),
-/* 198 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -38191,13 +38375,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.app-body {\n  position: relative;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: calc(100vh - 3rem);\n  overflow-y: auto;\n  display: flex;\n  flex-direction: row; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.app-body {\n  position: relative;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: calc(100vh - 3rem);\n  overflow-y: auto;\n  display: flex;\n  flex-direction: row; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 199 */
+/* 201 */
 /***/ (function(module, exports) {
 
 
@@ -38292,7 +38476,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 200 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38323,7 +38507,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-__webpack_require__(201);
+__webpack_require__(203);
 
 var propTypesAppSidenav = exports.propTypesAppSidenav = {
     style: _propTypes2.default.string,
@@ -38368,13 +38552,13 @@ AppSidenav.propTypes = _extends({}, propTypesAppSidenav);
 exports.default = AppSidenav;
 
 /***/ }),
-/* 201 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(202);
+var content = __webpack_require__(204);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -38382,7 +38566,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -38399,7 +38583,7 @@ if(false) {
 }
 
 /***/ }),
-/* 202 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -38407,13 +38591,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.sidenav {\n  position: relative;\n  background: #1e1e1e;\n  color: #F8F8F8;\n  width: 0;\n  height: 100%;\n  z-index: 150;\n  top: 0;\n  transition: width 1s; }\n\n.open {\n  width: 15em;\n  background: #232323;\n  color: #F8F8F8;\n  height: 100%; }\n\n.left {\n  left: 0; }\n\n.right {\n  right: 0; }\n\n.sidenav-link {\n  display: inline-block;\n  width: calc(100% - 2 * 1em);\n  line-height: 1em;\n  height: 1em;\n  color: #F8F8F8;\n  padding: 1em;\n  text-decoration: none; }\n  .sidenav-link:hover {\n    color: #00adee;\n    background: #2b2b2b;\n    border-left: 3px solid #00adee;\n    width: calc(100% - 2 * 1em);\n    padding-left: calc(1em - 3px); }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.sidenav {\n  position: relative;\n  background: #1e1e1e;\n  color: #F8F8F8;\n  width: 0;\n  height: 100%;\n  z-index: 150;\n  top: 0;\n  transition: width 1s; }\n\n.open {\n  width: 15em;\n  background: #232323;\n  color: #F8F8F8;\n  height: 100%; }\n\n.left {\n  left: 0; }\n\n.right {\n  right: 0; }\n\n.sidenav-link {\n  display: inline-block;\n  width: calc(100% - 2 * 1em);\n  line-height: 1em;\n  height: 1em;\n  color: #F8F8F8;\n  padding: 1em;\n  text-decoration: none; }\n  .sidenav-link:hover {\n    color: #00adee;\n    background: #2b2b2b;\n    border-left: 3px solid #00adee;\n    width: calc(100% - 2 * 1em);\n    padding-left: calc(1em - 3px); }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 203 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38436,7 +38620,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(204);
+__webpack_require__(206);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38486,13 +38670,13 @@ AppTopBar.propTypes = _extends({}, propTypesAppTopBar);
 exports.default = AppTopBar;
 
 /***/ }),
-/* 204 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(205);
+var content = __webpack_require__(207);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -38500,7 +38684,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -38517,7 +38701,7 @@ if(false) {
 }
 
 /***/ }),
-/* 205 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -38525,13 +38709,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.app-top-bar {\n  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);\n  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);\n  position: relative;\n  margin: 0;\n  width: calc(100% - 2 * 1rem);\n  padding-left: 1rem;\n  padding-right: 1rem;\n  top: 0;\n  left: 0;\n  height: 3rem;\n  line-height: 3rem;\n  background: #333333;\n  color: white;\n  display: flex;\n  flex-direction: row; }\n  .app-top-bar i {\n    z-index: 12;\n    margin-right: 1em;\n    margin-top: 0.2em;\n    font-size: 1.5rem; }\n    .app-top-bar i:hover {\n      cursor: pointer; }\n  .app-top-bar img {\n    height: 3rem;\n    width: auto; }\n  .app-top-bar .app-icon {\n    width: 3rem;\n    height: 3rem;\n    margin-right: 1em;\n    cursor: pointer; }\n  .app-top-bar a {\n    color: #00adee;\n    height: 3rem;\n    text-decoration: none; }\n  .app-top-bar .links {\n    position: absolute;\n    width: calc(100% - 2 * 6rem);\n    left: 6rem;\n    text-align: center; }\n    .app-top-bar .links .link {\n      height: 1rem;\n      line-height: 1rem;\n      color: #bbecff;\n      padding: 1rem;\n      padding-bottom: calc(1rem + 2px);\n      margin-left: 0.5rem;\n      margin-right: 0.5rem;\n      border-bottom: 0px solid transparent;\n      text-decoration: unset; }\n      .app-top-bar .links .link:hover {\n        color: #00adee;\n        border-bottom: 2px solid #00adee; }\n    .app-top-bar .links .active {\n      color: #00adee;\n      border-bottom: 2px solid #00adee; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.app-top-bar {\n  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);\n  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);\n  position: relative;\n  margin: 0;\n  width: calc(100% - 2 * 1rem);\n  padding-left: 1rem;\n  padding-right: 1rem;\n  top: 0;\n  left: 0;\n  height: 3rem;\n  line-height: 3rem;\n  background: #333333;\n  color: white;\n  display: flex;\n  flex-direction: row; }\n  .app-top-bar i {\n    z-index: 12;\n    margin-right: 1em;\n    margin-top: 0.2em;\n    font-size: 1.5rem; }\n    .app-top-bar i:hover {\n      cursor: pointer; }\n  .app-top-bar img {\n    height: 3rem;\n    width: auto; }\n  .app-top-bar .app-icon {\n    width: 3rem;\n    height: 3rem;\n    margin-right: 1em;\n    cursor: pointer; }\n  .app-top-bar a {\n    color: #00adee;\n    height: 3rem;\n    text-decoration: none; }\n  .app-top-bar .links {\n    position: absolute;\n    width: calc(100% - 2 * 6rem);\n    left: 6rem;\n    text-align: center; }\n    .app-top-bar .links .link {\n      height: 1rem;\n      line-height: 1rem;\n      color: #bbecff;\n      padding: 1rem;\n      padding-bottom: calc(1rem + 2px);\n      margin-left: 0.5rem;\n      margin-right: 0.5rem;\n      border-bottom: 0px solid transparent;\n      text-decoration: unset; }\n      .app-top-bar .links .link:hover {\n        color: #00adee;\n        border-bottom: 2px solid #00adee; }\n    .app-top-bar .links .active {\n      color: #00adee;\n      border-bottom: 2px solid #00adee; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 206 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38554,7 +38738,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(207);
+__webpack_require__(209);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38658,13 +38842,13 @@ var addToast = exports.addToast = function addToast(context, text, type) {
 exports.default = AppToaster;
 
 /***/ }),
-/* 207 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(208);
+var content = __webpack_require__(210);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -38672,7 +38856,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -38689,7 +38873,7 @@ if(false) {
 }
 
 /***/ }),
-/* 208 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -38697,13 +38881,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.toast-container {\n  position: absolute;\n  width: 100%;\n  top: 0;\n  z-index: 10; }\n\n.toast, .toast-primary, .toast-secondary, .toast-warning, .toast-danger {\n  position: relative;\n  padding: 1em;\n  margin-bottom: 0.25em;\n  z-index: 10; }\n\n.toast-primary {\n  background: #00adee;\n  color: white; }\n\n.toast-secondary {\n  background: #333;\n  color: white; }\n\n.toast-warning {\n  background: orange;\n  color: white; }\n\n.toast-danger {\n  background: red;\n  color: white; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.toast-container {\n  position: absolute;\n  width: 100%;\n  top: 0;\n  z-index: 10; }\n\n.toast, .toast-primary, .toast-secondary, .toast-warning, .toast-danger {\n  position: relative;\n  padding: 1em;\n  margin-bottom: 0.25em;\n  z-index: 10; }\n\n.toast-primary {\n  background: #00adee;\n  color: white; }\n\n.toast-secondary {\n  background: #333;\n  color: white; }\n\n.toast-warning {\n  background: orange;\n  color: white; }\n\n.toast-danger {\n  background: red;\n  color: white; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 209 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38726,7 +38910,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _ = __webpack_require__(10);
 
-__webpack_require__(210);
+__webpack_require__(212);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38763,11 +38947,7 @@ var Async = exports.Async = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 null,
-                resource.isLoading ? spinner ? spinner : _react2.default.createElement(_.Loader, { type: _.LoaderType.SPINNER }) : _react2.default.createElement(
-                    'span',
-                    null,
-                    '!loading'
-                ),
+                resource.isLoading ? spinner ? spinner : _react2.default.createElement(_.Loader, { type: _.LoaderType.SPINNER }) : null,
                 resource.isError && !resource.isLoading && _react2.default.createElement(AsyncError, { error: resource.error }),
                 resource.data && !resource.isLoading && !resource.isError ? this.props.children : null
             );
@@ -38803,13 +38983,13 @@ var AsyncError = exports.AsyncError = function AsyncError(props) {
 exports.default = Async;
 
 /***/ }),
-/* 210 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(211);
+var content = __webpack_require__(213);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -38817,7 +38997,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -38834,7 +39014,7 @@ if(false) {
 }
 
 /***/ }),
-/* 211 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -38848,7 +39028,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 212 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38920,7 +39100,7 @@ Audio.propTypes = _extends({}, propTypesAudio);
 exports.default = Audio;
 
 /***/ }),
-/* 213 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38945,7 +39125,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _components = __webpack_require__(10);
 
-__webpack_require__(214);
+__webpack_require__(216);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39031,13 +39211,13 @@ Badges.propTypes = _extends({}, propTypesBadges);
 exports.default = Badges;
 
 /***/ }),
-/* 214 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(215);
+var content = __webpack_require__(217);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -39045,7 +39225,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -39062,7 +39242,7 @@ if(false) {
 }
 
 /***/ }),
-/* 215 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -39070,13 +39250,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.badges {\n  position: relative;\n  width: 100%;\n  min-height: 2em; }\n\n.badge {\n  height: 2em;\n  width: auto;\n  margin: 0.25em;\n  padding-left: 1em;\n  padding-right: 0.5em;\n  padding-top: 0.25em;\n  padding-bottom: 0.25em;\n  border-radius: 1rem;\n  color: white;\n  background-color: #00adee; }\n  .badge:hover {\n    color: #00adee;\n    background-color: white; }\n  .badge .close {\n    position: relative;\n    right: 0;\n    margin-left: 1em;\n    cursor: pointer; }\n    .badge .close:hover {\n      color: #00adee;\n      background-color: white; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.badges {\n  position: relative;\n  width: 100%;\n  min-height: 2em; }\n\n.badge {\n  height: 2em;\n  width: auto;\n  margin: 0.25em;\n  padding-left: 1em;\n  padding-right: 0.5em;\n  padding-top: 0.25em;\n  padding-bottom: 0.25em;\n  border-radius: 1rem;\n  color: white;\n  background-color: #00adee; }\n  .badge:hover {\n    color: #00adee;\n    background-color: white; }\n  .badge .close {\n    position: relative;\n    right: 0;\n    margin-left: 1em;\n    cursor: pointer; }\n    .badge .close:hover {\n      color: #00adee;\n      background-color: white; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 216 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39099,7 +39279,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(217);
+__webpack_require__(219);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39149,13 +39329,13 @@ ButtonGroup.propTypes = _extends({}, propTypesButtonGroup);
 exports.default = ButtonGroup;
 
 /***/ }),
-/* 217 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(218);
+var content = __webpack_require__(220);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -39163,7 +39343,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -39180,7 +39360,7 @@ if(false) {
 }
 
 /***/ }),
-/* 218 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -39194,7 +39374,7 @@ exports.push([module.i, ".button-group {\n  position: relative;\n  display: flex
 
 
 /***/ }),
-/* 219 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39217,7 +39397,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(220);
+__webpack_require__(222);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39271,13 +39451,13 @@ Card.propTypes = _extends({}, propTypesCard);
 exports.default = Card;
 
 /***/ }),
-/* 220 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(221);
+var content = __webpack_require__(223);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -39285,7 +39465,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -39302,7 +39482,7 @@ if(false) {
 }
 
 /***/ }),
-/* 221 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -39316,7 +39496,7 @@ exports.push([module.i, ".card {\n  border-radius: 2px;\n  display: inline-block
 
 
 /***/ }),
-/* 222 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39339,11 +39519,11 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _button = __webpack_require__(101);
+var _button = __webpack_require__(65);
 
 var _button2 = _interopRequireDefault(_button);
 
-var _icon = __webpack_require__(65);
+var _icon = __webpack_require__(66);
 
 var _icon2 = _interopRequireDefault(_icon);
 
@@ -39424,7 +39604,7 @@ Collapsible.propTypes = _extends({}, propTypesCollapsible);
 exports.default = Collapsible;
 
 /***/ }),
-/* 223 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
@@ -40798,7 +40978,7 @@ module.exports =
 //# sourceMappingURL=main.js.map
 
 /***/ }),
-/* 224 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -41620,7 +41800,7 @@ https://highlightjs.org/
 
 
 /***/ }),
-/* 225 */
+/* 227 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs){
@@ -42134,7 +42314,7 @@ module.exports = function(hljs){
 };
 
 /***/ }),
-/* 226 */
+/* 228 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -42209,7 +42389,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 227 */
+/* 229 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -42251,7 +42431,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 228 */
+/* 230 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -42329,7 +42509,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 229 */
+/* 231 */
 /***/ (function(module, exports) {
 
 module.exports = // We try to support full Ada2012
@@ -42506,7 +42686,7 @@ function(hljs) {
 };
 
 /***/ }),
-/* 230 */
+/* 232 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -42556,7 +42736,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 231 */
+/* 233 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -42646,7 +42826,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 232 */
+/* 234 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -42825,7 +43005,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 233 */
+/* 235 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -42929,7 +43109,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 234 */
+/* 236 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -43025,7 +43205,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 235 */
+/* 237 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -43132,7 +43312,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 236 */
+/* 238 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -43324,7 +43504,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 237 */
+/* 239 */
 /***/ (function(module, exports) {
 
 module.exports = function (hljs) {
@@ -43473,7 +43653,7 @@ module.exports = function (hljs) {
 };
 
 /***/ }),
-/* 238 */
+/* 240 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -43536,7 +43716,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 239 */
+/* 241 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -43676,7 +43856,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 240 */
+/* 242 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -43742,7 +43922,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 241 */
+/* 243 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -43799,7 +43979,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 242 */
+/* 244 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -43834,7 +44014,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 243 */
+/* 245 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -43913,7 +44093,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 244 */
+/* 246 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -43968,7 +44148,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 245 */
+/* 247 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs){
@@ -44001,7 +44181,7 @@ module.exports = function(hljs){
 };
 
 /***/ }),
-/* 246 */
+/* 248 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs){
@@ -44042,7 +44222,7 @@ module.exports = function(hljs){
 };
 
 /***/ }),
-/* 247 */
+/* 249 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -44126,7 +44306,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 248 */
+/* 250 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -44179,7 +44359,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 249 */
+/* 251 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -44250,7 +44430,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 250 */
+/* 252 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -44279,7 +44459,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 251 */
+/* 253 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -44379,7 +44559,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 252 */
+/* 254 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -44398,7 +44578,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 253 */
+/* 255 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -44440,7 +44620,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 254 */
+/* 256 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -44590,7 +44770,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 255 */
+/* 257 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -44661,7 +44841,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 256 */
+/* 258 */
 /***/ (function(module, exports) {
 
 module.exports = function cos (hljs) {
@@ -44789,7 +44969,7 @@ module.exports = function cos (hljs) {
 };
 
 /***/ }),
-/* 257 */
+/* 259 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -44887,7 +45067,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 258 */
+/* 260 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -45085,7 +45265,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 259 */
+/* 261 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -45266,7 +45446,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 260 */
+/* 262 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -45292,7 +45472,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 261 */
+/* 263 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -45401,7 +45581,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 262 */
+/* 264 */
 /***/ (function(module, exports) {
 
 module.exports = /**
@@ -45663,7 +45843,7 @@ function(hljs) {
 };
 
 /***/ }),
-/* 263 */
+/* 265 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -45775,7 +45955,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 264 */
+/* 266 */
 /***/ (function(module, exports) {
 
 module.exports = function (hljs) {
@@ -45880,7 +46060,7 @@ module.exports = function (hljs) {
 };
 
 /***/ }),
-/* 265 */
+/* 267 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -45953,7 +46133,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 266 */
+/* 268 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -45997,7 +46177,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 267 */
+/* 269 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46065,7 +46245,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 268 */
+/* 270 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46098,7 +46278,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 269 */
+/* 271 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46124,7 +46304,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 270 */
+/* 272 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46180,7 +46360,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 271 */
+/* 273 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46231,7 +46411,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 272 */
+/* 274 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46359,7 +46539,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 273 */
+/* 275 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46395,7 +46575,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 274 */
+/* 276 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46432,7 +46612,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 275 */
+/* 277 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46533,7 +46713,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 276 */
+/* 278 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46621,7 +46801,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 277 */
+/* 279 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46802,7 +46982,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 278 */
+/* 280 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46821,7 +47001,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 279 */
+/* 281 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -46871,7 +47051,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 280 */
+/* 282 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -47021,7 +47201,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 281 */
+/* 283 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -47073,7 +47253,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 282 */
+/* 284 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -47106,7 +47286,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 283 */
+/* 285 */
 /***/ (function(module, exports) {
 
 module.exports = function (hljs) {
@@ -47155,7 +47335,7 @@ module.exports = function (hljs) {
 };
 
 /***/ }),
-/* 284 */
+/* 286 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -47230,7 +47410,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 285 */
+/* 287 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -47293,7 +47473,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 286 */
+/* 288 */
 /***/ (function(module, exports) {
 
 module.exports = function (hljs) {
@@ -47451,7 +47631,7 @@ module.exports = function (hljs) {
 };
 
 /***/ }),
-/* 287 */
+/* 289 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -47679,7 +47859,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 288 */
+/* 290 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -47750,7 +47930,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 289 */
+/* 291 */
 /***/ (function(module, exports) {
 
 module.exports = function (hljs) {
@@ -47791,7 +47971,7 @@ module.exports = function (hljs) {
 };
 
 /***/ }),
-/* 290 */
+/* 292 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -47912,7 +48092,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 291 */
+/* 293 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -47970,7 +48150,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 292 */
+/* 294 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -47997,7 +48177,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 293 */
+/* 295 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -48036,7 +48216,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 294 */
+/* 296 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -48134,7 +48314,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 295 */
+/* 297 */
 /***/ (function(module, exports) {
 
 module.exports = // TODO support filter tags like :javascript, support inline HTML
@@ -48245,7 +48425,7 @@ function(hljs) {
 };
 
 /***/ }),
-/* 296 */
+/* 298 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -48283,7 +48463,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 297 */
+/* 299 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -48409,7 +48589,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 298 */
+/* 300 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -48525,7 +48705,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 299 */
+/* 301 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -48575,7 +48755,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 300 */
+/* 302 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -48650,7 +48830,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 301 */
+/* 303 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -48695,7 +48875,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 302 */
+/* 304 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -48801,7 +48981,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 303 */
+/* 305 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -48862,7 +49042,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 304 */
+/* 306 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -48932,7 +49112,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 305 */
+/* 307 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -49012,7 +49192,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 306 */
+/* 308 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -49124,7 +49304,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 307 */
+/* 309 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -49299,7 +49479,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 308 */
+/* 310 */
 /***/ (function(module, exports) {
 
 module.exports = function (hljs) {
@@ -49350,7 +49530,7 @@ module.exports = function (hljs) {
 };
 
 /***/ }),
-/* 309 */
+/* 311 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -49391,7 +49571,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 310 */
+/* 312 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -49557,7 +49737,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 311 */
+/* 313 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -49585,7 +49765,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 312 */
+/* 314 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -49763,7 +49943,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 313 */
+/* 315 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -49930,7 +50110,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 314 */
+/* 316 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -49957,7 +50137,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 315 */
+/* 317 */
 /***/ (function(module, exports) {
 
 module.exports = function (hljs) {
@@ -50001,7 +50181,7 @@ module.exports = function (hljs) {
 };
 
 /***/ }),
-/* 316 */
+/* 318 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -50145,7 +50325,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 317 */
+/* 319 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -50252,7 +50432,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 318 */
+/* 320 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -50413,7 +50593,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 319 */
+/* 321 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -50566,7 +50746,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 320 */
+/* 322 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -50659,7 +50839,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 321 */
+/* 323 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -50746,7 +50926,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 322 */
+/* 324 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -50816,7 +50996,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 323 */
+/* 325 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -50901,7 +51081,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 324 */
+/* 326 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -50963,7 +51143,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 325 */
+/* 327 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -51055,7 +51235,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 326 */
+/* 328 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -51465,7 +51645,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 327 */
+/* 329 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -51694,7 +51874,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 328 */
+/* 330 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -51780,7 +51960,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 329 */
+/* 331 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -51870,7 +52050,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 330 */
+/* 332 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -51893,7 +52073,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 331 */
+/* 333 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52054,7 +52234,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 332 */
+/* 334 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52083,7 +52263,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 333 */
+/* 335 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52162,7 +52342,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 334 */
+/* 336 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52278,7 +52458,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 335 */
+/* 337 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52351,7 +52531,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 336 */
+/* 338 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52448,7 +52628,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 337 */
+/* 339 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52507,7 +52687,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 338 */
+/* 340 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52560,7 +52740,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 339 */
+/* 341 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52670,7 +52850,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 340 */
+/* 342 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52765,7 +52945,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 341 */
+/* 343 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52840,7 +53020,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 342 */
+/* 344 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52901,7 +53081,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 343 */
+/* 345 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -52975,7 +53155,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 344 */
+/* 346 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -53027,7 +53207,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 345 */
+/* 347 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -53083,7 +53263,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 346 */
+/* 348 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -53214,7 +53394,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 347 */
+/* 349 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -53309,7 +53489,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 348 */
+/* 350 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -53394,7 +53574,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 349 */
+/* 351 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -53446,7 +53626,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 350 */
+/* 352 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -53480,7 +53660,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 351 */
+/* 353 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -53572,7 +53752,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 352 */
+/* 354 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -53612,7 +53792,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 353 */
+/* 355 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -53731,7 +53911,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 354 */
+/* 356 */
 /***/ (function(module, exports) {
 
 module.exports = // Base deafult colors in PB IDE: background: #FFFFDF; foreground: #000000;
@@ -53793,7 +53973,7 @@ function(hljs) {
 };
 
 /***/ }),
-/* 355 */
+/* 357 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -53913,7 +54093,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 356 */
+/* 358 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -53940,7 +54120,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 357 */
+/* 359 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -54113,7 +54293,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 358 */
+/* 360 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -54187,7 +54367,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 359 */
+/* 361 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -54218,7 +54398,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 360 */
+/* 362 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -54289,7 +54469,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 361 */
+/* 363 */
 /***/ (function(module, exports) {
 
 module.exports = // Colors from RouterOS terminal:
@@ -54452,7 +54632,7 @@ function(hljs) {
 };
 
 /***/ }),
-/* 362 */
+/* 364 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -54492,7 +54672,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 363 */
+/* 365 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -54557,7 +54737,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 364 */
+/* 366 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -54669,7 +54849,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 365 */
+/* 367 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -54788,7 +54968,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 366 */
+/* 368 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -54936,7 +55116,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 367 */
+/* 369 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -54994,7 +55174,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 368 */
+/* 370 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -55096,7 +55276,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 369 */
+/* 371 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -55115,7 +55295,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 370 */
+/* 372 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -55175,7 +55355,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 371 */
+/* 373 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -55229,7 +55409,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 372 */
+/* 374 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -55299,7 +55479,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 373 */
+/* 375 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -55674,7 +55854,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 374 */
+/* 376 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -55838,7 +56018,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 375 */
+/* 377 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -55925,7 +56105,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 376 */
+/* 378 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -55967,7 +56147,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 377 */
+/* 379 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -56018,7 +56198,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 378 */
+/* 380 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -56476,7 +56656,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 379 */
+/* 381 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -56514,7 +56694,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 380 */
+/* 382 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -56635,7 +56815,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 381 */
+/* 383 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -56683,7 +56863,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 382 */
+/* 384 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -56775,7 +56955,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 383 */
+/* 385 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -56815,7 +56995,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 384 */
+/* 386 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -56880,7 +57060,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 385 */
+/* 387 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -56946,7 +57126,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 386 */
+/* 388 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -56985,7 +57165,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 387 */
+/* 389 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -57073,7 +57253,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 388 */
+/* 390 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -57143,7 +57323,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 389 */
+/* 391 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -57303,7 +57483,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 390 */
+/* 392 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -57357,7 +57537,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 391 */
+/* 393 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -57417,7 +57597,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 392 */
+/* 394 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -57460,7 +57640,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 393 */
+/* 395 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -57476,7 +57656,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 394 */
+/* 396 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -57579,7 +57759,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 395 */
+/* 397 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -57644,7 +57824,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 396 */
+/* 398 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -57754,7 +57934,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 397 */
+/* 399 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -57894,7 +58074,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 398 */
+/* 400 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -57971,7 +58151,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 399 */
+/* 401 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -58046,7 +58226,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 400 */
+/* 402 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -58157,7 +58337,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 401 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58171,11 +58351,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _react = __webpack_require__(402);
+var _react = __webpack_require__(404);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _jsonStringifyPrettyCompact = __webpack_require__(475);
+var _jsonStringifyPrettyCompact = __webpack_require__(477);
 
 var _jsonStringifyPrettyCompact2 = _interopRequireDefault(_jsonStringifyPrettyCompact);
 
@@ -58316,17 +58496,17 @@ exports.default = jsxToString;
 module.exports = exports['default'];
 
 /***/ }),
-/* 402 */
+/* 404 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(403);
+module.exports = __webpack_require__(405);
 
 
 /***/ }),
-/* 403 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58343,12 +58523,12 @@ module.exports = __webpack_require__(403);
 
 
 
-var ReactDOM = __webpack_require__(404);
-var ReactDOMServer = __webpack_require__(466);
-var ReactIsomorphic = __webpack_require__(470);
+var ReactDOM = __webpack_require__(406);
+var ReactDOMServer = __webpack_require__(468);
+var ReactIsomorphic = __webpack_require__(472);
 
 var assign = __webpack_require__(5);
-var deprecated = __webpack_require__(474);
+var deprecated = __webpack_require__(476);
 
 // `version` will be added here by ReactIsomorphic.
 var React = {};
@@ -58372,7 +58552,7 @@ React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOMServer;
 module.exports = React;
 
 /***/ }),
-/* 404 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58394,16 +58574,16 @@ module.exports = React;
 var ReactCurrentOwner = __webpack_require__(21);
 var ReactDOMTextComponent = __webpack_require__(105);
 var ReactDefaultInjection = __webpack_require__(121);
-var ReactInstanceHandles = __webpack_require__(34);
+var ReactInstanceHandles = __webpack_require__(35);
 var ReactMount = __webpack_require__(11);
 var ReactPerf = __webpack_require__(14);
 var ReactReconciler = __webpack_require__(29);
 var ReactUpdates = __webpack_require__(16);
-var ReactVersion = __webpack_require__(84);
+var ReactVersion = __webpack_require__(85);
 
-var findDOMNode = __webpack_require__(79);
-var renderSubtreeIntoContainer = __webpack_require__(465);
-var warning = __webpack_require__(6);
+var findDOMNode = __webpack_require__(80);
+var renderSubtreeIntoContainer = __webpack_require__(467);
+var warning = __webpack_require__(7);
 
 ReactDefaultInjection.inject();
 
@@ -58471,7 +58651,7 @@ module.exports = React;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 405 */
+/* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58491,7 +58671,7 @@ module.exports = React;
 
 var ExecutionEnvironment = __webpack_require__(8);
 
-var createNodesFromMarkup = __webpack_require__(406);
+var createNodesFromMarkup = __webpack_require__(408);
 var emptyFunction = __webpack_require__(19);
 var getMarkupWrap = __webpack_require__(107);
 var invariant = __webpack_require__(3);
@@ -58623,7 +58803,7 @@ module.exports = Danger;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 406 */
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58645,7 +58825,7 @@ module.exports = Danger;
 
 var ExecutionEnvironment = __webpack_require__(8);
 
-var createArrayFromMixed = __webpack_require__(407);
+var createArrayFromMixed = __webpack_require__(409);
 var getMarkupWrap = __webpack_require__(107);
 var invariant = __webpack_require__(3);
 
@@ -58714,7 +58894,7 @@ module.exports = createNodesFromMarkup;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 407 */
+/* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58732,7 +58912,7 @@ module.exports = createNodesFromMarkup;
 
 
 
-var toArray = __webpack_require__(408);
+var toArray = __webpack_require__(410);
 
 /**
  * Perform a heuristic test to determine if an object is "array-like".
@@ -58805,7 +58985,7 @@ function createArrayFromMixed(obj) {
 module.exports = createArrayFromMixed;
 
 /***/ }),
-/* 408 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58869,7 +59049,7 @@ module.exports = toArray;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 409 */
+/* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58901,7 +59081,7 @@ function quoteAttributeValueForBrowser(value) {
 module.exports = quoteAttributeValueForBrowser;
 
 /***/ }),
-/* 410 */
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58922,7 +59102,7 @@ var EventConstants = __webpack_require__(22);
 var ReactErrorUtils = __webpack_require__(110);
 
 var invariant = __webpack_require__(3);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 /**
  * Injected dependencies:
@@ -59110,7 +59290,7 @@ module.exports = EventPluginUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 411 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59154,7 +59334,7 @@ var ReactEventEmitterMixin = {
 module.exports = ReactEventEmitterMixin;
 
 /***/ }),
-/* 412 */
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59202,7 +59382,7 @@ function adler32(data) {
 module.exports = adler32;
 
 /***/ }),
-/* 413 */
+/* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59219,7 +59399,7 @@ module.exports = adler32;
 
 
 
-var ReactOwner = __webpack_require__(414);
+var ReactOwner = __webpack_require__(416);
 
 var ReactRef = {};
 
@@ -59286,7 +59466,7 @@ ReactRef.detachRefs = function (instance, element) {
 module.exports = ReactRef;
 
 /***/ }),
-/* 414 */
+/* 416 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59384,7 +59564,7 @@ module.exports = ReactOwner;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 415 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59402,7 +59582,7 @@ module.exports = ReactOwner;
 
 
 
-var isNode = __webpack_require__(416);
+var isNode = __webpack_require__(418);
 
 /**
  * @param {*} object The object to check.
@@ -59415,7 +59595,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 416 */
+/* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59444,7 +59624,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 417 */
+/* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59461,7 +59641,7 @@ module.exports = isNode;
 
 
 
-var ReactComponentEnvironment = __webpack_require__(74);
+var ReactComponentEnvironment = __webpack_require__(75);
 var ReactCurrentOwner = __webpack_require__(21);
 var ReactElement = __webpack_require__(12);
 var ReactInstanceMap = __webpack_require__(41);
@@ -59469,13 +59649,13 @@ var ReactPerf = __webpack_require__(14);
 var ReactPropTypeLocations = __webpack_require__(54);
 var ReactPropTypeLocationNames = __webpack_require__(55);
 var ReactReconciler = __webpack_require__(29);
-var ReactUpdateQueue = __webpack_require__(71);
+var ReactUpdateQueue = __webpack_require__(72);
 
 var assign = __webpack_require__(5);
 var emptyObject = __webpack_require__(42);
 var invariant = __webpack_require__(3);
-var shouldUpdateReactComponent = __webpack_require__(75);
-var warning = __webpack_require__(6);
+var shouldUpdateReactComponent = __webpack_require__(76);
+var warning = __webpack_require__(7);
 
 function getDeclarationErrorAddendum(component) {
   var owner = component._currentElement._owner || null;
@@ -60145,7 +60325,7 @@ module.exports = ReactCompositeComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 418 */
+/* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60166,9 +60346,9 @@ module.exports = ReactCompositeComponent;
 var EventConstants = __webpack_require__(22);
 var EventPropagators = __webpack_require__(43);
 var ExecutionEnvironment = __webpack_require__(8);
-var FallbackCompositionState = __webpack_require__(419);
-var SyntheticCompositionEvent = __webpack_require__(420);
-var SyntheticInputEvent = __webpack_require__(421);
+var FallbackCompositionState = __webpack_require__(421);
+var SyntheticCompositionEvent = __webpack_require__(422);
+var SyntheticInputEvent = __webpack_require__(423);
 
 var keyOf = __webpack_require__(25);
 
@@ -60556,7 +60736,7 @@ var BeforeInputEventPlugin = {
 module.exports = BeforeInputEventPlugin;
 
 /***/ }),
-/* 419 */
+/* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60657,7 +60837,7 @@ PooledClass.addPoolingTo(FallbackCompositionState);
 module.exports = FallbackCompositionState;
 
 /***/ }),
-/* 420 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60700,7 +60880,7 @@ SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface
 module.exports = SyntheticCompositionEvent;
 
 /***/ }),
-/* 421 */
+/* 423 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60744,7 +60924,7 @@ SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 module.exports = SyntheticInputEvent;
 
 /***/ }),
-/* 422 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60768,8 +60948,8 @@ var ExecutionEnvironment = __webpack_require__(8);
 var ReactUpdates = __webpack_require__(16);
 var SyntheticEvent = __webpack_require__(30);
 
-var getEventTarget = __webpack_require__(77);
-var isEventSupported = __webpack_require__(70);
+var getEventTarget = __webpack_require__(78);
+var isEventSupported = __webpack_require__(71);
 var isTextInputElement = __webpack_require__(123);
 var keyOf = __webpack_require__(25);
 
@@ -61071,7 +61251,7 @@ var ChangeEventPlugin = {
 module.exports = ChangeEventPlugin;
 
 /***/ }),
-/* 423 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61100,7 +61280,7 @@ var ClientReactRootIndex = {
 module.exports = ClientReactRootIndex;
 
 /***/ }),
-/* 424 */
+/* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61133,7 +61313,7 @@ var DefaultEventPluginOrder = [keyOf({ ResponderEventPlugin: null }), keyOf({ Si
 module.exports = DefaultEventPluginOrder;
 
 /***/ }),
-/* 425 */
+/* 427 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61263,7 +61443,7 @@ var EnterLeaveEventPlugin = {
 module.exports = EnterLeaveEventPlugin;
 
 /***/ }),
-/* 426 */
+/* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61499,7 +61679,7 @@ var HTMLDOMPropertyConfig = {
 module.exports = HTMLDOMPropertyConfig;
 
 /***/ }),
-/* 427 */
+/* 429 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61518,8 +61698,8 @@ module.exports = HTMLDOMPropertyConfig;
 
 var ReactInstanceMap = __webpack_require__(41);
 
-var findDOMNode = __webpack_require__(79);
-var warning = __webpack_require__(6);
+var findDOMNode = __webpack_require__(80);
+var warning = __webpack_require__(7);
 
 var didWarnKey = '_getDOMNodeDidWarn';
 
@@ -61542,7 +61722,7 @@ module.exports = ReactBrowserComponentMixin;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 428 */
+/* 430 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61562,34 +61742,34 @@ module.exports = ReactBrowserComponentMixin;
 
 
 
-var AutoFocusUtils = __webpack_require__(429);
-var CSSPropertyOperations = __webpack_require__(430);
+var AutoFocusUtils = __webpack_require__(431);
+var CSSPropertyOperations = __webpack_require__(432);
 var DOMProperty = __webpack_require__(28);
-var DOMPropertyOperations = __webpack_require__(67);
+var DOMPropertyOperations = __webpack_require__(68);
 var EventConstants = __webpack_require__(22);
 var ReactBrowserEventEmitter = __webpack_require__(51);
-var ReactComponentBrowserEnvironment = __webpack_require__(68);
-var ReactDOMButton = __webpack_require__(437);
-var ReactDOMInput = __webpack_require__(438);
-var ReactDOMOption = __webpack_require__(439);
+var ReactComponentBrowserEnvironment = __webpack_require__(69);
+var ReactDOMButton = __webpack_require__(439);
+var ReactDOMInput = __webpack_require__(440);
+var ReactDOMOption = __webpack_require__(441);
 var ReactDOMSelect = __webpack_require__(129);
-var ReactDOMTextarea = __webpack_require__(440);
+var ReactDOMTextarea = __webpack_require__(442);
 var ReactMount = __webpack_require__(11);
-var ReactMultiChild = __webpack_require__(441);
+var ReactMultiChild = __webpack_require__(443);
 var ReactPerf = __webpack_require__(14);
-var ReactUpdateQueue = __webpack_require__(71);
+var ReactUpdateQueue = __webpack_require__(72);
 
 var assign = __webpack_require__(5);
 var canDefineProperty = __webpack_require__(52);
 var escapeTextContentForBrowser = __webpack_require__(50);
 var invariant = __webpack_require__(3);
-var isEventSupported = __webpack_require__(70);
+var isEventSupported = __webpack_require__(71);
 var keyOf = __webpack_require__(25);
 var setInnerHTML = __webpack_require__(49);
-var setTextContent = __webpack_require__(66);
+var setTextContent = __webpack_require__(67);
 var shallowEqual = __webpack_require__(130);
-var validateDOMNesting = __webpack_require__(76);
-var warning = __webpack_require__(6);
+var validateDOMNesting = __webpack_require__(77);
+var warning = __webpack_require__(7);
 
 var deleteListener = ReactBrowserEventEmitter.deleteListener;
 var listenTo = ReactBrowserEventEmitter.listenTo;
@@ -62511,7 +62691,7 @@ module.exports = ReactDOMComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 429 */
+/* 431 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62531,7 +62711,7 @@ module.exports = ReactDOMComponent;
 
 var ReactMount = __webpack_require__(11);
 
-var findDOMNode = __webpack_require__(79);
+var findDOMNode = __webpack_require__(80);
 var focusNode = __webpack_require__(125);
 
 var Mixin = {
@@ -62553,7 +62733,7 @@ var AutoFocusUtils = {
 module.exports = AutoFocusUtils;
 
 /***/ }),
-/* 430 */
+/* 432 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62575,11 +62755,11 @@ var CSSProperty = __webpack_require__(126);
 var ExecutionEnvironment = __webpack_require__(8);
 var ReactPerf = __webpack_require__(14);
 
-var camelizeStyleName = __webpack_require__(431);
-var dangerousStyleValue = __webpack_require__(433);
-var hyphenateStyleName = __webpack_require__(434);
-var memoizeStringOnly = __webpack_require__(436);
-var warning = __webpack_require__(6);
+var camelizeStyleName = __webpack_require__(433);
+var dangerousStyleValue = __webpack_require__(435);
+var hyphenateStyleName = __webpack_require__(436);
+var memoizeStringOnly = __webpack_require__(438);
+var warning = __webpack_require__(7);
 
 var processStyleName = memoizeStringOnly(function (styleName) {
   return hyphenateStyleName(styleName);
@@ -62735,7 +62915,7 @@ module.exports = CSSPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 431 */
+/* 433 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62753,7 +62933,7 @@ module.exports = CSSPropertyOperations;
 
 
 
-var camelize = __webpack_require__(432);
+var camelize = __webpack_require__(434);
 
 var msPattern = /^-ms-/;
 
@@ -62781,7 +62961,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 432 */
+/* 434 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62819,7 +62999,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 433 */
+/* 435 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62880,7 +63060,7 @@ function dangerousStyleValue(name, value) {
 module.exports = dangerousStyleValue;
 
 /***/ }),
-/* 434 */
+/* 436 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62898,7 +63078,7 @@ module.exports = dangerousStyleValue;
 
 
 
-var hyphenate = __webpack_require__(435);
+var hyphenate = __webpack_require__(437);
 
 var msPattern = /^ms-/;
 
@@ -62925,7 +63105,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 435 */
+/* 437 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62964,7 +63144,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 436 */
+/* 438 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63001,7 +63181,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 437 */
+/* 439 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63057,7 +63237,7 @@ var ReactDOMButton = {
 module.exports = ReactDOMButton;
 
 /***/ }),
-/* 438 */
+/* 440 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63074,8 +63254,8 @@ module.exports = ReactDOMButton;
 
 
 
-var ReactDOMIDOperations = __webpack_require__(69);
-var LinkedValueUtils = __webpack_require__(80);
+var ReactDOMIDOperations = __webpack_require__(70);
+var LinkedValueUtils = __webpack_require__(81);
 var ReactMount = __webpack_require__(11);
 var ReactUpdates = __webpack_require__(16);
 
@@ -63217,7 +63397,7 @@ module.exports = ReactDOMInput;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 439 */
+/* 441 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63238,7 +63418,7 @@ var ReactChildren = __webpack_require__(128);
 var ReactDOMSelect = __webpack_require__(129);
 
 var assign = __webpack_require__(5);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 var valueContextKey = ReactDOMSelect.valueContextKey;
 
@@ -63313,7 +63493,7 @@ module.exports = ReactDOMOption;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 440 */
+/* 442 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63330,13 +63510,13 @@ module.exports = ReactDOMOption;
 
 
 
-var LinkedValueUtils = __webpack_require__(80);
-var ReactDOMIDOperations = __webpack_require__(69);
+var LinkedValueUtils = __webpack_require__(81);
+var ReactDOMIDOperations = __webpack_require__(70);
 var ReactUpdates = __webpack_require__(16);
 
 var assign = __webpack_require__(5);
 var invariant = __webpack_require__(3);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 function forceUpdateIfMounted() {
   if (this._rootNodeID) {
@@ -63433,7 +63613,7 @@ module.exports = ReactDOMTextarea;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 441 */
+/* 443 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63451,14 +63631,14 @@ module.exports = ReactDOMTextarea;
 
 
 
-var ReactComponentEnvironment = __webpack_require__(74);
+var ReactComponentEnvironment = __webpack_require__(75);
 var ReactMultiChildUpdateTypes = __webpack_require__(108);
 
 var ReactCurrentOwner = __webpack_require__(21);
 var ReactReconciler = __webpack_require__(29);
-var ReactChildReconciler = __webpack_require__(442);
+var ReactChildReconciler = __webpack_require__(444);
 
-var flattenChildren = __webpack_require__(443);
+var flattenChildren = __webpack_require__(445);
 
 /**
  * Updating children of a component may trigger recursive updates. The depth is
@@ -63936,7 +64116,7 @@ module.exports = ReactMultiChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 442 */
+/* 444 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63956,10 +64136,10 @@ module.exports = ReactMultiChild;
 
 var ReactReconciler = __webpack_require__(29);
 
-var instantiateReactComponent = __webpack_require__(73);
-var shouldUpdateReactComponent = __webpack_require__(75);
-var traverseAllChildren = __webpack_require__(82);
-var warning = __webpack_require__(6);
+var instantiateReactComponent = __webpack_require__(74);
+var shouldUpdateReactComponent = __webpack_require__(76);
+var traverseAllChildren = __webpack_require__(83);
+var warning = __webpack_require__(7);
 
 function instantiateChild(childInstances, child, name) {
   // We found a component instance.
@@ -64065,7 +64245,7 @@ module.exports = ReactChildReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 443 */
+/* 445 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64082,8 +64262,8 @@ module.exports = ReactChildReconciler;
 
 
 
-var traverseAllChildren = __webpack_require__(82);
-var warning = __webpack_require__(6);
+var traverseAllChildren = __webpack_require__(83);
+var warning = __webpack_require__(7);
 
 /**
  * @param {function} traverseContext Context passed through traversal.
@@ -64120,7 +64300,7 @@ module.exports = flattenChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 444 */
+/* 446 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64141,13 +64321,13 @@ module.exports = flattenChildren;
 var EventListener = __webpack_require__(131);
 var ExecutionEnvironment = __webpack_require__(8);
 var PooledClass = __webpack_require__(24);
-var ReactInstanceHandles = __webpack_require__(34);
+var ReactInstanceHandles = __webpack_require__(35);
 var ReactMount = __webpack_require__(11);
 var ReactUpdates = __webpack_require__(16);
 
 var assign = __webpack_require__(5);
-var getEventTarget = __webpack_require__(77);
-var getUnboundedScrollPosition = __webpack_require__(445);
+var getEventTarget = __webpack_require__(78);
+var getUnboundedScrollPosition = __webpack_require__(447);
 
 var DOCUMENT_FRAGMENT_NODE_TYPE = 11;
 
@@ -64337,7 +64517,7 @@ var ReactEventListener = {
 module.exports = ReactEventListener;
 
 /***/ }),
-/* 445 */
+/* 447 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64381,7 +64561,7 @@ function getUnboundedScrollPosition(scrollable) {
 module.exports = getUnboundedScrollPosition;
 
 /***/ }),
-/* 446 */
+/* 448 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64400,7 +64580,7 @@ module.exports = getUnboundedScrollPosition;
 
 var DOMProperty = __webpack_require__(28);
 var EventPluginHub = __webpack_require__(40);
-var ReactComponentEnvironment = __webpack_require__(74);
+var ReactComponentEnvironment = __webpack_require__(75);
 var ReactClass = __webpack_require__(132);
 var ReactEmptyComponent = __webpack_require__(119);
 var ReactBrowserEventEmitter = __webpack_require__(51);
@@ -64425,7 +64605,7 @@ var ReactInjection = {
 module.exports = ReactInjection;
 
 /***/ }),
-/* 447 */
+/* 449 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64443,7 +64623,7 @@ module.exports = ReactInjection;
 
 
 
-var CallbackQueue = __webpack_require__(72);
+var CallbackQueue = __webpack_require__(73);
 var PooledClass = __webpack_require__(24);
 var ReactBrowserEventEmitter = __webpack_require__(51);
 var ReactDOMFeatureFlags = __webpack_require__(114);
@@ -64582,7 +64762,7 @@ PooledClass.addPoolingTo(ReactReconcileTransaction);
 module.exports = ReactReconcileTransaction;
 
 /***/ }),
-/* 448 */
+/* 450 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64601,7 +64781,7 @@ module.exports = ReactReconcileTransaction;
 
 var ExecutionEnvironment = __webpack_require__(8);
 
-var getNodeForCharacterOffset = __webpack_require__(449);
+var getNodeForCharacterOffset = __webpack_require__(451);
 var getTextContentAccessor = __webpack_require__(122);
 
 /**
@@ -64800,7 +64980,7 @@ var ReactDOMSelection = {
 module.exports = ReactDOMSelection;
 
 /***/ }),
-/* 449 */
+/* 451 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64879,7 +65059,7 @@ function getNodeForCharacterOffset(root, offset) {
 module.exports = getNodeForCharacterOffset;
 
 /***/ }),
-/* 450 */
+/* 452 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65086,7 +65266,7 @@ var SelectEventPlugin = {
 module.exports = SelectEventPlugin;
 
 /***/ }),
-/* 451 */
+/* 453 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65121,7 +65301,7 @@ var ServerReactRootIndex = {
 module.exports = ServerReactRootIndex;
 
 /***/ }),
-/* 452 */
+/* 454 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65142,18 +65322,18 @@ var EventConstants = __webpack_require__(22);
 var EventListener = __webpack_require__(131);
 var EventPropagators = __webpack_require__(43);
 var ReactMount = __webpack_require__(11);
-var SyntheticClipboardEvent = __webpack_require__(453);
+var SyntheticClipboardEvent = __webpack_require__(455);
 var SyntheticEvent = __webpack_require__(30);
-var SyntheticFocusEvent = __webpack_require__(454);
-var SyntheticKeyboardEvent = __webpack_require__(455);
+var SyntheticFocusEvent = __webpack_require__(456);
+var SyntheticKeyboardEvent = __webpack_require__(457);
 var SyntheticMouseEvent = __webpack_require__(56);
-var SyntheticDragEvent = __webpack_require__(457);
-var SyntheticTouchEvent = __webpack_require__(458);
+var SyntheticDragEvent = __webpack_require__(459);
+var SyntheticTouchEvent = __webpack_require__(460);
 var SyntheticUIEvent = __webpack_require__(44);
-var SyntheticWheelEvent = __webpack_require__(459);
+var SyntheticWheelEvent = __webpack_require__(461);
 
 var emptyFunction = __webpack_require__(19);
-var getEventCharCode = __webpack_require__(83);
+var getEventCharCode = __webpack_require__(84);
 var invariant = __webpack_require__(3);
 var keyOf = __webpack_require__(25);
 
@@ -65715,7 +65895,7 @@ module.exports = SimpleEventPlugin;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 453 */
+/* 455 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65760,7 +65940,7 @@ SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 module.exports = SyntheticClipboardEvent;
 
 /***/ }),
-/* 454 */
+/* 456 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65803,7 +65983,7 @@ SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 module.exports = SyntheticFocusEvent;
 
 /***/ }),
-/* 455 */
+/* 457 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65823,9 +66003,9 @@ module.exports = SyntheticFocusEvent;
 
 var SyntheticUIEvent = __webpack_require__(44);
 
-var getEventCharCode = __webpack_require__(83);
-var getEventKey = __webpack_require__(456);
-var getEventModifierState = __webpack_require__(78);
+var getEventCharCode = __webpack_require__(84);
+var getEventKey = __webpack_require__(458);
+var getEventModifierState = __webpack_require__(79);
 
 /**
  * @interface KeyboardEvent
@@ -65894,7 +66074,7 @@ SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 module.exports = SyntheticKeyboardEvent;
 
 /***/ }),
-/* 456 */
+/* 458 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65912,7 +66092,7 @@ module.exports = SyntheticKeyboardEvent;
 
 
 
-var getEventCharCode = __webpack_require__(83);
+var getEventCharCode = __webpack_require__(84);
 
 /**
  * Normalization of deprecated HTML5 `key` values
@@ -66003,7 +66183,7 @@ function getEventKey(nativeEvent) {
 module.exports = getEventKey;
 
 /***/ }),
-/* 457 */
+/* 459 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66046,7 +66226,7 @@ SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 module.exports = SyntheticDragEvent;
 
 /***/ }),
-/* 458 */
+/* 460 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66066,7 +66246,7 @@ module.exports = SyntheticDragEvent;
 
 var SyntheticUIEvent = __webpack_require__(44);
 
-var getEventModifierState = __webpack_require__(78);
+var getEventModifierState = __webpack_require__(79);
 
 /**
  * @interface TouchEvent
@@ -66098,7 +66278,7 @@ SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 module.exports = SyntheticTouchEvent;
 
 /***/ }),
-/* 459 */
+/* 461 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66159,7 +66339,7 @@ SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 module.exports = SyntheticWheelEvent;
 
 /***/ }),
-/* 460 */
+/* 462 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66292,7 +66472,7 @@ var SVGDOMPropertyConfig = {
 module.exports = SVGDOMPropertyConfig;
 
 /***/ }),
-/* 461 */
+/* 463 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66311,11 +66491,11 @@ module.exports = SVGDOMPropertyConfig;
 
 
 var DOMProperty = __webpack_require__(28);
-var ReactDefaultPerfAnalysis = __webpack_require__(462);
+var ReactDefaultPerfAnalysis = __webpack_require__(464);
 var ReactMount = __webpack_require__(11);
 var ReactPerf = __webpack_require__(14);
 
-var performanceNow = __webpack_require__(463);
+var performanceNow = __webpack_require__(465);
 
 function roundFloat(val) {
   return Math.floor(val * 100) / 100;
@@ -66535,7 +66715,7 @@ var ReactDefaultPerf = {
 module.exports = ReactDefaultPerf;
 
 /***/ }),
-/* 462 */
+/* 464 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66742,7 +66922,7 @@ var ReactDefaultPerfAnalysis = {
 module.exports = ReactDefaultPerfAnalysis;
 
 /***/ }),
-/* 463 */
+/* 465 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66760,7 +66940,7 @@ module.exports = ReactDefaultPerfAnalysis;
 
 
 
-var performance = __webpack_require__(464);
+var performance = __webpack_require__(466);
 
 var performanceNow;
 
@@ -66782,7 +66962,7 @@ if (performance.now) {
 module.exports = performanceNow;
 
 /***/ }),
-/* 464 */
+/* 466 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66811,7 +66991,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = performance || {};
 
 /***/ }),
-/* 465 */
+/* 467 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66833,7 +67013,7 @@ var ReactMount = __webpack_require__(11);
 module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ }),
-/* 466 */
+/* 468 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66851,8 +67031,8 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 var ReactDefaultInjection = __webpack_require__(121);
-var ReactServerRendering = __webpack_require__(467);
-var ReactVersion = __webpack_require__(84);
+var ReactServerRendering = __webpack_require__(469);
+var ReactVersion = __webpack_require__(85);
 
 ReactDefaultInjection.inject();
 
@@ -66865,7 +67045,7 @@ var ReactDOMServer = {
 module.exports = ReactDOMServer;
 
 /***/ }),
-/* 467 */
+/* 469 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66884,14 +67064,14 @@ module.exports = ReactDOMServer;
 
 var ReactDefaultBatchingStrategy = __webpack_require__(124);
 var ReactElement = __webpack_require__(12);
-var ReactInstanceHandles = __webpack_require__(34);
+var ReactInstanceHandles = __webpack_require__(35);
 var ReactMarkupChecksum = __webpack_require__(117);
-var ReactServerBatchingStrategy = __webpack_require__(468);
-var ReactServerRenderingTransaction = __webpack_require__(469);
+var ReactServerBatchingStrategy = __webpack_require__(470);
+var ReactServerRenderingTransaction = __webpack_require__(471);
 var ReactUpdates = __webpack_require__(16);
 
 var emptyObject = __webpack_require__(42);
-var instantiateReactComponent = __webpack_require__(73);
+var instantiateReactComponent = __webpack_require__(74);
 var invariant = __webpack_require__(3);
 
 /**
@@ -66955,7 +67135,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 468 */
+/* 470 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66984,7 +67164,7 @@ var ReactServerBatchingStrategy = {
 module.exports = ReactServerBatchingStrategy;
 
 /***/ }),
-/* 469 */
+/* 471 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67003,7 +67183,7 @@ module.exports = ReactServerBatchingStrategy;
 
 
 var PooledClass = __webpack_require__(24);
-var CallbackQueue = __webpack_require__(72);
+var CallbackQueue = __webpack_require__(73);
 var Transaction = __webpack_require__(53);
 
 var assign = __webpack_require__(5);
@@ -67077,7 +67257,7 @@ PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 module.exports = ReactServerRenderingTransaction;
 
 /***/ }),
-/* 470 */
+/* 472 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67097,14 +67277,14 @@ module.exports = ReactServerRenderingTransaction;
 var ReactChildren = __webpack_require__(128);
 var ReactComponent = __webpack_require__(133);
 var ReactClass = __webpack_require__(132);
-var ReactDOMFactories = __webpack_require__(471);
+var ReactDOMFactories = __webpack_require__(473);
 var ReactElement = __webpack_require__(12);
 var ReactElementValidator = __webpack_require__(137);
 var ReactPropTypes = __webpack_require__(127);
-var ReactVersion = __webpack_require__(84);
+var ReactVersion = __webpack_require__(85);
 
 var assign = __webpack_require__(5);
-var onlyChild = __webpack_require__(473);
+var onlyChild = __webpack_require__(475);
 
 var createElement = ReactElement.createElement;
 var createFactory = ReactElement.createFactory;
@@ -67158,7 +67338,7 @@ module.exports = React;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 471 */
+/* 473 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67179,7 +67359,7 @@ module.exports = React;
 var ReactElement = __webpack_require__(12);
 var ReactElementValidator = __webpack_require__(137);
 
-var mapObject = __webpack_require__(472);
+var mapObject = __webpack_require__(474);
 
 /**
  * Create a factory that creates HTML tag elements.
@@ -67342,7 +67522,7 @@ module.exports = ReactDOMFactories;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 472 */
+/* 474 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67399,7 +67579,7 @@ function mapObject(object, callback, context) {
 module.exports = mapObject;
 
 /***/ }),
-/* 473 */
+/* 475 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67439,7 +67619,7 @@ module.exports = onlyChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 474 */
+/* 476 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67457,7 +67637,7 @@ module.exports = onlyChild;
 
 
 var assign = __webpack_require__(5);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(7);
 
 /**
  * This will log a single deprecation notice per function and forward the call
@@ -67494,7 +67674,7 @@ module.exports = deprecated;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 475 */
+/* 477 */
 /***/ (function(module, exports) {
 
 function stringify (obj, options) {
@@ -67592,13 +67772,13 @@ module.exports = stringify
 
 
 /***/ }),
-/* 476 */
+/* 478 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(477);
+var content = __webpack_require__(479);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -67606,7 +67786,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -67623,7 +67803,7 @@ if(false) {
 }
 
 /***/ }),
-/* 477 */
+/* 479 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -67637,7 +67817,7 @@ exports.push([module.i, ".code-docs {\n  margin-bottom: 2em; }\n  .code-docs .to
 
 
 /***/ }),
-/* 478 */
+/* 480 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67662,7 +67842,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _ = __webpack_require__(10);
 
-__webpack_require__(479);
+__webpack_require__(481);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -67727,13 +67907,13 @@ Dropdown.propTypes = _extends({}, propTypesDropdown);
 exports.default = Dropdown;
 
 /***/ }),
-/* 479 */
+/* 481 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(480);
+var content = __webpack_require__(482);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -67741,7 +67921,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -67756,156 +67936,29 @@ if(false) {
 	// When the module is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
-
-/***/ }),
-/* 480 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(4)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\nselect {\n  position: relative;\n  width: calc(100%);\n  padding-right: 2.5em;\n  height: 2em;\n  line-height: 2em;\n  text-indent: 1em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  color: #00adee;\n  font-size: 1em;\n  border: none;\n  outline: none;\n  border-bottom: 1px solid #a3a3a3;\n  margin-bottom: 0.5em;\n  /* remove default arrow */\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  /* add custom arrow */\n  background: linear-gradient(45deg, transparent 50%, #00adee 50%), linear-gradient(135deg, #00adee 50%, transparent 50%);\n  background-position: calc(100% - 1.2em) calc(1em), calc(100% - 1.2em + 5px) calc(1em), 100% 0;\n  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;\n  background-repeat: no-repeat;\n  background-color: rgba(128, 128, 128, 0.1);\n  border-radius: 0;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n  select:hover {\n    border-bottom: 1px solid #00adee; }\n  select:focus {\n    border-bottom: 2px solid #00adee; }\n\n.select-style {\n  border: 1px solid #ccc;\n  width: 120px;\n  overflow: hidden; }\n\n.select-style select {\n  padding: 5px 8px;\n  width: 130%;\n  border: none;\n  box-shadow: none;\n  background: transparent;\n  background-image: none;\n  -webkit-appearance: none; }\n\n.select-style select:focus {\n  outline: none; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 481 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.Iframe = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(57);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _propTypes = __webpack_require__(2);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Iframe = exports.Iframe = function (_Component) {
-    _inherits(Iframe, _Component);
-
-    function Iframe() {
-        _classCallCheck(this, Iframe);
-
-        return _possibleConstructorReturn(this, (Iframe.__proto__ || Object.getPrototypeOf(Iframe)).apply(this, arguments));
-    }
-
-    _createClass(Iframe, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var iframe = _reactDom2.default.findDOMNode(this.refs.iframe);
-            iframe.addEventListener('load', this.props.onLoad);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var iframeStyle = {
-                width: '100%',
-                height: '100%',
-                border: '0',
-                position: 'absolute'
-            };
-
-            return _react2.default.createElement('iframe', _extends({
-                ref: 'iframe'
-            }, this.props, {
-                frameBorder: '0',
-                width: '100%',
-                height: '100%'
-                // style={iframeStyle}
-                , className: 'iframe'
-            }));
-        }
-    }]);
-
-    return Iframe;
-}(_react.Component);
-
-Iframe.propTypes = {
-    src: _propTypes2.default.string.isRequired,
-    onLoad: _propTypes2.default.func
-};
-exports.default = Iframe;
 
 /***/ }),
 /* 482 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
+exports = module.exports = __webpack_require__(4)(false);
+// imports
 
-// load the styles
-var content = __webpack_require__(483);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
 
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./style.scss", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./style.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
+// module
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\nselect {\n  position: relative;\n  width: calc(100%);\n  padding-right: 2.5em;\n  height: 2em;\n  line-height: 2em;\n  text-indent: 1em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  color: #00adee;\n  font-size: 1em;\n  border: none;\n  outline: none;\n  border-bottom: 1px solid #a3a3a3;\n  margin-bottom: 0.5em;\n  /* remove default arrow */\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  /* add custom arrow */\n  background: linear-gradient(45deg, transparent 50%, #00adee 50%), linear-gradient(135deg, #00adee 50%, transparent 50%);\n  background-position: calc(100% - 1.2em) calc(1em), calc(100% - 1.2em + 5px) calc(1em), 100% 0;\n  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;\n  background-repeat: no-repeat;\n  background-color: rgba(128, 128, 128, 0.1);\n  border-radius: 0;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n  select:hover {\n    border-bottom: 1px solid #00adee; }\n  select:focus {\n    border-bottom: 2px solid #00adee; }\n\n.select-style {\n  border: 1px solid #ccc;\n  width: 120px;\n  overflow: hidden; }\n\n.select-style select {\n  padding: 5px 8px;\n  width: 130%;\n  border: none;\n  box-shadow: none;\n  background: transparent;\n  background-image: none;\n  -webkit-appearance: none; }\n\n.select-style select:focus {\n  outline: none; }\n", ""]);
+
+// exports
+
 
 /***/ }),
 /* 483 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.input, .textarea {\n  position: relative;\n  width: calc(100% - 1em);\n  padding: 0.5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  background: rgba(128, 128, 128, 0.1);\n  color: #00adee;\n  font-size: 1em;\n  border: none;\n  outline: none;\n  border-bottom: 1px solid #a3a3a3;\n  margin-bottom: 0.25em; }\n  .input:hover, .textarea:hover {\n    border-bottom: 1px solid #00adee; }\n  .input:focus, .textarea:focus {\n    border-bottom: 2px solid #00adee; }\n\n.textarea {\n  margin-bottom: 1em;\n  max-width: 100%; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 484 */
-/***/ (function(module, exports, __webpack_require__) {
-
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(485);
+var content = __webpack_require__(484);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -67913,7 +67966,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -67930,7 +67983,7 @@ if(false) {
 }
 
 /***/ }),
-/* 485 */
+/* 484 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -67938,13 +67991,58 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "#preloader {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%; }\n\n#loader {\n  display: block;\n  position: relative;\n  left: 50%;\n  top: 50%;\n  width: 10rem;\n  height: 10rem;\n  margin-top: calc(-1*10rem/2);\n  margin-right: 0;\n  margin-bottom: 0;\n  margin-left: calc(-1*10rem/2);\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-top-color: #00adee;\n  -webkit-animation: spin 2s linear infinite;\n  animation: spin 2s linear infinite; }\n\n#loader:before {\n  content: \"\";\n  position: absolute;\n  top: 5px;\n  left: 5px;\n  right: 5px;\n  bottom: 5px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-top-color: #96CDFF;\n  -webkit-animation: spin 3s linear infinite;\n  animation: spin 3s linear infinite; }\n\n#loader:after {\n  content: \"\";\n  position: absolute;\n  top: 15px;\n  left: 15px;\n  right: 15px;\n  bottom: 15px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-top-color: #69DDFF;\n  -webkit-animation: spin 1.5s linear infinite;\n  animation: spin 1.5s linear infinite; }\n\n@-webkit-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\nbody, html {\n  background-color: #1c2020;\n  height: 100%;\n  position: relative;\n  overflow: hidden; }\n\n.bar-loader {\n  margin: 0 auto;\n  width: 60px;\n  height: 50px;\n  text-align: center;\n  font-size: 10px;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translateY(-50%) translateX(-50%); }\n  .bar-loader > div {\n    height: 100%;\n    width: 8px;\n    display: inline-block;\n    float: left;\n    margin-left: 2px;\n    -webkit-animation: delay 0.8s infinite ease-in-out;\n    animation: delay 0.8s infinite ease-in-out; }\n  .bar-loader .bar1 {\n    background-color: #754fa0; }\n  .bar-loader .bar2 {\n    background-color: #09b7bf;\n    -webkit-animation-delay: -0.7s;\n    animation-delay: -0.7s; }\n  .bar-loader .bar3 {\n    background-color: #90d36b;\n    -webkit-animation-delay: -0.6s;\n    animation-delay: -0.6s; }\n  .bar-loader .bar4 {\n    background-color: #f2d40d;\n    -webkit-animation-delay: -0.5s;\n    animation-delay: -0.5s; }\n  .bar-loader .bar5 {\n    background-color: #fcb12b;\n    -webkit-animation-delay: -0.4s;\n    animation-delay: -0.4s; }\n  .bar-loader .bar6 {\n    background-color: #ed1b72;\n    -webkit-animation-delay: -0.3s;\n    animation-delay: -0.3s; }\n\n@-webkit-keyframes delay {\n  0%, 40%, 100% {\n    -webkit-transform: scaleY(0.05); }\n  20% {\n    -webkit-transform: scaleY(1); } }\n\n@keyframes delay {\n  0%, 40%, 100% {\n    transform: scaleY(0.05);\n    -webkit-transform: scaleY(0.05); }\n  20% {\n    transform: scaleY(1);\n    -webkit-transform: scaleY(1); } }\n\n.col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.loader {\n  border: 10px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 10px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 1rem;\n  height: 1rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n.ellipsis,\n.ellipsis:before,\n.ellipsis:after {\n  border-radius: 50%;\n  width: 2.5em;\n  height: 2.5em;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n  -webkit-animation: load7 1.8s infinite ease-in-out;\n  animation: load7 1.8s infinite ease-in-out; }\n\n.ellipsis {\n  color: #ffffff;\n  font-size: 10px;\n  margin: 80px auto;\n  position: relative;\n  text-indent: -9999em;\n  -webkit-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-animation-delay: -0.16s;\n  animation-delay: -0.16s; }\n\n.ellipsis:before,\n.ellipsis:after {\n  content: '';\n  position: absolute;\n  top: 0; }\n\n.ellipsis:before {\n  left: -3.5em;\n  -webkit-animation-delay: -0.32s;\n  animation-delay: -0.32s; }\n\n.ellipsis:after {\n  left: 3.5em; }\n\n@-webkit-keyframes load7 {\n  0%,\n  80%,\n  100% {\n    box-shadow: 0 2.5em 0 -1.3em; }\n  40% {\n    box-shadow: 0 2.5em 0 0; } }\n\n@keyframes load7 {\n  0%,\n  80%,\n  100% {\n    box-shadow: 0 2.5em 0 -1.3em; }\n  40% {\n    box-shadow: 0 2.5em 0 0; } }\n\n.md-spin,\n.md-spin:before,\n.md-spin:after {\n  border-radius: 50%; }\n\n.md-spin {\n  color: #ffffff;\n  font-size: 11px;\n  text-indent: -99999em;\n  margin: 55px auto;\n  position: relative;\n  width: 10em;\n  height: 10em;\n  box-shadow: inset 0 0 0 1em;\n  -webkit-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  transform: translateZ(0); }\n\n.md-spin:before,\n.md-spin:after {\n  position: absolute;\n  content: ''; }\n\n.md-spin:before {\n  width: 5.2em;\n  height: 10.2em;\n  background: transparent;\n  border-radius: 10.2em 0 0 10.2em;\n  top: -0.1em;\n  left: -0.1em;\n  -webkit-transform-origin: 5.2em 5.1em;\n  transform-origin: 5.2em 5.1em;\n  -webkit-animation: load2 2s infinite ease 1.5s;\n  animation: load2 2s infinite ease 1.5s; }\n\n.md-spin:after {\n  width: 5.2em;\n  height: 10.2em;\n  background: transparent;\n  border-radius: 0 10.2em 10.2em 0;\n  top: -0.1em;\n  left: 5.1em;\n  -webkit-transform-origin: 0px 5.1em;\n  transform-origin: 0px 5.1em;\n  -webkit-animation: load2 2s infinite ease;\n  animation: load2 2s infinite ease; }\n\n@-webkit-keyframes load2 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@keyframes load2 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.input, .textarea {\n  position: relative;\n  width: calc(100% - 1em);\n  padding: 0.5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  background: rgba(128, 128, 128, 0.1);\n  color: #00adee;\n  font-size: 1em;\n  border: none;\n  outline: none;\n  border-bottom: 1px solid #a3a3a3;\n  margin-bottom: 0.25em; }\n  .input:hover, .textarea:hover {\n    border-bottom: 1px solid #00adee; }\n  .input:focus, .textarea:focus {\n    border-bottom: 2px solid #00adee; }\n\n.textarea {\n  margin-bottom: 1em;\n  max-width: 100%; }\n", ""]);
 
 // exports
 
 
 /***/ }),
+/* 485 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(486);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(6)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./style.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./style.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
 /* 486 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "#preloader {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%; }\n\n#loader {\n  display: block;\n  position: relative;\n  left: 50%;\n  top: 50%;\n  width: 10rem;\n  height: 10rem;\n  margin-top: calc(-1*10rem/2);\n  margin-right: 0;\n  margin-bottom: 0;\n  margin-left: calc(-1*10rem/2);\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-top-color: #00adee;\n  -webkit-animation: spin 2s linear infinite;\n  animation: spin 2s linear infinite; }\n\n#loader:before {\n  content: \"\";\n  position: absolute;\n  top: 5px;\n  left: 5px;\n  right: 5px;\n  bottom: 5px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-top-color: #96CDFF;\n  -webkit-animation: spin 3s linear infinite;\n  animation: spin 3s linear infinite; }\n\n#loader:after {\n  content: \"\";\n  position: absolute;\n  top: 15px;\n  left: 15px;\n  right: 15px;\n  bottom: 15px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-top-color: #69DDFF;\n  -webkit-animation: spin 1.5s linear infinite;\n  animation: spin 1.5s linear infinite; }\n\n@-webkit-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\nbody, html {\n  background-color: #1c2020;\n  height: 100%;\n  position: relative;\n  overflow: hidden; }\n\n.bar-loader {\n  margin: 0 auto;\n  width: 60px;\n  height: 50px;\n  text-align: center;\n  font-size: 10px;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translateY(-50%) translateX(-50%); }\n  .bar-loader > div {\n    height: 100%;\n    width: 8px;\n    display: inline-block;\n    float: left;\n    margin-left: 2px;\n    -webkit-animation: delay 0.8s infinite ease-in-out;\n    animation: delay 0.8s infinite ease-in-out; }\n  .bar-loader .bar1 {\n    background-color: #754fa0; }\n  .bar-loader .bar2 {\n    background-color: #09b7bf;\n    -webkit-animation-delay: -0.7s;\n    animation-delay: -0.7s; }\n  .bar-loader .bar3 {\n    background-color: #90d36b;\n    -webkit-animation-delay: -0.6s;\n    animation-delay: -0.6s; }\n  .bar-loader .bar4 {\n    background-color: #f2d40d;\n    -webkit-animation-delay: -0.5s;\n    animation-delay: -0.5s; }\n  .bar-loader .bar5 {\n    background-color: #fcb12b;\n    -webkit-animation-delay: -0.4s;\n    animation-delay: -0.4s; }\n  .bar-loader .bar6 {\n    background-color: #ed1b72;\n    -webkit-animation-delay: -0.3s;\n    animation-delay: -0.3s; }\n\n@-webkit-keyframes delay {\n  0%, 40%, 100% {\n    -webkit-transform: scaleY(0.05); }\n  20% {\n    -webkit-transform: scaleY(1); } }\n\n@keyframes delay {\n  0%, 40%, 100% {\n    transform: scaleY(0.05);\n    -webkit-transform: scaleY(0.05); }\n  20% {\n    transform: scaleY(1);\n    -webkit-transform: scaleY(1); } }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.loader {\n  border: 10px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 10px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 1rem;\n  height: 1rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n.ellipsis,\n.ellipsis:before,\n.ellipsis:after {\n  border-radius: 50%;\n  width: 2.5em;\n  height: 2.5em;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n  -webkit-animation: load7 1.8s infinite ease-in-out;\n  animation: load7 1.8s infinite ease-in-out; }\n\n.ellipsis {\n  color: #ffffff;\n  font-size: 10px;\n  margin: 80px auto;\n  position: relative;\n  text-indent: -9999em;\n  -webkit-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-animation-delay: -0.16s;\n  animation-delay: -0.16s; }\n\n.ellipsis:before,\n.ellipsis:after {\n  content: '';\n  position: absolute;\n  top: 0; }\n\n.ellipsis:before {\n  left: -3.5em;\n  -webkit-animation-delay: -0.32s;\n  animation-delay: -0.32s; }\n\n.ellipsis:after {\n  left: 3.5em; }\n\n@-webkit-keyframes load7 {\n  0%,\n  80%,\n  100% {\n    box-shadow: 0 2.5em 0 -1.3em; }\n  40% {\n    box-shadow: 0 2.5em 0 0; } }\n\n@keyframes load7 {\n  0%,\n  80%,\n  100% {\n    box-shadow: 0 2.5em 0 -1.3em; }\n  40% {\n    box-shadow: 0 2.5em 0 0; } }\n\n.md-spin,\n.md-spin:before,\n.md-spin:after {\n  border-radius: 50%; }\n\n.md-spin {\n  color: #ffffff;\n  font-size: 11px;\n  text-indent: -99999em;\n  margin: 55px auto;\n  position: relative;\n  width: 10em;\n  height: 10em;\n  box-shadow: inset 0 0 0 1em;\n  -webkit-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  transform: translateZ(0); }\n\n.md-spin:before,\n.md-spin:after {\n  position: absolute;\n  content: ''; }\n\n.md-spin:before {\n  width: 5.2em;\n  height: 10.2em;\n  background: transparent;\n  border-radius: 10.2em 0 0 10.2em;\n  top: -0.1em;\n  left: -0.1em;\n  -webkit-transform-origin: 5.2em 5.1em;\n  transform-origin: 5.2em 5.1em;\n  -webkit-animation: load2 2s infinite ease 1.5s;\n  animation: load2 2s infinite ease 1.5s; }\n\n.md-spin:after {\n  width: 5.2em;\n  height: 10.2em;\n  background: transparent;\n  border-radius: 0 10.2em 10.2em 0;\n  top: -0.1em;\n  left: 5.1em;\n  -webkit-transform-origin: 0px 5.1em;\n  transform-origin: 0px 5.1em;\n  -webkit-animation: load2 2s infinite ease;\n  animation: load2 2s infinite ease; }\n\n@-webkit-keyframes load2 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@keyframes load2 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 487 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67967,9 +68065,9 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _icon = __webpack_require__(65);
+var _icon = __webpack_require__(66);
 
-__webpack_require__(487);
+__webpack_require__(488);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -68074,13 +68172,13 @@ List.propTypes = _extends({}, propTypesList);
 exports.default = List;
 
 /***/ }),
-/* 487 */
+/* 488 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(488);
+var content = __webpack_require__(489);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -68088,7 +68186,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -68105,7 +68203,7 @@ if(false) {
 }
 
 /***/ }),
-/* 488 */
+/* 489 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -68113,13 +68211,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.scroll {\n  max-height: 10em;\n  overflow: hidden;\n  overflow-y: auto; }\n\n.list-container {\n  background: white; }\n  .list-container .active, .list-container .item:hover {\n    color: #00adee; }\n  .list-container .item {\n    position: relative;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    color: black;\n    padding: 0.5em;\n    width: calc(100% - 2 * 0.5em);\n    border-bottom: 1px solid rgba(128, 128, 128, 0.3); }\n    .list-container .item:hover {\n      background: rgba(0, 173, 238, 0.1); }\n    .list-container .item .checkbox {\n      margin-right: 1em; }\n    .list-container .item .icon {\n      margin-right: 1em; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.scroll {\n  max-height: 10em;\n  overflow: hidden;\n  overflow-y: auto; }\n\n.list-container {\n  background: white; }\n  .list-container .active, .list-container .item:hover {\n    color: #00adee; }\n  .list-container .item {\n    position: relative;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    color: black;\n    padding: 0.5em;\n    width: calc(100% - 2 * 0.5em);\n    border-bottom: 1px solid rgba(128, 128, 128, 0.3); }\n    .list-container .item:hover {\n      background: rgba(0, 173, 238, 0.1); }\n    .list-container .item .checkbox {\n      margin-right: 1em; }\n    .list-container .item .icon {\n      margin-right: 1em; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 489 */
+/* 490 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68142,11 +68240,11 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _leaflet = __webpack_require__(490);
+var _leaflet = __webpack_require__(491);
 
 var _leaflet2 = _interopRequireDefault(_leaflet);
 
-__webpack_require__(491);
+__webpack_require__(492);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -68241,12 +68339,12 @@ Map.propTypes = _extends({}, propTypesMap);
 exports.default = Map;
 
 /***/ }),
-/* 490 */
+/* 491 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* @preserve
- * Leaflet 1.3.1, a JS library for interactive maps. http://leafletjs.com
- * (c) 2010-2017 Vladimir Agafonkin, (c) 2010-2011 CloudMade
+ * Leaflet 1.3.4, a JS library for interactive maps. http://leafletjs.com
+ * (c) 2010-2018 Vladimir Agafonkin, (c) 2010-2011 CloudMade
  */
 
 (function (global, factory) {
@@ -68255,7 +68353,7 @@ exports.default = Map;
 	(factory((global.L = {})));
 }(this, (function (exports) { 'use strict';
 
-var version = "1.3.1";
+var version = "1.3.4";
 
 /*
  * @namespace Util
@@ -69606,7 +69704,7 @@ function toLatLngBounds(a, b) {
  * map.panTo(L.latLng(50, 30));
  * ```
  *
- * Note that `LatLng` does not inherit from Leafet's `Class` object,
+ * Note that `LatLng` does not inherit from Leaflet's `Class` object,
  * which means new classes can't inherit from it, and new methods
  * can't be added to it with the `include` function.
  */
@@ -70168,7 +70266,7 @@ var mobileOpera = mobile && opera;
 var mobileGecko = mobile && gecko;
 
 // @property retina: Boolean
-// `true` for browsers on a high-resolution "retina" screen.
+// `true` for browsers on a high-resolution "retina" screen or on any screen when browser's display zoom is more than 100%.
 var retina = (window.devicePixelRatio || (window.screen.deviceXDPI / window.screen.logicalXDPI)) > 1;
 
 
@@ -70453,326 +70551,6 @@ function removeDoubleTapListener(obj, id) {
 }
 
 /*
- * @namespace DomEvent
- * Utility functions to work with the [DOM events](https://developer.mozilla.org/docs/Web/API/Event), used by Leaflet internally.
- */
-
-// Inspired by John Resig, Dean Edwards and YUI addEvent implementations.
-
-// @function on(el: HTMLElement, types: String, fn: Function, context?: Object): this
-// Adds a listener function (`fn`) to a particular DOM event type of the
-// element `el`. You can optionally specify the context of the listener
-// (object the `this` keyword will point to). You can also pass several
-// space-separated types (e.g. `'click dblclick'`).
-
-// @alternative
-// @function on(el: HTMLElement, eventMap: Object, context?: Object): this
-// Adds a set of type/listener pairs, e.g. `{click: onClick, mousemove: onMouseMove}`
-function on(obj, types, fn, context) {
-
-	if (typeof types === 'object') {
-		for (var type in types) {
-			addOne(obj, type, types[type], fn);
-		}
-	} else {
-		types = splitWords(types);
-
-		for (var i = 0, len = types.length; i < len; i++) {
-			addOne(obj, types[i], fn, context);
-		}
-	}
-
-	return this;
-}
-
-var eventsKey = '_leaflet_events';
-
-// @function off(el: HTMLElement, types: String, fn: Function, context?: Object): this
-// Removes a previously added listener function.
-// Note that if you passed a custom context to on, you must pass the same
-// context to `off` in order to remove the listener.
-
-// @alternative
-// @function off(el: HTMLElement, eventMap: Object, context?: Object): this
-// Removes a set of type/listener pairs, e.g. `{click: onClick, mousemove: onMouseMove}`
-function off(obj, types, fn, context) {
-
-	if (typeof types === 'object') {
-		for (var type in types) {
-			removeOne(obj, type, types[type], fn);
-		}
-	} else if (types) {
-		types = splitWords(types);
-
-		for (var i = 0, len = types.length; i < len; i++) {
-			removeOne(obj, types[i], fn, context);
-		}
-	} else {
-		for (var j in obj[eventsKey]) {
-			removeOne(obj, j, obj[eventsKey][j]);
-		}
-		delete obj[eventsKey];
-	}
-
-	return this;
-}
-
-function addOne(obj, type, fn, context) {
-	var id = type + stamp(fn) + (context ? '_' + stamp(context) : '');
-
-	if (obj[eventsKey] && obj[eventsKey][id]) { return this; }
-
-	var handler = function (e) {
-		return fn.call(context || obj, e || window.event);
-	};
-
-	var originalHandler = handler;
-
-	if (pointer && type.indexOf('touch') === 0) {
-		// Needs DomEvent.Pointer.js
-		addPointerListener(obj, type, handler, id);
-
-	} else if (touch && (type === 'dblclick') && addDoubleTapListener &&
-	           !(pointer && chrome)) {
-		// Chrome >55 does not need the synthetic dblclicks from addDoubleTapListener
-		// See #5180
-		addDoubleTapListener(obj, handler, id);
-
-	} else if ('addEventListener' in obj) {
-
-		if (type === 'mousewheel') {
-			obj.addEventListener('onwheel' in obj ? 'wheel' : 'mousewheel', handler, false);
-
-		} else if ((type === 'mouseenter') || (type === 'mouseleave')) {
-			handler = function (e) {
-				e = e || window.event;
-				if (isExternalTarget(obj, e)) {
-					originalHandler(e);
-				}
-			};
-			obj.addEventListener(type === 'mouseenter' ? 'mouseover' : 'mouseout', handler, false);
-
-		} else {
-			if (type === 'click' && android) {
-				handler = function (e) {
-					filterClick(e, originalHandler);
-				};
-			}
-			obj.addEventListener(type, handler, false);
-		}
-
-	} else if ('attachEvent' in obj) {
-		obj.attachEvent('on' + type, handler);
-	}
-
-	obj[eventsKey] = obj[eventsKey] || {};
-	obj[eventsKey][id] = handler;
-}
-
-function removeOne(obj, type, fn, context) {
-
-	var id = type + stamp(fn) + (context ? '_' + stamp(context) : ''),
-	    handler = obj[eventsKey] && obj[eventsKey][id];
-
-	if (!handler) { return this; }
-
-	if (pointer && type.indexOf('touch') === 0) {
-		removePointerListener(obj, type, id);
-
-	} else if (touch && (type === 'dblclick') && removeDoubleTapListener &&
-	           !(pointer && chrome)) {
-		removeDoubleTapListener(obj, id);
-
-	} else if ('removeEventListener' in obj) {
-
-		if (type === 'mousewheel') {
-			obj.removeEventListener('onwheel' in obj ? 'wheel' : 'mousewheel', handler, false);
-
-		} else {
-			obj.removeEventListener(
-				type === 'mouseenter' ? 'mouseover' :
-				type === 'mouseleave' ? 'mouseout' : type, handler, false);
-		}
-
-	} else if ('detachEvent' in obj) {
-		obj.detachEvent('on' + type, handler);
-	}
-
-	obj[eventsKey][id] = null;
-}
-
-// @function stopPropagation(ev: DOMEvent): this
-// Stop the given event from propagation to parent elements. Used inside the listener functions:
-// ```js
-// L.DomEvent.on(div, 'click', function (ev) {
-// 	L.DomEvent.stopPropagation(ev);
-// });
-// ```
-function stopPropagation(e) {
-
-	if (e.stopPropagation) {
-		e.stopPropagation();
-	} else if (e.originalEvent) {  // In case of Leaflet event.
-		e.originalEvent._stopped = true;
-	} else {
-		e.cancelBubble = true;
-	}
-	skipped(e);
-
-	return this;
-}
-
-// @function disableScrollPropagation(el: HTMLElement): this
-// Adds `stopPropagation` to the element's `'mousewheel'` events (plus browser variants).
-function disableScrollPropagation(el) {
-	addOne(el, 'mousewheel', stopPropagation);
-	return this;
-}
-
-// @function disableClickPropagation(el: HTMLElement): this
-// Adds `stopPropagation` to the element's `'click'`, `'doubleclick'`,
-// `'mousedown'` and `'touchstart'` events (plus browser variants).
-function disableClickPropagation(el) {
-	on(el, 'mousedown touchstart dblclick', stopPropagation);
-	addOne(el, 'click', fakeStop);
-	return this;
-}
-
-// @function preventDefault(ev: DOMEvent): this
-// Prevents the default action of the DOM Event `ev` from happening (such as
-// following a link in the href of the a element, or doing a POST request
-// with page reload when a `<form>` is submitted).
-// Use it inside listener functions.
-function preventDefault(e) {
-	if (e.preventDefault) {
-		e.preventDefault();
-	} else {
-		e.returnValue = false;
-	}
-	return this;
-}
-
-// @function stop(ev: DOMEvent): this
-// Does `stopPropagation` and `preventDefault` at the same time.
-function stop(e) {
-	preventDefault(e);
-	stopPropagation(e);
-	return this;
-}
-
-// @function getMousePosition(ev: DOMEvent, container?: HTMLElement): Point
-// Gets normalized mouse position from a DOM event relative to the
-// `container` or to the whole page if not specified.
-function getMousePosition(e, container) {
-	if (!container) {
-		return new Point(e.clientX, e.clientY);
-	}
-
-	var rect = container.getBoundingClientRect();
-
-	var scaleX = rect.width / container.offsetWidth || 1;
-	var scaleY = rect.height / container.offsetHeight || 1;
-	return new Point(
-		e.clientX / scaleX - rect.left - container.clientLeft,
-		e.clientY / scaleY - rect.top - container.clientTop);
-}
-
-// Chrome on Win scrolls double the pixels as in other platforms (see #4538),
-// and Firefox scrolls device pixels, not CSS pixels
-var wheelPxFactor =
-	(win && chrome) ? 2 * window.devicePixelRatio :
-	gecko ? window.devicePixelRatio : 1;
-
-// @function getWheelDelta(ev: DOMEvent): Number
-// Gets normalized wheel delta from a mousewheel DOM event, in vertical
-// pixels scrolled (negative if scrolling down).
-// Events from pointing devices without precise scrolling are mapped to
-// a best guess of 60 pixels.
-function getWheelDelta(e) {
-	return (edge) ? e.wheelDeltaY / 2 : // Don't trust window-geometry-based delta
-	       (e.deltaY && e.deltaMode === 0) ? -e.deltaY / wheelPxFactor : // Pixels
-	       (e.deltaY && e.deltaMode === 1) ? -e.deltaY * 20 : // Lines
-	       (e.deltaY && e.deltaMode === 2) ? -e.deltaY * 60 : // Pages
-	       (e.deltaX || e.deltaZ) ? 0 :	// Skip horizontal/depth wheel events
-	       e.wheelDelta ? (e.wheelDeltaY || e.wheelDelta) / 2 : // Legacy IE pixels
-	       (e.detail && Math.abs(e.detail) < 32765) ? -e.detail * 20 : // Legacy Moz lines
-	       e.detail ? e.detail / -32765 * 60 : // Legacy Moz pages
-	       0;
-}
-
-var skipEvents = {};
-
-function fakeStop(e) {
-	// fakes stopPropagation by setting a special event flag, checked/reset with skipped(e)
-	skipEvents[e.type] = true;
-}
-
-function skipped(e) {
-	var events = skipEvents[e.type];
-	// reset when checking, as it's only used in map container and propagates outside of the map
-	skipEvents[e.type] = false;
-	return events;
-}
-
-// check if element really left/entered the event target (for mouseenter/mouseleave)
-function isExternalTarget(el, e) {
-
-	var related = e.relatedTarget;
-
-	if (!related) { return true; }
-
-	try {
-		while (related && (related !== el)) {
-			related = related.parentNode;
-		}
-	} catch (err) {
-		return false;
-	}
-	return (related !== el);
-}
-
-var lastClick;
-
-// this is a horrible workaround for a bug in Android where a single touch triggers two click events
-function filterClick(e, handler) {
-	var timeStamp = (e.timeStamp || (e.originalEvent && e.originalEvent.timeStamp)),
-	    elapsed = lastClick && (timeStamp - lastClick);
-
-	// are they closer together than 500ms yet more than 100ms?
-	// Android typically triggers them ~300ms apart while multiple listeners
-	// on the same event should be triggered far faster;
-	// or check if click is simulated on the element, and if it is, reject any non-simulated events
-
-	if ((elapsed && elapsed > 100 && elapsed < 500) || (e.target._simulatedClick && !e._simulated)) {
-		stop(e);
-		return;
-	}
-	lastClick = timeStamp;
-
-	handler(e);
-}
-
-
-
-
-var DomEvent = (Object.freeze || Object)({
-	on: on,
-	off: off,
-	stopPropagation: stopPropagation,
-	disableScrollPropagation: disableScrollPropagation,
-	disableClickPropagation: disableClickPropagation,
-	preventDefault: preventDefault,
-	stop: stop,
-	getMousePosition: getMousePosition,
-	getWheelDelta: getWheelDelta,
-	fakeStop: fakeStop,
-	skipped: skipped,
-	isExternalTarget: isExternalTarget,
-	addListener: on,
-	removeListener: off
-});
-
-/*
  * @namespace DomUtil
  *
  * Utility functions to work with the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model)
@@ -70787,7 +70565,7 @@ var DomEvent = (Object.freeze || Object)({
 // @property TRANSFORM: String
 // Vendor-prefixed transform style name (e.g. `'webkitTransform'` for WebKit).
 var TRANSFORM = testProp(
-	['transform', 'WebkitTransform', 'OTransform', 'MozTransform', 'msTransform']);
+	['transform', 'webkitTransform', 'OTransform', 'MozTransform', 'msTransform']);
 
 // webkitTransition comes first because some browser versions that drop vendor prefix don't do
 // the same for the transitionend event, in particular the Android 4.1 stock browser
@@ -71090,6 +70868,29 @@ function restoreOutline() {
 	off(window, 'keydown', restoreOutline);
 }
 
+// @function getSizedParentNode(el: HTMLElement): HTMLElement
+// Finds the closest parent node which size (width and height) is not null.
+function getSizedParentNode(element) {
+	do {
+		element = element.parentNode;
+	} while ((!element.offsetWidth || !element.offsetHeight) && element !== document.body);
+	return element;
+}
+
+// @function getScale(el: HTMLElement): Object
+// Computes the CSS scale currently applied on the element.
+// Returns an object with `x` and `y` members as horizontal and vertical scales respectively,
+// and `boundingClientRect` as the result of [`getBoundingClientRect()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect).
+function getScale(element) {
+	var rect = element.getBoundingClientRect(); // Read-only in old browsers.
+
+	return {
+		x: rect.width / element.offsetWidth || 1,
+		y: rect.height / element.offsetHeight || 1,
+		boundingClientRect: rect
+	};
+}
+
 
 var DomUtil = (Object.freeze || Object)({
 	TRANSFORM: TRANSFORM,
@@ -71117,7 +70918,331 @@ var DomUtil = (Object.freeze || Object)({
 	disableImageDrag: disableImageDrag,
 	enableImageDrag: enableImageDrag,
 	preventOutline: preventOutline,
-	restoreOutline: restoreOutline
+	restoreOutline: restoreOutline,
+	getSizedParentNode: getSizedParentNode,
+	getScale: getScale
+});
+
+/*
+ * @namespace DomEvent
+ * Utility functions to work with the [DOM events](https://developer.mozilla.org/docs/Web/API/Event), used by Leaflet internally.
+ */
+
+// Inspired by John Resig, Dean Edwards and YUI addEvent implementations.
+
+// @function on(el: HTMLElement, types: String, fn: Function, context?: Object): this
+// Adds a listener function (`fn`) to a particular DOM event type of the
+// element `el`. You can optionally specify the context of the listener
+// (object the `this` keyword will point to). You can also pass several
+// space-separated types (e.g. `'click dblclick'`).
+
+// @alternative
+// @function on(el: HTMLElement, eventMap: Object, context?: Object): this
+// Adds a set of type/listener pairs, e.g. `{click: onClick, mousemove: onMouseMove}`
+function on(obj, types, fn, context) {
+
+	if (typeof types === 'object') {
+		for (var type in types) {
+			addOne(obj, type, types[type], fn);
+		}
+	} else {
+		types = splitWords(types);
+
+		for (var i = 0, len = types.length; i < len; i++) {
+			addOne(obj, types[i], fn, context);
+		}
+	}
+
+	return this;
+}
+
+var eventsKey = '_leaflet_events';
+
+// @function off(el: HTMLElement, types: String, fn: Function, context?: Object): this
+// Removes a previously added listener function.
+// Note that if you passed a custom context to on, you must pass the same
+// context to `off` in order to remove the listener.
+
+// @alternative
+// @function off(el: HTMLElement, eventMap: Object, context?: Object): this
+// Removes a set of type/listener pairs, e.g. `{click: onClick, mousemove: onMouseMove}`
+function off(obj, types, fn, context) {
+
+	if (typeof types === 'object') {
+		for (var type in types) {
+			removeOne(obj, type, types[type], fn);
+		}
+	} else if (types) {
+		types = splitWords(types);
+
+		for (var i = 0, len = types.length; i < len; i++) {
+			removeOne(obj, types[i], fn, context);
+		}
+	} else {
+		for (var j in obj[eventsKey]) {
+			removeOne(obj, j, obj[eventsKey][j]);
+		}
+		delete obj[eventsKey];
+	}
+
+	return this;
+}
+
+function addOne(obj, type, fn, context) {
+	var id = type + stamp(fn) + (context ? '_' + stamp(context) : '');
+
+	if (obj[eventsKey] && obj[eventsKey][id]) { return this; }
+
+	var handler = function (e) {
+		return fn.call(context || obj, e || window.event);
+	};
+
+	var originalHandler = handler;
+
+	if (pointer && type.indexOf('touch') === 0) {
+		// Needs DomEvent.Pointer.js
+		addPointerListener(obj, type, handler, id);
+
+	} else if (touch && (type === 'dblclick') && addDoubleTapListener &&
+	           !(pointer && chrome)) {
+		// Chrome >55 does not need the synthetic dblclicks from addDoubleTapListener
+		// See #5180
+		addDoubleTapListener(obj, handler, id);
+
+	} else if ('addEventListener' in obj) {
+
+		if (type === 'mousewheel') {
+			obj.addEventListener('onwheel' in obj ? 'wheel' : 'mousewheel', handler, false);
+
+		} else if ((type === 'mouseenter') || (type === 'mouseleave')) {
+			handler = function (e) {
+				e = e || window.event;
+				if (isExternalTarget(obj, e)) {
+					originalHandler(e);
+				}
+			};
+			obj.addEventListener(type === 'mouseenter' ? 'mouseover' : 'mouseout', handler, false);
+
+		} else {
+			if (type === 'click' && android) {
+				handler = function (e) {
+					filterClick(e, originalHandler);
+				};
+			}
+			obj.addEventListener(type, handler, false);
+		}
+
+	} else if ('attachEvent' in obj) {
+		obj.attachEvent('on' + type, handler);
+	}
+
+	obj[eventsKey] = obj[eventsKey] || {};
+	obj[eventsKey][id] = handler;
+}
+
+function removeOne(obj, type, fn, context) {
+
+	var id = type + stamp(fn) + (context ? '_' + stamp(context) : ''),
+	    handler = obj[eventsKey] && obj[eventsKey][id];
+
+	if (!handler) { return this; }
+
+	if (pointer && type.indexOf('touch') === 0) {
+		removePointerListener(obj, type, id);
+
+	} else if (touch && (type === 'dblclick') && removeDoubleTapListener &&
+	           !(pointer && chrome)) {
+		removeDoubleTapListener(obj, id);
+
+	} else if ('removeEventListener' in obj) {
+
+		if (type === 'mousewheel') {
+			obj.removeEventListener('onwheel' in obj ? 'wheel' : 'mousewheel', handler, false);
+
+		} else {
+			obj.removeEventListener(
+				type === 'mouseenter' ? 'mouseover' :
+				type === 'mouseleave' ? 'mouseout' : type, handler, false);
+		}
+
+	} else if ('detachEvent' in obj) {
+		obj.detachEvent('on' + type, handler);
+	}
+
+	obj[eventsKey][id] = null;
+}
+
+// @function stopPropagation(ev: DOMEvent): this
+// Stop the given event from propagation to parent elements. Used inside the listener functions:
+// ```js
+// L.DomEvent.on(div, 'click', function (ev) {
+// 	L.DomEvent.stopPropagation(ev);
+// });
+// ```
+function stopPropagation(e) {
+
+	if (e.stopPropagation) {
+		e.stopPropagation();
+	} else if (e.originalEvent) {  // In case of Leaflet event.
+		e.originalEvent._stopped = true;
+	} else {
+		e.cancelBubble = true;
+	}
+	skipped(e);
+
+	return this;
+}
+
+// @function disableScrollPropagation(el: HTMLElement): this
+// Adds `stopPropagation` to the element's `'mousewheel'` events (plus browser variants).
+function disableScrollPropagation(el) {
+	addOne(el, 'mousewheel', stopPropagation);
+	return this;
+}
+
+// @function disableClickPropagation(el: HTMLElement): this
+// Adds `stopPropagation` to the element's `'click'`, `'doubleclick'`,
+// `'mousedown'` and `'touchstart'` events (plus browser variants).
+function disableClickPropagation(el) {
+	on(el, 'mousedown touchstart dblclick', stopPropagation);
+	addOne(el, 'click', fakeStop);
+	return this;
+}
+
+// @function preventDefault(ev: DOMEvent): this
+// Prevents the default action of the DOM Event `ev` from happening (such as
+// following a link in the href of the a element, or doing a POST request
+// with page reload when a `<form>` is submitted).
+// Use it inside listener functions.
+function preventDefault(e) {
+	if (e.preventDefault) {
+		e.preventDefault();
+	} else {
+		e.returnValue = false;
+	}
+	return this;
+}
+
+// @function stop(ev: DOMEvent): this
+// Does `stopPropagation` and `preventDefault` at the same time.
+function stop(e) {
+	preventDefault(e);
+	stopPropagation(e);
+	return this;
+}
+
+// @function getMousePosition(ev: DOMEvent, container?: HTMLElement): Point
+// Gets normalized mouse position from a DOM event relative to the
+// `container` (border excluded) or to the whole page if not specified.
+function getMousePosition(e, container) {
+	if (!container) {
+		return new Point(e.clientX, e.clientY);
+	}
+
+	var scale = getScale(container),
+	    offset = scale.boundingClientRect; // left and top  values are in page scale (like the event clientX/Y)
+
+	return new Point(
+		// offset.left/top values are in page scale (like clientX/Y),
+		// whereas clientLeft/Top (border width) values are the original values (before CSS scale applies).
+		(e.clientX - offset.left) / scale.x - container.clientLeft,
+		(e.clientY - offset.top) / scale.y - container.clientTop
+	);
+}
+
+// Chrome on Win scrolls double the pixels as in other platforms (see #4538),
+// and Firefox scrolls device pixels, not CSS pixels
+var wheelPxFactor =
+	(win && chrome) ? 2 * window.devicePixelRatio :
+	gecko ? window.devicePixelRatio : 1;
+
+// @function getWheelDelta(ev: DOMEvent): Number
+// Gets normalized wheel delta from a mousewheel DOM event, in vertical
+// pixels scrolled (negative if scrolling down).
+// Events from pointing devices without precise scrolling are mapped to
+// a best guess of 60 pixels.
+function getWheelDelta(e) {
+	return (edge) ? e.wheelDeltaY / 2 : // Don't trust window-geometry-based delta
+	       (e.deltaY && e.deltaMode === 0) ? -e.deltaY / wheelPxFactor : // Pixels
+	       (e.deltaY && e.deltaMode === 1) ? -e.deltaY * 20 : // Lines
+	       (e.deltaY && e.deltaMode === 2) ? -e.deltaY * 60 : // Pages
+	       (e.deltaX || e.deltaZ) ? 0 :	// Skip horizontal/depth wheel events
+	       e.wheelDelta ? (e.wheelDeltaY || e.wheelDelta) / 2 : // Legacy IE pixels
+	       (e.detail && Math.abs(e.detail) < 32765) ? -e.detail * 20 : // Legacy Moz lines
+	       e.detail ? e.detail / -32765 * 60 : // Legacy Moz pages
+	       0;
+}
+
+var skipEvents = {};
+
+function fakeStop(e) {
+	// fakes stopPropagation by setting a special event flag, checked/reset with skipped(e)
+	skipEvents[e.type] = true;
+}
+
+function skipped(e) {
+	var events = skipEvents[e.type];
+	// reset when checking, as it's only used in map container and propagates outside of the map
+	skipEvents[e.type] = false;
+	return events;
+}
+
+// check if element really left/entered the event target (for mouseenter/mouseleave)
+function isExternalTarget(el, e) {
+
+	var related = e.relatedTarget;
+
+	if (!related) { return true; }
+
+	try {
+		while (related && (related !== el)) {
+			related = related.parentNode;
+		}
+	} catch (err) {
+		return false;
+	}
+	return (related !== el);
+}
+
+var lastClick;
+
+// this is a horrible workaround for a bug in Android where a single touch triggers two click events
+function filterClick(e, handler) {
+	var timeStamp = (e.timeStamp || (e.originalEvent && e.originalEvent.timeStamp)),
+	    elapsed = lastClick && (timeStamp - lastClick);
+
+	// are they closer together than 500ms yet more than 100ms?
+	// Android typically triggers them ~300ms apart while multiple listeners
+	// on the same event should be triggered far faster;
+	// or check if click is simulated on the element, and if it is, reject any non-simulated events
+
+	if ((elapsed && elapsed > 100 && elapsed < 500) || (e.target._simulatedClick && !e._simulated)) {
+		stop(e);
+		return;
+	}
+	lastClick = timeStamp;
+
+	handler(e);
+}
+
+
+
+
+var DomEvent = (Object.freeze || Object)({
+	on: on,
+	off: off,
+	stopPropagation: stopPropagation,
+	disableScrollPropagation: disableScrollPropagation,
+	disableClickPropagation: disableClickPropagation,
+	preventDefault: preventDefault,
+	stop: stop,
+	getMousePosition: getMousePosition,
+	getWheelDelta: getWheelDelta,
+	fakeStop: fakeStop,
+	skipped: skipped,
+	isExternalTarget: isExternalTarget,
+	addListener: on,
+	removeListener: off
 });
 
 /*
@@ -71862,7 +71987,7 @@ var Map = Evented.extend({
 		var lat = pos.coords.latitude,
 		    lng = pos.coords.longitude,
 		    latlng = new LatLng(lat, lng),
-		    bounds = latlng.toBounds(pos.coords.accuracy),
+		    bounds = latlng.toBounds(pos.coords.accuracy * 2),
 		    options = this._locateOptions;
 
 		if (options.setView) {
@@ -71937,6 +72062,10 @@ var Map = Evented.extend({
 
 		if (this._clearControlPos) {
 			this._clearControlPos();
+		}
+		if (this._resizeRequest) {
+			cancelAnimFrame(this._resizeRequest);
+			this._resizeRequest = null;
 		}
 
 		this._clearHandlers();
@@ -72022,7 +72151,7 @@ var Map = Evented.extend({
 			this.options.maxZoom;
 	},
 
-	// @method getBoundsZoom(bounds: LatLngBounds, inside?: Boolean): Number
+	// @method getBoundsZoom(bounds: LatLngBounds, inside?: Boolean, padding?: Point): Number
 	// Returns the maximum zoom level on which the given bounds fit to the map
 	// view in its entirety. If `inside` (optional) is set to `true`, the method
 	// instead returns the minimum zoom level on which the map view fits into
@@ -73584,6 +73713,10 @@ Map.mergeOptions({
 
 Map.addInitHook(function () {
 	if (this.options.zoomControl) {
+		// @section Controls
+		// @property zoomControl: Control.Zoom
+		// The default zoom control (only available if the
+		// [`zoomControl` option](#map-zoomcontrol) was `true` when creating the map).
 		this.zoomControl = new Zoom();
 		this.addControl(this.zoomControl);
 	}
@@ -74023,9 +74156,13 @@ var Draggable = Evented.extend({
 		// Fired when a drag is about to start.
 		this.fire('down');
 
-		var first = e.touches ? e.touches[0] : e;
+		var first = e.touches ? e.touches[0] : e,
+		    sizedParent = getSizedParentNode(this._element);
 
 		this._startPoint = new Point(first.clientX, first.clientY);
+
+		// Cache the scale, so that we can continuously compensate for it during drag (_onMove).
+		this._parentScale = getScale(sizedParent);
 
 		on(document, MOVE[e.type], this._onMove, this);
 		on(document, END[e.type], this._onUp, this);
@@ -74045,11 +74182,16 @@ var Draggable = Evented.extend({
 		}
 
 		var first = (e.touches && e.touches.length === 1 ? e.touches[0] : e),
-		    newPoint = new Point(first.clientX, first.clientY),
-		    offset = newPoint.subtract(this._startPoint);
+		    offset = new Point(first.clientX, first.clientY)._subtract(this._startPoint);
 
 		if (!offset.x && !offset.y) { return; }
 		if (Math.abs(offset.x) + Math.abs(offset.y) < this.options.clickTolerance) { return; }
+
+		// We assume that the parent container's position, border and scale do not change for the duration of the drag.
+		// Therefore there is no need to account for the position and border (they are eliminated by the subtraction)
+		// and we can use the cached value for the scale.
+		offset.x /= this._parentScale.x;
+		offset.y /= this._parentScale.y;
 
 		preventDefault(e);
 
@@ -75220,7 +75362,7 @@ var Icon = Class.extend({
 
 	options: {
 		popupAnchor: [0, 0],
-		tooltipAnchor: [0, 0],
+		tooltipAnchor: [0, 0]
 	},
 
 	initialize: function (options) {
@@ -75419,7 +75561,7 @@ var MarkerDrag = Handler.extend({
 		    map = marker._map,
 		    speed = this._marker.options.autoPanSpeed,
 		    padding = this._marker.options.autoPanPadding,
-		    iconPos = L.DomUtil.getPosition(marker._icon),
+		    iconPos = getPosition(marker._icon),
 		    bounds = map.getPixelBounds(),
 		    origin = map.getPixelOrigin();
 
@@ -75443,7 +75585,7 @@ var MarkerDrag = Handler.extend({
 			this._draggable._newPos._add(movement);
 			this._draggable._startPos._add(movement);
 
-			L.DomUtil.setPosition(marker._icon, this._draggable._newPos);
+			setPosition(marker._icon, this._draggable._newPos);
 			this._onDrag(e);
 
 			this._panRequest = requestAnimFrame(this._adjustPan.bind(this, e));
@@ -75475,7 +75617,7 @@ var MarkerDrag = Handler.extend({
 	_onDrag: function (e) {
 		var marker = this._marker,
 		    shadow = marker._shadow,
-		iconPos = getPosition(marker._icon),
+		    iconPos = getPosition(marker._icon),
 		    latlng = marker._map.layerPointToLatLng(iconPos);
 
 		// update shadow position
@@ -75536,22 +75678,6 @@ var Marker = Layer.extend({
 		// Option inherited from "Interactive layer" abstract class
 		interactive: true,
 
-		// @option draggable: Boolean = false
-		// Whether the marker is draggable with mouse/touch or not.
-		draggable: false,
-
-		// @option autoPan: Boolean = false
-		// Set it to `true` if you want the map to do panning animation when marker hits the edges.
-		autoPan: false,
-
-		// @option autoPanPadding: Point = Point(50, 50)
-		// Equivalent of setting both top left and bottom right autopan padding to the same value.
-		autoPanPadding: [50, 50],
-
-		// @option autoPanSpeed: Number = 10
-		// Number of pixels the map should move by.
-		autoPanSpeed: 10,
-
 		// @option keyboard: Boolean = true
 		// Whether the marker can be tabbed to with a keyboard and clicked by pressing enter.
 		keyboard: true,
@@ -75587,7 +75713,25 @@ var Marker = Layer.extend({
 		// @option bubblingMouseEvents: Boolean = false
 		// When `true`, a mouse event on this marker will trigger the same event on the map
 		// (unless [`L.DomEvent.stopPropagation`](#domevent-stoppropagation) is used).
-		bubblingMouseEvents: false
+		bubblingMouseEvents: false,
+
+		// @section Draggable marker options
+		// @option draggable: Boolean = false
+		// Whether the marker is draggable with mouse/touch or not.
+		draggable: false,
+
+		// @option autoPan: Boolean = false
+		// Whether to pan the map when dragging this marker near its edge or not.
+		autoPan: false,
+
+		// @option autoPanPadding: Point = Point(50, 50)
+		// Distance (in pixels to the left/right and to the top/bottom) of the
+		// map edge to start panning the map.
+		autoPanPadding: [50, 50],
+
+		// @option autoPanSpeed: Number = 10
+		// Number of pixels the map should pan by.
+		autoPanSpeed: 10
 	},
 
 	/* @section
@@ -76296,7 +76440,7 @@ var Polyline = Path.extend({
 		return !this._latlngs.length;
 	},
 
-	// @method closestLayerPoint: Point
+	// @method closestLayerPoint(p: Point): Point
 	// Returns the point closest to `p` on the Polyline.
 	closestLayerPoint: function (p) {
 		var minDistance = Infinity,
@@ -76689,7 +76833,7 @@ var Polygon = Polyline.extend({
 		var inside = false,
 		    part, p1, p2, i, j, k, len, len2;
 
-		if (!this._pxBounds.contains(p)) { return false; }
+		if (!this._pxBounds || !this._pxBounds.contains(p)) { return false; }
 
 		// ray casting algorithm for detecting if point is in polygon
 		for (i = 0, len = this._parts.length; i < len; i++) {
@@ -77116,7 +77260,7 @@ LayerGroup.include({
 // @namespace GeoJSON
 // @factory L.geoJSON(geojson?: Object, options?: GeoJSON options)
 // Creates a GeoJSON layer. Optionally accepts an object in
-// [GeoJSON format](http://geojson.org/geojson-spec.html) to display on the map
+// [GeoJSON format](https://tools.ietf.org/html/rfc7946) to display on the map
 // (you can alternatively add it later with `addData` method) and an `options` object.
 function geoJSON(geojson, options) {
 	return new GeoJSON(geojson, options);
@@ -77158,8 +77302,10 @@ var ImageOverlay = Layer.extend({
 		// If `true`, the image overlay will emit [mouse events](#interactive-layer) when clicked or hovered.
 		interactive: false,
 
-		// @option crossOrigin: Boolean = false
-		// If true, the image will have its crossOrigin attribute set to ''. This is needed if you want to access image pixel data.
+		// @option crossOrigin: Boolean|String = false
+		// Whether the crossOrigin attribute will be added to the image.
+		// If a String is provided, the image will have its crossOrigin attribute set to the String provided. This is needed if you want to access image pixel data.
+		// Refer to [CORS Settings](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) for valid String values.
 		crossOrigin: false,
 
 		// @option errorOverlayUrl: String = ''
@@ -77167,12 +77313,12 @@ var ImageOverlay = Layer.extend({
 		errorOverlayUrl: '',
 
 		// @option zIndex: Number = 1
-		// The explicit [zIndex](https://developer.mozilla.org/docs/Web/CSS/CSS_Positioning/Understanding_z_index) of the tile layer.
+		// The explicit [zIndex](https://developer.mozilla.org/docs/Web/CSS/CSS_Positioning/Understanding_z_index) of the overlay layer.
 		zIndex: 1,
 
 		// @option className: String = ''
 		// A custom class name to assign to the image. Empty by default.
-		className: '',
+		className: ''
 	},
 
 	initialize: function (url, bounds, options) { // (String, LatLngBounds, Object)
@@ -77278,7 +77424,7 @@ var ImageOverlay = Layer.extend({
 		return events;
 	},
 
-	// @method: setZIndex(value: Number) : this
+	// @method setZIndex(value: Number): this
 	// Changes the [zIndex](#imageoverlay-zindex) of the image overlay.
 	setZIndex: function (value) {
 		this.options.zIndex = value;
@@ -77315,8 +77461,8 @@ var ImageOverlay = Layer.extend({
 		img.onload = bind(this.fire, this, 'load');
 		img.onerror = bind(this._overlayOnError, this, 'error');
 
-		if (this.options.crossOrigin) {
-			img.crossOrigin = '';
+		if (this.options.crossOrigin || this.options.crossOrigin === '') {
+			img.crossOrigin = this.options.crossOrigin === true ? '' : this.options.crossOrigin;
 		}
 
 		if (this.options.zIndex) {
@@ -77364,7 +77510,7 @@ var ImageOverlay = Layer.extend({
 
 	_overlayOnError: function () {
 		// @event error: Event
-		// Fired when the ImageOverlay layer has loaded its image
+		// Fired when the ImageOverlay layer fails to load its image
 		this.fire('error');
 
 		var errorUrl = this.options.errorOverlayUrl;
@@ -77397,7 +77543,7 @@ var imageOverlay = function (url, bounds, options) {
  * ```js
  * var videoUrl = 'https://www.mapbox.com/bites/00188/patricia_nasa.webm',
  * 	videoBounds = [[ 32, -130], [ 13, -100]];
- * L.VideoOverlay(videoUrl, videoBounds ).addTo(map);
+ * L.videoOverlay(videoUrl, videoBounds ).addTo(map);
  * ```
  */
 
@@ -79424,12 +79570,6 @@ var GridLayer = Layer.extend({
 		var tile = this._tiles[key];
 		if (!tile) { return; }
 
-		// Cancels any pending http requests associated with the tile
-		// unless we're on Android's stock browser,
-		// see https://github.com/Leaflet/Leaflet/issues/137
-		if (!androidStock) {
-			tile.el.setAttribute('src', emptyImageUrl);
-		}
 		remove(tile.el);
 
 		delete this._tiles[key];
@@ -79498,8 +79638,6 @@ var GridLayer = Layer.extend({
 	},
 
 	_tileReady: function (coords, err, tile) {
-		if (!this._map) { return; }
-
 		if (err) {
 			// @event tileerror: TileErrorEvent
 			// Fired when there is an error loading a tile.
@@ -79594,7 +79732,7 @@ function gridLayer(options) {
  * @example
  *
  * ```js
- * L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar'}).addTo(map);
+ * L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar'}).addTo(map);
  * ```
  *
  * @section URL template
@@ -79653,8 +79791,10 @@ var TileLayer = GridLayer.extend({
 		// If `true` and user is on a retina display, it will request four tiles of half the specified size and a bigger zoom level in place of one to utilize the high resolution.
 		detectRetina: false,
 
-		// @option crossOrigin: Boolean = false
-		// If true, all tiles will have their crossOrigin attribute set to ''. This is needed if you want to access tile pixel data.
+		// @option crossOrigin: Boolean|String = false
+		// Whether the crossOrigin attribute will be added to the tiles.
+		// If a String is provided, all tiles will have their crossOrigin attribute set to the String provided. This is needed if you want to access tile pixel data.
+		// Refer to [CORS Settings](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) for valid String values.
 		crossOrigin: false
 	},
 
@@ -79711,8 +79851,8 @@ var TileLayer = GridLayer.extend({
 		on(tile, 'load', bind(this._tileOnLoad, this, done, tile));
 		on(tile, 'error', bind(this._tileOnError, this, done, tile));
 
-		if (this.options.crossOrigin) {
-			tile.crossOrigin = '';
+		if (this.options.crossOrigin || this.options.crossOrigin === '') {
+			tile.crossOrigin = this.options.crossOrigin === true ? '' : this.options.crossOrigin;
 		}
 
 		/*
@@ -79813,6 +79953,28 @@ var TileLayer = GridLayer.extend({
 				}
 			}
 		}
+	},
+
+	_removeTile: function (key) {
+		var tile = this._tiles[key];
+		if (!tile) { return; }
+
+		// Cancels any pending http requests associated with the tile
+		// unless we're on Android's stock browser,
+		// see https://github.com/Leaflet/Leaflet/issues/137
+		if (!androidStock) {
+			tile.el.setAttribute('src', emptyImageUrl);
+		}
+
+		return GridLayer.prototype._removeTile.call(this, key);
+	},
+
+	_tileReady: function (coords, err, tile) {
+		if (!this._map || (tile && tile.getAttribute('src') === emptyImageUrl)) {
+			return;
+		}
+
+		return GridLayer.prototype._tileReady.call(this, coords, err, tile);
 	}
 });
 
@@ -79929,7 +80091,7 @@ var TileLayerWMS = TileLayer.extend({
 		    bbox = (this._wmsVersion >= 1.3 && this._crs === EPSG4326 ?
 		    [min.y, min.x, max.y, max.x] :
 		    [min.x, min.y, max.x, max.y]).join(','),
-		url = L.TileLayer.prototype.getTileUrl.call(this, coords);
+		    url = TileLayer.prototype.getTileUrl.call(this, coords);
 		return url +
 			getParamString(this.wmsParams, url, this.options.uppercase) +
 			(this.options.uppercase ? '&BBOX=' : '&bbox=') + bbox;
@@ -80155,6 +80317,7 @@ var Canvas = Renderer.extend({
 	},
 
 	_destroyContainer: function () {
+		cancelAnimFrame(this._redrawRequest);
 		delete this._ctx;
 		remove(this._container);
 		off(this._container);
@@ -80247,9 +80410,11 @@ var Canvas = Renderer.extend({
 			this._drawFirst = next;
 		}
 
+		delete this._drawnLayers[layer._leaflet_id];
+
 		delete layer._order;
 
-		delete this._layers[L.stamp(layer)];
+		delete this._layers[stamp(layer)];
 
 		this._requestRedraw(layer);
 	},
@@ -80271,14 +80436,16 @@ var Canvas = Renderer.extend({
 	},
 
 	_updateDashArray: function (layer) {
-		if (layer.options.dashArray) {
-			var parts = layer.options.dashArray.split(','),
+		if (typeof layer.options.dashArray === 'string') {
+			var parts = layer.options.dashArray.split(/[, ]+/),
 			    dashArray = [],
 			    i;
 			for (i = 0; i < parts.length; i++) {
 				dashArray.push(Number(parts[i]));
 			}
 			layer.options._dashArray = dashArray;
+		} else {
+			layer.options._dashArray = layer.options.dashArray;
 		}
 	},
 
@@ -80915,10 +81082,7 @@ Map.include({
 		var renderer = layer.options.renderer || this._getPaneRenderer(layer.options.pane) || this.options.renderer || this._renderer;
 
 		if (!renderer) {
-			// @namespace Map; @option preferCanvas: Boolean = false
-			// Whether `Path`s should be rendered on a `Canvas` renderer.
-			// By default, all `Path`s are rendered in a `SVG` renderer.
-			renderer = this._renderer = (this.options.preferCanvas && canvas$1()) || svg$1();
+			renderer = this._renderer = this._createRenderer();
 		}
 
 		if (!this.hasLayer(renderer)) {
@@ -80934,10 +81098,17 @@ Map.include({
 
 		var renderer = this._paneRenderers[name];
 		if (renderer === undefined) {
-			renderer = (SVG && svg$1({pane: name})) || (Canvas && canvas$1({pane: name}));
+			renderer = this._createRenderer({pane: name});
 			this._paneRenderers[name] = renderer;
 		}
 		return renderer;
+	},
+
+	_createRenderer: function (options) {
+		// @namespace Map; @option preferCanvas: Boolean = false
+		// Whether `Path`s should be rendered on a `Canvas` renderer.
+		// By default, all `Path`s are rendered in a `SVG` renderer.
+		return (this.options.preferCanvas && canvas$1(options)) || svg$1(options);
 	}
 });
 
@@ -81572,20 +81743,18 @@ var Keyboard = Handler.extend({
 		    offset;
 
 		if (key in this._panKeys) {
+			if (!map._panAnim || !map._panAnim._inProgress) {
+				offset = this._panKeys[key];
+				if (e.shiftKey) {
+					offset = toPoint(offset).multiplyBy(3);
+				}
 
-			if (map._panAnim && map._panAnim._inProgress) { return; }
+				map.panBy(offset);
 
-			offset = this._panKeys[key];
-			if (e.shiftKey) {
-				offset = toPoint(offset).multiplyBy(3);
+				if (map.options.maxBounds) {
+					map.panInsideBounds(map.options.maxBounds);
+				}
 			}
-
-			map.panBy(offset);
-
-			if (map.options.maxBounds) {
-				map.panInsideBounds(map.options.maxBounds);
-			}
-
 		} else if (key in this._zoomKeys) {
 			map.setZoom(map.getZoom() + (e.shiftKey ? 3 : 1) * this._zoomKeys[key]);
 
@@ -81953,21 +82122,9 @@ Map.ScrollWheelZoom = ScrollWheelZoom;
 Map.Tap = Tap;
 Map.TouchZoom = TouchZoom;
 
-// misc
-
-var oldL = window.L;
-function noConflict() {
-	window.L = oldL;
-	return this;
-}
-
-// Always export us to window global (see #2364)
-window.L = exports;
-
 Object.freeze = freeze;
 
 exports.version = version;
-exports.noConflict = noConflict;
 exports.Control = Control;
 exports.control = control;
 exports.Browser = Browser;
@@ -82044,18 +82201,27 @@ exports.rectangle = rectangle;
 exports.Map = Map;
 exports.map = createMap;
 
+var oldL = window.L;
+exports.noConflict = function() {
+	window.L = oldL;
+	return this;
+}
+
+// Always export us to window global (see #2364)
+window.L = exports;
+
 })));
 //# sourceMappingURL=leaflet-src.js.map
 
 
 /***/ }),
-/* 491 */
+/* 492 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(492);
+var content = __webpack_require__(493);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -82063,7 +82229,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -82080,12 +82246,12 @@ if(false) {
 }
 
 /***/ }),
-/* 492 */
+/* 493 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
 // imports
-exports.i(__webpack_require__(493), "");
+exports.i(__webpack_require__(494), "");
 
 // module
 exports.push([module.i, ".map-container {\n  position: relative;\n  background: #1E1E1E;\n  width: 100%;\n  height: 100%;\n  z-index: 1; }\n\n.map-component {\n  position: absolute;\n  background: rgba(30, 30, 30, 0.1);\n  width: 100%;\n  height: 100%;\n  z-index: 1; }\n", ""]);
@@ -82094,22 +82260,22 @@ exports.push([module.i, ".map-container {\n  position: relative;\n  background: 
 
 
 /***/ }),
-/* 493 */
+/* 494 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var escape = __webpack_require__(494);
+var escape = __webpack_require__(495);
 exports = module.exports = __webpack_require__(4)(false);
 // imports
 
 
 // module
-exports.push([module.i, "/* required styles */\r\n\r\n.leaflet-pane,\r\n.leaflet-tile,\r\n.leaflet-marker-icon,\r\n.leaflet-marker-shadow,\r\n.leaflet-tile-container,\r\n.leaflet-pane > svg,\r\n.leaflet-pane > canvas,\r\n.leaflet-zoom-box,\r\n.leaflet-image-layer,\r\n.leaflet-layer {\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\t}\r\n.leaflet-container {\r\n\toverflow: hidden;\r\n\t}\r\n.leaflet-tile,\r\n.leaflet-marker-icon,\r\n.leaflet-marker-shadow {\r\n\t-webkit-user-select: none;\r\n\t   -moz-user-select: none;\r\n\t        user-select: none;\r\n\t  -webkit-user-drag: none;\r\n\t}\r\n/* Safari renders non-retina tile on retina better with this, but Chrome is worse */\r\n.leaflet-safari .leaflet-tile {\r\n\timage-rendering: -webkit-optimize-contrast;\r\n\t}\r\n/* hack that prevents hw layers \"stretching\" when loading new tiles */\r\n.leaflet-safari .leaflet-tile-container {\r\n\twidth: 1600px;\r\n\theight: 1600px;\r\n\t-webkit-transform-origin: 0 0;\r\n\t}\r\n.leaflet-marker-icon,\r\n.leaflet-marker-shadow {\r\n\tdisplay: block;\r\n\t}\r\n/* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */\r\n/* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */\r\n.leaflet-container .leaflet-overlay-pane svg,\r\n.leaflet-container .leaflet-marker-pane img,\r\n.leaflet-container .leaflet-shadow-pane img,\r\n.leaflet-container .leaflet-tile-pane img,\r\n.leaflet-container img.leaflet-image-layer {\r\n\tmax-width: none !important;\r\n\tmax-height: none !important;\r\n\t}\r\n\r\n.leaflet-container.leaflet-touch-zoom {\r\n\t-ms-touch-action: pan-x pan-y;\r\n\ttouch-action: pan-x pan-y;\r\n\t}\r\n.leaflet-container.leaflet-touch-drag {\r\n\t-ms-touch-action: pinch-zoom;\r\n\t/* Fallback for FF which doesn't support pinch-zoom */\r\n\ttouch-action: none;\r\n\ttouch-action: pinch-zoom;\r\n}\r\n.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {\r\n\t-ms-touch-action: none;\r\n\ttouch-action: none;\r\n}\r\n.leaflet-container {\r\n\t-webkit-tap-highlight-color: transparent;\r\n}\r\n.leaflet-container a {\r\n\t-webkit-tap-highlight-color: rgba(51, 181, 229, 0.4);\r\n}\r\n.leaflet-tile {\r\n\tfilter: inherit;\r\n\tvisibility: hidden;\r\n\t}\r\n.leaflet-tile-loaded {\r\n\tvisibility: inherit;\r\n\t}\r\n.leaflet-zoom-box {\r\n\twidth: 0;\r\n\theight: 0;\r\n\t-moz-box-sizing: border-box;\r\n\t     box-sizing: border-box;\r\n\tz-index: 800;\r\n\t}\r\n/* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */\r\n.leaflet-overlay-pane svg {\r\n\t-moz-user-select: none;\r\n\t}\r\n\r\n.leaflet-pane         { z-index: 400; }\r\n\r\n.leaflet-tile-pane    { z-index: 200; }\r\n.leaflet-overlay-pane { z-index: 400; }\r\n.leaflet-shadow-pane  { z-index: 500; }\r\n.leaflet-marker-pane  { z-index: 600; }\r\n.leaflet-tooltip-pane   { z-index: 650; }\r\n.leaflet-popup-pane   { z-index: 700; }\r\n\r\n.leaflet-map-pane canvas { z-index: 100; }\r\n.leaflet-map-pane svg    { z-index: 200; }\r\n\r\n.leaflet-vml-shape {\r\n\twidth: 1px;\r\n\theight: 1px;\r\n\t}\r\n.lvml {\r\n\tbehavior: url(#default#VML);\r\n\tdisplay: inline-block;\r\n\tposition: absolute;\r\n\t}\r\n\r\n\r\n/* control positioning */\r\n\r\n.leaflet-control {\r\n\tposition: relative;\r\n\tz-index: 800;\r\n\tpointer-events: visiblePainted; /* IE 9-10 doesn't have auto */\r\n\tpointer-events: auto;\r\n\t}\r\n.leaflet-top,\r\n.leaflet-bottom {\r\n\tposition: absolute;\r\n\tz-index: 1000;\r\n\tpointer-events: none;\r\n\t}\r\n.leaflet-top {\r\n\ttop: 0;\r\n\t}\r\n.leaflet-right {\r\n\tright: 0;\r\n\t}\r\n.leaflet-bottom {\r\n\tbottom: 0;\r\n\t}\r\n.leaflet-left {\r\n\tleft: 0;\r\n\t}\r\n.leaflet-control {\r\n\tfloat: left;\r\n\tclear: both;\r\n\t}\r\n.leaflet-right .leaflet-control {\r\n\tfloat: right;\r\n\t}\r\n.leaflet-top .leaflet-control {\r\n\tmargin-top: 10px;\r\n\t}\r\n.leaflet-bottom .leaflet-control {\r\n\tmargin-bottom: 10px;\r\n\t}\r\n.leaflet-left .leaflet-control {\r\n\tmargin-left: 10px;\r\n\t}\r\n.leaflet-right .leaflet-control {\r\n\tmargin-right: 10px;\r\n\t}\r\n\r\n\r\n/* zoom and fade animations */\r\n\r\n.leaflet-fade-anim .leaflet-tile {\r\n\twill-change: opacity;\r\n\t}\r\n.leaflet-fade-anim .leaflet-popup {\r\n\topacity: 0;\r\n\t-webkit-transition: opacity 0.2s linear;\r\n\t   -moz-transition: opacity 0.2s linear;\r\n\t     -o-transition: opacity 0.2s linear;\r\n\t        transition: opacity 0.2s linear;\r\n\t}\r\n.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {\r\n\topacity: 1;\r\n\t}\r\n.leaflet-zoom-animated {\r\n\t-webkit-transform-origin: 0 0;\r\n\t    -ms-transform-origin: 0 0;\r\n\t        transform-origin: 0 0;\r\n\t}\r\n.leaflet-zoom-anim .leaflet-zoom-animated {\r\n\twill-change: transform;\r\n\t}\r\n.leaflet-zoom-anim .leaflet-zoom-animated {\r\n\t-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);\r\n\t   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);\r\n\t     -o-transition:      -o-transform 0.25s cubic-bezier(0,0,0.25,1);\r\n\t        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);\r\n\t}\r\n.leaflet-zoom-anim .leaflet-tile,\r\n.leaflet-pan-anim .leaflet-tile {\r\n\t-webkit-transition: none;\r\n\t   -moz-transition: none;\r\n\t     -o-transition: none;\r\n\t        transition: none;\r\n\t}\r\n\r\n.leaflet-zoom-anim .leaflet-zoom-hide {\r\n\tvisibility: hidden;\r\n\t}\r\n\r\n\r\n/* cursors */\r\n\r\n.leaflet-interactive {\r\n\tcursor: pointer;\r\n\t}\r\n.leaflet-grab {\r\n\tcursor: -webkit-grab;\r\n\tcursor:    -moz-grab;\r\n\t}\r\n.leaflet-crosshair,\r\n.leaflet-crosshair .leaflet-interactive {\r\n\tcursor: crosshair;\r\n\t}\r\n.leaflet-popup-pane,\r\n.leaflet-control {\r\n\tcursor: auto;\r\n\t}\r\n.leaflet-dragging .leaflet-grab,\r\n.leaflet-dragging .leaflet-grab .leaflet-interactive,\r\n.leaflet-dragging .leaflet-marker-draggable {\r\n\tcursor: move;\r\n\tcursor: -webkit-grabbing;\r\n\tcursor:    -moz-grabbing;\r\n\t}\r\n\r\n/* marker & overlays interactivity */\r\n.leaflet-marker-icon,\r\n.leaflet-marker-shadow,\r\n.leaflet-image-layer,\r\n.leaflet-pane > svg path,\r\n.leaflet-tile-container {\r\n\tpointer-events: none;\r\n\t}\r\n\r\n.leaflet-marker-icon.leaflet-interactive,\r\n.leaflet-image-layer.leaflet-interactive,\r\n.leaflet-pane > svg path.leaflet-interactive {\r\n\tpointer-events: visiblePainted; /* IE 9-10 doesn't have auto */\r\n\tpointer-events: auto;\r\n\t}\r\n\r\n/* visual tweaks */\r\n\r\n.leaflet-container {\r\n\tbackground: #ddd;\r\n\toutline: 0;\r\n\t}\r\n.leaflet-container a {\r\n\tcolor: #0078A8;\r\n\t}\r\n.leaflet-container a.leaflet-active {\r\n\toutline: 2px solid orange;\r\n\t}\r\n.leaflet-zoom-box {\r\n\tborder: 2px dotted #38f;\r\n\tbackground: rgba(255,255,255,0.5);\r\n\t}\r\n\r\n\r\n/* general typography */\r\n.leaflet-container {\r\n\tfont: 12px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif;\r\n\t}\r\n\r\n\r\n/* general toolbar styles */\r\n\r\n.leaflet-bar {\r\n\tbox-shadow: 0 1px 5px rgba(0,0,0,0.65);\r\n\tborder-radius: 4px;\r\n\t}\r\n.leaflet-bar a,\r\n.leaflet-bar a:hover {\r\n\tbackground-color: #fff;\r\n\tborder-bottom: 1px solid #ccc;\r\n\twidth: 26px;\r\n\theight: 26px;\r\n\tline-height: 26px;\r\n\tdisplay: block;\r\n\ttext-align: center;\r\n\ttext-decoration: none;\r\n\tcolor: black;\r\n\t}\r\n.leaflet-bar a,\r\n.leaflet-control-layers-toggle {\r\n\tbackground-position: 50% 50%;\r\n\tbackground-repeat: no-repeat;\r\n\tdisplay: block;\r\n\t}\r\n.leaflet-bar a:hover {\r\n\tbackground-color: #f4f4f4;\r\n\t}\r\n.leaflet-bar a:first-child {\r\n\tborder-top-left-radius: 4px;\r\n\tborder-top-right-radius: 4px;\r\n\t}\r\n.leaflet-bar a:last-child {\r\n\tborder-bottom-left-radius: 4px;\r\n\tborder-bottom-right-radius: 4px;\r\n\tborder-bottom: none;\r\n\t}\r\n.leaflet-bar a.leaflet-disabled {\r\n\tcursor: default;\r\n\tbackground-color: #f4f4f4;\r\n\tcolor: #bbb;\r\n\t}\r\n\r\n.leaflet-touch .leaflet-bar a {\r\n\twidth: 30px;\r\n\theight: 30px;\r\n\tline-height: 30px;\r\n\t}\r\n.leaflet-touch .leaflet-bar a:first-child {\r\n\tborder-top-left-radius: 2px;\r\n\tborder-top-right-radius: 2px;\r\n\t}\r\n.leaflet-touch .leaflet-bar a:last-child {\r\n\tborder-bottom-left-radius: 2px;\r\n\tborder-bottom-right-radius: 2px;\r\n\t}\r\n\r\n/* zoom control */\r\n\r\n.leaflet-control-zoom-in,\r\n.leaflet-control-zoom-out {\r\n\tfont: bold 18px 'Lucida Console', Monaco, monospace;\r\n\ttext-indent: 1px;\r\n\t}\r\n\r\n.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out  {\r\n\tfont-size: 22px;\r\n\t}\r\n\r\n\r\n/* layers control */\r\n\r\n.leaflet-control-layers {\r\n\tbox-shadow: 0 1px 5px rgba(0,0,0,0.4);\r\n\tbackground: #fff;\r\n\tborder-radius: 5px;\r\n\t}\r\n.leaflet-control-layers-toggle {\r\n\tbackground-image: url(" + escape(__webpack_require__(495)) + ");\r\n\twidth: 36px;\r\n\theight: 36px;\r\n\t}\r\n.leaflet-retina .leaflet-control-layers-toggle {\r\n\tbackground-image: url(" + escape(__webpack_require__(496)) + ");\r\n\tbackground-size: 26px 26px;\r\n\t}\r\n.leaflet-touch .leaflet-control-layers-toggle {\r\n\twidth: 44px;\r\n\theight: 44px;\r\n\t}\r\n.leaflet-control-layers .leaflet-control-layers-list,\r\n.leaflet-control-layers-expanded .leaflet-control-layers-toggle {\r\n\tdisplay: none;\r\n\t}\r\n.leaflet-control-layers-expanded .leaflet-control-layers-list {\r\n\tdisplay: block;\r\n\tposition: relative;\r\n\t}\r\n.leaflet-control-layers-expanded {\r\n\tpadding: 6px 10px 6px 6px;\r\n\tcolor: #333;\r\n\tbackground: #fff;\r\n\t}\r\n.leaflet-control-layers-scrollbar {\r\n\toverflow-y: scroll;\r\n\toverflow-x: hidden;\r\n\tpadding-right: 5px;\r\n\t}\r\n.leaflet-control-layers-selector {\r\n\tmargin-top: 2px;\r\n\tposition: relative;\r\n\ttop: 1px;\r\n\t}\r\n.leaflet-control-layers label {\r\n\tdisplay: block;\r\n\t}\r\n.leaflet-control-layers-separator {\r\n\theight: 0;\r\n\tborder-top: 1px solid #ddd;\r\n\tmargin: 5px -10px 5px -6px;\r\n\t}\r\n\r\n/* Default icon URLs */\r\n.leaflet-default-icon-path {\r\n\tbackground-image: url(" + escape(__webpack_require__(497)) + ");\r\n\t}\r\n\r\n\r\n/* attribution and scale controls */\r\n\r\n.leaflet-container .leaflet-control-attribution {\r\n\tbackground: #fff;\r\n\tbackground: rgba(255, 255, 255, 0.7);\r\n\tmargin: 0;\r\n\t}\r\n.leaflet-control-attribution,\r\n.leaflet-control-scale-line {\r\n\tpadding: 0 5px;\r\n\tcolor: #333;\r\n\t}\r\n.leaflet-control-attribution a {\r\n\ttext-decoration: none;\r\n\t}\r\n.leaflet-control-attribution a:hover {\r\n\ttext-decoration: underline;\r\n\t}\r\n.leaflet-container .leaflet-control-attribution,\r\n.leaflet-container .leaflet-control-scale {\r\n\tfont-size: 11px;\r\n\t}\r\n.leaflet-left .leaflet-control-scale {\r\n\tmargin-left: 5px;\r\n\t}\r\n.leaflet-bottom .leaflet-control-scale {\r\n\tmargin-bottom: 5px;\r\n\t}\r\n.leaflet-control-scale-line {\r\n\tborder: 2px solid #777;\r\n\tborder-top: none;\r\n\tline-height: 1.1;\r\n\tpadding: 2px 5px 1px;\r\n\tfont-size: 11px;\r\n\twhite-space: nowrap;\r\n\toverflow: hidden;\r\n\t-moz-box-sizing: border-box;\r\n\t     box-sizing: border-box;\r\n\r\n\tbackground: #fff;\r\n\tbackground: rgba(255, 255, 255, 0.5);\r\n\t}\r\n.leaflet-control-scale-line:not(:first-child) {\r\n\tborder-top: 2px solid #777;\r\n\tborder-bottom: none;\r\n\tmargin-top: -2px;\r\n\t}\r\n.leaflet-control-scale-line:not(:first-child):not(:last-child) {\r\n\tborder-bottom: 2px solid #777;\r\n\t}\r\n\r\n.leaflet-touch .leaflet-control-attribution,\r\n.leaflet-touch .leaflet-control-layers,\r\n.leaflet-touch .leaflet-bar {\r\n\tbox-shadow: none;\r\n\t}\r\n.leaflet-touch .leaflet-control-layers,\r\n.leaflet-touch .leaflet-bar {\r\n\tborder: 2px solid rgba(0,0,0,0.2);\r\n\tbackground-clip: padding-box;\r\n\t}\r\n\r\n\r\n/* popup */\r\n\r\n.leaflet-popup {\r\n\tposition: absolute;\r\n\ttext-align: center;\r\n\tmargin-bottom: 20px;\r\n\t}\r\n.leaflet-popup-content-wrapper {\r\n\tpadding: 1px;\r\n\ttext-align: left;\r\n\tborder-radius: 12px;\r\n\t}\r\n.leaflet-popup-content {\r\n\tmargin: 13px 19px;\r\n\tline-height: 1.4;\r\n\t}\r\n.leaflet-popup-content p {\r\n\tmargin: 18px 0;\r\n\t}\r\n.leaflet-popup-tip-container {\r\n\twidth: 40px;\r\n\theight: 20px;\r\n\tposition: absolute;\r\n\tleft: 50%;\r\n\tmargin-left: -20px;\r\n\toverflow: hidden;\r\n\tpointer-events: none;\r\n\t}\r\n.leaflet-popup-tip {\r\n\twidth: 17px;\r\n\theight: 17px;\r\n\tpadding: 1px;\r\n\r\n\tmargin: -10px auto 0;\r\n\r\n\t-webkit-transform: rotate(45deg);\r\n\t   -moz-transform: rotate(45deg);\r\n\t    -ms-transform: rotate(45deg);\r\n\t     -o-transform: rotate(45deg);\r\n\t        transform: rotate(45deg);\r\n\t}\r\n.leaflet-popup-content-wrapper,\r\n.leaflet-popup-tip {\r\n\tbackground: white;\r\n\tcolor: #333;\r\n\tbox-shadow: 0 3px 14px rgba(0,0,0,0.4);\r\n\t}\r\n.leaflet-container a.leaflet-popup-close-button {\r\n\tposition: absolute;\r\n\ttop: 0;\r\n\tright: 0;\r\n\tpadding: 4px 4px 0 0;\r\n\tborder: none;\r\n\ttext-align: center;\r\n\twidth: 18px;\r\n\theight: 14px;\r\n\tfont: 16px/14px Tahoma, Verdana, sans-serif;\r\n\tcolor: #c3c3c3;\r\n\ttext-decoration: none;\r\n\tfont-weight: bold;\r\n\tbackground: transparent;\r\n\t}\r\n.leaflet-container a.leaflet-popup-close-button:hover {\r\n\tcolor: #999;\r\n\t}\r\n.leaflet-popup-scrolled {\r\n\toverflow: auto;\r\n\tborder-bottom: 1px solid #ddd;\r\n\tborder-top: 1px solid #ddd;\r\n\t}\r\n\r\n.leaflet-oldie .leaflet-popup-content-wrapper {\r\n\tzoom: 1;\r\n\t}\r\n.leaflet-oldie .leaflet-popup-tip {\r\n\twidth: 24px;\r\n\tmargin: 0 auto;\r\n\r\n\t-ms-filter: \"progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)\";\r\n\tfilter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);\r\n\t}\r\n.leaflet-oldie .leaflet-popup-tip-container {\r\n\tmargin-top: -1px;\r\n\t}\r\n\r\n.leaflet-oldie .leaflet-control-zoom,\r\n.leaflet-oldie .leaflet-control-layers,\r\n.leaflet-oldie .leaflet-popup-content-wrapper,\r\n.leaflet-oldie .leaflet-popup-tip {\r\n\tborder: 1px solid #999;\r\n\t}\r\n\r\n\r\n/* div icon */\r\n\r\n.leaflet-div-icon {\r\n\tbackground: #fff;\r\n\tborder: 1px solid #666;\r\n\t}\r\n\r\n\r\n/* Tooltip */\r\n/* Base styles for the element that has a tooltip */\r\n.leaflet-tooltip {\r\n\tposition: absolute;\r\n\tpadding: 6px;\r\n\tbackground-color: #fff;\r\n\tborder: 1px solid #fff;\r\n\tborder-radius: 3px;\r\n\tcolor: #222;\r\n\twhite-space: nowrap;\r\n\t-webkit-user-select: none;\r\n\t-moz-user-select: none;\r\n\t-ms-user-select: none;\r\n\tuser-select: none;\r\n\tpointer-events: none;\r\n\tbox-shadow: 0 1px 3px rgba(0,0,0,0.4);\r\n\t}\r\n.leaflet-tooltip.leaflet-clickable {\r\n\tcursor: pointer;\r\n\tpointer-events: auto;\r\n\t}\r\n.leaflet-tooltip-top:before,\r\n.leaflet-tooltip-bottom:before,\r\n.leaflet-tooltip-left:before,\r\n.leaflet-tooltip-right:before {\r\n\tposition: absolute;\r\n\tpointer-events: none;\r\n\tborder: 6px solid transparent;\r\n\tbackground: transparent;\r\n\tcontent: \"\";\r\n\t}\r\n\r\n/* Directions */\r\n\r\n.leaflet-tooltip-bottom {\r\n\tmargin-top: 6px;\r\n}\r\n.leaflet-tooltip-top {\r\n\tmargin-top: -6px;\r\n}\r\n.leaflet-tooltip-bottom:before,\r\n.leaflet-tooltip-top:before {\r\n\tleft: 50%;\r\n\tmargin-left: -6px;\r\n\t}\r\n.leaflet-tooltip-top:before {\r\n\tbottom: 0;\r\n\tmargin-bottom: -12px;\r\n\tborder-top-color: #fff;\r\n\t}\r\n.leaflet-tooltip-bottom:before {\r\n\ttop: 0;\r\n\tmargin-top: -12px;\r\n\tmargin-left: -6px;\r\n\tborder-bottom-color: #fff;\r\n\t}\r\n.leaflet-tooltip-left {\r\n\tmargin-left: -6px;\r\n}\r\n.leaflet-tooltip-right {\r\n\tmargin-left: 6px;\r\n}\r\n.leaflet-tooltip-left:before,\r\n.leaflet-tooltip-right:before {\r\n\ttop: 50%;\r\n\tmargin-top: -6px;\r\n\t}\r\n.leaflet-tooltip-left:before {\r\n\tright: 0;\r\n\tmargin-right: -12px;\r\n\tborder-left-color: #fff;\r\n\t}\r\n.leaflet-tooltip-right:before {\r\n\tleft: 0;\r\n\tmargin-left: -12px;\r\n\tborder-right-color: #fff;\r\n\t}\r\n", ""]);
+exports.push([module.i, "/* required styles */\r\n\r\n.leaflet-pane,\r\n.leaflet-tile,\r\n.leaflet-marker-icon,\r\n.leaflet-marker-shadow,\r\n.leaflet-tile-container,\r\n.leaflet-pane > svg,\r\n.leaflet-pane > canvas,\r\n.leaflet-zoom-box,\r\n.leaflet-image-layer,\r\n.leaflet-layer {\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\t}\r\n.leaflet-container {\r\n\toverflow: hidden;\r\n\t}\r\n.leaflet-tile,\r\n.leaflet-marker-icon,\r\n.leaflet-marker-shadow {\r\n\t-webkit-user-select: none;\r\n\t   -moz-user-select: none;\r\n\t        user-select: none;\r\n\t  -webkit-user-drag: none;\r\n\t}\r\n/* Safari renders non-retina tile on retina better with this, but Chrome is worse */\r\n.leaflet-safari .leaflet-tile {\r\n\timage-rendering: -webkit-optimize-contrast;\r\n\t}\r\n/* hack that prevents hw layers \"stretching\" when loading new tiles */\r\n.leaflet-safari .leaflet-tile-container {\r\n\twidth: 1600px;\r\n\theight: 1600px;\r\n\t-webkit-transform-origin: 0 0;\r\n\t}\r\n.leaflet-marker-icon,\r\n.leaflet-marker-shadow {\r\n\tdisplay: block;\r\n\t}\r\n/* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */\r\n/* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */\r\n.leaflet-container .leaflet-overlay-pane svg,\r\n.leaflet-container .leaflet-marker-pane img,\r\n.leaflet-container .leaflet-shadow-pane img,\r\n.leaflet-container .leaflet-tile-pane img,\r\n.leaflet-container img.leaflet-image-layer,\r\n.leaflet-container .leaflet-tile {\r\n\tmax-width: none !important;\r\n\tmax-height: none !important;\r\n\t}\r\n\r\n.leaflet-container.leaflet-touch-zoom {\r\n\t-ms-touch-action: pan-x pan-y;\r\n\ttouch-action: pan-x pan-y;\r\n\t}\r\n.leaflet-container.leaflet-touch-drag {\r\n\t-ms-touch-action: pinch-zoom;\r\n\t/* Fallback for FF which doesn't support pinch-zoom */\r\n\ttouch-action: none;\r\n\ttouch-action: pinch-zoom;\r\n}\r\n.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {\r\n\t-ms-touch-action: none;\r\n\ttouch-action: none;\r\n}\r\n.leaflet-container {\r\n\t-webkit-tap-highlight-color: transparent;\r\n}\r\n.leaflet-container a {\r\n\t-webkit-tap-highlight-color: rgba(51, 181, 229, 0.4);\r\n}\r\n.leaflet-tile {\r\n\tfilter: inherit;\r\n\tvisibility: hidden;\r\n\t}\r\n.leaflet-tile-loaded {\r\n\tvisibility: inherit;\r\n\t}\r\n.leaflet-zoom-box {\r\n\twidth: 0;\r\n\theight: 0;\r\n\t-moz-box-sizing: border-box;\r\n\t     box-sizing: border-box;\r\n\tz-index: 800;\r\n\t}\r\n/* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */\r\n.leaflet-overlay-pane svg {\r\n\t-moz-user-select: none;\r\n\t}\r\n\r\n.leaflet-pane         { z-index: 400; }\r\n\r\n.leaflet-tile-pane    { z-index: 200; }\r\n.leaflet-overlay-pane { z-index: 400; }\r\n.leaflet-shadow-pane  { z-index: 500; }\r\n.leaflet-marker-pane  { z-index: 600; }\r\n.leaflet-tooltip-pane   { z-index: 650; }\r\n.leaflet-popup-pane   { z-index: 700; }\r\n\r\n.leaflet-map-pane canvas { z-index: 100; }\r\n.leaflet-map-pane svg    { z-index: 200; }\r\n\r\n.leaflet-vml-shape {\r\n\twidth: 1px;\r\n\theight: 1px;\r\n\t}\r\n.lvml {\r\n\tbehavior: url(#default#VML);\r\n\tdisplay: inline-block;\r\n\tposition: absolute;\r\n\t}\r\n\r\n\r\n/* control positioning */\r\n\r\n.leaflet-control {\r\n\tposition: relative;\r\n\tz-index: 800;\r\n\tpointer-events: visiblePainted; /* IE 9-10 doesn't have auto */\r\n\tpointer-events: auto;\r\n\t}\r\n.leaflet-top,\r\n.leaflet-bottom {\r\n\tposition: absolute;\r\n\tz-index: 1000;\r\n\tpointer-events: none;\r\n\t}\r\n.leaflet-top {\r\n\ttop: 0;\r\n\t}\r\n.leaflet-right {\r\n\tright: 0;\r\n\t}\r\n.leaflet-bottom {\r\n\tbottom: 0;\r\n\t}\r\n.leaflet-left {\r\n\tleft: 0;\r\n\t}\r\n.leaflet-control {\r\n\tfloat: left;\r\n\tclear: both;\r\n\t}\r\n.leaflet-right .leaflet-control {\r\n\tfloat: right;\r\n\t}\r\n.leaflet-top .leaflet-control {\r\n\tmargin-top: 10px;\r\n\t}\r\n.leaflet-bottom .leaflet-control {\r\n\tmargin-bottom: 10px;\r\n\t}\r\n.leaflet-left .leaflet-control {\r\n\tmargin-left: 10px;\r\n\t}\r\n.leaflet-right .leaflet-control {\r\n\tmargin-right: 10px;\r\n\t}\r\n\r\n\r\n/* zoom and fade animations */\r\n\r\n.leaflet-fade-anim .leaflet-tile {\r\n\twill-change: opacity;\r\n\t}\r\n.leaflet-fade-anim .leaflet-popup {\r\n\topacity: 0;\r\n\t-webkit-transition: opacity 0.2s linear;\r\n\t   -moz-transition: opacity 0.2s linear;\r\n\t        transition: opacity 0.2s linear;\r\n\t}\r\n.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {\r\n\topacity: 1;\r\n\t}\r\n.leaflet-zoom-animated {\r\n\t-webkit-transform-origin: 0 0;\r\n\t    -ms-transform-origin: 0 0;\r\n\t        transform-origin: 0 0;\r\n\t}\r\n.leaflet-zoom-anim .leaflet-zoom-animated {\r\n\twill-change: transform;\r\n\t}\r\n.leaflet-zoom-anim .leaflet-zoom-animated {\r\n\t-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);\r\n\t   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);\r\n\t        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);\r\n\t}\r\n.leaflet-zoom-anim .leaflet-tile,\r\n.leaflet-pan-anim .leaflet-tile {\r\n\t-webkit-transition: none;\r\n\t   -moz-transition: none;\r\n\t        transition: none;\r\n\t}\r\n\r\n.leaflet-zoom-anim .leaflet-zoom-hide {\r\n\tvisibility: hidden;\r\n\t}\r\n\r\n\r\n/* cursors */\r\n\r\n.leaflet-interactive {\r\n\tcursor: pointer;\r\n\t}\r\n.leaflet-grab {\r\n\tcursor: -webkit-grab;\r\n\tcursor:    -moz-grab;\r\n\tcursor:         grab;\r\n\t}\r\n.leaflet-crosshair,\r\n.leaflet-crosshair .leaflet-interactive {\r\n\tcursor: crosshair;\r\n\t}\r\n.leaflet-popup-pane,\r\n.leaflet-control {\r\n\tcursor: auto;\r\n\t}\r\n.leaflet-dragging .leaflet-grab,\r\n.leaflet-dragging .leaflet-grab .leaflet-interactive,\r\n.leaflet-dragging .leaflet-marker-draggable {\r\n\tcursor: move;\r\n\tcursor: -webkit-grabbing;\r\n\tcursor:    -moz-grabbing;\r\n\tcursor:         grabbing;\r\n\t}\r\n\r\n/* marker & overlays interactivity */\r\n.leaflet-marker-icon,\r\n.leaflet-marker-shadow,\r\n.leaflet-image-layer,\r\n.leaflet-pane > svg path,\r\n.leaflet-tile-container {\r\n\tpointer-events: none;\r\n\t}\r\n\r\n.leaflet-marker-icon.leaflet-interactive,\r\n.leaflet-image-layer.leaflet-interactive,\r\n.leaflet-pane > svg path.leaflet-interactive {\r\n\tpointer-events: visiblePainted; /* IE 9-10 doesn't have auto */\r\n\tpointer-events: auto;\r\n\t}\r\n\r\n/* visual tweaks */\r\n\r\n.leaflet-container {\r\n\tbackground: #ddd;\r\n\toutline: 0;\r\n\t}\r\n.leaflet-container a {\r\n\tcolor: #0078A8;\r\n\t}\r\n.leaflet-container a.leaflet-active {\r\n\toutline: 2px solid orange;\r\n\t}\r\n.leaflet-zoom-box {\r\n\tborder: 2px dotted #38f;\r\n\tbackground: rgba(255,255,255,0.5);\r\n\t}\r\n\r\n\r\n/* general typography */\r\n.leaflet-container {\r\n\tfont: 12px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif;\r\n\t}\r\n\r\n\r\n/* general toolbar styles */\r\n\r\n.leaflet-bar {\r\n\tbox-shadow: 0 1px 5px rgba(0,0,0,0.65);\r\n\tborder-radius: 4px;\r\n\t}\r\n.leaflet-bar a,\r\n.leaflet-bar a:hover {\r\n\tbackground-color: #fff;\r\n\tborder-bottom: 1px solid #ccc;\r\n\twidth: 26px;\r\n\theight: 26px;\r\n\tline-height: 26px;\r\n\tdisplay: block;\r\n\ttext-align: center;\r\n\ttext-decoration: none;\r\n\tcolor: black;\r\n\t}\r\n.leaflet-bar a,\r\n.leaflet-control-layers-toggle {\r\n\tbackground-position: 50% 50%;\r\n\tbackground-repeat: no-repeat;\r\n\tdisplay: block;\r\n\t}\r\n.leaflet-bar a:hover {\r\n\tbackground-color: #f4f4f4;\r\n\t}\r\n.leaflet-bar a:first-child {\r\n\tborder-top-left-radius: 4px;\r\n\tborder-top-right-radius: 4px;\r\n\t}\r\n.leaflet-bar a:last-child {\r\n\tborder-bottom-left-radius: 4px;\r\n\tborder-bottom-right-radius: 4px;\r\n\tborder-bottom: none;\r\n\t}\r\n.leaflet-bar a.leaflet-disabled {\r\n\tcursor: default;\r\n\tbackground-color: #f4f4f4;\r\n\tcolor: #bbb;\r\n\t}\r\n\r\n.leaflet-touch .leaflet-bar a {\r\n\twidth: 30px;\r\n\theight: 30px;\r\n\tline-height: 30px;\r\n\t}\r\n.leaflet-touch .leaflet-bar a:first-child {\r\n\tborder-top-left-radius: 2px;\r\n\tborder-top-right-radius: 2px;\r\n\t}\r\n.leaflet-touch .leaflet-bar a:last-child {\r\n\tborder-bottom-left-radius: 2px;\r\n\tborder-bottom-right-radius: 2px;\r\n\t}\r\n\r\n/* zoom control */\r\n\r\n.leaflet-control-zoom-in,\r\n.leaflet-control-zoom-out {\r\n\tfont: bold 18px 'Lucida Console', Monaco, monospace;\r\n\ttext-indent: 1px;\r\n\t}\r\n\r\n.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out  {\r\n\tfont-size: 22px;\r\n\t}\r\n\r\n\r\n/* layers control */\r\n\r\n.leaflet-control-layers {\r\n\tbox-shadow: 0 1px 5px rgba(0,0,0,0.4);\r\n\tbackground: #fff;\r\n\tborder-radius: 5px;\r\n\t}\r\n.leaflet-control-layers-toggle {\r\n\tbackground-image: url(" + escape(__webpack_require__(496)) + ");\r\n\twidth: 36px;\r\n\theight: 36px;\r\n\t}\r\n.leaflet-retina .leaflet-control-layers-toggle {\r\n\tbackground-image: url(" + escape(__webpack_require__(497)) + ");\r\n\tbackground-size: 26px 26px;\r\n\t}\r\n.leaflet-touch .leaflet-control-layers-toggle {\r\n\twidth: 44px;\r\n\theight: 44px;\r\n\t}\r\n.leaflet-control-layers .leaflet-control-layers-list,\r\n.leaflet-control-layers-expanded .leaflet-control-layers-toggle {\r\n\tdisplay: none;\r\n\t}\r\n.leaflet-control-layers-expanded .leaflet-control-layers-list {\r\n\tdisplay: block;\r\n\tposition: relative;\r\n\t}\r\n.leaflet-control-layers-expanded {\r\n\tpadding: 6px 10px 6px 6px;\r\n\tcolor: #333;\r\n\tbackground: #fff;\r\n\t}\r\n.leaflet-control-layers-scrollbar {\r\n\toverflow-y: scroll;\r\n\toverflow-x: hidden;\r\n\tpadding-right: 5px;\r\n\t}\r\n.leaflet-control-layers-selector {\r\n\tmargin-top: 2px;\r\n\tposition: relative;\r\n\ttop: 1px;\r\n\t}\r\n.leaflet-control-layers label {\r\n\tdisplay: block;\r\n\t}\r\n.leaflet-control-layers-separator {\r\n\theight: 0;\r\n\tborder-top: 1px solid #ddd;\r\n\tmargin: 5px -10px 5px -6px;\r\n\t}\r\n\r\n/* Default icon URLs */\r\n.leaflet-default-icon-path {\r\n\tbackground-image: url(" + escape(__webpack_require__(498)) + ");\r\n\t}\r\n\r\n\r\n/* attribution and scale controls */\r\n\r\n.leaflet-container .leaflet-control-attribution {\r\n\tbackground: #fff;\r\n\tbackground: rgba(255, 255, 255, 0.7);\r\n\tmargin: 0;\r\n\t}\r\n.leaflet-control-attribution,\r\n.leaflet-control-scale-line {\r\n\tpadding: 0 5px;\r\n\tcolor: #333;\r\n\t}\r\n.leaflet-control-attribution a {\r\n\ttext-decoration: none;\r\n\t}\r\n.leaflet-control-attribution a:hover {\r\n\ttext-decoration: underline;\r\n\t}\r\n.leaflet-container .leaflet-control-attribution,\r\n.leaflet-container .leaflet-control-scale {\r\n\tfont-size: 11px;\r\n\t}\r\n.leaflet-left .leaflet-control-scale {\r\n\tmargin-left: 5px;\r\n\t}\r\n.leaflet-bottom .leaflet-control-scale {\r\n\tmargin-bottom: 5px;\r\n\t}\r\n.leaflet-control-scale-line {\r\n\tborder: 2px solid #777;\r\n\tborder-top: none;\r\n\tline-height: 1.1;\r\n\tpadding: 2px 5px 1px;\r\n\tfont-size: 11px;\r\n\twhite-space: nowrap;\r\n\toverflow: hidden;\r\n\t-moz-box-sizing: border-box;\r\n\t     box-sizing: border-box;\r\n\r\n\tbackground: #fff;\r\n\tbackground: rgba(255, 255, 255, 0.5);\r\n\t}\r\n.leaflet-control-scale-line:not(:first-child) {\r\n\tborder-top: 2px solid #777;\r\n\tborder-bottom: none;\r\n\tmargin-top: -2px;\r\n\t}\r\n.leaflet-control-scale-line:not(:first-child):not(:last-child) {\r\n\tborder-bottom: 2px solid #777;\r\n\t}\r\n\r\n.leaflet-touch .leaflet-control-attribution,\r\n.leaflet-touch .leaflet-control-layers,\r\n.leaflet-touch .leaflet-bar {\r\n\tbox-shadow: none;\r\n\t}\r\n.leaflet-touch .leaflet-control-layers,\r\n.leaflet-touch .leaflet-bar {\r\n\tborder: 2px solid rgba(0,0,0,0.2);\r\n\tbackground-clip: padding-box;\r\n\t}\r\n\r\n\r\n/* popup */\r\n\r\n.leaflet-popup {\r\n\tposition: absolute;\r\n\ttext-align: center;\r\n\tmargin-bottom: 20px;\r\n\t}\r\n.leaflet-popup-content-wrapper {\r\n\tpadding: 1px;\r\n\ttext-align: left;\r\n\tborder-radius: 12px;\r\n\t}\r\n.leaflet-popup-content {\r\n\tmargin: 13px 19px;\r\n\tline-height: 1.4;\r\n\t}\r\n.leaflet-popup-content p {\r\n\tmargin: 18px 0;\r\n\t}\r\n.leaflet-popup-tip-container {\r\n\twidth: 40px;\r\n\theight: 20px;\r\n\tposition: absolute;\r\n\tleft: 50%;\r\n\tmargin-left: -20px;\r\n\toverflow: hidden;\r\n\tpointer-events: none;\r\n\t}\r\n.leaflet-popup-tip {\r\n\twidth: 17px;\r\n\theight: 17px;\r\n\tpadding: 1px;\r\n\r\n\tmargin: -10px auto 0;\r\n\r\n\t-webkit-transform: rotate(45deg);\r\n\t   -moz-transform: rotate(45deg);\r\n\t    -ms-transform: rotate(45deg);\r\n\t        transform: rotate(45deg);\r\n\t}\r\n.leaflet-popup-content-wrapper,\r\n.leaflet-popup-tip {\r\n\tbackground: white;\r\n\tcolor: #333;\r\n\tbox-shadow: 0 3px 14px rgba(0,0,0,0.4);\r\n\t}\r\n.leaflet-container a.leaflet-popup-close-button {\r\n\tposition: absolute;\r\n\ttop: 0;\r\n\tright: 0;\r\n\tpadding: 4px 4px 0 0;\r\n\tborder: none;\r\n\ttext-align: center;\r\n\twidth: 18px;\r\n\theight: 14px;\r\n\tfont: 16px/14px Tahoma, Verdana, sans-serif;\r\n\tcolor: #c3c3c3;\r\n\ttext-decoration: none;\r\n\tfont-weight: bold;\r\n\tbackground: transparent;\r\n\t}\r\n.leaflet-container a.leaflet-popup-close-button:hover {\r\n\tcolor: #999;\r\n\t}\r\n.leaflet-popup-scrolled {\r\n\toverflow: auto;\r\n\tborder-bottom: 1px solid #ddd;\r\n\tborder-top: 1px solid #ddd;\r\n\t}\r\n\r\n.leaflet-oldie .leaflet-popup-content-wrapper {\r\n\tzoom: 1;\r\n\t}\r\n.leaflet-oldie .leaflet-popup-tip {\r\n\twidth: 24px;\r\n\tmargin: 0 auto;\r\n\r\n\t-ms-filter: \"progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)\";\r\n\tfilter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);\r\n\t}\r\n.leaflet-oldie .leaflet-popup-tip-container {\r\n\tmargin-top: -1px;\r\n\t}\r\n\r\n.leaflet-oldie .leaflet-control-zoom,\r\n.leaflet-oldie .leaflet-control-layers,\r\n.leaflet-oldie .leaflet-popup-content-wrapper,\r\n.leaflet-oldie .leaflet-popup-tip {\r\n\tborder: 1px solid #999;\r\n\t}\r\n\r\n\r\n/* div icon */\r\n\r\n.leaflet-div-icon {\r\n\tbackground: #fff;\r\n\tborder: 1px solid #666;\r\n\t}\r\n\r\n\r\n/* Tooltip */\r\n/* Base styles for the element that has a tooltip */\r\n.leaflet-tooltip {\r\n\tposition: absolute;\r\n\tpadding: 6px;\r\n\tbackground-color: #fff;\r\n\tborder: 1px solid #fff;\r\n\tborder-radius: 3px;\r\n\tcolor: #222;\r\n\twhite-space: nowrap;\r\n\t-webkit-user-select: none;\r\n\t-moz-user-select: none;\r\n\t-ms-user-select: none;\r\n\tuser-select: none;\r\n\tpointer-events: none;\r\n\tbox-shadow: 0 1px 3px rgba(0,0,0,0.4);\r\n\t}\r\n.leaflet-tooltip.leaflet-clickable {\r\n\tcursor: pointer;\r\n\tpointer-events: auto;\r\n\t}\r\n.leaflet-tooltip-top:before,\r\n.leaflet-tooltip-bottom:before,\r\n.leaflet-tooltip-left:before,\r\n.leaflet-tooltip-right:before {\r\n\tposition: absolute;\r\n\tpointer-events: none;\r\n\tborder: 6px solid transparent;\r\n\tbackground: transparent;\r\n\tcontent: \"\";\r\n\t}\r\n\r\n/* Directions */\r\n\r\n.leaflet-tooltip-bottom {\r\n\tmargin-top: 6px;\r\n}\r\n.leaflet-tooltip-top {\r\n\tmargin-top: -6px;\r\n}\r\n.leaflet-tooltip-bottom:before,\r\n.leaflet-tooltip-top:before {\r\n\tleft: 50%;\r\n\tmargin-left: -6px;\r\n\t}\r\n.leaflet-tooltip-top:before {\r\n\tbottom: 0;\r\n\tmargin-bottom: -12px;\r\n\tborder-top-color: #fff;\r\n\t}\r\n.leaflet-tooltip-bottom:before {\r\n\ttop: 0;\r\n\tmargin-top: -12px;\r\n\tmargin-left: -6px;\r\n\tborder-bottom-color: #fff;\r\n\t}\r\n.leaflet-tooltip-left {\r\n\tmargin-left: -6px;\r\n}\r\n.leaflet-tooltip-right {\r\n\tmargin-left: 6px;\r\n}\r\n.leaflet-tooltip-left:before,\r\n.leaflet-tooltip-right:before {\r\n\ttop: 50%;\r\n\tmargin-top: -6px;\r\n\t}\r\n.leaflet-tooltip-left:before {\r\n\tright: 0;\r\n\tmargin-right: -12px;\r\n\tborder-left-color: #fff;\r\n\t}\r\n.leaflet-tooltip-right:before {\r\n\tleft: 0;\r\n\tmargin-left: -12px;\r\n\tborder-right-color: #fff;\r\n\t}\r\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 494 */
+/* 495 */
 /***/ (function(module, exports) {
 
 module.exports = function escape(url) {
@@ -82131,31 +82297,31 @@ module.exports = function escape(url) {
 
 
 /***/ }),
-/* 495 */
+/* 496 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "assets/layers.png";
 
 /***/ }),
-/* 496 */
+/* 497 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "assets/layers-2x.png";
 
 /***/ }),
-/* 497 */
+/* 498 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "assets/marker-icon.png";
 
 /***/ }),
-/* 498 */
+/* 499 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(499);
+var content = __webpack_require__(500);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -82163,7 +82329,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -82180,21 +82346,21 @@ if(false) {
 }
 
 /***/ }),
-/* 499 */
+/* 500 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
 // imports
-exports.i(__webpack_require__(500), "");
+exports.i(__webpack_require__(501), "");
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.markdown-wrapper {\n  display: flex;\n  align-items: stretch;\n  width: 100%; }\n\n.markdown-container {\n  width: 100%;\n  position: relative;\n  top: 0;\n  left: 0;\n  height: calc(100%);\n  padding: 2em;\n  overflow-y: auto; }\n\n.markdown-nav {\n  padding: 2em;\n  width: calc(20em - 2 * 2em);\n  height: calc(100%);\n  background: #1e1e1e;\n  color: #00adee; }\n  .markdown-nav div {\n    line-height: 1.8em; }\n\n.code, .markdown p code, .markdown li code, .markdown td code {\n  color: #29fc99;\n  background: rgba(0, 173, 238, 0.02);\n  border-radius: 4px;\n  padding: 1px;\n  margin: 2px;\n  font-weight: bold; }\n\n.markdown {\n  width: 100%;\n  height: 100%;\n  line-height: 1.8em;\n  margin-left: auto;\n  margin-right: auto; }\n  .markdown p code, .markdown li code, .markdown td code {\n    font-family: 'Courier New', Courier, monospace; }\n  .markdown pre {\n    background: #333;\n    color: white;\n    padding: 1em;\n    border-radius: 4px;\n    overflow: auto; }\n  .markdown a {\n    color: #00adee; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.markdown-wrapper {\n  display: flex;\n  align-items: stretch;\n  width: 100%; }\n\n.markdown-container {\n  width: 100%;\n  position: relative;\n  top: 0;\n  left: 0;\n  height: calc(100%);\n  padding: 2em;\n  overflow-y: auto; }\n\n.markdown-nav {\n  padding: 2em;\n  width: calc(20em - 2 * 2em);\n  height: calc(100%);\n  background: #1e1e1e;\n  color: #00adee; }\n  .markdown-nav div {\n    line-height: 1.8em; }\n\n.code, .markdown p code, .markdown li code, .markdown td code {\n  color: #29fc99;\n  background: rgba(0, 173, 238, 0.02);\n  border-radius: 4px;\n  padding: 1px;\n  margin: 2px;\n  font-weight: bold; }\n\n.markdown {\n  width: 100%;\n  height: 100%;\n  line-height: 1.8em;\n  margin-left: auto;\n  margin-right: auto; }\n  .markdown p code, .markdown li code, .markdown td code {\n    font-family: 'Courier New', Courier, monospace; }\n  .markdown pre {\n    background: #333;\n    color: white;\n    padding: 1em;\n    border-radius: 4px;\n    overflow: auto; }\n  .markdown a {\n    color: #00adee; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 500 */
+/* 501 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -82208,16 +82374,16 @@ exports.push([module.i, "/*\nMonokai style - ported by Luigi Maselli - http://gr
 
 
 /***/ }),
-/* 501 */
+/* 502 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(15);
-var bind = __webpack_require__(143);
-var Axios = __webpack_require__(503);
-var defaults = __webpack_require__(85);
+var bind = __webpack_require__(144);
+var Axios = __webpack_require__(504);
+var defaults = __webpack_require__(86);
 
 /**
  * Create an instance of Axios
@@ -82250,15 +82416,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(147);
-axios.CancelToken = __webpack_require__(517);
-axios.isCancel = __webpack_require__(146);
+axios.Cancel = __webpack_require__(148);
+axios.CancelToken = __webpack_require__(518);
+axios.isCancel = __webpack_require__(147);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(518);
+axios.spread = __webpack_require__(519);
 
 module.exports = axios;
 
@@ -82267,7 +82433,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 502 */
+/* 503 */
 /***/ (function(module, exports) {
 
 /*!
@@ -82294,18 +82460,18 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 503 */
+/* 504 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var defaults = __webpack_require__(85);
+var defaults = __webpack_require__(86);
 var utils = __webpack_require__(15);
-var InterceptorManager = __webpack_require__(512);
-var dispatchRequest = __webpack_require__(513);
-var isAbsoluteURL = __webpack_require__(515);
-var combineURLs = __webpack_require__(516);
+var InterceptorManager = __webpack_require__(513);
+var dispatchRequest = __webpack_require__(514);
+var isAbsoluteURL = __webpack_require__(516);
+var combineURLs = __webpack_require__(517);
 
 /**
  * Create a new instance of Axios
@@ -82387,7 +82553,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 504 */
+/* 505 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82406,13 +82572,13 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 505 */
+/* 506 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(145);
+var createError = __webpack_require__(146);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -82439,7 +82605,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 506 */
+/* 507 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82467,7 +82633,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 507 */
+/* 508 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82542,7 +82708,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 508 */
+/* 509 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82586,7 +82752,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 509 */
+/* 510 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82661,7 +82827,7 @@ module.exports = (
 
 
 /***/ }),
-/* 510 */
+/* 511 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82704,7 +82870,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 511 */
+/* 512 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82764,7 +82930,7 @@ module.exports = (
 
 
 /***/ }),
-/* 512 */
+/* 513 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82823,16 +82989,16 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 513 */
+/* 514 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(15);
-var transformData = __webpack_require__(514);
-var isCancel = __webpack_require__(146);
-var defaults = __webpack_require__(85);
+var transformData = __webpack_require__(515);
+var isCancel = __webpack_require__(147);
+var defaults = __webpack_require__(86);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -82909,7 +83075,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 514 */
+/* 515 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82936,7 +83102,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 515 */
+/* 516 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82957,7 +83123,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 516 */
+/* 517 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82978,13 +83144,13 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 517 */
+/* 518 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(147);
+var Cancel = __webpack_require__(148);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -83042,7 +83208,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 518 */
+/* 519 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -83076,16 +83242,16 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 519 */
+/* 520 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
  * marked - a markdown parser
  * Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
- * https://github.com/chjj/marked
+ * https://github.com/markedjs/marked
  */
 
-;(function() {
+;(function(root) {
 'use strict';
 
 /**
@@ -83096,55 +83262,60 @@ var block = {
   newline: /^\n+/,
   code: /^( {4}[^\n]+\n*)+/,
   fences: noop,
-  hr: /^( *[-*_]){3,} *(?:\n+|$)/,
+  hr: /^ {0,3}((?:- *){3,}|(?:_ *){3,}|(?:\* *){3,})(?:\n+|$)/,
   heading: /^ *(#{1,6}) *([^\n]+?) *#* *(?:\n+|$)/,
   nptable: noop,
-  lheading: /^([^\n]+)\n *(=|-){2,} *(?:\n+|$)/,
-  blockquote: /^( *>[^\n]+(\n(?!def)[^\n]+)*\n*)+/,
+  blockquote: /^( {0,3}> ?(paragraph|[^\n]*)(?:\n|$))+/,
   list: /^( *)(bull) [\s\S]+?(?:hr|def|\n{2,}(?! )(?!\1bull )\n*|\s*$)/,
   html: /^ *(?:comment *(?:\n|\s*$)|closed *(?:\n{2,}|\s*$)|closing *(?:\n{2,}|\s*$))/,
-  def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +["(]([^\n]+)[")])? *(?:\n+|$)/,
+  def: /^ {0,3}\[(label)\]: *\n? *<?([^\s>]+)>?(?:(?: +\n? *| *\n *)(title))? *(?:\n+|$)/,
   table: noop,
-  paragraph: /^((?:[^\n]+\n?(?!hr|heading|lheading|blockquote|tag|def))+)\n*/,
+  lheading: /^([^\n]+)\n *(=|-){2,} *(?:\n+|$)/,
+  paragraph: /^([^\n]+(?:\n?(?!hr|heading|lheading| {0,3}>|tag)[^\n]+)+)/,
   text: /^[^\n]+/
 };
 
+block._label = /(?:\\[\[\]]|[^\[\]])+/;
+block._title = /(?:"(?:\\"|[^"]|"[^"\n]*")*"|'\n?(?:[^'\n]+\n?)*'|\([^()]*\))/;
+block.def = edit(block.def)
+  .replace('label', block._label)
+  .replace('title', block._title)
+  .getRegex();
+
 block.bullet = /(?:[*+-]|\d+\.)/;
 block.item = /^( *)(bull) [^\n]*(?:\n(?!\1bull )[^\n]*)*/;
-block.item = replace(block.item, 'gm')
-  (/bull/g, block.bullet)
-  ();
+block.item = edit(block.item, 'gm')
+  .replace(/bull/g, block.bullet)
+  .getRegex();
 
-block.list = replace(block.list)
-  (/bull/g, block.bullet)
-  ('hr', '\\n+(?=\\1?(?:[-*_] *){3,}(?:\\n+|$))')
-  ('def', '\\n+(?=' + block.def.source + ')')
-  ();
-
-block.blockquote = replace(block.blockquote)
-  ('def', block.def)
-  ();
+block.list = edit(block.list)
+  .replace(/bull/g, block.bullet)
+  .replace('hr', '\\n+(?=\\1?(?:(?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$))')
+  .replace('def', '\\n+(?=' + block.def.source + ')')
+  .getRegex();
 
 block._tag = '(?!(?:'
   + 'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code'
   + '|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo'
-  + '|span|br|wbr|ins|del|img)\\b)\\w+(?!:/|[^\\w\\s@]*@)\\b';
+  + '|span|br|wbr|ins|del|img)\\b)\\w+(?!:|[^\\w\\s@]*@)\\b';
 
-block.html = replace(block.html)
-  ('comment', /<!--[\s\S]*?-->/)
-  ('closed', /<(tag)[\s\S]+?<\/\1>/)
-  ('closing', /<tag(?:"[^"]*"|'[^']*'|[^'">])*?>/)
-  (/tag/g, block._tag)
-  ();
+block.html = edit(block.html)
+  .replace('comment', /<!--[\s\S]*?-->/)
+  .replace('closed', /<(tag)[\s\S]+?<\/\1>/)
+  .replace('closing', /<tag(?:"[^"]*"|'[^']*'|\s[^'"\/>\s]*)*?\/?>/)
+  .replace(/tag/g, block._tag)
+  .getRegex();
 
-block.paragraph = replace(block.paragraph)
-  ('hr', block.hr)
-  ('heading', block.heading)
-  ('lheading', block.lheading)
-  ('blockquote', block.blockquote)
-  ('tag', '<' + block._tag)
-  ('def', block.def)
-  ();
+block.paragraph = edit(block.paragraph)
+  .replace('hr', block.hr)
+  .replace('heading', block.heading)
+  .replace('lheading', block.lheading)
+  .replace('tag', '<' + block._tag)
+  .getRegex();
+
+block.blockquote = edit(block.blockquote)
+  .replace('paragraph', block.paragraph)
+  .getRegex();
 
 /**
  * Normal Block Grammar
@@ -83157,16 +83328,16 @@ block.normal = merge({}, block);
  */
 
 block.gfm = merge({}, block.normal, {
-  fences: /^ *(`{3,}|~{3,})[ \.]*(\S+)? *\n([\s\S]*?)\s*\1 *(?:\n+|$)/,
+  fences: /^ *(`{3,}|~{3,})[ \.]*(\S+)? *\n([\s\S]*?)\n? *\1 *(?:\n+|$)/,
   paragraph: /^/,
   heading: /^ *(#{1,6}) +([^\n]+?) *#* *(?:\n+|$)/
 });
 
-block.gfm.paragraph = replace(block.paragraph)
-  ('(?!', '(?!'
+block.gfm.paragraph = edit(block.paragraph)
+  .replace('(?!', '(?!'
     + block.gfm.fences.source.replace('\\1', '\\2') + '|'
     + block.list.source.replace('\\1', '\\3') + '|')
-  ();
+  .getRegex();
 
 /**
  * GFM + Tables Block Grammar
@@ -83229,17 +83400,19 @@ Lexer.prototype.lex = function(src) {
  * Lexing
  */
 
-Lexer.prototype.token = function(src, top, bq) {
-  var src = src.replace(/^ +$/gm, '')
-    , next
-    , loose
-    , cap
-    , bull
-    , b
-    , item
-    , space
-    , i
-    , l;
+Lexer.prototype.token = function(src, top) {
+  src = src.replace(/^ +$/gm, '');
+  var next,
+      loose,
+      cap,
+      bull,
+      b,
+      item,
+      space,
+      i,
+      tag,
+      l,
+      isordered;
 
   while (src) {
     // newline
@@ -83319,17 +83492,6 @@ Lexer.prototype.token = function(src, top, bq) {
       continue;
     }
 
-    // lheading
-    if (cap = this.rules.lheading.exec(src)) {
-      src = src.substring(cap[0].length);
-      this.tokens.push({
-        type: 'heading',
-        depth: cap[2] === '=' ? 1 : 2,
-        text: cap[1]
-      });
-      continue;
-    }
-
     // hr
     if (cap = this.rules.hr.exec(src)) {
       src = src.substring(cap[0].length);
@@ -83352,7 +83514,7 @@ Lexer.prototype.token = function(src, top, bq) {
       // Pass `top` to keep the current
       // "toplevel" state. This is exactly
       // how markdown.pl works.
-      this.token(cap, top, true);
+      this.token(cap, top);
 
       this.tokens.push({
         type: 'blockquote_end'
@@ -83365,10 +83527,12 @@ Lexer.prototype.token = function(src, top, bq) {
     if (cap = this.rules.list.exec(src)) {
       src = src.substring(cap[0].length);
       bull = cap[2];
+      isordered = bull.length > 1;
 
       this.tokens.push({
         type: 'list_start',
-        ordered: bull.length > 1
+        ordered: isordered,
+        start: isordered ? +bull : ''
       });
 
       // Get each top-level item.
@@ -83421,7 +83585,7 @@ Lexer.prototype.token = function(src, top, bq) {
         });
 
         // Recurse.
-        this.token(item, false, bq);
+        this.token(item, false);
 
         this.tokens.push({
           type: 'list_item_end'
@@ -83450,12 +83614,16 @@ Lexer.prototype.token = function(src, top, bq) {
     }
 
     // def
-    if ((!bq && top) && (cap = this.rules.def.exec(src))) {
+    if (top && (cap = this.rules.def.exec(src))) {
       src = src.substring(cap[0].length);
-      this.tokens.links[cap[1].toLowerCase()] = {
-        href: cap[2],
-        title: cap[3]
-      };
+      if (cap[3]) cap[3] = cap[3].substring(1, cap[3].length - 1);
+      tag = cap[1].toLowerCase();
+      if (!this.tokens.links[tag]) {
+        this.tokens.links[tag] = {
+          href: cap[2],
+          title: cap[3]
+        };
+      }
       continue;
     }
 
@@ -83493,6 +83661,17 @@ Lexer.prototype.token = function(src, top, bq) {
       continue;
     }
 
+    // lheading
+    if (cap = this.rules.lheading.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'heading',
+        depth: cap[2] === '=' ? 1 : 2,
+        text: cap[1]
+      });
+      continue;
+    }
+
     // top-level paragraph
     if (top && (cap = this.rules.paragraph.exec(src))) {
       src = src.substring(cap[0].length);
@@ -83517,8 +83696,7 @@ Lexer.prototype.token = function(src, top, bq) {
     }
 
     if (src) {
-      throw new
-        Error('Infinite loop on byte: ' + src.charCodeAt(0));
+      throw new Error('Infinite loop on byte: ' + src.charCodeAt(0));
     }
   }
 
@@ -83531,31 +83709,39 @@ Lexer.prototype.token = function(src, top, bq) {
 
 var inline = {
   escape: /^\\([\\`*{}\[\]()#+\-.!_>])/,
-  autolink: /^<([^ <>]+(@|:\/)[^ <>]+)>/,
+  autolink: /^<(scheme:[^\s\x00-\x1f<>]*|email)>/,
   url: noop,
-  tag: /^<!--[\s\S]*?-->|^<\/?\w+(?:"[^"]*"|'[^']*'|[^<'">])*?>/,
+  tag: /^<!--[\s\S]*?-->|^<\/?[a-zA-Z0-9\-]+(?:"[^"]*"|'[^']*'|\s[^<'">\/\s]*)*?\/?>/,
   link: /^!?\[(inside)\]\(href\)/,
   reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
-  nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
+  nolink: /^!?\[((?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]])*)\]/,
   strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
-  em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
-  code: /^(`+)([\s\S]*?[^`])\1(?!`)/,
+  em: /^_([^\s_](?:[^_]|__)+?[^\s_])_\b|^\*((?:\*\*|[^*])+?)\*(?!\*)/,
+  code: /^(`+)\s*([\s\S]*?[^`]?)\s*\1(?!`)/,
   br: /^ {2,}\n(?!\s*$)/,
   del: noop,
-  text: /^[\s\S]+?(?=[\\<!\[_*`]| {2,}\n|$)/
+  text: /^[\s\S]+?(?=[\\<!\[`*]|\b_| {2,}\n|$)/
 };
 
-inline._inside = /(?:\[[^\]]*\]|\\[\[\]]|[^\[\]]|\](?=[^\[]*\]))*/;
+inline._scheme = /[a-zA-Z][a-zA-Z0-9+.-]{1,31}/;
+inline._email = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/;
+
+inline.autolink = edit(inline.autolink)
+  .replace('scheme', inline._scheme)
+  .replace('email', inline._email)
+  .getRegex()
+
+inline._inside = /(?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]]|\](?=[^\[]*\]))*/;
 inline._href = /\s*<?([\s\S]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/;
 
-inline.link = replace(inline.link)
-  ('inside', inline._inside)
-  ('href', inline._href)
-  ();
+inline.link = edit(inline.link)
+  .replace('inside', inline._inside)
+  .replace('href', inline._href)
+  .getRegex();
 
-inline.reflink = replace(inline.reflink)
-  ('inside', inline._inside)
-  ();
+inline.reflink = edit(inline.reflink)
+  .replace('inside', inline._inside)
+  .getRegex();
 
 /**
  * Normal Inline Grammar
@@ -83577,13 +83763,16 @@ inline.pedantic = merge({}, inline.normal, {
  */
 
 inline.gfm = merge({}, inline.normal, {
-  escape: replace(inline.escape)('])', '~|])')(),
-  url: /^(https?:\/\/[^\s<]+[^<.,:;"')\]\s])/,
+  escape: edit(inline.escape).replace('])', '~|])').getRegex(),
+  url: edit(/^((?:ftp|https?):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s<]*|^email/)
+    .replace('email', inline._email)
+    .getRegex(),
+  _backpedal: /(?:[^?!.,:;*_~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_~)]+(?!$))+/,
   del: /^~~(?=\S)([\s\S]*?\S)~~/,
-  text: replace(inline.text)
-    (']|', '~]|')
-    ('|', '|https?://|')
-    ()
+  text: edit(inline.text)
+    .replace(']|', '~]|')
+    .replace('|', '|https?://|ftp://|www\\.|[a-zA-Z0-9.!#$%&\'*+/=?^_`{\\|}~-]+@|')
+    .getRegex()
 });
 
 /**
@@ -83591,8 +83780,8 @@ inline.gfm = merge({}, inline.normal, {
  */
 
 inline.breaks = merge({}, inline.gfm, {
-  br: replace(inline.br)('{2,}', '*')(),
-  text: replace(inline.gfm.text)('{2,}', '*')()
+  br: edit(inline.br).replace('{2,}', '*').getRegex(),
+  text: edit(inline.gfm.text).replace('{2,}', '*').getRegex()
 });
 
 /**
@@ -83603,12 +83792,11 @@ function InlineLexer(links, options) {
   this.options = options || marked.defaults;
   this.links = links;
   this.rules = inline.normal;
-  this.renderer = this.options.renderer || new Renderer;
+  this.renderer = this.options.renderer || new Renderer();
   this.renderer.options = this.options;
 
   if (!this.links) {
-    throw new
-      Error('Tokens array requires a `links` property.');
+    throw new Error('Tokens array requires a `links` property.');
   }
 
   if (this.options.gfm) {
@@ -83642,11 +83830,11 @@ InlineLexer.output = function(src, links, options) {
  */
 
 InlineLexer.prototype.output = function(src) {
-  var out = ''
-    , link
-    , text
-    , href
-    , cap;
+  var out = '',
+      link,
+      text,
+      href,
+      cap;
 
   while (src) {
     // escape
@@ -83660,12 +83848,8 @@ InlineLexer.prototype.output = function(src) {
     if (cap = this.rules.autolink.exec(src)) {
       src = src.substring(cap[0].length);
       if (cap[2] === '@') {
-        text = escape(
-          cap[1].charAt(6) === ':'
-          ? this.mangle(cap[1].substring(7))
-          : this.mangle(cap[1])
-        );
-        href = this.mangle('mailto:') + text;
+        text = escape(this.mangle(cap[1]));
+        href = 'mailto:' + text;
       } else {
         text = escape(cap[1]);
         href = text;
@@ -83676,9 +83860,19 @@ InlineLexer.prototype.output = function(src) {
 
     // url (gfm)
     if (!this.inLink && (cap = this.rules.url.exec(src))) {
+      cap[0] = this.rules._backpedal.exec(cap[0])[0];
       src = src.substring(cap[0].length);
-      text = escape(cap[1]);
-      href = text;
+      if (cap[2] === '@') {
+        text = escape(cap[0]);
+        href = 'mailto:' + text;
+      } else {
+        text = escape(cap[0]);
+        if (cap[1] === 'www.') {
+          href = 'http://' + text;
+        } else {
+          href = text;
+        }
+      }
       out += this.renderer.link(href, null, text);
       continue;
     }
@@ -83771,8 +83965,7 @@ InlineLexer.prototype.output = function(src) {
     }
 
     if (src) {
-      throw new
-        Error('Infinite loop on byte: ' + src.charCodeAt(0));
+      throw new Error('Infinite loop on byte: ' + src.charCodeAt(0));
     }
   }
 
@@ -83784,8 +83977,8 @@ InlineLexer.prototype.output = function(src) {
  */
 
 InlineLexer.prototype.outputLink = function(cap, link) {
-  var href = escape(link.href)
-    , title = link.title ? escape(link.title) : null;
+  var href = escape(link.href),
+      title = link.title ? escape(link.title) : null;
 
   return cap[0].charAt(0) !== '!'
     ? this.renderer.link(href, title, this.output(cap[1]))
@@ -83821,10 +84014,10 @@ InlineLexer.prototype.smartypants = function(text) {
 
 InlineLexer.prototype.mangle = function(text) {
   if (!this.options.mangle) return text;
-  var out = ''
-    , l = text.length
-    , i = 0
-    , ch;
+  var out = '',
+      l = text.length,
+      i = 0,
+      ch;
 
   for (; i < l; i++) {
     ch = text.charCodeAt(i);
@@ -83893,9 +84086,10 @@ Renderer.prototype.hr = function() {
   return this.options.xhtml ? '<hr/>\n' : '<hr>\n';
 };
 
-Renderer.prototype.list = function(body, ordered) {
-  var type = ordered ? 'ol' : 'ul';
-  return '<' + type + '>\n' + body + '</' + type + '>\n';
+Renderer.prototype.list = function(body, ordered, start) {
+  var type = ordered ? 'ol' : 'ul',
+      startatt = (ordered && start !== 1) ? (' start="' + start + '"') : '';
+  return '<' + type + startatt + '>\n' + body + '</' + type + '>\n';
 };
 
 Renderer.prototype.listitem = function(text) {
@@ -83991,6 +84185,32 @@ Renderer.prototype.text = function(text) {
 };
 
 /**
+ * TextRenderer
+ * returns only the textual part of the token
+ */
+
+function TextRenderer() {}
+
+// no need for block level renderers
+
+TextRenderer.prototype.strong =
+TextRenderer.prototype.em =
+TextRenderer.prototype.codespan =
+TextRenderer.prototype.del =
+TextRenderer.prototype.text = function (text) {
+  return text;
+}
+
+TextRenderer.prototype.link =
+TextRenderer.prototype.image = function(href, title, text) {
+  return '' + text;
+}
+
+TextRenderer.prototype.br = function() {
+  return '';
+}
+
+/**
  * Parsing & Compiling
  */
 
@@ -83998,7 +84218,7 @@ function Parser(options) {
   this.tokens = [];
   this.token = null;
   this.options = options || marked.defaults;
-  this.options.renderer = this.options.renderer || new Renderer;
+  this.options.renderer = this.options.renderer || new Renderer();
   this.renderer = this.options.renderer;
   this.renderer.options = this.options;
 }
@@ -84007,8 +84227,8 @@ function Parser(options) {
  * Static Parse Method
  */
 
-Parser.parse = function(src, options, renderer) {
-  var parser = new Parser(options, renderer);
+Parser.parse = function(src, options) {
+  var parser = new Parser(options);
   return parser.parse(src);
 };
 
@@ -84017,7 +84237,12 @@ Parser.parse = function(src, options, renderer) {
  */
 
 Parser.prototype.parse = function(src) {
-  this.inline = new InlineLexer(src.links, this.options, this.renderer);
+  this.inline = new InlineLexer(src.links, this.options);
+  // use an InlineLexer with a TextRenderer to extract pure text
+  this.inlineText = new InlineLexer(
+    src.links,
+    merge({}, this.options, {renderer: new TextRenderer()})
+  );
   this.tokens = src.reverse();
 
   var out = '';
@@ -84074,7 +84299,7 @@ Parser.prototype.tok = function() {
       return this.renderer.heading(
         this.inline.output(this.token.text),
         this.token.depth,
-        this.token.text);
+        unescape(this.inlineText.output(this.token.text)));
     }
     case 'code': {
       return this.renderer.code(this.token.text,
@@ -84082,18 +84307,16 @@ Parser.prototype.tok = function() {
         this.token.escaped);
     }
     case 'table': {
-      var header = ''
-        , body = ''
-        , i
-        , row
-        , cell
-        , flags
-        , j;
+      var header = '',
+          body = '',
+          i,
+          row,
+          cell,
+          j;
 
       // header
       cell = '';
       for (i = 0; i < this.token.header.length; i++) {
-        flags = { header: true, align: this.token.align[i] };
         cell += this.renderer.tablecell(
           this.inline.output(this.token.header[i]),
           { header: true, align: this.token.align[i] }
@@ -84117,7 +84340,7 @@ Parser.prototype.tok = function() {
       return this.renderer.table(header, body);
     }
     case 'blockquote_start': {
-      var body = '';
+      body = '';
 
       while (this.next().type !== 'blockquote_end') {
         body += this.tok();
@@ -84126,17 +84349,18 @@ Parser.prototype.tok = function() {
       return this.renderer.blockquote(body);
     }
     case 'list_start': {
-      var body = ''
-        , ordered = this.token.ordered;
+      body = '';
+      var ordered = this.token.ordered,
+          start = this.token.start;
 
       while (this.next().type !== 'list_end') {
         body += this.tok();
       }
 
-      return this.renderer.list(body, ordered);
+      return this.renderer.list(body, ordered, start);
     }
     case 'list_item_start': {
-      var body = '';
+      body = '';
 
       while (this.next().type !== 'list_item_end') {
         body += this.token.type === 'text'
@@ -84147,7 +84371,7 @@ Parser.prototype.tok = function() {
       return this.renderer.listitem(body);
     }
     case 'loose_item_start': {
-      var body = '';
+      body = '';
 
       while (this.next().type !== 'list_item_end') {
         body += this.tok();
@@ -84184,7 +84408,7 @@ function escape(html, encode) {
 }
 
 function unescape(html) {
-	// explicitly match decimal, hex, and named HTML entities
+  // explicitly match decimal, hex, and named HTML entities
   return html.replace(/&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/ig, function(_, n) {
     n = n.toLowerCase();
     if (n === 'colon') return ':';
@@ -84197,15 +84421,19 @@ function unescape(html) {
   });
 }
 
-function replace(regex, opt) {
+function edit(regex, opt) {
   regex = regex.source;
   opt = opt || '';
-  return function self(name, val) {
-    if (!name) return new RegExp(regex, opt);
-    val = val.source || val;
-    val = val.replace(/(^|[^\[])\^/g, '$1');
-    regex = regex.replace(name, val);
-    return self;
+  return {
+    replace: function(name, val) {
+      val = val.source || val;
+      val = val.replace(/(^|[^\[])\^/g, '$1');
+      regex = regex.replace(name, val);
+      return this;
+    },
+    getRegex: function() {
+      return new RegExp(regex, opt);
+    }
   };
 }
 
@@ -84237,9 +84465,9 @@ function noop() {}
 noop.exec = noop;
 
 function merge(obj) {
-  var i = 1
-    , target
-    , key;
+  var i = 1,
+      target,
+      key;
 
   for (; i < arguments.length; i++) {
     target = arguments[i];
@@ -84253,12 +84481,20 @@ function merge(obj) {
   return obj;
 }
 
-
 /**
  * Marked
  */
 
 function marked(src, opt, callback) {
+  // throw error in case of non string input
+  if (typeof src === 'undefined' || src === null) {
+    throw new Error('marked(): input parameter is undefined or null');
+  }
+  if (typeof src !== 'string') {
+    throw new Error('marked(): input parameter is of type '
+      + Object.prototype.toString.call(src) + ', string expected');
+  }
+
   if (callback || typeof opt === 'function') {
     if (!callback) {
       callback = opt;
@@ -84267,10 +84503,10 @@ function marked(src, opt, callback) {
 
     opt = merge({}, marked.defaults, opt || {});
 
-    var highlight = opt.highlight
-      , tokens
-      , pending
-      , i = 0;
+    var highlight = opt.highlight,
+        tokens,
+        pending,
+        i = 0;
 
     try {
       tokens = Lexer.lex(src, opt)
@@ -84332,7 +84568,7 @@ function marked(src, opt, callback) {
     if (opt) opt = merge({}, marked.defaults, opt);
     return Parser.parse(Lexer.lex(src, opt), opt);
   } catch (e) {
-    e.message += '\nPlease report this to https://github.com/chjj/marked.';
+    e.message += '\nPlease report this to https://github.com/markedjs/marked.';
     if ((opt || marked.defaults).silent) {
       return '<p>An error occurred:</p><pre>'
         + escape(e.message + '', true)
@@ -84366,7 +84602,7 @@ marked.defaults = {
   langPrefix: 'lang-',
   smartypants: false,
   headerPrefix: '',
-  renderer: new Renderer,
+  renderer: new Renderer(),
   xhtml: false,
   baseUrl: null
 };
@@ -84379,6 +84615,7 @@ marked.Parser = Parser;
 marked.parser = Parser.parse;
 
 marked.Renderer = Renderer;
+marked.TextRenderer = TextRenderer;
 
 marked.Lexer = Lexer;
 marked.lexer = Lexer.lex;
@@ -84393,17 +84630,14 @@ if (true) {
 } else if (typeof define === 'function' && define.amd) {
   define(function() { return marked; });
 } else {
-  this.marked = marked;
+  root.marked = marked;
 }
+})(this || (typeof window !== 'undefined' ? window : global));
 
-}).call(function() {
-  return this || (typeof window !== 'undefined' ? window : global);
-}());
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(520)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(521)))
 
 /***/ }),
-/* 520 */
+/* 521 */
 /***/ (function(module, exports) {
 
 var g;
@@ -84430,7 +84664,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 521 */
+/* 522 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -84500,7 +84734,7 @@ var MultiSlider = exports.MultiSlider = function MultiSlider(props) {
 exports.default = MultiSlider;
 
 /***/ }),
-/* 522 */
+/* 523 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -84525,11 +84759,11 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _getObject = __webpack_require__(523);
+var _getObject = __webpack_require__(524);
 
 var _getObject2 = _interopRequireDefault(_getObject);
 
-var _getDescription = __webpack_require__(524);
+var _getDescription = __webpack_require__(525);
 
 var _getDescription2 = _interopRequireDefault(_getDescription);
 
@@ -84537,7 +84771,7 @@ var _proptypes = __webpack_require__(13);
 
 var _proptypes2 = _interopRequireDefault(_proptypes);
 
-__webpack_require__(525);
+__webpack_require__(526);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -84680,7 +84914,7 @@ var Table = function Table(_ref) {
 exports.default = PropTypeDocs;
 
 /***/ }),
-/* 523 */
+/* 524 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -84754,7 +84988,7 @@ var propTypesToObject = function propTypesToObject(_ref) {
 exports.default = propTypesToObject;
 
 /***/ }),
-/* 524 */
+/* 525 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -84781,13 +85015,13 @@ var propTypesToDescriptions = exports.propTypesToDescriptions = function propTyp
 exports.default = propTypesToDescriptions;
 
 /***/ }),
-/* 525 */
+/* 526 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(526);
+var content = __webpack_require__(527);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -84795,7 +85029,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -84812,7 +85046,7 @@ if(false) {
 }
 
 /***/ }),
-/* 526 */
+/* 527 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -84820,13 +85054,13 @@ exports = module.exports = __webpack_require__(4)(false);
 exports.i(__webpack_require__(138), "");
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\ntable {\n  position: relative;\n  width: 100%; }\n\nth {\n  text-align: left; }\n\ntr {\n  height: 2em;\n  text-indent: 1em; }\n  tr:hover {\n    background: rgba(255, 255, 255, 0.4); }\n  tr:nth-child(odd) {\n    background: rgba(255, 255, 255, 0.2);\n    color: #00adee; }\n\ntbody tr:nth-child(odd) {\n  background-color: rgba(128, 128, 128, 0.1);\n  color: #fff; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\ntable {\n  position: relative;\n  width: 100%; }\n\nth {\n  text-align: left; }\n\ntr {\n  height: 2em;\n  text-indent: 1em; }\n  tr:hover {\n    background: rgba(255, 255, 255, 0.4); }\n  tr:nth-child(odd) {\n    background: rgba(255, 255, 255, 0.2);\n    color: #00adee; }\n\ntbody tr:nth-child(odd) {\n  background-color: rgba(128, 128, 128, 0.1);\n  color: #fff; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 527 */
+/* 528 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -84849,7 +85083,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _style = __webpack_require__(528);
+var _style = __webpack_require__(529);
 
 var _style2 = _interopRequireDefault(_style);
 
@@ -84984,13 +85218,13 @@ var SearchState = exports.SearchState = function () {
 exports.default = Search;
 
 /***/ }),
-/* 528 */
+/* 529 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(529);
+var content = __webpack_require__(530);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -84998,7 +85232,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -85015,7 +85249,7 @@ if(false) {
 }
 
 /***/ }),
-/* 529 */
+/* 530 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -85023,13 +85257,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.searchResults {\n  margin-top: calc(-1em - 2px);\n  display: flex;\n  flex-direction: row;\n  align-items: stretch; }\n  .searchResults .searchItem {\n    position: relative;\n    height: 3em;\n    line-height: 3em;\n    width: calc( 100% - 2 * 1em);\n    padding-left: 1em;\n    padding-right: 1em;\n    background: white;\n    text-overflow: ellipsis;\n    overflow-x: hidden; }\n    .searchResults .searchItem:hover {\n      color: #00adee;\n      cursor: pointer; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.searchResults {\n  margin-top: calc(-1em - 2px);\n  display: flex;\n  flex-direction: row;\n  align-items: stretch; }\n  .searchResults .searchItem {\n    position: relative;\n    height: 3em;\n    line-height: 3em;\n    width: calc( 100% - 2 * 1em);\n    padding-left: 1em;\n    padding-right: 1em;\n    background: white;\n    text-overflow: ellipsis;\n    overflow-x: hidden; }\n    .searchResults .searchItem:hover {\n      color: #00adee;\n      cursor: pointer; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 530 */
+/* 531 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -85052,7 +85286,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(531);
+__webpack_require__(532);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -85113,13 +85347,13 @@ Slider.propTypes = _extends({}, propTypesSlider);
 exports.default = Slider;
 
 /***/ }),
-/* 531 */
+/* 532 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(532);
+var content = __webpack_require__(533);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -85127,7 +85361,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -85144,7 +85378,7 @@ if(false) {
 }
 
 /***/ }),
-/* 532 */
+/* 533 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -85152,13 +85386,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.thumb, input[type=range]::-webkit-slider-thumb, input[type=range]::-moz-range-thumb, input[type=range]::-ms-thumb {\n  height: 3em;\n  width: 3em;\n  border-radius: 50%;\n  background: red;\n  color: red;\n  cursor: pointer; }\n\ninput[type=range]::-webkit-slider-thumb {\n  margin-top: 0px;\n  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */ }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.thumb, input[type=range]::-webkit-slider-thumb, input[type=range]::-moz-range-thumb, input[type=range]::-ms-thumb {\n  height: 3em;\n  width: 3em;\n  border-radius: 50%;\n  background: red;\n  color: red;\n  cursor: pointer; }\n\ninput[type=range]::-webkit-slider-thumb {\n  margin-top: 0px;\n  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */ }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 533 */
+/* 534 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -85177,7 +85411,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _ = __webpack_require__(10);
 
-__webpack_require__(534);
+__webpack_require__(535);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -85251,13 +85485,13 @@ SoundCloud.defaultProps = {
 exports.default = SoundCloud;
 
 /***/ }),
-/* 534 */
+/* 535 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(535);
+var content = __webpack_require__(536);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -85265,7 +85499,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -85282,7 +85516,7 @@ if(false) {
 }
 
 /***/ }),
-/* 535 */
+/* 536 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -85296,7 +85530,7 @@ exports.push([module.i, ".sound-cloud {\n  position: relative;\n  max-width: 100
 
 
 /***/ }),
-/* 536 */
+/* 537 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -85321,7 +85555,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(537);
+__webpack_require__(538);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -85389,13 +85623,13 @@ Switch.propTypes = _extends({}, propTypesSwitch);
 exports.default = Switch;
 
 /***/ }),
-/* 537 */
+/* 538 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(538);
+var content = __webpack_require__(539);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -85403,7 +85637,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -85420,7 +85654,7 @@ if(false) {
 }
 
 /***/ }),
-/* 538 */
+/* 539 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -85434,7 +85668,7 @@ exports.push([module.i, ".switch-container {\n  display: flex;\n  flex-direction
 
 
 /***/ }),
-/* 539 */
+/* 540 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -85453,9 +85687,9 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _components = __webpack_require__(540);
+var _components = __webpack_require__(541);
 
-var _addons = __webpack_require__(552);
+var _addons = __webpack_require__(553);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -85567,14 +85801,14 @@ var Soundcloud = exports.Soundcloud = function (_Component) {
 exports.default = (0, _addons.withSoundCloudAudio)(Soundcloud);
 
 /***/ }),
-/* 540 */
+/* 541 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(541);
+module.exports = __webpack_require__(542);
 
 
 /***/ }),
-/* 541 */
+/* 542 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -85585,31 +85819,31 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Icons = exports.Cover = exports.Timer = exports.Progress = exports.PrevButton = exports.NextButton = exports.PlayButton = exports.VolumeControl = undefined;
 
-var _VolumeControl2 = __webpack_require__(542);
+var _VolumeControl2 = __webpack_require__(543);
 
 var _VolumeControl3 = _interopRequireDefault(_VolumeControl2);
 
-var _PlayButton2 = __webpack_require__(546);
+var _PlayButton2 = __webpack_require__(547);
 
 var _PlayButton3 = _interopRequireDefault(_PlayButton2);
 
-var _NextButton2 = __webpack_require__(547);
+var _NextButton2 = __webpack_require__(548);
 
 var _NextButton3 = _interopRequireDefault(_NextButton2);
 
-var _PrevButton2 = __webpack_require__(548);
+var _PrevButton2 = __webpack_require__(549);
 
 var _PrevButton3 = _interopRequireDefault(_PrevButton2);
 
-var _Progress2 = __webpack_require__(549);
+var _Progress2 = __webpack_require__(550);
 
 var _Progress3 = _interopRequireDefault(_Progress2);
 
-var _Timer2 = __webpack_require__(550);
+var _Timer2 = __webpack_require__(551);
 
 var _Timer3 = _interopRequireDefault(_Timer2);
 
-var _Cover2 = __webpack_require__(551);
+var _Cover2 = __webpack_require__(552);
 
 var _Cover3 = _interopRequireDefault(_Cover2);
 
@@ -85628,7 +85862,7 @@ exports.Cover = _Cover3.default;
 var Icons = exports.Icons = __webpack_require__(36);
 
 /***/ }),
-/* 542 */
+/* 543 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -85648,11 +85882,11 @@ var _propTypes = __webpack_require__(26);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _soundcloudAudio = __webpack_require__(31);
+var _soundcloudAudio = __webpack_require__(32);
 
 var _soundcloudAudio2 = _interopRequireDefault(_soundcloudAudio);
 
-var _classnames = __webpack_require__(32);
+var _classnames = __webpack_require__(33);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -85775,7 +86009,7 @@ VolumeControl.defaultProps = {
 exports.default = VolumeControl;
 
 /***/ }),
-/* 543 */
+/* 544 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -85791,10 +86025,10 @@ exports.default = VolumeControl;
 var emptyFunction = __webpack_require__(17);
 var invariant = __webpack_require__(18);
 var warning = __webpack_require__(23);
-var assign = __webpack_require__(33);
+var assign = __webpack_require__(34);
 
-var ReactPropTypesSecret = __webpack_require__(86);
-var checkPropTypes = __webpack_require__(544);
+var ReactPropTypesSecret = __webpack_require__(87);
+var checkPropTypes = __webpack_require__(545);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -86325,7 +86559,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 544 */
+/* 545 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86341,7 +86575,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(18);
   var warning = __webpack_require__(23);
-  var ReactPropTypesSecret = __webpack_require__(86);
+  var ReactPropTypesSecret = __webpack_require__(87);
   var loggedTypeFailures = {};
 }
 
@@ -86392,7 +86626,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 545 */
+/* 546 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86407,7 +86641,7 @@ module.exports = checkPropTypes;
 
 var emptyFunction = __webpack_require__(17);
 var invariant = __webpack_require__(18);
-var ReactPropTypesSecret = __webpack_require__(86);
+var ReactPropTypesSecret = __webpack_require__(87);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -86457,7 +86691,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 546 */
+/* 547 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86477,11 +86711,11 @@ var _propTypes = __webpack_require__(26);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _classnames = __webpack_require__(32);
+var _classnames = __webpack_require__(33);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _soundcloudAudio = __webpack_require__(31);
+var _soundcloudAudio = __webpack_require__(32);
 
 var _soundcloudAudio2 = _interopRequireDefault(_soundcloudAudio);
 
@@ -86584,7 +86818,7 @@ PlayButton.defaultProps = {
 exports.default = PlayButton;
 
 /***/ }),
-/* 547 */
+/* 548 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86604,11 +86838,11 @@ var _propTypes = __webpack_require__(26);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _classnames = __webpack_require__(32);
+var _classnames = __webpack_require__(33);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _soundcloudAudio = __webpack_require__(31);
+var _soundcloudAudio = __webpack_require__(32);
 
 var _soundcloudAudio2 = _interopRequireDefault(_soundcloudAudio);
 
@@ -86676,7 +86910,7 @@ NextButton.propTypes = {
 exports.default = NextButton;
 
 /***/ }),
-/* 548 */
+/* 549 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86696,11 +86930,11 @@ var _propTypes = __webpack_require__(26);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _classnames = __webpack_require__(32);
+var _classnames = __webpack_require__(33);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _soundcloudAudio = __webpack_require__(31);
+var _soundcloudAudio = __webpack_require__(32);
 
 var _soundcloudAudio2 = _interopRequireDefault(_soundcloudAudio);
 
@@ -86768,7 +87002,7 @@ PrevButton.propTypes = {
 exports.default = PrevButton;
 
 /***/ }),
-/* 549 */
+/* 550 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86790,11 +87024,11 @@ var _propTypes = __webpack_require__(26);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _soundcloudAudio = __webpack_require__(31);
+var _soundcloudAudio = __webpack_require__(32);
 
 var _soundcloudAudio2 = _interopRequireDefault(_soundcloudAudio);
 
-var _classnames = __webpack_require__(32);
+var _classnames = __webpack_require__(33);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -86892,7 +87126,7 @@ Progress.defaultProps = {
 exports.default = Progress;
 
 /***/ }),
-/* 550 */
+/* 551 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86912,7 +87146,7 @@ var _propTypes = __webpack_require__(26);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _classnames = __webpack_require__(32);
+var _classnames = __webpack_require__(33);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -86994,7 +87228,7 @@ Timer.defaultProps = {
 exports.default = Timer;
 
 /***/ }),
-/* 551 */
+/* 552 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87016,7 +87250,7 @@ var _propTypes = __webpack_require__(26);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _classnames = __webpack_require__(32);
+var _classnames = __webpack_require__(33);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -87102,14 +87336,14 @@ Cover.defaultProps = {
 exports.default = Cover;
 
 /***/ }),
-/* 552 */
+/* 553 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(553);
+module.exports = __webpack_require__(554);
 
 
 /***/ }),
-/* 553 */
+/* 554 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87120,11 +87354,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SoundPlayerContainer = exports.withSoundCloudAudio = exports.withCustomAudio = undefined;
 
-var _withSoundCloudAudio2 = __webpack_require__(148);
+var _withSoundCloudAudio2 = __webpack_require__(149);
 
 var _withSoundCloudAudio3 = _interopRequireDefault(_withSoundCloudAudio2);
 
-var _SoundPlayerContainer2 = __webpack_require__(556);
+var _SoundPlayerContainer2 = __webpack_require__(557);
 
 var _SoundPlayerContainer3 = _interopRequireDefault(_SoundPlayerContainer2);
 
@@ -87135,7 +87369,7 @@ exports.withSoundCloudAudio = _withSoundCloudAudio3.default;
 exports.SoundPlayerContainer = _SoundPlayerContainer3.default;
 
 /***/ }),
-/* 554 */
+/* 555 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87210,7 +87444,7 @@ module.exports = hoistNonReactStatics;
 
 
 /***/ }),
-/* 555 */
+/* 556 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87267,7 +87501,7 @@ function resetPlayedStore() {
 }
 
 /***/ }),
-/* 556 */
+/* 557 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87287,11 +87521,11 @@ var _propTypes = __webpack_require__(26);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _soundcloudAudio = __webpack_require__(31);
+var _soundcloudAudio = __webpack_require__(32);
 
 var _soundcloudAudio2 = _interopRequireDefault(_soundcloudAudio);
 
-var _withSoundCloudAudio = __webpack_require__(148);
+var _withSoundCloudAudio = __webpack_require__(149);
 
 var _withSoundCloudAudio2 = _interopRequireDefault(_withSoundCloudAudio);
 
@@ -87364,7 +87598,7 @@ SoundPlayerContainer.propTypes = {
 exports.default = (0, _withSoundCloudAudio2.default)(SoundPlayerContainer);
 
 /***/ }),
-/* 557 */
+/* 558 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87377,7 +87611,7 @@ exports.Tabs = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _tab = __webpack_require__(558);
+var _tab = __webpack_require__(559);
 
 Object.keys(_tab).forEach(function (key) {
     if (key === "default" || key === "__esModule") return;
@@ -87397,7 +87631,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(149);
+__webpack_require__(150);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -87465,7 +87699,7 @@ Tabs.propTypbes = {
 };
 
 /***/ }),
-/* 558 */
+/* 559 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87486,7 +87720,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(149);
+__webpack_require__(150);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -87531,7 +87765,7 @@ Tab.propTypes = {
 };
 
 /***/ }),
-/* 559 */
+/* 560 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -87545,7 +87779,7 @@ exports.push([module.i, ".tab-container .tab-panel {\n  display: flex; }\n  .tab
 
 
 /***/ }),
-/* 560 */
+/* 561 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87570,7 +87804,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _ = __webpack_require__(10);
 
-__webpack_require__(561);
+__webpack_require__(562);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -87761,13 +87995,13 @@ var TreeNode = exports.TreeNode = function TreeNode(_ref2) {
 exports.default = Tree;
 
 /***/ }),
-/* 561 */
+/* 562 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(562);
+var content = __webpack_require__(563);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -87775,7 +88009,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -87792,7 +88026,7 @@ if(false) {
 }
 
 /***/ }),
-/* 562 */
+/* 563 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -87800,13 +88034,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.tree {\n  position: relative;\n  background: white;\n  color: black;\n  font-size: 12px; }\n  .tree .leaf {\n    cursor: pointer;\n    width: 100%;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    display: flex;\n    flex-direction: row; }\n    .tree .leaf:hover {\n      background-color: rgba(0, 173, 238, 0.3);\n      color: #00adee; }\n    .tree .leaf .leaf-icon {\n      margin-left: 1em;\n      margin-right: 1em; }\n    .tree .leaf .no-icon {\n      margin-right: 1em; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.tree {\n  position: relative;\n  background: white;\n  color: black;\n  font-size: 12px; }\n  .tree .leaf {\n    cursor: pointer;\n    width: 100%;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    display: flex;\n    flex-direction: row; }\n    .tree .leaf:hover {\n      background-color: rgba(0, 173, 238, 0.3);\n      color: #00adee; }\n    .tree .leaf .leaf-icon {\n      margin-left: 1em;\n      margin-right: 1em; }\n    .tree .leaf .no-icon {\n      margin-right: 1em; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 563 */
+/* 564 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87879,7 +88113,7 @@ Video.propTypes = _extends({}, propTypesVideo);
 exports.default = Video;
 
 /***/ }),
-/* 564 */
+/* 565 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87901,6 +88135,8 @@ var _react2 = _interopRequireDefault(_react);
 var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _iframe = __webpack_require__(139);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -87954,7 +88190,7 @@ Youtube.propTypes = _extends({}, propTypesYoutube);
 exports.default = Youtube;
 
 /***/ }),
-/* 565 */
+/* 566 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87974,77 +88210,81 @@ var _react2 = _interopRequireDefault(_react);
 
 var _ = __webpack_require__(20);
 
-var _async = __webpack_require__(586);
+var _async = __webpack_require__(587);
 
 var _async2 = _interopRequireDefault(_async);
 
-var _application = __webpack_require__(587);
+var _application = __webpack_require__(588);
 
 var _application2 = _interopRequireDefault(_application);
 
-var _buttons = __webpack_require__(588);
+var _buttons = __webpack_require__(589);
 
 var _buttons2 = _interopRequireDefault(_buttons);
 
-var _cards = __webpack_require__(589);
+var _cards = __webpack_require__(590);
 
 var _cards2 = _interopRequireDefault(_cards);
 
-var _dropdowns = __webpack_require__(150);
+var _dropdowns = __webpack_require__(151);
 
 var _dropdowns2 = _interopRequireDefault(_dropdowns);
 
-var _errors = __webpack_require__(590);
+var _errors = __webpack_require__(591);
 
 var _errors2 = _interopRequireDefault(_errors);
 
-var _files = __webpack_require__(594);
+var _files = __webpack_require__(595);
 
 var _files2 = _interopRequireDefault(_files);
 
-var _forms = __webpack_require__(595);
+var _forms = __webpack_require__(596);
 
 var _forms2 = _interopRequireDefault(_forms);
 
-var _icons = __webpack_require__(596);
+var _icons = __webpack_require__(597);
 
 var _icons2 = _interopRequireDefault(_icons);
 
-var _inputs = __webpack_require__(597);
+var _inputs = __webpack_require__(598);
 
 var _inputs2 = _interopRequireDefault(_inputs);
 
-var _lists = __webpack_require__(598);
+var _lists = __webpack_require__(599);
 
 var _lists2 = _interopRequireDefault(_lists);
 
-var _loaders = __webpack_require__(599);
+var _loaders = __webpack_require__(600);
 
 var _loaders2 = _interopRequireDefault(_loaders);
 
-var _media = __webpack_require__(600);
+var _media = __webpack_require__(601);
 
 var _media2 = _interopRequireDefault(_media);
 
-var _time = __webpack_require__(601);
+var _modals = __webpack_require__(602);
+
+var _modals2 = _interopRequireDefault(_modals);
+
+var _time = __webpack_require__(605);
 
 var _time2 = _interopRequireDefault(_time);
 
-var _trees = __webpack_require__(602);
+var _trees = __webpack_require__(606);
 
 var _trees2 = _interopRequireDefault(_trees);
 
-var _reactRouterDom = __webpack_require__(93);
+var _reactRouterDom = __webpack_require__(94);
 
-var _mdReader = __webpack_require__(141);
+var _mdReader = __webpack_require__(142);
 
 var _mdReader2 = _interopRequireDefault(_mdReader);
 
-var _README = __webpack_require__(603);
+var _README = __webpack_require__(607);
 
 var _README2 = _interopRequireDefault(_README);
 
-__webpack_require__(604);
+__webpack_require__(608);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -88134,6 +88374,7 @@ var BiloUI = function (_Component) {
                         _react2.default.createElement(_lists2.default, null),
                         _react2.default.createElement(_loaders2.default, null),
                         _react2.default.createElement(_media2.default, null),
+                        _react2.default.createElement(_modals2.default, null),
                         _react2.default.createElement(_time2.default, null),
                         _react2.default.createElement(_trees2.default, null)
                     ),
@@ -88213,6 +88454,11 @@ var BiloUI = function (_Component) {
                     ),
                     _react2.default.createElement(
                         _.If,
+                        { truthy: activePage === 'media' },
+                        _react2.default.createElement(_modals2.default, null)
+                    ),
+                    _react2.default.createElement(
+                        _.If,
                         { truthy: activePage === 'time' },
                         _react2.default.createElement(_time2.default, null)
                     ),
@@ -88232,13 +88478,13 @@ var BiloUI = function (_Component) {
 exports.default = BiloUI;
 
 /***/ }),
-/* 566 */
+/* 567 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _tapi = __webpack_require__(567);
+var _tapi = __webpack_require__(568);
 
 var _tapi2 = _interopRequireDefault(_tapi);
 
@@ -88249,7 +88495,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 567 */
+/* 568 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -88268,7 +88514,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
-var _axios = __webpack_require__(142);
+var _axios = __webpack_require__(143);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -88405,17 +88651,17 @@ var Tapi = function () {
 exports.default = Tapi;
 
 /***/ }),
-/* 568 */
+/* 569 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _logger = __webpack_require__(569);
+var _logger = __webpack_require__(570);
 
 var _logger2 = _interopRequireDefault(_logger);
 
-var _translate = __webpack_require__(583);
+var _translate = __webpack_require__(584);
 
 var _translate2 = _interopRequireDefault(_translate);
 
@@ -88427,7 +88673,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 569 */
+/* 570 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -88441,7 +88687,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var colors = __webpack_require__(570);
+var colors = __webpack_require__(571);
 
 var _log = function _log(caller) {
     var _console;
@@ -88519,7 +88765,7 @@ var Logger = function () {
 exports.default = Logger;
 
 /***/ }),
-/* 570 */
+/* 571 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var colors = __webpack_require__(37);
@@ -88533,10 +88779,10 @@ module['exports'] = colors;
 //   colors.red("foo")
 //
 //
-__webpack_require__(581)();
+__webpack_require__(582)();
 
 /***/ }),
-/* 571 */
+/* 572 */
 /***/ (function(module, exports) {
 
 /*
@@ -88618,7 +88864,7 @@ Object.keys(codes).forEach(function (key) {
 });
 
 /***/ }),
-/* 572 */
+/* 573 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -88649,8 +88895,8 @@ THE SOFTWARE.
 
 
 
-var os = __webpack_require__(573);
-var hasFlag = __webpack_require__(574);
+var os = __webpack_require__(574);
+var hasFlag = __webpack_require__(575);
 
 var env = process.env;
 
@@ -88773,7 +89019,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 573 */
+/* 574 */
 /***/ (function(module, exports) {
 
 exports.endianness = function () { return 'LE' };
@@ -88828,7 +89074,7 @@ exports.homedir = function () {
 
 
 /***/ }),
-/* 574 */
+/* 575 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -88859,7 +89105,7 @@ module.exports = function (flag, argv) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 575 */
+/* 576 */
 /***/ (function(module, exports) {
 
 module['exports'] = function runTheTrap (text, options) {
@@ -88910,7 +89156,7 @@ module['exports'] = function runTheTrap (text, options) {
 
 
 /***/ }),
-/* 576 */
+/* 577 */
 /***/ (function(module, exports) {
 
 // please no
@@ -89020,7 +89266,7 @@ module['exports'] = function zalgo(text, options) {
 
 
 /***/ }),
-/* 577 */
+/* 578 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var colors = __webpack_require__(37);
@@ -89037,7 +89283,7 @@ module['exports'] = (function() {
 })();
 
 /***/ }),
-/* 578 */
+/* 579 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var colors = __webpack_require__(37);
@@ -89047,7 +89293,7 @@ module['exports'] = function (letter, i, exploded) {
 };
 
 /***/ }),
-/* 579 */
+/* 580 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var colors = __webpack_require__(37);
@@ -89066,7 +89312,7 @@ module['exports'] = (function () {
 
 
 /***/ }),
-/* 580 */
+/* 581 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var colors = __webpack_require__(37);
@@ -89079,7 +89325,7 @@ module['exports'] = (function () {
 })();
 
 /***/ }),
-/* 581 */
+/* 582 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var colors = __webpack_require__(37);
@@ -89198,7 +89444,7 @@ module['exports'] = function () {
 
 
 /***/ }),
-/* 582 */
+/* 583 */
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -89207,10 +89453,10 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 582;
+webpackEmptyContext.id = 583;
 
 /***/ }),
-/* 583 */
+/* 584 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -89233,13 +89479,13 @@ var Translate = exports.Translate = function Translate(dataSet) {
 };
 
 /***/ }),
-/* 584 */
+/* 585 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(585);
+var content = __webpack_require__(586);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -89247,7 +89493,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -89264,7 +89510,7 @@ if(false) {
 }
 
 /***/ }),
-/* 585 */
+/* 586 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -89272,13 +89518,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 586 */
+/* 587 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -89407,7 +89653,7 @@ var AsyncDemo = function (_Component) {
 exports.default = AsyncDemo;
 
 /***/ }),
-/* 587 */
+/* 588 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -89713,7 +89959,7 @@ var Application = function (_Component) {
 exports.default = Application;
 
 /***/ }),
-/* 588 */
+/* 589 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -89929,7 +90175,7 @@ var ButtonFilled = exports.ButtonFilled = function ButtonFilled(props) {
 };
 
 /***/ }),
-/* 589 */
+/* 590 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -89947,7 +90193,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _codeDocs = __webpack_require__(35);
+var _codeDocs = __webpack_require__(31);
 
 var _codeDocs2 = _interopRequireDefault(_codeDocs);
 
@@ -90071,7 +90317,7 @@ var Cards = function (_Component) {
 exports.default = Cards;
 
 /***/ }),
-/* 590 */
+/* 591 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90089,11 +90335,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _ = __webpack_require__(20);
 
-var _codeDocs = __webpack_require__(35);
+var _codeDocs = __webpack_require__(31);
 
 var _codeDocs2 = _interopRequireDefault(_codeDocs);
 
-var _catch = __webpack_require__(591);
+var _catch = __webpack_require__(592);
 
 var _catch2 = _interopRequireDefault(_catch);
 
@@ -90201,7 +90447,7 @@ var Error = function (_Component2) {
 }(_react.Component);
 
 /***/ }),
-/* 591 */
+/* 592 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90224,7 +90470,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(592);
+__webpack_require__(593);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -90305,13 +90551,13 @@ Catch.propTypes = _extends({}, propTypesCatch);
 exports.default = Catch;
 
 /***/ }),
-/* 592 */
+/* 593 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(593);
+var content = __webpack_require__(594);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -90319,7 +90565,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -90336,7 +90582,7 @@ if(false) {
 }
 
 /***/ }),
-/* 593 */
+/* 594 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -90350,7 +90596,7 @@ exports.push([module.i, ".error {\n  border: 1px solid red;\n  border-radius: 2p
 
 
 /***/ }),
-/* 594 */
+/* 595 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90368,11 +90614,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _codeDocs = __webpack_require__(35);
+var _codeDocs = __webpack_require__(31);
 
 var _codeDocs2 = _interopRequireDefault(_codeDocs);
 
-var _input = __webpack_require__(139);
+var _input = __webpack_require__(140);
 
 var _input2 = _interopRequireDefault(_input);
 
@@ -90435,7 +90681,7 @@ var Files = function (_Component) {
 exports.default = Files;
 
 /***/ }),
-/* 595 */
+/* 596 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90501,7 +90747,7 @@ var Icons = function (_Component) {
 exports.default = Icons;
 
 /***/ }),
-/* 596 */
+/* 597 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90606,7 +90852,7 @@ var Icons = function (_Component) {
 exports.default = Icons;
 
 /***/ }),
-/* 597 */
+/* 598 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90625,7 +90871,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _components = __webpack_require__(10);
 
-var _dropdowns = __webpack_require__(150);
+var _dropdowns = __webpack_require__(151);
 
 var _dropdowns2 = _interopRequireDefault(_dropdowns);
 
@@ -90633,7 +90879,7 @@ var _proptypes = __webpack_require__(13);
 
 var _proptypes2 = _interopRequireDefault(_proptypes);
 
-var _codeDocs = __webpack_require__(35);
+var _codeDocs = __webpack_require__(31);
 
 var _codeDocs2 = _interopRequireDefault(_codeDocs);
 
@@ -90888,7 +91134,7 @@ var InputRadio = exports.InputRadio = function InputRadio(props) {
 };
 
 /***/ }),
-/* 598 */
+/* 599 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -91011,7 +91257,7 @@ var Lists = exports.Lists = function (_Component) {
 exports.default = Lists;
 
 /***/ }),
-/* 599 */
+/* 600 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -91033,7 +91279,7 @@ var _proptypes = __webpack_require__(13);
 
 var _proptypes2 = _interopRequireDefault(_proptypes);
 
-var _codeDocs = __webpack_require__(35);
+var _codeDocs = __webpack_require__(31);
 
 var _codeDocs2 = _interopRequireDefault(_codeDocs);
 
@@ -91090,7 +91336,7 @@ var Loaders = function (_Component) {
 exports.default = Loaders;
 
 /***/ }),
-/* 600 */
+/* 601 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -91186,7 +91432,151 @@ var Media = function (_Component) {
 exports.default = Media;
 
 /***/ }),
-/* 601 */
+/* 602 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _codeDocs = __webpack_require__(31);
+
+var _codeDocs2 = _interopRequireDefault(_codeDocs);
+
+var _button = __webpack_require__(65);
+
+var _button2 = _interopRequireDefault(_button);
+
+var _modal = __webpack_require__(152);
+
+var _modal2 = _interopRequireDefault(_modal);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Modals = function (_Component) {
+    _inherits(Modals, _Component);
+
+    function Modals() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, Modals);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Modals.__proto__ || Object.getPrototypeOf(Modals)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            isModalOpen: false
+        }, _this.openModal = function (e) {
+            _this.setState({
+                isModalOpen: true
+            });
+        }, _this.closeModal = function (e) {
+            _this.setState({
+                isModalOpen: false
+            });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(Modals, [{
+        key: 'render',
+        value: function render() {
+            var isModalOpen = this.state.isModalOpen;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'ws-card' },
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Files'
+                ),
+                _react2.default.createElement(_codeDocs2.default, { title: 'upload', code: _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            _react2.default.createElement(
+                                _button2.default,
+                                { onClick: this.openModal },
+                                'Show Modal'
+                            )
+                        )
+                    ) })
+            );
+        }
+    }]);
+
+    return Modals;
+}(_react.Component);
+
+exports.default = Modals;
+
+/***/ }),
+/* 603 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(604);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(6)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./style.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./style.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 604 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".closed {\n  display: none; }\n\n.modal-container {\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  background: rgba(0, 0, 0, 0.5);\n  z-index: 1000; }\n  .modal-container .modal {\n    position: relative;\n    max-width: calc(100vw - 8rem);\n    border-radius: 0.25em;\n    background: white;\n    margin: auto;\n    top: 8rem; }\n    .modal-container .modal .modal-header {\n      position: relative;\n      width: calc(100% - 2rem);\n      height: 1rem;\n      padding: 1rem;\n      font-weight: bold;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.1); }\n      .modal-container .modal .modal-header .close-button {\n        position: absolute;\n        right: 1em;\n        cursor: pointer; }\n    .modal-container .modal .modal-body {\n      position: relative;\n      width: calc(100% - 2rem);\n      padding: 1rem; }\n    .modal-container .modal .modal-footer {\n      position: relative;\n      width: calc(100% - 2rem);\n      border-top: 1px solid rgba(0, 0, 0, 0.1);\n      height: 3rem;\n      padding: 1rem; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 605 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -91246,7 +91636,7 @@ var Time = function (_Component) {
 exports.default = Time;
 
 /***/ }),
-/* 602 */
+/* 606 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -91388,19 +91778,19 @@ var Trees = exports.Trees = function (_Component) {
 exports.default = Trees;
 
 /***/ }),
-/* 603 */
+/* 607 */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 id=\"bilo-ui\">bilo-ui</h1>\n<p>A <a href=\"https://reactjs.org/\">React</a> component library for frontend web dev.</p>\n<h4 id=\"live-demo\"><a href=\"https://bilo-io.github.io/bilo-ui\">Live Demo</a></h4>\n<h2 id=\"get-started\">Get started</h2>\n<ul>\n<li>Installation</li>\n</ul>\n<p><code>npm install bilo-ui --save-dev</code></p>\n<ul>\n<li>Example Usage:\n<code>`</code>jsx\nimport { Button, Card, If } from &#39;bilo-ui&#39;</li>\n</ul>\n<p>export const MyComponent = (props) =&gt; (\n    <Card className='padded'>\n        <If truthy={true}>\n            &lt;Button className=&#39;primary&#39; onClick={\n                    () =&gt; alert(&#39;bilo-ui button clicked&#39;)\n            }&gt;\n                Show dialog\n            </Button>\n        </If>\n        <If truthy={false}>\n            &lt;Button className=&#39;warning&#39; onClick={\n                () =&gt; alert(&#39;bilo-ui button clicked&#39;)\n            }&gt;\n                Button should be invisible\n            </Button>\n        </If>\n    </Card>\n)\n<code>`</code></p>\n<h2 id=\"setting-up\">Setting up</h2>\n<ul>\n<li><code>git clone http://github.com/bilo-io/bilo-ui</code></li>\n<li><code>cd ./bilo-ui</code></li>\n<li><code>yarn</code></li>\n<li><code>yarn dev</code></li>\n<li><code>yarn dev:docs</code></li>\n</ul>\n<blockquote>\n<p><code>dev:docs</code> recompiles the preview of the package, run on <a href=\"http://localhost:3030\">http://localhost:3030</a>\n<code>dev</code> recompiles the package <code>bilo-ui</code> after each edit, useful when linking this package as a dependency locally</p>\n</blockquote>\n<h2 id=\"symlinking\">Symlinking</h2>\n<ul>\n<li><code>yarn link</code> in this repository</li>\n<li><code>yarn dev</code></li>\n</ul>\n<blockquote>\n<p>NOTE: To link to your the local copy of <code>bilo-ui</code>, run <code>yarn link bilo-ui</code> in your project</p>\n</blockquote>\n<h2 id=\"building-releasing\">Building &amp; Releasing</h2>\n<ul>\n<li><code>yarn build</code></li>\n<li><code>yarn build:docs</code></li>\n<li><code>yarn deploy</code></li>\n</ul>\n<blockquote>\n<p><code>yarn build:all</code> builds both the preview (docs) and the npm package</p>\n<p>TODO: semver bumping for release process</p>\n</blockquote>\n";
+module.exports = "<h1 id=\"bilo-ui\">bilo-ui</h1>\n<p>A <a href=\"https://reactjs.org/\">React</a> component library for frontend web dev.</p>\n<h4 id=\"live-demo\"><a href=\"https://bilo-io.github.io/bilo-ui\">Live Demo</a></h4>\n<h2 id=\"get-started\">Get started</h2>\n<ul>\n<li>Installation</li>\n</ul>\n<p><code>npm install bilo-ui --save-dev</code></p>\n<ul>\n<li>Example Usage:\n<code>`</code>jsx\nimport { Button, Card, If } from &#39;bilo-ui&#39;</li>\n</ul>\n<p>export const MyComponent = (props) =&gt; (\n    <Card className='padded'>\n        <If truthy={true}>\n            &lt;Button className=&#39;primary&#39; onClick={\n                    () =&gt; alert(&#39;bilo-ui button clicked&#39;)\n            }&gt;\n                Show dialog\n            </Button>\n        </If>\n        <If truthy={false}>\n            &lt;Button className=&#39;warning&#39; onClick={\n                () =&gt; alert(&#39;bilo-ui button clicked&#39;)\n            }&gt;\n                Button should be invisible\n            </Button>\n        </If>\n    </Card>\n)\n<code>`</code></p>\n<h2 id=\"setting-up\">Setting up</h2>\n<ul>\n<li><code>git clone http://github.com/bilo-io/bilo-ui</code></li>\n<li><code>cd ./bilo-ui</code></li>\n<li><code>yarn</code></li>\n<li><code>yarn dev</code></li>\n<li><code>yarn dev:docs</code></li>\n</ul>\n<blockquote>\n<p><code>dev:docs</code> recompiles the preview of the package, run on <a href=\"http://localhost:3030\">http://localhost:3030</a>\n<code>dev</code> recompiles the package <code>bilo-ui</code> after each edit, useful when linking this package as a dependency locally</p>\n</blockquote>\n<h2 id=\"symlinking\">Symlinking</h2>\n<ul>\n<li><code>yarn link</code> in this repository</li>\n<li><code>yarn dev</code></li>\n</ul>\n<blockquote>\n<p>NOTE: To link to your the local copy of <code>bilo-ui</code>, run <code>yarn link bilo-ui</code> in your project</p>\n</blockquote>\n<h2 id=\"building-releasing\">Building &amp; Releasing</h2>\n<ul>\n<li><code>yarn build</code></li>\n<li><code>yarn build:docs</code></li>\n<li><code>yarn bump</code></li>\n<li><code>yarn deploy</code></li>\n</ul>\n<blockquote>\n<p><code>yarn build:all</code> builds both the preview (docs) and the npm package</p>\n<p>TODO: semver bumping for release process</p>\n</blockquote>\n";
 
 /***/ }),
-/* 604 */
+/* 608 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(605);
+var content = __webpack_require__(609);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -91408,7 +91798,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -91425,7 +91815,7 @@ if(false) {
 }
 
 /***/ }),
-/* 605 */
+/* 609 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -91433,19 +91823,19 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.nav-menu {\n  position: fixed;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 15em;\n  background: #232323;\n  overflow: hidden;\n  overflow-y: auto; }\n\n.nav-item {\n  height: 0.8em;\n  line-height: 0.8em;\n  padding: 0.8em;\n  font-size: 0.8em;\n  color: rgba(255, 255, 255, 0.8);\n  background: #232323;\n  cursor: pointer;\n  text-decoration: none; }\n  .nav-item a {\n    text-decoration: none; }\n  .nav-item:hover {\n    color: #00adee;\n    border-right: 2px solid #00adee; }\n\n.nav-item-active {\n  color: #00adee;\n  background-color: rgba(0, 173, 238, 0.2);\n  border-right: 2px solid #00adee; }\n\n.nav-content {\n  position: fixed;\n  top: 0;\n  left: 15em;\n  width: calc(100% - 19em);\n  height: calc(100% - 2 * 2em);\n  padding: 2em;\n  overflow: hidden;\n  overflow-y: auto; }\n\n.no-link {\n  text-decoration: none; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\n.nav-menu {\n  position: fixed;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 15em;\n  background: #232323;\n  overflow: hidden;\n  overflow-y: auto; }\n\n.nav-item {\n  height: 0.8em;\n  line-height: 0.8em;\n  padding: 0.8em;\n  font-size: 0.8em;\n  color: rgba(255, 255, 255, 0.8);\n  background: #232323;\n  cursor: pointer;\n  text-decoration: none; }\n  .nav-item a {\n    text-decoration: none; }\n  .nav-item:hover {\n    color: #00adee;\n    border-right: 2px solid #00adee; }\n\n.nav-item-active {\n  color: #00adee;\n  background-color: rgba(0, 173, 238, 0.2);\n  border-right: 2px solid #00adee; }\n\n.nav-content {\n  position: fixed;\n  top: 0;\n  left: 15em;\n  width: calc(100% - 19em);\n  height: calc(100% - 2 * 2em);\n  padding: 2em;\n  overflow: hidden;\n  overflow-y: auto; }\n\n.no-link {\n  text-decoration: none; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 606 */
+/* 610 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(607);
+var content = __webpack_require__(611);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -91453,7 +91843,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -91470,7 +91860,7 @@ if(false) {
 }
 
 /***/ }),
-/* 607 */
+/* 611 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -91478,7 +91868,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-active {\n  color: #00adee; }\n\n.button, button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\nbody {\n  font-family: 'Quicksand', sans-serif; }\n\n.page {\n  position: fixed;\n  color: #F8F8F8;\n  width: 100vw;\n  height: 100vh; }\n  .page title {\n    font-size: 2em; }\n\n.page-padded {\n  height: calc(100% - 2 * 2em);\n  width: calc(100% - 2 * 2em);\n  padding: 2em; }\n\nbutton {\n  color: #00adee;\n  border-color: #00adee; }\n  button:hover {\n    color: white;\n    background-color: #00adee; }\n", ""]);
+exports.push([module.i, ".col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.button, button {\n  position: relative;\n  height: 3rem;\n  padding: 0.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  font-size: 1rem;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none; }\n\n.button-footer {\n  position: absolute;\n  bottom: 0;\n  width: calc(100% - 1rem);\n  margin: 0.5rem; }\n\n.primary {\n  background: #00adee;\n  border-color: #00adee;\n  color: white; }\n  .primary:hover {\n    background: white;\n    color: rgba(0, 173, 238, 0.5); }\n\n.secondary {\n  background: rgba(128, 128, 128, 0.5);\n  border-color: rgba(128, 128, 128, 0.5);\n  color: #00adee; }\n  .secondary:hover {\n    background: rgba(0, 173, 238, 0.2);\n    color: #00adee; }\n\n.warning {\n  background: orange;\n  border-color: orange;\n  color: white; }\n  .warning:hover {\n    background: rgba(255, 165, 0, 0.2);\n    color: white; }\n\n.danger {\n  background: red;\n  border-color: red;\n  color: white; }\n  .danger:hover {\n    background: rgba(255, 0, 0, 0.2);\n    color: white; }\n\n.hollow {\n  border-width: 1px;\n  background: transparent;\n  color: inherit; }\n\n.rounded {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%; }\n\n.filled {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  margin: 0; }\n\n.fullscreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh; }\n\n.panel-side {\n  position: relative;\n  display: inline-block;\n  width: calc(25rem);\n  height: 100%;\n  left: 0;\n  top: 0; }\n\n.panel-main {\n  position: relative;\n  display: inline-block;\n  width: calc(100% - 25rem);\n  height: 100%;\n  left: 25rem;\n  top: 0; }\n\n.titlebar {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  top: 0;\n  left: 0;\n  margin: 0; }\n\n.titlebar-sidebar {\n  position: absolute;\n  width: 4rem; }\n\n.titlebar-sidebar-fixed {\n  position: fixed;\n  top: 3rem;\n  left: 0;\n  top: 3rem;\n  height: calc(100% - 3rem);\n  width: 100%;\n  z-index: 5; }\n\n.titlebar-content {\n  position: relative;\n  width: calc(100% - 4rem);\n  height: calc(100% - $dim-navbar-height);\n  left: 4rem; }\n\n.titlebar-content-full {\n  position: relative;\n  height: calc(100% - $dim-navbar-height);\n  left: 0;\n  width: 100%; }\n\n.panel-side {\n  position: relative;\n  width: 24rem;\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.panel-main {\n  position: absolute;\n  left: 24rem;\n  width: calc(100% - 24rem);\n  height: calc(100% - 3rem);\n  top: 0; }\n\n.ws-card {\n  position: relative;\n  margin-bottom: 1em;\n  padding: 1em;\n  width: calc(100% - 2 * 1em);\n  background: rgba(255, 255, 255, 0.05);\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n  .ws-card:hover {\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.col-active {\n  color: #00adee; }\n\n.col-error {\n  color: red; }\n\n.col-success {\n  color: green; }\n\n.col-warning {\n  color: yellow; }\n\n.loader {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  /* Light grey */\n  border-top: 1px solid #00adee;\n  /* Blue */\n  border-radius: 50%;\n  width: 0.8rem;\n  height: 0.8rem;\n  animation: spin 0.8s ease-in-out infinite;\n  margin: 0;\n  padding: 0.3rem;\n  top: 0;\n  display: inline-block; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n/**\n    To quickly centre a block element without having to worry \n    about if there is any top or bottom margin already applied.\n\n    USAGE: @include push--auto;\n */\n/**\n    When using ::before and ::after you'll always need these three, \n    so we're saving two lines of code every time you use this.\n\n    USAGE: \n    div::after {\n        @include pseudo;\n        top: -1rem; left: -1rem;\n        width: 1rem; height: 1rem;\n    }\n    */\n/**\n    We use this for creating scalable elements \n    (usually images / background images) that maintain a ratio.\n\n    USAGE: @include responsive-ratio(16,9);\n    */\n/**\n    This mixin takes all the hassle out of creating that triangle you'll see \n    coming out of most traditional tooltips, all without images, you just \n    specify it's colour, how big you want it, the direction it's  going to \n    come out of your element and you're done!\n */\n/**\n    Take the pain out of setting styles for a font. \n    (This assumes you have already included the font), \n    set your fallback font once and you never have to worry again.\n */\n/**\n    They're a pain as you have to set the style in all \n    the separate formats, this sorts it for you.\n\n    USAGE: \n    input,  \n    textarea {  \n        @include input-placeholder {\n            color: $grey;\n        }\n    }\n */\n/**\n    A massive time saver! You can just use pixel values but we\n    have some default breakpoints setup that work too, another \n    time saver while keeping your breakpoints consistent.\n\n    USAGE: (The example below showing the padding and font-size increasing once the viewport gets over 1024px.)\n    .site-header {\n        padding: 2rem;\n        font-size: 1.8rem;\n        @include mq('tablet-wide') {\n            padding-top: 4rem;\n            font-size: 2.4rem;\n        }\n    }\n */\n/**\n    It is easy to loose track of your z-index values when \n    working in several different files, so we created this.\n    \n    USAGE: \n        // Then where ever you're wanting to use a z-index value, name it the\n        // same as your class and add in it into your variables/setting file, \n        // like below. You'll never have a \"z-index: 99999999;\" headache again.\n    .site-header {\n        z-index: z('site-header');\n    }\n */\n/**\n    Simple and effective for when you need to trigger hardware acceleration\n    for some animation, keeping everything fast, slick and flicker-free.\n */\n/**\n    When you include the mixin, you only have to \n    specify your boundry with a max width value.\n */\nbody {\n  font-family: 'Quicksand', sans-serif; }\n\n.page {\n  position: fixed;\n  color: #F8F8F8;\n  width: 100vw;\n  height: 100vh; }\n  .page title {\n    font-size: 2em; }\n\n.page-padded {\n  height: calc(100% - 2 * 2em);\n  width: calc(100% - 2 * 2em);\n  padding: 2em; }\n\nbutton {\n  color: #00adee;\n  border-color: #00adee; }\n  button:hover {\n    color: white;\n    background-color: #00adee; }\n", ""]);
 
 // exports
 

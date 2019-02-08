@@ -18,7 +18,7 @@ export class Async extends Component {
                         ? spinner
                             ? spinner
                             : <Loader type={LoaderType.SPINNER} />
-                        : <span>!loading</span>
+                        : null
                 }
                 {
                     resource.isError && !resource.isLoading &&

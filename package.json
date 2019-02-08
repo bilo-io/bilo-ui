@@ -1,11 +1,11 @@
 {
   "name": "bilo-ui",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "XUI is a set of experimental ui elements and utilities for frontend web development.",
   "main": "dist/index.js",
   "scripts": {
     "deploy": "bash ./scripts/deploy.sh",
-    "bump": "node ./scripts/semver.js",
+    "bump": "yarn build:all && node ./scripts/semver.js",
     "release": "npm publish",
     "prepare": "yarn build",
     "storybook": "start-storybook -p 6006",
@@ -13,7 +13,8 @@
     "serve": "node ./artifact/server.js",
     "dev": "webpack -p --colors -w",
     "dev:all": "yarn start",
-    "dev:docs": "UI_ENV=development webpack-dev-server -w --color --inline --config webpack.static.js --open",
+    "dev:docs": "yarn dev & yarn docs",
+    "docs": "UI_ENV=development webpack-dev-server -w --color --inline --config webpack.static.js --open",
     "build": "webpack -p",
     "build:all": "yarn clean:all && yarn build && yarn build:docs && yarn build:server",
     "build:docs": "yarn clean:docs && UI_ENV=production webpack --config webpack.static.js && mv ./demo ./docs",

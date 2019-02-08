@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import { Iframe } from '../iframe'
 
 export const propTypesYoutube = {
     width: PropTypes.string,
