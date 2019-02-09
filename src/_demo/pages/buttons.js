@@ -6,7 +6,7 @@ import {
     PropTypeDocs,
     propTypesButton
 } from '../../'
-import docs from '../../util/proptypes'
+import docs from 'util/proptypes'
 export default class Buttons extends Component {
     render() {
         return (

@@ -1,3 +1,7 @@
+## v0.1.7
+
+- improved modal and async and added info-panel
+
 ## v0.1.6
 
 - updated buttons

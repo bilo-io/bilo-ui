@@ -1,54 +1,77 @@
-.closed {
-  display: none;
+.transition-all {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }
 .modal-container {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background: rgba(black,0.5);
-  z-index: 1000;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(black,0.5);
+    display: normal;
 
-  $dim-modal-med: 30rem;
-  $dim-modal-large: calc(100vw - 8rem);
-  $dim-modal-width: calc(100% - 2rem);
-  .modal {
-      position: relative;
-      max-width: $dim-modal-large;
-      border-radius: 0.25em;
-      background: white;
-      margin: auto;
-      top: 8rem;
+    @extend .transition-all;
+    &.closed {
+        display: none;
+        background: transparent;
+    }
 
-      .modal-header {
-          position: relative;
-          width: $dim-modal-width;
-          height: 1rem;
-          padding: 1rem;
-          font-weight: bold;
-          border-bottom: 1px solid rgba(black, 0.1);
+    $dim-modal-med: 40rem;
+    $dim-modal-large: calc(100vw - 8rem);
+    $dim-modal-width: calc(100% - 2rem);
+    .modal {
+        position: relative;
+        width: auto;
+        border-radius: 0.25em;
+        background: white;
+        max-width: $dim-modal-large;
+        margin: auto;
+        top: 8rem;
+        @extend .transition-all;
+        &.closed {
+            max-width: 0;
+            background: transparent;
+        }
 
-          .close-button {
-              position: absolute;
-              right: 1em;
-              cursor: pointer;
-          }
-      }
+        .modal-header {
+            position: relative;
+            width: $dim-modal-width;
+            height: 1rem;
+            padding: 1rem;
+            font-weight: bold;
+            border-bottom: 1px solid rgba(black, 0.1);
 
-      .modal-body {
-          position: relative;
-          width: $dim-modal-width;
-          padding: 1rem;
-      }
+            .close-button {
+                position: absolute;
+                right: 1em;
+                cursor: pointer;
+            }
+        }
 
-      .modal-footer {
-          position: relative;
-          width: $dim-modal-width;
-          border-top: 1px solid rgba(black, 0.1);
-          height: 3rem;
-          padding: 1rem;
+        .modal-body {
+            position: relative;
+            width: $dim-modal-width;
+            max-height: calc(100vh / 2);
+            padding: 1rem;
+            overflow: hidden;
+            overflow-y: auto;
+        }
 
-      }
-  }
+        .modal-footer {
+            position: relative;
+            width: $dim-modal-width;
+            border-top: 1px solid rgba(black, 0.1);
+            height: 3rem;
+            padding: 1rem;
+
+            .button {
+                min-width: 6rem;
+            }
+
+        }
+    }
 }

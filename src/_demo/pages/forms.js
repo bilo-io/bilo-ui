@@ -8,9 +8,8 @@ import {
     PropTypeDocs,
     propTypesIcon
 } from '../../'
-import docs from '../../util/proptypes'
 
-export default class Icons extends Component {
+export default class FormsDemo extends Component {
     render() {
         return <div>
             <form id='form-1-test'>

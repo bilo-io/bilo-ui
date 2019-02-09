@@ -8,10 +8,7 @@ $button-height: 3rem;
     left: 1em;
     right: 1em;
   }
-  margin: {
-    left: 0.5em;
-    right: 0.5em;
-  }
+  margin-right: 0.5rem;
 
   font-size: 1rem;
   border: 1px solid transparent;
@@ -44,7 +41,7 @@ $col-secondary: rgba(grey, 0.5);
 .secondary {
   background: $col-secondary;
   border-color: $col-secondary;
-  color: $col-active;
+  color: white;
   
   &:hover {
       background: rgba($col-active, 0.2);

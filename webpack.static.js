@@ -25,13 +25,13 @@ var config = {
         publicPath,
         filename: './demo.js'
     },
-    // resolve: {
-    //     modules: [
-    //         path.resolve('./'),
-    //         path.resolve('./src/'),
-    //         path.resolve('./node_modules')
-    //     ]
-    // },
+    resolve: {
+        modules: [
+            path.resolve('./'),
+            path.resolve('./src'),
+            path.resolve('./node_modules')
+        ]
+    },
     module: {
         rules: [
             {

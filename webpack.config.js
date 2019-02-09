@@ -18,6 +18,13 @@ var config = {
         library: ["XUI"],
         libraryTarget: 'umd'
     },
+    resolve: {
+        modules: [
+            path.resolve('./'),
+            path.resolve('./src'),
+            path.resolve('./node_modules')
+        ]
+    },
     module: {
         rules: [
             {
