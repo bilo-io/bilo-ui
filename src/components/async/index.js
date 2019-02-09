@@ -41,7 +41,6 @@ export class Async extends Component {
     static defaultProps = {
         // spinner: <Loader type={ LoaderType.SPINNER } />,
         // spinner: <Loader type={ 'spinner' } />,
-        DEBUG: true,
         reloadResource: () => { console.log('NOT_DEFINED: <Async reloadResource={ () => />')},
         initText: '',
         loadingText: '',
@@ -63,8 +62,6 @@ export class Async extends Component {
     state = {
     }
     reloadResource = () => {
-        const { DEBUG } = this.props
-        DEBUG && console.log('<Async />: reloading resource ...')
         this.props.reloadResource()
     }
     render() {
@@ -109,7 +106,6 @@ export class Async extends Component {
                 {
                     resource.isError &&
                         <AsyncError
-                            DEBUG
                             error={ resource.error }
                             onRetry={ this.reloadResource }
                             submitText={'Retry'}
@@ -156,8 +152,7 @@ export const AsyncData = ({ children, className, style, icon, onRefresh }) => {
     </span>
 }
 
-export const AsyncError = ({ DEBUG, error, retry, submitText }) => {
-    DEBUG && console.log(`AsyncError: `, error)
+export const AsyncError = ({ error, retry, submitText }) => {
     if (!error) return null
 
     const errorMessage = `${error.status}: ${error.statusText}`

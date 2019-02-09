@@ -5,8 +5,8 @@ $dim-loader-size: 1rem;
 $col-loader: $col-active;
 
 .loader {
-    border: $dim-border-size solid rgba(white,0.1); /* Light grey */
-    border-top: $dim-border-size solid $col-loader; /* Blue */
+    border: 10px solid rgba(white,0.1); /* Light grey */
+    border-top: 10px solid $col-loader; /* Blue */
     border-radius: 50%;
     width: $dim-loader-size;
     height: $dim-loader-size;
@@ -14,8 +14,8 @@ $col-loader: $col-active;
     margin: 0;
     padding: 0.3rem;
     top: 0;
-    // top: -0.5rem;
     display: inline-block;
+    border-width: 3px;
 }
 
 @keyframes spin {

@@ -1,3 +1,7 @@
+## v0.1.8
+
+- updated spinner and removed DEBUG statements
+
 ## v0.1.7
 
 - improved modal and async and added info-panel

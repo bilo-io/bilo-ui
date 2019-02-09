@@ -1,6 +1,6 @@
 {
   "name": "bilo-ui",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "XUI is a set of experimental ui elements and utilities for frontend web development.",
   "main": "dist/index.js",
   "scripts": {
@@ -24,8 +24,8 @@
     "clean": "rm -rf artifact && rm -rf dist",
     "clean:all": "yarn clean && yarn clean:docs",
     "clean:docs": "rm -rf docs && rm -rf demo",
-    "test:output": "jest --json --outputFile=.jest-test-results.json",
     "test": "jest",
+    "test:output": "jest --json --outputFile=.jest-test-results.json",
     "test:watch": "jest --watch"
   },
   "repository": {

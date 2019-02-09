@@ -24,11 +24,11 @@ export default class Loaders extends Component {
                     code={
                         <div style={{ height: '30em' }}>
                             <Loader type={LoaderType.SPINNER} />
-                            <Loader type={LoaderType.RAINBOW}/>
-                            <Loader type={LoaderType.FULLSCREEN} />
-                            <Loader type={LoaderType.ELLIPSIS} />
+                            {/* <Loader type={LoaderType.RAINBOW}/> */}
+                            {/* <Loader type={LoaderType.FULLSCREEN} /> */}
+                            {/* <Loader type={LoaderType.ELLIPSIS} /> */}
                             {/* <Loader type={LoaderType.MDSPINNER} /> */}
-                            <Loader type={LoaderType.UI3SPIN} />
+                            {/* <Loader type={LoaderType.UI3SPIN} /> */}
                         </div>
                     }
                 />

@@ -31,9 +31,7 @@ export class Icon extends React.Component {
             style,
             transform,
             faStyle,
-            DEBUG
         } = this.props;
-        DEBUG && console.log({faStyle})
 
         const customStyle = {
             ...style,

@@ -54,7 +54,7 @@ export const Ellipsis = (props) => <span className='ellipsis' style={{
 
 export const MDSpinner = (props) => <span className='md-spin'/>
 
-export const Spinner = (props) => <span className={`loader ${props.double
+export const Spinner = (props) => <span style={{borderWidth: '2px'}} className={`loader ${props.double
     ? 'double'
     : ''}`}/>
 
